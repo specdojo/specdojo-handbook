@@ -1,9 +1,13 @@
 {
-  "name": "grandma-candy-shop",
+  "name": "spec-dojo-handbook",
   "version": "0.1.0",
-  "description": "grandma's candy shop system",
+  "description": "A handbook for SpecDojo, a specification-driven development tool.",
   "license": "MIT",
   "author": "naoji3x",
+  "private": true,
+  "workspaces": [
+    "tools/dojo"
+  ],
   "scripts": {
     "prepare": "lefthook install",
     "lint:md": "markdownlint '**/*.md'",
