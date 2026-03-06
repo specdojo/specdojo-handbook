@@ -1,6 +1,14 @@
 import { Command } from 'commander'
 import { randomBytes, createHash } from 'node:crypto'
-import { mkdirSync, writeFileSync, existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
+import {
+  mkdirSync,
+  writeFileSync,
+  existsSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  rmSync,
+} from 'node:fs'
 import { join, extname, basename, resolve } from 'node:path'
 import yaml from 'js-yaml'
 import { loadConfig, loadEnv } from './dojo-config.js'
@@ -23,7 +31,7 @@ type ExecState = 'todo' | 'doing' | 'blocked' | 'done' | 'cancelled'
 
 type ExecEventV1 = {
   v: 1
-  ts: string // UTC ISO8601 seconds, e.g. 2026-03-05T03:10:00Z
+  ts: string
   type: ExecEventType
   task_id: string
   by: string
@@ -65,7 +73,7 @@ type ScheduleNode = {
   id: string
   name?: string
   depends_on: string[]
-  duration_days: number // milestone=0
+  duration_days: number
   kind: 'task' | 'milestone'
   schedule_file: string
 }
@@ -111,6 +119,12 @@ type ScheduleDiff = {
   added: string[]
   removed: string[]
   changed: string[]
+}
+
+type SchedulerLockOptions = {
+  actor: string
+  lockTimeoutMs: number
+  lockStaleMs: number
 }
 
 /* =========================
@@ -192,15 +206,17 @@ function isSchYamlFilename(path: string): boolean {
   return /^sch-.*\.(yaml|yml)$/.test(basename(path))
 }
 
+function sleepMs(ms: number): void {
+  const sab = new SharedArrayBuffer(4)
+  const int32 = new Int32Array(sab)
+  Atomics.wait(int32, 0, 0, ms)
+}
+
 /* =========================
    Project path resolution
 ========================= */
 
 function detectProjectPaths(repoRoot: string): string[] {
-  // Find directories that contain:
-  //  - sch-*.yaml
-  //  - exec/events directory
-  // Return the directory paths (project-path candidates)
   const all = listFilesRecursive(repoRoot)
   const schFiles = all.filter(p => isSchYamlFilename(p))
 
@@ -210,7 +226,6 @@ function detectProjectPaths(repoRoot: string): string[] {
     const dir = resolve(sch, '..')
     const cur = candidates.get(dir) ?? { hasSch: false, hasExecEvents: false }
     cur.hasSch = true
-    // check exec/events under same dir
     const eventsDir = join(dir, 'exec', 'events')
     if (existsSync(eventsDir)) cur.hasExecEvents = true
     candidates.set(dir, cur)
@@ -223,9 +238,8 @@ function detectProjectPaths(repoRoot: string): string[] {
 }
 
 function resolveProjectPath(opts: { projectPath?: string; project?: string }): string {
-  loadEnv() // ensures .env is loaded if present
+  loadEnv()
 
-  // 1) CLI --project-path wins
   if (opts.projectPath && opts.projectPath.trim()) {
     return resolve(process.cwd(), opts.projectPath.trim())
   }
@@ -242,39 +256,29 @@ function resolveProjectPath(opts: { projectPath?: string; project?: string }): s
     return resolve(process.cwd(), rel)
   }
 
-  // 2) CLI --project (project id)
   if (opts.project && opts.project.trim()) {
     const p = fromProjectId(opts.project.trim())
-    if (!p) {
-      throw new Error(`Unknown project id: ${opts.project} (check ${configPath})`)
-    }
+    if (!p) throw new Error(`Unknown project id: ${opts.project} (check ${configPath})`)
     return p
   }
 
-  // 3) env DOJO_PROJECT_PATH
   if (envPath && envPath.trim()) {
     return resolve(process.cwd(), envPath.trim())
   }
 
-  // 4) env DOJO_PROJECT (project id)
   if (envProject && envProject.trim()) {
     const p = fromProjectId(envProject.trim())
-    if (!p) {
-      throw new Error(`Unknown DOJO_PROJECT: ${envProject} (check ${configPath})`)
-    }
+    if (!p) throw new Error(`Unknown DOJO_PROJECT: ${envProject} (check ${configPath})`)
     return p
   }
 
-  // 5) auto-detect
   const repoRoot = process.cwd()
   const candidates = detectProjectPaths(repoRoot)
-  if (candidates.length === 1) {
-    return candidates[0]
-  }
+  if (candidates.length === 1) return candidates[0]
   if (candidates.length === 0) {
     throw new Error(
       `Project path not specified.\n` +
-        `Provide --project-path, or --project (with dojo.config.json), or DOJO_PROJECT_PATH/DOJO_PROJECT.\n` +
+        `Provide --project-path, or --project, or DOJO_PROJECT_PATH/DOJO_PROJECT.\n` +
         `Auto-detect found no candidates.`
     )
   }
@@ -454,7 +458,6 @@ function validateAll(projectPath: string): ValidateResult {
   if (schedule.nodes.size === 0)
     warnings.push(`No schedule nodes loaded from sch-*.yaml under: ${projectPath}`)
 
-  // schedule dependency existence
   for (const node of schedule.nodes.values()) {
     for (const dep of node.depends_on) {
       if (!schedule.nodes.has(dep))
@@ -558,7 +561,7 @@ function writeEventFile(projectPath: string, event: ExecEventV1): string {
 }
 
 /* =========================
-   State + Ready
+   State + guards
 ========================= */
 
 function foldEventsToState(
@@ -591,7 +594,11 @@ function foldEventsToState(
 
   for (const id of schedule.nodes.keys()) ensure(id)
 
-  return { generated_at_utc: nowUtcIsoSeconds(), project_path: projectPath, tasks }
+  return {
+    generated_at_utc: nowUtcIsoSeconds(),
+    project_path: projectPath,
+    tasks,
+  }
 }
 
 function computeReadyIds(schedule: ScheduleIndex, snapshot: StateSnapshot): string[] {
@@ -613,6 +620,144 @@ function computeReadyIds(schedule: ScheduleIndex, snapshot: StateSnapshot): stri
   return ready
 }
 
+function findDoingTasksForActor(snapshot: StateSnapshot, actor: string): string[] {
+  return Object.entries(snapshot.tasks)
+    .filter(([, st]) => st.state === 'doing' && st.last_by === actor)
+    .map(([taskId]) => taskId)
+    .sort()
+}
+
+function canClaimTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot claim non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'doing') return { ok: false, reason: `task already doing: ${taskId}` }
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task cancelled: ${taskId}` }
+  if (state === 'blocked') return { ok: false, reason: `task blocked: ${taskId}` }
+
+  for (const dep of node.depends_on) {
+    const depState = snapshot.tasks[dep]?.state ?? 'todo'
+    if (depState !== 'done') return { ok: false, reason: `dependency not done: ${dep}` }
+  }
+
+  return { ok: true }
+}
+
+function canCompleteTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string,
+  actor: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot complete non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'todo') return { ok: false, reason: `task not started: ${taskId}` }
+  if (state === 'blocked') return { ok: false, reason: `task is blocked: ${taskId}` }
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task cancelled: ${taskId}` }
+
+  if (state !== 'doing') return { ok: false, reason: `task is not doing: ${taskId}` }
+  if (cur?.last_by !== actor) {
+    return {
+      ok: false,
+      reason: `task is being worked on by another actor: ${cur?.last_by ?? '(unknown)'}`,
+    }
+  }
+
+  return { ok: true }
+}
+
+function canBlockTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string,
+  actor: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot block non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'todo') return { ok: false, reason: `task not started: ${taskId}` }
+  if (state === 'blocked') return { ok: false, reason: `task already blocked: ${taskId}` }
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task cancelled: ${taskId}` }
+
+  if (state !== 'doing') return { ok: false, reason: `task is not doing: ${taskId}` }
+  if (cur?.last_by !== actor) {
+    return {
+      ok: false,
+      reason: `task is being worked on by another actor: ${cur?.last_by ?? '(unknown)'}`,
+    }
+  }
+
+  return { ok: true }
+}
+
+function canUnblockTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot unblock non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'todo') return { ok: false, reason: `task is not blocked: ${taskId}` }
+  if (state === 'doing') return { ok: false, reason: `task is not blocked: ${taskId}` }
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task cancelled: ${taskId}` }
+
+  if (state !== 'blocked') return { ok: false, reason: `task is not blocked: ${taskId}` }
+
+  return { ok: true }
+}
+
+function canCancelTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string,
+  actor: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot cancel non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task already cancelled: ${taskId}` }
+
+  if (state === 'doing' && cur?.last_by !== actor) {
+    return {
+      ok: false,
+      reason: `task is being worked on by another actor: ${cur?.last_by ?? '(unknown)'}`,
+    }
+  }
+
+  return { ok: true }
+}
+
 /* =========================
    CPM / Critical Path
 ========================= */
@@ -624,7 +769,6 @@ function computeCpm(schedule: ScheduleIndex, projectPath: string): CpmResult {
 
   const nodes: Record<string, CpmNode> = {}
 
-  // forward
   for (const id of order) {
     const n = schedule.nodes.get(id)!
     const es = n.depends_on.length === 0 ? 0 : Math.max(...n.depends_on.map(d => nodes[d].ef))
@@ -647,12 +791,12 @@ function computeCpm(schedule: ScheduleIndex, projectPath: string): CpmResult {
 
   const projectDuration = Math.max(...Object.values(nodes).map(n => n.ef), 0)
 
-  // successors
   const succ = new Map<string, string[]>()
   for (const id of schedule.nodes.keys()) succ.set(id, [])
-  for (const n of schedule.nodes.values()) for (const dep of n.depends_on) succ.get(dep)!.push(n.id)
+  for (const n of schedule.nodes.values()) {
+    for (const dep of n.depends_on) succ.get(dep)!.push(n.id)
+  }
 
-  // backward
   const rev = [...order].reverse()
   for (const id of rev) {
     const s = succ.get(id)!
@@ -663,7 +807,6 @@ function computeCpm(schedule: ScheduleIndex, projectPath: string): CpmResult {
     nodes[id].slack = ls - nodes[id].es
   }
 
-  // one critical path (tie-broken)
   const critical = new Set(
     Object.values(nodes)
       .filter(n => n.slack === 0)
@@ -740,7 +883,7 @@ function writeCpmFiles(projectPath: string, cpm: CpmResult): void {
 }
 
 /* =========================
-   Schedule diff (hash-based)
+   Schedule diff
 ========================= */
 
 function normalizeNodeForHash(n: ScheduleNode): any {
@@ -845,15 +988,12 @@ function writeGeneratedCore(
   const genDir = join(projectPath, 'generated')
   ensureDir(genDir)
 
-  // exec.jsonl
   const jsonl = events.map(x => JSON.stringify(x.event)).join('\n') + (events.length ? '\n' : '')
   writeFileSync(join(genDir, 'exec.jsonl'), jsonl, 'utf8')
 
-  // state.json
   const snapshot = foldEventsToState(events, schedule, projectPath)
   writeJson(join(genDir, 'state.json'), snapshot)
 
-  // ready.md
   const ready = computeReadyIds(schedule, snapshot)
   const lines: string[] = []
   lines.push(`# Ready Tasks`)
@@ -867,7 +1007,6 @@ function writeGeneratedCore(
   lines.push('')
   writeFileSync(join(genDir, 'ready.md'), lines.join('\n'), 'utf8')
 
-  // metadata.json
   writeJson(join(genDir, 'metadata.json'), {
     generated_at_utc: nowUtcIsoSeconds(),
     project_path: projectPath,
@@ -879,7 +1018,68 @@ function writeGeneratedCore(
 }
 
 /* =========================
-   Scheduler
+   Lock
+========================= */
+
+function schedulerLockDir(projectPath: string): string {
+  return join(projectPath, 'exec', '.locks', 'scheduler.lock')
+}
+
+function acquireSchedulerLock(projectPath: string, opts: SchedulerLockOptions): string {
+  const lockDir = schedulerLockDir(projectPath)
+  const lockParent = resolve(lockDir, '..')
+  ensureDir(lockParent)
+
+  const start = Date.now()
+
+  while (true) {
+    try {
+      mkdirSync(lockDir)
+      writeJson(join(lockDir, 'owner.json'), {
+        actor: opts.actor,
+        pid: process.pid,
+        acquired_at_utc: nowUtcIsoSeconds(),
+      })
+      return lockDir
+    } catch (e: any) {
+      if (e?.code !== 'EEXIST') throw e
+
+      try {
+        const st = statSync(lockDir)
+        const ageMs = Date.now() - st.mtimeMs
+        if (ageMs > opts.lockStaleMs) {
+          rmSync(lockDir, { recursive: true, force: true })
+          continue
+        }
+      } catch {
+        continue
+      }
+
+      if (Date.now() - start > opts.lockTimeoutMs) {
+        let ownerInfo = ''
+        try {
+          ownerInfo = readFileSync(join(lockDir, 'owner.json'), 'utf8')
+        } catch {
+          ownerInfo = '(owner metadata unavailable)'
+        }
+        throw new Error(
+          `Failed to acquire scheduler lock within ${opts.lockTimeoutMs} ms.\n` +
+            `Lock: ${lockDir}\n` +
+            `Owner: ${ownerInfo}`
+        )
+      }
+
+      sleepMs(200)
+    }
+  }
+}
+
+function releaseSchedulerLock(lockDir: string): void {
+  rmSync(lockDir, { recursive: true, force: true })
+}
+
+/* =========================
+   Scheduler selection
 ========================= */
 
 function selectNextTask(
@@ -908,10 +1108,14 @@ function selectNextTask(
 function addProjectOptions(cmd: Command): Command {
   return cmd
     .option('--project <projectId>', 'Project id in dojo.config.json (e.g. prj-0001)')
-    .option(
-      '--project-path <path>',
-      'Direct path to schedule dir (contains sch-*.yaml and exec/events). Overrides --project/env.'
-    )
+    .option('--project-path <path>', 'Direct path to schedule dir. Overrides --project/env.')
+}
+
+function addLockOptions(cmd: Command): Command {
+  return cmd
+    .option('--allow-multiple-doing', 'Allow this actor to hold multiple doing tasks', false)
+    .option('--lock-timeout-ms <ms>', 'Lock acquisition timeout in ms', '10000')
+    .option('--lock-stale-ms <ms>', 'Lock stale threshold in ms', '300000')
 }
 
 function addCommonAddOptions(cmd: Command): Command {
@@ -928,7 +1132,6 @@ function addCommonAddOptions(cmd: Command): Command {
 export function registerExecCommands(program: Command): void {
   const exec = program.command('exec').description('Execution helpers')
 
-  // add event commands
   const types: ExecEventType[] = [
     'claim',
     'note',
@@ -942,18 +1145,269 @@ export function registerExecCommands(program: Command): void {
   for (const t of types) {
     const cmd = exec.command(t).description(`Write ${t} event JSON into exec/events/ (UTC)`)
     addCommonAddOptions(cmd)
-    cmd.action(opts => {
-      const projectPath = resolveProjectPath({
-        projectPath: opts.projectPath,
-        project: opts.project,
+
+    if (t === 'claim' || t === 'complete' || t === 'block' || t === 'unblock' || t === 'cancel') {
+      addLockOptions(cmd)
+    }
+
+    if (t === 'claim') {
+      cmd.action(opts => {
+        let projectPath = ''
+        let lockDir = ''
+        try {
+          projectPath = resolveProjectPath({ projectPath: opts.projectPath, project: opts.project })
+          const actor = requireNonEmpty('by', opts.by)
+          const taskId = requireNonEmpty('task', opts.task)
+          const allowMultipleDoing = !!opts.allowMultipleDoing
+          const lockTimeoutMs = Number(opts.lockTimeoutMs)
+          const lockStaleMs = Number(opts.lockStaleMs)
+
+          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
+
+          const res = validateAll(projectPath)
+          if (!res.ok) {
+            printValidateResult(res)
+            exitWithCode(false)
+            return
+          }
+
+          const schedule = buildScheduleIndex(projectPath)
+          const events = readAllEventFiles(projectPath)
+          const snapshot = foldEventsToState(events, schedule, projectPath)
+
+          const doingTasks = findDoingTasksForActor(snapshot, actor)
+          if (!allowMultipleDoing && doingTasks.length > 0) {
+            process.stdout.write(
+              `Actor ${actor} already has doing task(s): ${doingTasks.join(', ')}\n` +
+                `Use --allow-multiple-doing to override.\n`
+            )
+            exitWithCode(false)
+            return
+          }
+
+          const claimCheck = canClaimTask(schedule, snapshot, taskId)
+          if (!claimCheck.ok) {
+            process.stdout.write(`Cannot claim ${taskId}: ${claimCheck.reason}\n`)
+            exitWithCode(false)
+            return
+          }
+
+          const event = buildEvent('claim', opts)
+          const out = writeEventFile(projectPath, event)
+          process.stdout.write(out + '\n')
+          exitWithCode(true)
+        } catch (e: any) {
+          process.stdout.write(String(e?.message ?? e) + '\n')
+          exitWithCode(false)
+        } finally {
+          if (lockDir) {
+            try {
+              releaseSchedulerLock(lockDir)
+            } catch {}
+          }
+        }
       })
-      const event = buildEvent(t, opts)
-      const out = writeEventFile(projectPath, event)
-      process.stdout.write(out + '\n')
-    })
+    } else if (t === 'complete') {
+      cmd.action(opts => {
+        let projectPath = ''
+        let lockDir = ''
+        try {
+          projectPath = resolveProjectPath({ projectPath: opts.projectPath, project: opts.project })
+          const actor = requireNonEmpty('by', opts.by)
+          const taskId = requireNonEmpty('task', opts.task)
+          const lockTimeoutMs = Number(opts.lockTimeoutMs)
+          const lockStaleMs = Number(opts.lockStaleMs)
+
+          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
+
+          const res = validateAll(projectPath)
+          if (!res.ok) {
+            printValidateResult(res)
+            exitWithCode(false)
+            return
+          }
+
+          const schedule = buildScheduleIndex(projectPath)
+          const events = readAllEventFiles(projectPath)
+          const snapshot = foldEventsToState(events, schedule, projectPath)
+
+          const completeCheck = canCompleteTask(schedule, snapshot, taskId, actor)
+          if (!completeCheck.ok) {
+            process.stdout.write(`Cannot complete ${taskId}: ${completeCheck.reason}\n`)
+            exitWithCode(false)
+            return
+          }
+
+          const event = buildEvent('complete', opts)
+          const out = writeEventFile(projectPath, event)
+          process.stdout.write(out + '\n')
+          exitWithCode(true)
+        } catch (e: any) {
+          process.stdout.write(String(e?.message ?? e) + '\n')
+          exitWithCode(false)
+        } finally {
+          if (lockDir) {
+            try {
+              releaseSchedulerLock(lockDir)
+            } catch {}
+          }
+        }
+      })
+    } else if (t === 'block') {
+      cmd.action(opts => {
+        let projectPath = ''
+        let lockDir = ''
+        try {
+          projectPath = resolveProjectPath({ projectPath: opts.projectPath, project: opts.project })
+          const actor = requireNonEmpty('by', opts.by)
+          const taskId = requireNonEmpty('task', opts.task)
+          const lockTimeoutMs = Number(opts.lockTimeoutMs)
+          const lockStaleMs = Number(opts.lockStaleMs)
+
+          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
+
+          const res = validateAll(projectPath)
+          if (!res.ok) {
+            printValidateResult(res)
+            exitWithCode(false)
+            return
+          }
+
+          const schedule = buildScheduleIndex(projectPath)
+          const events = readAllEventFiles(projectPath)
+          const snapshot = foldEventsToState(events, schedule, projectPath)
+
+          const blockCheck = canBlockTask(schedule, snapshot, taskId, actor)
+          if (!blockCheck.ok) {
+            process.stdout.write(`Cannot block ${taskId}: ${blockCheck.reason}\n`)
+            exitWithCode(false)
+            return
+          }
+
+          const event = buildEvent('block', opts)
+          const out = writeEventFile(projectPath, event)
+          process.stdout.write(out + '\n')
+          exitWithCode(true)
+        } catch (e: any) {
+          process.stdout.write(String(e?.message ?? e) + '\n')
+          exitWithCode(false)
+        } finally {
+          if (lockDir) {
+            try {
+              releaseSchedulerLock(lockDir)
+            } catch {}
+          }
+        }
+      })
+    } else if (t === 'unblock') {
+      cmd.action(opts => {
+        let projectPath = ''
+        let lockDir = ''
+        try {
+          projectPath = resolveProjectPath({ projectPath: opts.projectPath, project: opts.project })
+          const actor = requireNonEmpty('by', opts.by)
+          const taskId = requireNonEmpty('task', opts.task)
+          const lockTimeoutMs = Number(opts.lockTimeoutMs)
+          const lockStaleMs = Number(opts.lockStaleMs)
+
+          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
+
+          const res = validateAll(projectPath)
+          if (!res.ok) {
+            printValidateResult(res)
+            exitWithCode(false)
+            return
+          }
+
+          const schedule = buildScheduleIndex(projectPath)
+          const events = readAllEventFiles(projectPath)
+          const snapshot = foldEventsToState(events, schedule, projectPath)
+
+          const unblockCheck = canUnblockTask(schedule, snapshot, taskId)
+          if (!unblockCheck.ok) {
+            process.stdout.write(`Cannot unblock ${taskId}: ${unblockCheck.reason}\n`)
+            exitWithCode(false)
+            return
+          }
+
+          const event = buildEvent('unblock', opts)
+          const out = writeEventFile(projectPath, event)
+          process.stdout.write(out + '\n')
+          exitWithCode(true)
+        } catch (e: any) {
+          process.stdout.write(String(e?.message ?? e) + '\n')
+          exitWithCode(false)
+        } finally {
+          if (lockDir) {
+            try {
+              releaseSchedulerLock(lockDir)
+            } catch {}
+          }
+        }
+      })
+    } else if (t === 'cancel') {
+      cmd.action(opts => {
+        let projectPath = ''
+        let lockDir = ''
+        try {
+          projectPath = resolveProjectPath({ projectPath: opts.projectPath, project: opts.project })
+          const actor = requireNonEmpty('by', opts.by)
+          const taskId = requireNonEmpty('task', opts.task)
+          const lockTimeoutMs = Number(opts.lockTimeoutMs)
+          const lockStaleMs = Number(opts.lockStaleMs)
+
+          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
+
+          const res = validateAll(projectPath)
+          if (!res.ok) {
+            printValidateResult(res)
+            exitWithCode(false)
+            return
+          }
+
+          const schedule = buildScheduleIndex(projectPath)
+          const events = readAllEventFiles(projectPath)
+          const snapshot = foldEventsToState(events, schedule, projectPath)
+
+          const cancelCheck = canCancelTask(schedule, snapshot, taskId, actor)
+          if (!cancelCheck.ok) {
+            process.stdout.write(`Cannot cancel ${taskId}: ${cancelCheck.reason}\n`)
+            exitWithCode(false)
+            return
+          }
+
+          const event = buildEvent('cancel', opts)
+          const out = writeEventFile(projectPath, event)
+          process.stdout.write(out + '\n')
+          exitWithCode(true)
+        } catch (e: any) {
+          process.stdout.write(String(e?.message ?? e) + '\n')
+          exitWithCode(false)
+        } finally {
+          if (lockDir) {
+            try {
+              releaseSchedulerLock(lockDir)
+            } catch {}
+          }
+        }
+      })
+    } else {
+      cmd.action(opts => {
+        let projectPath = ''
+        try {
+          projectPath = resolveProjectPath({ projectPath: opts.projectPath, project: opts.project })
+        } catch (e: any) {
+          process.stdout.write(String(e?.message ?? e) + '\n')
+          process.exitCode = 1
+          return
+        }
+        const event = buildEvent(t, opts)
+        const out = writeEventFile(projectPath, event)
+        process.stdout.write(out + '\n')
+      })
+    }
   }
 
-  // validate
   const vcmd = exec.command('validate').description('Validate schedule + events')
   addProjectOptions(vcmd)
   vcmd.action(opts => {
@@ -970,12 +1424,7 @@ export function registerExecCommands(program: Command): void {
     exitWithCode(res.ok)
   })
 
-  // build
-  const bcmd = exec
-    .command('build')
-    .description(
-      'Generate all files under generated/ (ready/state/exec + schedule diff + CPM/critical path)'
-    )
+  const bcmd = exec.command('build').description('Generate all files under generated/')
   addProjectOptions(bcmd)
   bcmd.action(opts => {
     let projectPath = ''
@@ -1007,71 +1456,109 @@ export function registerExecCommands(program: Command): void {
     exitWithCode(true)
   })
 
-  // scheduler
-  const scmd = exec.command('scheduler').description('Auto-claim next task (writes claim event).')
+  const scmd = exec
+    .command('scheduler')
+    .description('Auto-claim next task safely (with project-level lock).')
   addProjectOptions(scmd)
   scmd.requiredOption('--by <actor>', 'Actor (agent name)')
   scmd.option('--strategy <strategy>', 'critical-first|fifo', 'critical-first')
   scmd.option('--dry-run', 'Do not write; print selected task only', false)
   scmd.option('--msg <message>', 'Claim message', 'auto-claim')
+  addLockOptions(scmd)
+
   scmd.action(opts => {
     let projectPath = ''
+    let lockDir = ''
     try {
       projectPath = resolveProjectPath({ projectPath: opts.projectPath, project: opts.project })
+
+      const actor = requireNonEmpty('by', opts.by)
+      const strategy = String(opts.strategy) as 'critical-first' | 'fifo'
+      const dryRun = !!opts.dryRun
+      const msg = String(opts.msg ?? 'auto-claim')
+      const allowMultipleDoing = !!opts.allowMultipleDoing
+      const lockTimeoutMs = Number(opts.lockTimeoutMs)
+      const lockStaleMs = Number(opts.lockStaleMs)
+
+      lockDir = acquireSchedulerLock(projectPath, {
+        actor,
+        lockTimeoutMs,
+        lockStaleMs,
+      })
+
+      const res = validateAll(projectPath)
+      if (!res.ok) {
+        printValidateResult(res)
+        exitWithCode(false)
+        return
+      }
+
+      const schedule = buildScheduleIndex(projectPath)
+      const events = readAllEventFiles(projectPath)
+      const snapshot = foldEventsToState(events, schedule, projectPath)
+
+      const doingTasks = findDoingTasksForActor(snapshot, actor)
+      if (!allowMultipleDoing && doingTasks.length > 0) {
+        process.stdout.write(
+          `Actor ${actor} already has doing task(s): ${doingTasks.join(', ')}\n` +
+            `Use --allow-multiple-doing to override.\n`
+        )
+        exitWithCode(false)
+        return
+      }
+
+      const ready = computeReadyIds(schedule, snapshot)
+
+      let cpm: CpmResult | null = null
+      try {
+        cpm = computeCpm(schedule, projectPath)
+      } catch {
+        cpm = null
+      }
+
+      const next = selectNextTask(ready, cpm, strategy)
+      if (!next) {
+        process.stdout.write('No ready task to claim.\n')
+        exitWithCode(true)
+        return
+      }
+
+      if (dryRun) {
+        process.stdout.write(next + '\n')
+        exitWithCode(true)
+        return
+      }
+
+      const ev: ExecEventV1 = {
+        v: 1,
+        ts: nowUtcIsoSeconds(),
+        type: 'claim',
+        task_id: next,
+        by: actor,
+        msg,
+        meta: {
+          scheduler_strategy: strategy,
+          claimed_via: 'dojo-exec-scheduler',
+        },
+      }
+
+      const out = writeEventFile(projectPath, ev)
+      process.stdout.write(out + '\n')
+      exitWithCode(true)
     } catch (e: any) {
       process.stdout.write(String(e?.message ?? e) + '\n')
-      process.exitCode = 1
-      return
-    }
-
-    const res = validateAll(projectPath)
-    if (!res.ok) {
-      printValidateResult(res)
       exitWithCode(false)
-      return
+    } finally {
+      if (lockDir) {
+        try {
+          releaseSchedulerLock(lockDir)
+        } catch {
+          // ignore
+        }
+      }
     }
-
-    const schedule = buildScheduleIndex(projectPath)
-    const events = readAllEventFiles(projectPath)
-    const snapshot = foldEventsToState(events, schedule, projectPath)
-
-    const ready = computeReadyIds(schedule, snapshot)
-
-    let cpm: CpmResult | null = null
-    try {
-      cpm = computeCpm(schedule, projectPath)
-    } catch {
-      cpm = null
-    }
-
-    const next = selectNextTask(ready, cpm, String(opts.strategy) as any)
-    if (!next) {
-      process.stdout.write('No ready task to claim.\n')
-      exitWithCode(true)
-      return
-    }
-
-    if (opts.dryRun) {
-      process.stdout.write(next + '\n')
-      exitWithCode(true)
-      return
-    }
-
-    const ev: ExecEventV1 = {
-      v: 1,
-      ts: nowUtcIsoSeconds(),
-      type: 'claim',
-      task_id: next,
-      by: String(opts.by),
-      msg: String(opts.msg ?? 'auto-claim'),
-    }
-
-    const out = writeEventFile(projectPath, ev)
-    process.stdout.write(out + '\n')
-    exitWithCode(true)
   })
 
-  // where
   const wcmd = exec.command('where').description('Print resolved paths')
   addProjectOptions(wcmd)
   wcmd.action(opts => {
@@ -1079,5 +1566,6 @@ export function registerExecCommands(program: Command): void {
     process.stdout.write(`project-path: ${projectPath}\n`)
     process.stdout.write(`exec/events : ${join(projectPath, 'exec', 'events')}\n`)
     process.stdout.write(`generated   : ${join(projectPath, 'generated')}\n`)
+    process.stdout.write(`scheduler-lock: ${schedulerLockDir(projectPath)}\n`)
   })
 }
