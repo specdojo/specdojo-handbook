@@ -92,5 +92,28 @@
 
     // 好み：Markdown は自動折り返しにしておくと読みやすい
     "editor.wordWrap": "on"
+  },
+
+  "yaml.validate": true,
+  "yaml.hover": true,
+  "yaml.completion": true,
+  "yaml.format.enable": true,
+
+  "yaml.schemas": {
+    "./docs/shared/schemas/spec-frontmatter.schema.yaml": ["docs/**/*.md"],
+    "./docs/shared/schemas/bdd.schema.yaml": ["docs/**/bdd-*.yaml"],
+    "./docs/shared/schemas/esil.schema.yaml": ["docs/**/esil-*.yaml"],
+    "./docs/shared/schemas/sch.schema.yaml": ["docs/**/sch-*.yaml"],
+    "./docs/shared/schemas/wbs.schema.yaml": ["docs/**/wbs-*.yaml"]
+  },
+
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+
+  "files.associations": {
+    "*.schema.yaml": "yaml"
   }
 }

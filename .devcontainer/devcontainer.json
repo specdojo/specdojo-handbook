@@ -22,6 +22,7 @@
         "corschenzi.mermaid-graphical-editor",
         "redhat.vscode-yaml",
         "davidanson.vscode-markdownlint",
+        "usernamehw.errorlens",
         "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
         "unifiedjs.vscode-remark",

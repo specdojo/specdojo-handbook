@@ -1,15 +1,15 @@
 settings:
-  rule: '-'
+  rule: "-"
   ruleRepetition: 3
   ruleSpaces: false
 
-  bullet: '-'
+  bullet: "-"
 
 plugins:
   - remark-parse
   - - remark-frontmatter
     - type: yaml
-      marker: '-'
+      marker: "-"
   - - remark-gfm
     - tablePipeAlign: false
   - remark-lint
@@ -17,7 +17,3 @@ plugins:
     - schemas:
         ./docs/shared/schemas/spec-frontmatter.schema.yaml:
           - ./docs/**/*.md
-        ./docs/shared/schemas/bdd.schema.yaml:
-          - ./docs/**/bdd-*.yaml
-        ./docs/shared/schemas/esil.schema.yaml:
-          - ./docs/**/esil-*.yaml

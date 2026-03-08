@@ -1,14 +1,13 @@
-notes: 'TEMPLATE - copy to create a real schedule file'
 version: 1
 project_id: prj-sdh-ja-0001
 schedule_level: container
 
 domain: auth
 container: api
-assigned_team: 'Backend Team A' # 任意
+assigned_team: "Backend Team A" # 任意
 
 calendar:
-  timezone: 'Asia/Tokyo'
+  timezone: "Asia/Tokyo"
   workdays: [Mon, Tue, Wed, Thu, Fri]
   holidays: []
 
@@ -21,35 +20,35 @@ settings:
 tasks:
   - id: T-AUTH-API-010
     wbs: WBS-AUTH-010
-    name: 'API：設計'
+    name: "API：設計"
     duration_days: 3
     depends_on: [M-100] # 例：要件確定後に開始
     owner: EN
 
   - id: T-AUTH-API-020
     wbs: WBS-AUTH-010
-    name: 'API：実装'
+    name: "API：実装"
     duration_days: 7
     depends_on: [T-AUTH-API-010]
     owner: EN
 
   - id: T-AUTH-API-030
     wbs: WBS-AUTH-010
-    name: 'API：単体テスト'
+    name: "API：単体テスト"
     duration_days: 3
     depends_on: [T-AUTH-API-020]
     owner: EN
 
   - id: T-AUTH-API-040
     wbs: WBS-AUTH-010
-    name: 'API：結合テスト（認証）'
+    name: "API：結合テスト（認証）"
     duration_days: 2
     depends_on: [T-AUTH-API-030, T-AUTH-WEB-020] # 例：別containerに依存
     owner: EN
-    notes: 'クロスcontainer依存の例'
+    notes: "クロスcontainer依存の例"
 
 milestones:
   - id: M-AUTH-API-100
-    name: 'API完了'
+    name: "API完了"
     depends_on: [T-AUTH-API-040]
     date_hint: 2026-03-25
