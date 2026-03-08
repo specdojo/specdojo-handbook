@@ -53,7 +53,7 @@ properties:
     type: string
     description: >
       Optional current team/org label (may change). For readability/reporting only.
-    pattern: "^[^\\s].{0,127}$"
+    pattern: '^[^\s].{0,127}$'
 
   calendar:
     $ref: '#/$defs/Calendar'
@@ -73,7 +73,6 @@ properties:
     items:
       $ref: '#/$defs/Milestone'
 
-# Level-specific requirements
 oneOf:
   - $ref: '#/$defs/MilestonesLevel'
   - $ref: '#/$defs/DomainLevel'
@@ -88,7 +87,11 @@ $defs:
   Id:
     type: string
     minLength: 1
-    description: 'Globally unique identifier across ALL schedule files in the project.'
+    description: >
+      Globally unique identifier across all schedule files in the project.
+      Recommended examples:
+        - T-AUTH-API-010
+        - M-RELEASE-010
     pattern: '^[A-Za-z0-9][A-Za-z0-9_-]{1,63}$'
 
   Date:
@@ -103,7 +106,9 @@ $defs:
   Calendar:
     type: object
     additionalProperties: false
-    required: ['timezone', 'workdays']
+    required:
+      - timezone
+      - workdays
     properties:
       timezone:
         type: string
@@ -125,7 +130,8 @@ $defs:
   Settings:
     type: object
     additionalProperties: false
-    required: ['start_date']
+    required:
+      - start_date
     properties:
       start_date:
         $ref: '#/$defs/Date'
@@ -138,7 +144,7 @@ $defs:
   DependencyIds:
     type: array
     description: >
-      List of predecessor IDs. These IDs may refer to tasks or milestones in ANY schedule file.
+      List of predecessor IDs. These IDs may refer to tasks or milestones in any schedule file.
       The merged graph is validated by tooling (existence, no cycles).
     items:
       $ref: '#/$defs/Id'
@@ -160,16 +166,19 @@ $defs:
       wbs:
         type: string
         minLength: 1
-        description: 'WBS element ID this task contributes to (e.g., WBS-AUTH-010).'
-        pattern: '^WBS-[A-Z0-9]+-[0-9]{2,4}$'
+        description: 'WBS element ID this task contributes to (e.g., WBS-AUTH-010, WBS-AUTH-API-010).'
+        pattern: '^WBS-[A-Z0-9-]+-[0-9]{2,4}$'
       name:
         type: string
         minLength: 1
         description: 'Task name.'
       duration_days:
-        type: integer
-        minimum: 0
-        description: 'Task duration in working days. Prefer milestones for 0.'
+        type: number
+        exclusiveMinimum: 0
+        description: >
+          Task duration in working days.
+          Fractional values are allowed (e.g., 0.125, 0.25, 0.5, 1.0).
+          Use milestones instead of 0-day tasks.
       depends_on:
         $ref: '#/$defs/DependencyIds'
       owner:
@@ -180,6 +189,7 @@ $defs:
         items:
           type: string
           minLength: 1
+        uniqueItems: true
       notes:
         type: string
         description: 'Optional free-form notes (keep concise).'
@@ -200,6 +210,8 @@ $defs:
         description: 'Milestone name.'
       depends_on:
         $ref: '#/$defs/DependencyIds'
+      owner:
+        $ref: '#/$defs/Owner'
       date_hint:
         $ref: '#/$defs/Date'
       tags:
@@ -207,37 +219,69 @@ $defs:
         items:
           type: string
           minLength: 1
+        uniqueItems: true
       notes:
         type: string
         description: 'Optional notes.'
 
-  # Discriminated variants
   MilestonesLevel:
     type: object
-    required: ['schedule_level', 'milestones']
+    required:
+      - schedule_level
+      - milestones
     properties:
       schedule_level:
         const: 'milestones'
+      milestones:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/Milestone'
+    allOf:
+      - not:
+          required: ['domain']
+      - not:
+          required: ['container']
     $comment: >
       Milestones plan: require milestones.
       Tasks are optional; if used, keep them coarse and treat as summary tasks.
-    # Allow tasks but not required; no domain/container required.
+      domain/container must be omitted here.
 
   DomainLevel:
     type: object
-    required: ['schedule_level', 'domain', 'tasks']
+    required:
+      - schedule_level
+      - domain
+      - tasks
     properties:
       schedule_level:
         const: 'domain'
+      tasks:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/Task'
+    allOf:
+      - not:
+          required: ['container']
     $comment: >
       Domain summary plan: require domain + tasks.
-      container should be omitted here (use container schedule for that).
+      container must be omitted here.
 
   ContainerLevel:
     type: object
-    required: ['schedule_level', 'domain', 'container', 'tasks']
+    required:
+      - schedule_level
+      - domain
+      - container
+      - tasks
     properties:
       schedule_level:
         const: 'container'
+      tasks:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/Task'
     $comment: >
       Container-level detailed plan: require domain + container + tasks.
