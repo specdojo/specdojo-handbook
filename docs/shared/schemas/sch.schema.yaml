@@ -1,6 +1,6 @@
 # sch.schema.yaml
-$schema: 'https://json-schema.org/draft/2020-12/schema'
-$title: 'SpecDojo Schedule schema (level-discriminated)'
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "SpecDojo Schedule schema (level-discriminated)"
 $type: object
 $comment: >
   Schema for schedule SSOT files.
@@ -23,31 +23,31 @@ properties:
   version:
     type: integer
     minimum: 1
-    description: 'Schema/data version.'
+    description: "Schema/data version."
 
   project_id:
     type: string
     minLength: 1
-    description: 'Project identifier (e.g., prj-sdh-ja-0001).'
+    description: "Project identifier (e.g., prj-sdh-ja-0001)."
 
   schedule_level:
     type: string
-    description: 'Schedule granularity level.'
-    enum: ['milestones', 'domain', 'container']
+    description: "Schedule granularity level."
+    enum: ["milestones", "domain", "container"]
 
   domain:
     type: string
     description: >
       Stable ownership boundary (required for domain/container schedules).
       Not inferred from file name.
-    pattern: '^[a-z0-9][a-z0-9-]{0,62}$'
+    pattern: "^[a-z0-9][a-z0-9-]{0,62}$"
 
   container:
     type: string
     description: >
       Sub-scope inside a domain (required for container schedules).
       Use a stable slug (service/component/module).
-    pattern: '^[a-z0-9][a-z0-9-]{0,62}$'
+    pattern: "^[a-z0-9][a-z0-9-]{0,62}$"
 
   assigned_team:
     type: string
@@ -56,33 +56,33 @@ properties:
     pattern: '^[^\s].{0,127}$'
 
   calendar:
-    $ref: '#/$defs/Calendar'
+    $ref: "#/$defs/Calendar"
 
   settings:
-    $ref: '#/$defs/Settings'
+    $ref: "#/$defs/Settings"
 
   tasks:
     type: array
-    description: 'Scheduled tasks (duration-based).'
+    description: "Scheduled tasks (duration-based)."
     items:
-      $ref: '#/$defs/Task'
+      $ref: "#/$defs/Task"
 
   milestones:
     type: array
-    description: 'Milestones (duration=0) typically representing gates/approvals.'
+    description: "Milestones (duration=0) typically representing gates/approvals."
     items:
-      $ref: '#/$defs/Milestone'
+      $ref: "#/$defs/Milestone"
 
 oneOf:
-  - $ref: '#/$defs/MilestonesLevel'
-  - $ref: '#/$defs/DomainLevel'
-  - $ref: '#/$defs/ContainerLevel'
+  - $ref: "#/$defs/MilestonesLevel"
+  - $ref: "#/$defs/DomainLevel"
+  - $ref: "#/$defs/ContainerLevel"
 
 $defs:
   Owner:
     type: string
-    description: 'Document owner role. Extendable.'
-    enum: ['BO', 'EN']
+    description: "Document owner role. Extendable."
+    enum: ["BO", "EN"]
 
   Id:
     type: string
@@ -92,16 +92,16 @@ $defs:
       Recommended examples:
         - T-AUTH-API-010
         - M-RELEASE-010
-    pattern: '^[A-Za-z0-9][A-Za-z0-9_-]{1,63}$'
+    pattern: "^[A-Za-z0-9][A-Za-z0-9_-]{1,63}$"
 
   Date:
     type: string
     format: date
-    description: 'ISO date (YYYY-MM-DD).'
+    description: "ISO date (YYYY-MM-DD)."
 
   Weekday:
     type: string
-    enum: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    enum: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
   Calendar:
     type: object
@@ -113,19 +113,19 @@ $defs:
       timezone:
         type: string
         minLength: 1
-        description: 'IANA timezone name (e.g., Asia/Tokyo).'
+        description: "IANA timezone name (e.g., Asia/Tokyo)."
       workdays:
         type: array
         minItems: 1
         uniqueItems: true
-        description: 'Working weekdays.'
+        description: "Working weekdays."
         items:
-          $ref: '#/$defs/Weekday'
+          $ref: "#/$defs/Weekday"
       holidays:
         type: array
-        description: 'Optional holiday dates excluded from workdays.'
+        description: "Optional holiday dates excluded from workdays."
         items:
-          $ref: '#/$defs/Date'
+          $ref: "#/$defs/Date"
 
   Settings:
     type: object
@@ -134,12 +134,12 @@ $defs:
       - start_date
     properties:
       start_date:
-        $ref: '#/$defs/Date'
+        $ref: "#/$defs/Date"
       finish_milestone_id:
-        $ref: '#/$defs/Id'
+        $ref: "#/$defs/Id"
       notes:
         type: string
-        description: 'Optional schedule-wide notes.'
+        description: "Optional schedule-wide notes."
 
   DependencyIds:
     type: array
@@ -147,7 +147,7 @@ $defs:
       List of predecessor IDs. These IDs may refer to tasks or milestones in any schedule file.
       The merged graph is validated by tooling (existence, no cycles).
     items:
-      $ref: '#/$defs/Id'
+      $ref: "#/$defs/Id"
     uniqueItems: true
 
   Task:
@@ -162,16 +162,16 @@ $defs:
       - owner
     properties:
       id:
-        $ref: '#/$defs/Id'
+        $ref: "#/$defs/Id"
       wbs:
         type: string
         minLength: 1
-        description: 'WBS element ID this task contributes to (e.g., WBS-AUTH-010, WBS-AUTH-API-010).'
-        pattern: '^WBS-[A-Z0-9-]+-[0-9]{2,4}$'
+        description: "WBS element ID this task contributes to (e.g., WBS-AUTH-010, WBS-AUTH-API-010)."
+        pattern: "^WBS-[A-Z0-9-]+-[0-9]{2,4}$"
       name:
         type: string
         minLength: 1
-        description: 'Task name.'
+        description: "Task name."
       duration_days:
         type: number
         exclusiveMinimum: 0
@@ -180,19 +180,19 @@ $defs:
           Fractional values are allowed (e.g., 0.125, 0.25, 0.5, 1.0).
           Use milestones instead of 0-day tasks.
       depends_on:
-        $ref: '#/$defs/DependencyIds'
+        $ref: "#/$defs/DependencyIds"
       owner:
-        $ref: '#/$defs/Owner'
+        $ref: "#/$defs/Owner"
       tags:
         type: array
-        description: 'Optional tags for filtering/grouping.'
+        description: "Optional tags for filtering/grouping."
         items:
           type: string
           minLength: 1
         uniqueItems: true
       notes:
         type: string
-        description: 'Optional free-form notes (keep concise).'
+        description: "Optional free-form notes (keep concise)."
 
   Milestone:
     type: object
@@ -203,17 +203,17 @@ $defs:
       - depends_on
     properties:
       id:
-        $ref: '#/$defs/Id'
+        $ref: "#/$defs/Id"
       name:
         type: string
         minLength: 1
-        description: 'Milestone name.'
+        description: "Milestone name."
       depends_on:
-        $ref: '#/$defs/DependencyIds'
+        $ref: "#/$defs/DependencyIds"
       owner:
-        $ref: '#/$defs/Owner'
+        $ref: "#/$defs/Owner"
       date_hint:
-        $ref: '#/$defs/Date'
+        $ref: "#/$defs/Date"
       tags:
         type: array
         items:
@@ -222,7 +222,7 @@ $defs:
         uniqueItems: true
       notes:
         type: string
-        description: 'Optional notes.'
+        description: "Optional notes."
 
   MilestonesLevel:
     type: object
@@ -231,17 +231,17 @@ $defs:
       - milestones
     properties:
       schedule_level:
-        const: 'milestones'
+        const: "milestones"
       milestones:
         type: array
         minItems: 1
         items:
-          $ref: '#/$defs/Milestone'
+          $ref: "#/$defs/Milestone"
     allOf:
       - not:
-          required: ['domain']
+          required: ["domain"]
       - not:
-          required: ['container']
+          required: ["container"]
     $comment: >
       Milestones plan: require milestones.
       Tasks are optional; if used, keep them coarse and treat as summary tasks.
@@ -255,15 +255,15 @@ $defs:
       - tasks
     properties:
       schedule_level:
-        const: 'domain'
+        const: "domain"
       tasks:
         type: array
         minItems: 1
         items:
-          $ref: '#/$defs/Task'
+          $ref: "#/$defs/Task"
     allOf:
       - not:
-          required: ['container']
+          required: ["container"]
     $comment: >
       Domain summary plan: require domain + tasks.
       container must be omitted here.
@@ -277,11 +277,11 @@ $defs:
       - tasks
     properties:
       schedule_level:
-        const: 'container'
+        const: "container"
       tasks:
         type: array
         minItems: 1
         items:
-          $ref: '#/$defs/Task'
+          $ref: "#/$defs/Task"
     $comment: >
       Container-level detailed plan: require domain + container + tasks.
