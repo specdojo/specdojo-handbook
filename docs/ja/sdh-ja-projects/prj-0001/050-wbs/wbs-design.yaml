@@ -1,0 +1,195 @@
+version: 1
+project_id: prj-0001
+domain: design
+assigned_team: specdojo-handbook
+wbs:
+  - id: WBS-DES-CLD-010
+    name: maintain context landscape documentation pair
+    owner: EN
+    component: landscape
+    deliverables:
+      - path: docs/ja/handbook/rules/cld-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cld-instruction.md
+        kind: modify
+    done_criteria: The CLD rule and instruction pair defines the mandatory structure and AI guidance for context landscape documents with stable terminology and section order.
+
+  - id: WBS-DES-CND-020
+    name: maintain context narrative and mermaid family
+    owner: EN
+    component: context
+    deliverables:
+      - path: docs/ja/handbook/rules/cnd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cnd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/cnd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cnd-mermaid-instruction.md
+        kind: modify
+    done_criteria: The CND family defines narrative and diagram requirements that stay aligned across markdown and mermaid outputs for context documentation.
+
+  - id: WBS-DES-COP-030
+    name: maintain cross-cutting policy documentation pair
+    owner: EN
+    component: policy
+    deliverables:
+      - path: docs/ja/handbook/rules/cop-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cop-instruction.md
+        kind: modify
+    done_criteria: The COP rule and instruction pair defines the fixed headings, policy coverage, and AI generation constraints for cross-cutting policy documents.
+
+  - id: WBS-DES-CPD-040
+    name: maintain component policy documentation family
+    owner: EN
+    component: component-policy
+    deliverables:
+      - path: docs/ja/handbook/rules/cpd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cpd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/cpd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cpd-mermaid-instruction.md
+        kind: modify
+    done_criteria: The CPD family defines both narrative and mermaid outputs for component policy documents with matching scope, terminology, and required elements.
+
+  - id: WBS-DES-CDFD-050
+    name: maintain data flow documentation family
+    owner: EN
+    component: data-flow
+    deliverables:
+      - path: docs/ja/handbook/rules/cdfd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cdfd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/cdfd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cdfd-mermaid-instruction.md
+        kind: modify
+    done_criteria: The CDFD family defines consistent structure and AI guidance for textual and mermaid representations of data flow design documents.
+
+  - id: WBS-DES-CSTD-060
+    name: maintain state transition documentation family
+    owner: EN
+    component: state-transition
+    deliverables:
+      - path: docs/ja/handbook/rules/cstd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cstd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/cstd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cstd-mermaid-instruction.md
+        kind: modify
+    done_criteria: The CSTD family defines narrative and mermaid requirements for state transition design with consistent headings, coverage, and prohibition rules.
+
+  - id: WBS-DES-CXD-070
+    name: maintain cross-system design documentation family
+    owner: EN
+    component: cross-system
+    deliverables:
+      - path: docs/ja/handbook/rules/cxd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cxd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/cxd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cxd-mermaid-instruction.md
+        kind: modify
+    done_criteria: The CXD family defines aligned markdown and mermaid outputs for cross-system design artifacts with fixed required content and AI guidance.
+
+  - id: WBS-DES-DIAGRAM-080
+    name: maintain catalog and interface diagram rule sets
+    owner: EN
+    component: diagrams
+    deliverables:
+      - path: docs/ja/handbook/rules/ccd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/ccd-mermaid-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/ifd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/ifd-mermaid-instruction.md
+        kind: modify
+    done_criteria: Catalog and interface mermaid rule sets define diagram syntax, mandatory nodes and relationships, and AI guidance consistently across diagram families.
+
+  - id: WBS-DES-CDSD-090
+    name: maintain component design summary pair
+    owner: EN
+    component: design-summary
+    deliverables:
+      - path: docs/ja/handbook/rules/cdsd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cdsd-instruction.md
+        kind: modify
+    done_criteria: The CDSD rule and instruction pair defines the summary structure and AI guidance needed to author concise but complete component design summaries.
+
+  - id: WBS-DES-DMD-100
+    name: maintain domain model documentation pair
+    owner: EN
+    component: domain-model
+    deliverables:
+      - path: docs/ja/handbook/rules/dmd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/dmd-instruction.md
+        kind: modify
+    done_criteria: The DMD rule and instruction pair defines mandatory domain model sections, modeling constraints, and AI guidance without leaking implementation detail.
+
+  - id: WBS-DES-ENGINEERING-110
+    name: maintain engineering support documentation set
+    owner: EN
+    component: engineering-support
+    deliverables:
+      - path: docs/ja/handbook/rules/eapis-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/eapis-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/efes-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/efes-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/ems-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/ems-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/esil-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/esil-instruction.md
+        kind: modify
+    done_criteria: Engineering support rule and instruction files define consistent structures, mandatory fields, and AI generation constraints across API, feature, message, and integration support documents.
+
+  - id: WBS-DES-STRUCTURE-120
+    name: maintain logical structure and UI specification pairs
+    owner: EN
+    component: structure
+    deliverables:
+      - path: docs/ja/handbook/rules/sld-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/sld-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/uis-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/uis-instruction.md
+        kind: modify
+    done_criteria: Structure and UI rule and instruction pairs define fixed headings, modeling scope, and AI authoring guidance for logical structure and UI specification documents.
+
+  - id: WBS-DES-SYSD-130
+    name: maintain system design index and policy family
+    owner: EN
+    component: system-design
+    deliverables:
+      - path: docs/ja/handbook/rules/sysd-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/sysd-index-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/sysd-critical-flows-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/sysd-critical-flows-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/sysd-cross-cutting-policy-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/sysd-cross-cutting-policy-instruction.md
+        kind: modify
+    done_criteria: The SYSD family defines index, critical-flow, and cross-cutting-policy artifacts with aligned section structures and reusable AI guidance.

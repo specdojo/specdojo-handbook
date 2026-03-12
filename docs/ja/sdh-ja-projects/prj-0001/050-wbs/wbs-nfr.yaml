@@ -1,0 +1,103 @@
+version: 1
+project_id: prj-0001
+domain: nfr
+assigned_team: specdojo-handbook
+wbs:
+  - id: WBS-NFR-INDEX-010
+    name: maintain non-functional requirements index pair
+    owner: EN
+    component: index
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-index-instruction.md
+        kind: modify
+    done_criteria: The NFR index rule and instruction pair defines the common index structure, selection logic, and AI guidance for non-functional requirement document sets.
+
+  - id: WBS-NFR-AVAILABILITY-020
+    name: maintain availability requirement pair
+    owner: EN
+    component: availability
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-availability-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-availability-instruction.md
+        kind: modify
+    done_criteria: The availability NFR rule and instruction pair defines mandatory availability criteria, evidence expectations, and AI guidance without ambiguous thresholds.
+
+  - id: WBS-NFR-INTEGRITY-030
+    name: maintain integrity requirement pair
+    owner: EN
+    component: integrity
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-integrity-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-integrity-instruction.md
+        kind: modify
+    done_criteria: The integrity NFR rule and instruction pair defines required integrity controls, document sections, and AI guidance for integrity-focused non-functional specifications.
+
+  - id: WBS-NFR-MAINTAINABILITY-040
+    name: maintain maintainability requirement pair
+    owner: EN
+    component: maintainability
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-maintainability-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-maintainability-instruction.md
+        kind: modify
+    done_criteria: The maintainability NFR rule and instruction pair defines measurable maintainability expectations, required sections, and AI guidance for maintainability documents.
+
+  - id: WBS-NFR-OPERATIONS-050
+    name: maintain operations requirement pair
+    owner: EN
+    component: operations
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-operations-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-operations-instruction.md
+        kind: modify
+    done_criteria: The operations NFR rule and instruction pair defines operational constraints, observability expectations, and AI guidance for operations-focused non-functional requirements.
+
+  - id: WBS-NFR-PERFORMANCE-060
+    name: maintain performance requirement pair
+    owner: EN
+    component: performance
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-performance-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-performance-instruction.md
+        kind: modify
+    done_criteria: The performance NFR rule and instruction pair defines measurable performance targets, workload assumptions, and AI guidance for performance requirement documents.
+
+  - id: WBS-NFR-RELIABILITY-070
+    name: maintain reliability requirement pair
+    owner: EN
+    component: reliability
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-reliability-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-reliability-instruction.md
+        kind: modify
+    done_criteria: The reliability NFR rule and instruction pair defines failure-handling expectations, evidence needs, and AI guidance for reliability requirements.
+
+  - id: WBS-NFR-SECURITY-080
+    name: maintain security and safety requirement pair
+    owner: EN
+    component: security-safety
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-security-safety-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-security-safety-instruction.md
+        kind: modify
+    done_criteria: The security and safety NFR rule and instruction pair defines mandatory threat, control, and safety coverage with AI guidance that remains concrete and auditable.
+
+  - id: WBS-NFR-USABILITY-090
+    name: maintain usability requirement pair
+    owner: BO
+    component: usability
+    deliverables:
+      - path: docs/ja/handbook/rules/nfr-usability-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/nfr-usability-instruction.md
+        kind: modify
+    done_criteria: The usability NFR rule and instruction pair defines user-centered criteria, measurement expectations, and AI guidance for usability requirement documents.

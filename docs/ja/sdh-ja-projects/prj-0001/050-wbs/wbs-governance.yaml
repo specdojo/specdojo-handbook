@@ -1,0 +1,83 @@
+version: 1
+project_id: prj-0001
+domain: governance
+assigned_team: specdojo-handbook
+wbs:
+  - id: WBS-GOV-PROJECT-010
+    name: maintain project documentation rule and instruction set
+    owner: BO
+    component: project-docs
+    deliverables:
+      - path: docs/ja/handbook/rules/prj-overview-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/prj-overview-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/prj-scope-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/prj-scope-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/prj-issues-and-approach-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/prj-issues-and-approach-instruction.md
+        kind: modify
+    done_criteria: Project overview, scope, and issues-and-approach rule and instruction pairs define mandatory sections, prohibitions, and AI authoring guidance without terminology drift.
+
+  - id: WBS-GOV-GLOSSARY-020
+    name: maintain glossary rule and instruction pair
+    owner: BO
+    component: glossary
+    deliverables:
+      - path: docs/ja/handbook/rules/gl-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/gl-instruction.md
+        kind: modify
+    done_criteria: The glossary rule and instruction pair defines the required glossary structure, term-writing rules, and reusable AI guidance for terminology documents.
+
+  - id: WBS-GOV-OPS-030
+    name: maintain handbook operation and planning rule sets
+    owner: BO
+    component: handbook-ops
+    deliverables:
+      - path: docs/ja/handbook/rules/mtp-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/mtp-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/opd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/opd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/opr-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/opr-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/otp-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/otp-instruction.md
+        kind: modify
+    done_criteria: Management, operation, and planning rule and instruction files consistently define required headings, governance expectations, and generation guidance for handbook operations documents.
+
+  - id: WBS-GOV-MIGRATION-040
+    name: maintain migration index rule and instruction pair
+    owner: BO
+    component: migration
+    deliverables:
+      - path: docs/ja/handbook/rules/mip-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/mip-index-instruction.md
+        kind: modify
+    done_criteria: The migration index rule and instruction pair defines the index structure, selection criteria, and AI guidance needed to author migration planning indexes consistently.
+
+  - id: WBS-GOV-META-050
+    name: maintain meta rulebook governance set
+    owner: EN
+    component: meta
+    deliverables:
+      - path: docs/ja/handbook/rules/meta-document-metadata-rules.md
+        kind: modify
+      - path: docs/ja/handbook/rules/meta-id-and-file-naming-rules.md
+        kind: modify
+      - path: docs/ja/handbook/rules/meta-rulebook-structure-rules.md
+        kind: modify
+      - path: docs/ja/handbook/rules/meta-test-document-scope-rules.md
+        kind: modify
+    done_criteria: The meta rule set defines shared metadata, naming, structure, and test-scope constraints that downstream rules and instructions can reuse without contradiction.

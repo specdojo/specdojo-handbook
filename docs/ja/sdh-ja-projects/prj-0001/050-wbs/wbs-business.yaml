@@ -1,0 +1,74 @@
+version: 1
+project_id: prj-0001
+domain: business
+assigned_team: specdojo-handbook
+wbs:
+  - id: WBS-BIZ-BAC-010
+    name: maintain business acceptance criteria rule and instruction pair
+    owner: BO
+    component: acceptance
+    deliverables:
+      - path: docs/ja/handbook/rules/bac-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bac-instruction.md
+        kind: modify
+    done_criteria: The BAC rule and instruction pair defines required business acceptance sections, completion conditions, and AI authoring constraints without ambiguous wording.
+
+  - id: WBS-BIZ-BDD-020
+    name: maintain business data definition rule and instruction pair
+    owner: BO
+    component: data
+    deliverables:
+      - path: docs/ja/handbook/rules/bdd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bdd-instruction.md
+        kind: modify
+    done_criteria: The BDD rule and instruction pair defines the mandatory data-definition structure, attribute descriptions, and AI guidance needed to author business data documents consistently.
+
+  - id: WBS-BIZ-BDS-030
+    name: maintain business data schema rule and instruction pair
+    owner: BO
+    component: data
+    deliverables:
+      - path: docs/ja/handbook/rules/bds-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bds-instruction.md
+        kind: modify
+    done_criteria: The BDS rule and instruction pair defines structure, field-level expectations, and prohibition rules needed to generate business schema documents coherently.
+
+  - id: WBS-BIZ-BPS-040
+    name: maintain business process specification rule and instruction pair
+    owner: BO
+    component: process
+    deliverables:
+      - path: docs/ja/handbook/rules/bps-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bps-instruction.md
+        kind: modify
+    done_criteria: The BPS rule and instruction pair defines the required process-specification sections, traceable outputs, and AI guidance needed for business process documents.
+
+  - id: WBS-BIZ-BR-050
+    name: maintain business rule rule and instruction pair
+    owner: BO
+    component: rules
+    deliverables:
+      - path: docs/ja/handbook/rules/br-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/br-instruction.md
+        kind: modify
+    done_criteria: The BR rule and instruction pair defines how business rules are structured, constrained, and expressed so that AI-generated content remains testable and unambiguous.
+
+  - id: WBS-BIZ-BES-060
+    name: maintain business event specification family
+    owner: BO
+    component: events
+    deliverables:
+      - path: docs/ja/handbook/rules/bes-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bes-index-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/bes-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bes-instruction.md
+        kind: modify
+    done_criteria: The BES family defines both index and detail-document requirements so business event specifications can be authored with consistent scope allocation and section structure.
