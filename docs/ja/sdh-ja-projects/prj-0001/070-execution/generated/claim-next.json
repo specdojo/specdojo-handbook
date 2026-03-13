@@ -1,0 +1,23 @@
+{
+  "generated_at_utc": "2026-03-13T04:05:12Z",
+  "project_path": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule",
+  "execution_path": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/070-execution",
+  "generated_dir": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/070-execution/generated",
+  "default_strategy": "critical-first",
+  "strategies": {
+    "critical-first": {
+      "next_task_id": "T-SDH-GOV-010",
+      "ordered_task_ids": [
+        "T-SDH-GOV-010",
+        "T-SDH-GOV-050"
+      ]
+    },
+    "fifo": {
+      "next_task_id": "T-SDH-GOV-010",
+      "ordered_task_ids": [
+        "T-SDH-GOV-010",
+        "T-SDH-GOV-050"
+      ]
+    }
+  }
+}

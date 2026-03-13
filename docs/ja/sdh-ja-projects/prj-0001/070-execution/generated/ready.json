@@ -1,0 +1,54 @@
+{
+  "generated_at_utc": "2026-03-13T04:05:12Z",
+  "project_path": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule",
+  "execution_path": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/070-execution",
+  "generated_dir": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/070-execution/generated",
+  "ready_count": 2,
+  "default_strategy": "critical-first",
+  "strategies": {
+    "critical-first": {
+      "next_task_id": "T-SDH-GOV-010",
+      "ordered_task_ids": [
+        "T-SDH-GOV-010",
+        "T-SDH-GOV-050"
+      ]
+    },
+    "fifo": {
+      "next_task_id": "T-SDH-GOV-010",
+      "ordered_task_ids": [
+        "T-SDH-GOV-010",
+        "T-SDH-GOV-050"
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "id": "T-SDH-GOV-010",
+      "name": "align project overview and scope rule pairs",
+      "schedule_file": "sch-governance.yaml",
+      "fifo_rank": 1,
+      "critical_first_rank": 1,
+      "cpm": {
+        "es": 0,
+        "ef": 1,
+        "ls": 0,
+        "lf": 1,
+        "slack": 0
+      }
+    },
+    {
+      "id": "T-SDH-GOV-050",
+      "name": "align shared metadata and naming constraints",
+      "schedule_file": "sch-governance.yaml",
+      "fifo_rank": 2,
+      "critical_first_rank": 2,
+      "cpm": {
+        "es": 0,
+        "ef": 0.75,
+        "ls": 1.75,
+        "lf": 2.5,
+        "slack": 1.75
+      }
+    }
+  ]
+}

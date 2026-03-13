@@ -1,0 +1,192 @@
+{
+  "generated_at_utc": "2026-03-13T04:05:12Z",
+  "project_path": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule",
+  "tasks": {
+    "T-SDH-BIZ-010": {
+      "state": "todo"
+    },
+    "T-SDH-BIZ-020": {
+      "state": "todo"
+    },
+    "T-SDH-BIZ-030": {
+      "state": "todo"
+    },
+    "T-SDH-BIZ-040": {
+      "state": "todo"
+    },
+    "T-SDH-BIZ-050": {
+      "state": "todo"
+    },
+    "T-SDH-BIZ-060": {
+      "state": "todo"
+    },
+    "T-SDH-DES-CTX-010": {
+      "state": "todo"
+    },
+    "T-SDH-DES-CTX-020": {
+      "state": "todo"
+    },
+    "M-SDH-DES-CTX-900": {
+      "state": "todo"
+    },
+    "T-SDH-DES-FLOW-010": {
+      "state": "todo"
+    },
+    "T-SDH-DES-FLOW-020": {
+      "state": "todo"
+    },
+    "T-SDH-DES-FLOW-030": {
+      "state": "todo"
+    },
+    "M-SDH-DES-FLOW-900": {
+      "state": "todo"
+    },
+    "T-SDH-DES-POL-010": {
+      "state": "todo"
+    },
+    "T-SDH-DES-POL-020": {
+      "state": "todo"
+    },
+    "M-SDH-DES-POL-900": {
+      "state": "todo"
+    },
+    "T-SDH-DES-STR-010": {
+      "state": "todo"
+    },
+    "T-SDH-DES-STR-020": {
+      "state": "todo"
+    },
+    "T-SDH-DES-STR-030": {
+      "state": "todo"
+    },
+    "T-SDH-DES-STR-040": {
+      "state": "todo"
+    },
+    "T-SDH-DES-STR-050": {
+      "state": "todo"
+    },
+    "T-SDH-DES-STR-060": {
+      "state": "todo"
+    },
+    "M-SDH-DES-STR-900": {
+      "state": "todo"
+    },
+    "T-SDH-DES-100": {
+      "state": "todo"
+    },
+    "T-SDH-DES-200": {
+      "state": "todo"
+    },
+    "T-SDH-DES-300": {
+      "state": "todo"
+    },
+    "M-SDH-DES-900": {
+      "state": "todo"
+    },
+    "T-SDH-GOV-010": {
+      "state": "todo"
+    },
+    "T-SDH-GOV-020": {
+      "state": "todo"
+    },
+    "T-SDH-GOV-030": {
+      "state": "todo"
+    },
+    "T-SDH-GOV-040": {
+      "state": "todo"
+    },
+    "T-SDH-GOV-050": {
+      "state": "todo"
+    },
+    "M-SDH-100": {
+      "state": "todo"
+    },
+    "M-SDH-200": {
+      "state": "todo"
+    },
+    "M-SDH-300": {
+      "state": "todo"
+    },
+    "M-SDH-350": {
+      "state": "todo"
+    },
+    "M-SDH-400": {
+      "state": "todo"
+    },
+    "M-SDH-999": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-010": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-020": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-030": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-040": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-050": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-060": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-070": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-080": {
+      "state": "todo"
+    },
+    "T-SDH-NFR-090": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-CRT-010": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-CRT-020": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-CRT-030": {
+      "state": "todo"
+    },
+    "M-SDH-QLT-CRT-900": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-GOV-010": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-GOV-020": {
+      "state": "todo"
+    },
+    "M-SDH-QLT-GOV-900": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-VRF-010": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-VRF-020": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-VRF-030": {
+      "state": "todo"
+    },
+    "M-SDH-QLT-VRF-900": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-100": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-200": {
+      "state": "todo"
+    },
+    "T-SDH-QLT-300": {
+      "state": "todo"
+    },
+    "M-SDH-QLT-900": {
+      "state": "todo"
+    }
+  }
+}

@@ -1,0 +1,982 @@
+{
+  "generated_at_utc": "2026-03-13T04:05:12Z",
+  "project_path": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule",
+  "project_duration_days": 15.5,
+  "nodes": {
+    "M-SDH-100": {
+      "id": "M-SDH-100",
+      "name": "schedule kickoff",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 0,
+      "ef": 0,
+      "ls": 0,
+      "lf": 0,
+      "slack": 0,
+      "depends_on": [],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+    },
+    "T-SDH-GOV-010": {
+      "id": "T-SDH-GOV-010",
+      "name": "align project overview and scope rule pairs",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 0,
+      "ef": 1,
+      "ls": 0,
+      "lf": 1,
+      "slack": 0,
+      "depends_on": [
+        "M-SDH-100"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+    },
+    "T-SDH-GOV-020": {
+      "id": "T-SDH-GOV-020",
+      "name": "update glossary rule and instruction pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 1,
+      "ef": 1.5,
+      "ls": 2,
+      "lf": 2.5,
+      "slack": 1,
+      "depends_on": [
+        "T-SDH-GOV-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+    },
+    "T-SDH-GOV-030": {
+      "id": "T-SDH-GOV-030",
+      "name": "update handbook operation and planning rule sets",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 1,
+      "ef": 2,
+      "ls": 1,
+      "lf": 2,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-GOV-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+    },
+    "T-SDH-GOV-040": {
+      "id": "T-SDH-GOV-040",
+      "name": "update migration index rule and instruction pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 2,
+      "ef": 2.5,
+      "ls": 2,
+      "lf": 2.5,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-GOV-030"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+    },
+    "T-SDH-GOV-050": {
+      "id": "T-SDH-GOV-050",
+      "name": "align shared metadata and naming constraints",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 0,
+      "ef": 0.75,
+      "ls": 1.75,
+      "lf": 2.5,
+      "slack": 1.75,
+      "depends_on": [
+        "M-SDH-100"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+    },
+    "M-SDH-200": {
+      "id": "M-SDH-200",
+      "name": "governance baseline ready",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 2.5,
+      "ef": 2.5,
+      "ls": 2.5,
+      "lf": 2.5,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-GOV-020",
+        "T-SDH-GOV-030",
+        "T-SDH-GOV-040",
+        "T-SDH-GOV-050"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+    },
+    "T-SDH-BIZ-010": {
+      "id": "T-SDH-BIZ-010",
+      "name": "update business acceptance criteria pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 2.5,
+      "ef": 3,
+      "ls": 13,
+      "lf": 13.5,
+      "slack": 10.5,
+      "depends_on": [
+        "M-SDH-200"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+    },
+    "T-SDH-BIZ-020": {
+      "id": "T-SDH-BIZ-020",
+      "name": "update business data definition pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 2.5,
+      "ef": 3,
+      "ls": 14.5,
+      "lf": 15,
+      "slack": 12,
+      "depends_on": [
+        "M-SDH-200"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+    },
+    "T-SDH-BIZ-030": {
+      "id": "T-SDH-BIZ-030",
+      "name": "update business data schema pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3,
+      "ef": 3.5,
+      "ls": 15,
+      "lf": 15.5,
+      "slack": 12,
+      "depends_on": [
+        "T-SDH-BIZ-020"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+    },
+    "T-SDH-BIZ-040": {
+      "id": "T-SDH-BIZ-040",
+      "name": "update business process specification pair",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 2.5,
+      "ef": 3.25,
+      "ls": 2.5,
+      "lf": 3.25,
+      "slack": 0,
+      "depends_on": [
+        "M-SDH-200"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+    },
+    "T-SDH-BIZ-050": {
+      "id": "T-SDH-BIZ-050",
+      "name": "update business rule pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.25,
+      "ef": 3.75,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-040"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+    },
+    "T-SDH-BIZ-060": {
+      "id": "T-SDH-BIZ-060",
+      "name": "update business event specification family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 3.75,
+      "ef": 4.5,
+      "ls": 3.75,
+      "lf": 4.5,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-040",
+        "T-SDH-BIZ-050"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+    },
+    "T-SDH-NFR-010": {
+      "id": "T-SDH-NFR-010",
+      "name": "update nfr index pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 2.5,
+      "ef": 3,
+      "ls": 2.75,
+      "lf": 3.25,
+      "slack": 0.25,
+      "depends_on": [
+        "M-SDH-200"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "T-SDH-NFR-020": {
+      "id": "T-SDH-NFR-020",
+      "name": "update availability requirement pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3,
+      "ef": 3.5,
+      "ls": 4,
+      "lf": 4.5,
+      "slack": 1,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "T-SDH-NFR-030": {
+      "id": "T-SDH-NFR-030",
+      "name": "update integrity requirement pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3,
+      "ef": 3.5,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 0.25,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "T-SDH-NFR-040": {
+      "id": "T-SDH-NFR-040",
+      "name": "update maintainability requirement pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3,
+      "ef": 3.5,
+      "ls": 4,
+      "lf": 4.5,
+      "slack": 1,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "T-SDH-NFR-050": {
+      "id": "T-SDH-NFR-050",
+      "name": "update operations requirement pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3,
+      "ef": 3.5,
+      "ls": 4,
+      "lf": 4.5,
+      "slack": 1,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "T-SDH-NFR-060": {
+      "id": "T-SDH-NFR-060",
+      "name": "update performance requirement pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3,
+      "ef": 3.5,
+      "ls": 3.5,
+      "lf": 4,
+      "slack": 0.5,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "T-SDH-NFR-070": {
+      "id": "T-SDH-NFR-070",
+      "name": "update reliability requirement pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.5,
+      "ef": 4,
+      "ls": 4,
+      "lf": 4.5,
+      "slack": 0.5,
+      "depends_on": [
+        "T-SDH-NFR-060"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "T-SDH-NFR-080": {
+      "id": "T-SDH-NFR-080",
+      "name": "update security and safety requirement pair",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 3.5,
+      "ef": 4.25,
+      "ls": 3.75,
+      "lf": 4.5,
+      "slack": 0.25,
+      "depends_on": [
+        "T-SDH-NFR-030"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "T-SDH-NFR-090": {
+      "id": "T-SDH-NFR-090",
+      "name": "update usability requirement pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3,
+      "ef": 3.5,
+      "ls": 4,
+      "lf": 4.5,
+      "slack": 1,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+    },
+    "M-SDH-300": {
+      "id": "M-SDH-300",
+      "name": "business and nfr baseline ready",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 4.5,
+      "ef": 4.5,
+      "ls": 4.5,
+      "lf": 4.5,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-060",
+        "T-SDH-NFR-020",
+        "T-SDH-NFR-030",
+        "T-SDH-NFR-040",
+        "T-SDH-NFR-050",
+        "T-SDH-NFR-070",
+        "T-SDH-NFR-080",
+        "T-SDH-NFR-090"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+    },
+    "T-SDH-DES-100": {
+      "id": "T-SDH-DES-100",
+      "name": "design context and policy updates summary",
+      "kind": "task",
+      "duration_days": 2,
+      "es": 4.5,
+      "ef": 6.5,
+      "ls": 4.5,
+      "lf": 6.5,
+      "slack": 0,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design.yaml"
+    },
+    "T-SDH-DES-200": {
+      "id": "T-SDH-DES-200",
+      "name": "design flow and interaction updates summary",
+      "kind": "task",
+      "duration_days": 2.5,
+      "es": 6.5,
+      "ef": 9,
+      "ls": 6.5,
+      "lf": 9,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-DES-100"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design.yaml"
+    },
+    "T-SDH-DES-300": {
+      "id": "T-SDH-DES-300",
+      "name": "design structure and engineering updates summary",
+      "kind": "task",
+      "duration_days": 3,
+      "es": 9,
+      "ef": 12,
+      "ls": 9,
+      "lf": 12,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-DES-200"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design.yaml"
+    },
+    "M-SDH-DES-900": {
+      "id": "M-SDH-DES-900",
+      "name": "design domain complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 12,
+      "ef": 12,
+      "ls": 12,
+      "lf": 12,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-DES-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design.yaml"
+    },
+    "M-SDH-350": {
+      "id": "M-SDH-350",
+      "name": "design baseline ready",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 12,
+      "ef": 12,
+      "ls": 12,
+      "lf": 12,
+      "slack": 0,
+      "depends_on": [
+        "M-SDH-DES-900"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+    },
+    "T-SDH-DES-CTX-010": {
+      "id": "T-SDH-DES-CTX-010",
+      "name": "update context landscape pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 4.5,
+      "ef": 5,
+      "ls": 10.75,
+      "lf": 11.25,
+      "slack": 6.25,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-context.yaml"
+    },
+    "T-SDH-DES-CTX-020": {
+      "id": "T-SDH-DES-CTX-020",
+      "name": "update context narrative and mermaid family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 5,
+      "ef": 5.75,
+      "ls": 11.25,
+      "lf": 12,
+      "slack": 6.25,
+      "depends_on": [
+        "T-SDH-DES-CTX-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-context.yaml"
+    },
+    "M-SDH-DES-CTX-900": {
+      "id": "M-SDH-DES-CTX-900",
+      "name": "design context container complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 5.75,
+      "ef": 5.75,
+      "ls": 12,
+      "lf": 12,
+      "slack": 6.25,
+      "depends_on": [
+        "T-SDH-DES-CTX-020"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-context.yaml"
+    },
+    "T-SDH-DES-FLOW-020": {
+      "id": "T-SDH-DES-FLOW-020",
+      "name": "update state transition documentation family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 5.75,
+      "ef": 6.5,
+      "ls": 12.75,
+      "lf": 13.5,
+      "slack": 7,
+      "depends_on": [
+        "M-SDH-DES-CTX-900"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-flow.yaml"
+    },
+    "T-SDH-DES-POL-010": {
+      "id": "T-SDH-DES-POL-010",
+      "name": "update cross-cutting policy pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 4.5,
+      "ef": 5,
+      "ls": 10.75,
+      "lf": 11.25,
+      "slack": 6.25,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-policy.yaml"
+    },
+    "T-SDH-DES-POL-020": {
+      "id": "T-SDH-DES-POL-020",
+      "name": "update component policy family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 5,
+      "ef": 5.75,
+      "ls": 11.25,
+      "lf": 12,
+      "slack": 6.25,
+      "depends_on": [
+        "T-SDH-DES-POL-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-policy.yaml"
+    },
+    "M-SDH-DES-POL-900": {
+      "id": "M-SDH-DES-POL-900",
+      "name": "design policy container complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 5.75,
+      "ef": 5.75,
+      "ls": 12,
+      "lf": 12,
+      "slack": 6.25,
+      "depends_on": [
+        "T-SDH-DES-POL-020"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-policy.yaml"
+    },
+    "T-SDH-DES-FLOW-010": {
+      "id": "T-SDH-DES-FLOW-010",
+      "name": "update data flow documentation family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 5.75,
+      "ef": 6.5,
+      "ls": 12,
+      "lf": 12.75,
+      "slack": 6.25,
+      "depends_on": [
+        "M-SDH-DES-CTX-900",
+        "M-SDH-DES-POL-900"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-flow.yaml"
+    },
+    "T-SDH-DES-FLOW-030": {
+      "id": "T-SDH-DES-FLOW-030",
+      "name": "update cross-system design family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 6.5,
+      "ef": 7.25,
+      "ls": 12.75,
+      "lf": 13.5,
+      "slack": 6.25,
+      "depends_on": [
+        "T-SDH-DES-FLOW-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-flow.yaml"
+    },
+    "M-SDH-DES-FLOW-900": {
+      "id": "M-SDH-DES-FLOW-900",
+      "name": "design flow container complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 7.25,
+      "ef": 7.25,
+      "ls": 13.5,
+      "lf": 13.5,
+      "slack": 6.25,
+      "depends_on": [
+        "T-SDH-DES-FLOW-020",
+        "T-SDH-DES-FLOW-030"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-flow.yaml"
+    },
+    "T-SDH-DES-STR-010": {
+      "id": "T-SDH-DES-STR-010",
+      "name": "update shared diagram rule sets",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 5.75,
+      "ef": 6.25,
+      "ls": 13.25,
+      "lf": 13.75,
+      "slack": 7.5,
+      "depends_on": [
+        "M-SDH-DES-CTX-900",
+        "M-SDH-DES-POL-900"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+    },
+    "T-SDH-DES-STR-020": {
+      "id": "T-SDH-DES-STR-020",
+      "name": "update component design summary pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 5.75,
+      "ef": 6.25,
+      "ls": 14,
+      "lf": 14.5,
+      "slack": 8.25,
+      "depends_on": [
+        "M-SDH-DES-POL-900"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+    },
+    "T-SDH-DES-STR-030": {
+      "id": "T-SDH-DES-STR-030",
+      "name": "update domain model pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 4.5,
+      "ef": 5,
+      "ls": 13,
+      "lf": 13.5,
+      "slack": 8.5,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+    },
+    "T-SDH-DES-STR-040": {
+      "id": "T-SDH-DES-STR-040",
+      "name": "update engineering support documentation set",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 7.25,
+      "ef": 8.25,
+      "ls": 13.5,
+      "lf": 14.5,
+      "slack": 6.25,
+      "depends_on": [
+        "M-SDH-DES-FLOW-900",
+        "T-SDH-DES-STR-030"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+    },
+    "T-SDH-DES-STR-050": {
+      "id": "T-SDH-DES-STR-050",
+      "name": "update logical structure and ui specification pairs",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 6.25,
+      "ef": 7,
+      "ls": 13.75,
+      "lf": 14.5,
+      "slack": 7.5,
+      "depends_on": [
+        "T-SDH-DES-STR-010",
+        "T-SDH-DES-STR-030"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+    },
+    "T-SDH-DES-STR-060": {
+      "id": "T-SDH-DES-STR-060",
+      "name": "update system design index and policy family",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 8.25,
+      "ef": 9.25,
+      "ls": 14.5,
+      "lf": 15.5,
+      "slack": 6.25,
+      "depends_on": [
+        "T-SDH-DES-STR-020",
+        "T-SDH-DES-STR-040",
+        "T-SDH-DES-STR-050"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+    },
+    "M-SDH-DES-STR-900": {
+      "id": "M-SDH-DES-STR-900",
+      "name": "design structure container complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 9.25,
+      "ef": 9.25,
+      "ls": 15.5,
+      "lf": 15.5,
+      "slack": 6.25,
+      "depends_on": [
+        "T-SDH-DES-STR-060"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+    },
+    "T-SDH-QLT-100": {
+      "id": "T-SDH-QLT-100",
+      "name": "quality criteria families summary",
+      "kind": "task",
+      "duration_days": 2.5,
+      "es": 4.5,
+      "ef": 7,
+      "ls": 9.5,
+      "lf": 12,
+      "slack": 5,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality.yaml"
+    },
+    "T-SDH-QLT-200": {
+      "id": "T-SDH-QLT-200",
+      "name": "quality verification and acceptance summary",
+      "kind": "task",
+      "duration_days": 2,
+      "es": 12,
+      "ef": 14,
+      "ls": 12,
+      "lf": 14,
+      "slack": 0,
+      "depends_on": [
+        "M-SDH-350",
+        "T-SDH-QLT-100"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality.yaml"
+    },
+    "T-SDH-QLT-300": {
+      "id": "T-SDH-QLT-300",
+      "name": "quality traceability and planning summary",
+      "kind": "task",
+      "duration_days": 1.5,
+      "es": 14,
+      "ef": 15.5,
+      "ls": 14,
+      "lf": 15.5,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-QLT-200"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality.yaml"
+    },
+    "M-SDH-QLT-900": {
+      "id": "M-SDH-QLT-900",
+      "name": "quality domain complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 15.5,
+      "ef": 15.5,
+      "ls": 15.5,
+      "lf": 15.5,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-QLT-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality.yaml"
+    },
+    "M-SDH-400": {
+      "id": "M-SDH-400",
+      "name": "quality and traceability baseline ready",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 15.5,
+      "ef": 15.5,
+      "ls": 15.5,
+      "lf": 15.5,
+      "slack": 0,
+      "depends_on": [
+        "M-SDH-QLT-900"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+    },
+    "M-SDH-999": {
+      "id": "M-SDH-999",
+      "name": "prj-0001 schedule scope completed",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 15.5,
+      "ef": 15.5,
+      "ls": 15.5,
+      "lf": 15.5,
+      "slack": 0,
+      "depends_on": [
+        "M-SDH-400"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+    },
+    "T-SDH-QLT-CRT-010": {
+      "id": "T-SDH-QLT-CRT-010",
+      "name": "update acceptance test criteria family",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 4.5,
+      "ef": 5.5,
+      "ls": 13.25,
+      "lf": 14.25,
+      "slack": 8.75,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-criteria.yaml"
+    },
+    "T-SDH-QLT-CRT-020": {
+      "id": "T-SDH-QLT-CRT-020",
+      "name": "update external test criteria family",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 4.5,
+      "ef": 5.5,
+      "ls": 13.25,
+      "lf": 14.25,
+      "slack": 8.75,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-criteria.yaml"
+    },
+    "T-SDH-QLT-CRT-030": {
+      "id": "T-SDH-QLT-CRT-030",
+      "name": "update user test criteria family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 4.5,
+      "ef": 5.25,
+      "ls": 13.5,
+      "lf": 14.25,
+      "slack": 9,
+      "depends_on": [
+        "M-SDH-300",
+        "T-SDH-BIZ-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-criteria.yaml"
+    },
+    "M-SDH-QLT-CRT-900": {
+      "id": "M-SDH-QLT-CRT-900",
+      "name": "quality criteria container complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 5.5,
+      "ef": 5.5,
+      "ls": 14.25,
+      "lf": 14.25,
+      "slack": 8.75,
+      "depends_on": [
+        "T-SDH-QLT-CRT-010",
+        "T-SDH-QLT-CRT-020",
+        "T-SDH-QLT-CRT-030"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-criteria.yaml"
+    },
+    "T-SDH-QLT-GOV-010": {
+      "id": "T-SDH-QLT-GOV-010",
+      "name": "update specification traceability link pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 12,
+      "ef": 12.5,
+      "ls": 14.25,
+      "lf": 14.75,
+      "slack": 2.25,
+      "depends_on": [
+        "M-SDH-350",
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-governance.yaml"
+    },
+    "T-SDH-QLT-VRF-010": {
+      "id": "T-SDH-QLT-VRF-010",
+      "name": "update integration test documentation family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 12,
+      "ef": 12.75,
+      "ls": 12.75,
+      "lf": 13.5,
+      "slack": 0.75,
+      "depends_on": [
+        "M-SDH-350"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-verification.yaml"
+    },
+    "T-SDH-QLT-VRF-020": {
+      "id": "T-SDH-QLT-VRF-020",
+      "name": "update system test documentation family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 12.75,
+      "ef": 13.5,
+      "ls": 13.5,
+      "lf": 14.25,
+      "slack": 0.75,
+      "depends_on": [
+        "T-SDH-QLT-VRF-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-verification.yaml"
+    },
+    "T-SDH-QLT-VRF-030": {
+      "id": "T-SDH-QLT-VRF-030",
+      "name": "update system acceptance condition pair",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 13.5,
+      "ef": 14,
+      "ls": 14.25,
+      "lf": 14.75,
+      "slack": 0.75,
+      "depends_on": [
+        "T-SDH-QLT-VRF-020",
+        "M-SDH-QLT-CRT-900"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-verification.yaml"
+    },
+    "M-SDH-QLT-VRF-900": {
+      "id": "M-SDH-QLT-VRF-900",
+      "name": "quality verification container complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 14,
+      "ef": 14,
+      "ls": 14.75,
+      "lf": 14.75,
+      "slack": 0.75,
+      "depends_on": [
+        "T-SDH-QLT-VRF-030"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-verification.yaml"
+    },
+    "T-SDH-QLT-GOV-020": {
+      "id": "T-SDH-QLT-GOV-020",
+      "name": "update test planning and strategy family",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 14,
+      "ef": 14.75,
+      "ls": 14.75,
+      "lf": 15.5,
+      "slack": 0.75,
+      "depends_on": [
+        "M-SDH-QLT-CRT-900",
+        "M-SDH-QLT-VRF-900",
+        "T-SDH-QLT-GOV-010"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-governance.yaml"
+    },
+    "M-SDH-QLT-GOV-900": {
+      "id": "M-SDH-QLT-GOV-900",
+      "name": "quality governance container complete",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 14.75,
+      "ef": 14.75,
+      "ls": 15.5,
+      "lf": 15.5,
+      "slack": 0.75,
+      "depends_on": [
+        "T-SDH-QLT-GOV-020"
+      ],
+      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-governance.yaml"
+    }
+  },
+  "critical_path": [
+    "M-SDH-100",
+    "T-SDH-GOV-010",
+    "T-SDH-GOV-030",
+    "T-SDH-GOV-040",
+    "M-SDH-200",
+    "T-SDH-BIZ-040",
+    "T-SDH-BIZ-050",
+    "T-SDH-BIZ-060",
+    "M-SDH-300",
+    "T-SDH-DES-100",
+    "T-SDH-DES-200",
+    "T-SDH-DES-300",
+    "M-SDH-DES-900",
+    "M-SDH-350",
+    "T-SDH-QLT-200",
+    "T-SDH-QLT-300",
+    "M-SDH-QLT-900",
+    "M-SDH-400",
+    "M-SDH-999"
+  ]
+}
