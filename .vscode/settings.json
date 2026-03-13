@@ -14,6 +14,7 @@
     "eapis",
     "efes",
     "esil",
+    "Gantt",
     "HIPO",
     "HMAC",
     "hypercare",
@@ -82,6 +83,7 @@
 
   // ===== Markdown 専用設定 =====
   "markdown.extension.toc.levels": "2..6",
+  "markdown.styles": [".vscode/markdown-preview.css"],
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,

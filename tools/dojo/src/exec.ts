@@ -84,9 +84,16 @@ type ScheduleNode = {
   schedule_file: string
 }
 
+type ScheduleCalendar = {
+  workdays: Set<number>
+  holidays: Set<string>
+}
+
 type ScheduleIndex = {
   nodes: Map<string, ScheduleNode>
   files: string[]
+  start_date: string | null
+  calendar: ScheduleCalendar
 }
 
 type CpmNode = {
@@ -105,6 +112,7 @@ type CpmNode = {
 
 type CpmResult = {
   schedule_path: string
+  project_start_date: string | null
   project_duration_days: number
   nodes: Record<string, CpmNode>
   critical_path: string[]
@@ -278,6 +286,153 @@ function toScheduleFilePath(schedulePath: string, filePath: string): string {
   return toPortablePath(relative(schedulePath, filePath) || '.')
 }
 
+function formatDateOnlyUtc(dt: Date): string {
+  const yyyy = dt.getUTCFullYear().toString().padStart(4, '0')
+  const mm = (dt.getUTCMonth() + 1).toString().padStart(2, '0')
+  const dd = dt.getUTCDate().toString().padStart(2, '0')
+  return `${yyyy}-${mm}-${dd}`
+}
+
+function normalizeDateOnly(value: unknown): string | null {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) return formatDateOnlyUtc(value)
+  if (typeof value !== 'string') return null
+
+  const trimmed = value.trim()
+  if (!trimmed) return null
+  const m = trimmed.match(/^(\d{4}-\d{2}-\d{2})/)
+  if (m) return m[1]
+
+  const dt = new Date(trimmed)
+  if (Number.isNaN(dt.getTime())) return null
+  return formatDateOnlyUtc(dt)
+}
+
+function defaultScheduleCalendar(): ScheduleCalendar {
+  return {
+    workdays: new Set([1, 2, 3, 4, 5]),
+    holidays: new Set<string>(),
+  }
+}
+
+function parseWorkdayToken(value: string): number | null {
+  const key = value.trim().slice(0, 3).toLowerCase()
+  const map: Record<string, number> = {
+    sun: 0,
+    mon: 1,
+    tue: 2,
+    wed: 3,
+    thu: 4,
+    fri: 5,
+    sat: 6,
+  }
+  return key in map ? map[key] : null
+}
+
+function extractScheduleCalendar(doc: any): ScheduleCalendar | null {
+  const calendar = doc?.calendar
+  if (!calendar || typeof calendar !== 'object') return null
+
+  const parsed = defaultScheduleCalendar()
+  if (Array.isArray(calendar.workdays) && calendar.workdays.length) {
+    const workdays = new Set<number>()
+    for (const token of calendar.workdays) {
+      if (typeof token !== 'string') continue
+      const day = parseWorkdayToken(token)
+      if (day !== null) workdays.add(day)
+    }
+    if (workdays.size) parsed.workdays = workdays
+  }
+
+  if (Array.isArray(calendar.holidays) && calendar.holidays.length) {
+    parsed.holidays = new Set(
+      calendar.holidays
+        .map((value: unknown) => normalizeDateOnly(value))
+        .filter(Boolean) as string[]
+    )
+  }
+
+  return parsed
+}
+
+function extractScheduleStartDate(doc: any): string | null {
+  return normalizeDateOnly(doc?.settings?.start_date ?? doc?.start_date)
+}
+
+function minDateOnly(a: string | null, b: string | null): string | null {
+  if (!a) return b
+  if (!b) return a
+  return a <= b ? a : b
+}
+
+function ganttAnchorDateUtc(): number {
+  return Date.UTC(2000, 0, 1, 0, 0, 0, 0)
+}
+
+function isWorkingDateUtc(dt: Date, calendar: ScheduleCalendar): boolean {
+  const dateOnly = formatDateOnlyUtc(dt)
+  return calendar.workdays.has(dt.getUTCDay()) && !calendar.holidays.has(dateOnly)
+}
+
+function addWorkingDayOffset(
+  startDate: string,
+  dayOffset: number,
+  calendar: ScheduleCalendar
+): Date {
+  const [year, month, day] = startDate.split('-').map(Number)
+  const dt = new Date(Date.UTC(year, month - 1, day, 0, 0, 0, 0))
+
+  while (!isWorkingDateUtc(dt, calendar)) dt.setUTCDate(dt.getUTCDate() + 1)
+
+  const wholeDays = Math.floor(dayOffset)
+  const fractionalDays = dayOffset - wholeDays
+
+  for (let i = 0; i < wholeDays; i += 1) {
+    do {
+      dt.setUTCDate(dt.getUTCDate() + 1)
+    } while (!isWorkingDateUtc(dt, calendar))
+  }
+
+  const minutes = Math.round(fractionalDays * 24 * 60)
+  dt.setUTCMinutes(dt.getUTCMinutes() + minutes)
+  return dt
+}
+
+function formatGanttDate(
+  dayOffset: number,
+  startDate: string | null,
+  calendar: ScheduleCalendar
+): string {
+  const dt = startDate
+    ? addWorkingDayOffset(startDate, dayOffset, calendar)
+    : new Date(ganttAnchorDateUtc() + Math.round(dayOffset * 24 * 60) * 60 * 1000)
+  const yyyy = dt.getUTCFullYear().toString().padStart(4, '0')
+  const mm = (dt.getUTCMonth() + 1).toString().padStart(2, '0')
+  const dd = dt.getUTCDate().toString().padStart(2, '0')
+  const hh = dt.getUTCHours().toString().padStart(2, '0')
+  const mi = dt.getUTCMinutes().toString().padStart(2, '0')
+  return `${yyyy}-${mm}-${dd} ${hh}:${mi}`
+}
+
+function formatGanttDuration(durationDays: number): string {
+  if (durationDays === 0) return '0d'
+
+  const minutes = Math.round(durationDays * 24 * 60)
+  if (minutes % (24 * 60) === 0) return `${minutes / (24 * 60)}d`
+  if (minutes % 60 === 0) return `${minutes / 60}h`
+  return `${minutes}m`
+}
+
+function escapeMermaidText(text: string): string {
+  return text
+    .replace(/[\r\n]+/g, ' ')
+    .replace(/:/g, ' -')
+    .trim()
+}
+
+function toMermaidTaskId(id: string): string {
+  return `task_${safeSlug(id)}`
+}
+
 function activateResolvedProjectPaths(paths: ResolvedProjectPaths): void {
   process.env.DOJO_SCHEDULE_PATH = paths.schedulePath
   process.env.DOJO_EXECUTION_PATH = paths.executionPath
@@ -399,6 +554,9 @@ function buildScheduleIndex(projectPath: string): ScheduleIndex {
   const files = all.filter(p => isSchYamlFilename(p))
 
   const nodes = new Map<string, ScheduleNode>()
+  let startDate: string | null = null
+  let calendar = defaultScheduleCalendar()
+  let hasCalendar = false
 
   for (const f of files) {
     let doc: any
@@ -408,6 +566,16 @@ function buildScheduleIndex(projectPath: string): ScheduleIndex {
       continue
     }
     if (!doc || typeof doc !== 'object') continue
+
+    startDate = minDateOnly(startDate, extractScheduleStartDate(doc))
+
+    if (!hasCalendar) {
+      const docCalendar = extractScheduleCalendar(doc)
+      if (docCalendar) {
+        calendar = docCalendar
+        hasCalendar = true
+      }
+    }
 
     const tasks = Array.isArray(doc.tasks) ? doc.tasks : []
     const milestones = Array.isArray(doc.milestones) ? doc.milestones : []
@@ -441,7 +609,7 @@ function buildScheduleIndex(projectPath: string): ScheduleIndex {
     }
   }
 
-  return { nodes, files }
+  return { nodes, files, start_date: startDate, calendar }
 }
 
 /* =========================
@@ -950,6 +1118,7 @@ function computeCpm(schedule: ScheduleIndex, projectPath: string): CpmResult {
 
   return {
     schedule_path: toArtifactPath(projectPath),
+    project_start_date: schedule.start_date,
     project_duration_days: projectDuration,
     nodes,
     critical_path: path,
@@ -994,6 +1163,50 @@ function writeCpmFiles(projectPath: string, cpm: CpmResult): void {
   }
   cp.push('')
   writeFileSync(join(genDir, 'critical-path.md'), cp.join('\n'), 'utf8')
+
+  const schedule = buildScheduleIndex(projectPath)
+  const criticalSet = new Set(cpm.critical_path)
+  const ganttLines: string[] = []
+  ganttLines.push(`# Gantt Chart`)
+  ganttLines.push('')
+  ganttLines.push(`- schedule_path: \`${cpm.schedule_path}\``)
+  if (cpm.project_start_date) ganttLines.push(`- project_start_date: \`${cpm.project_start_date}\``)
+  ganttLines.push(`- project_duration_days: \`${cpm.project_duration_days}\``)
+  ganttLines.push(`- scope: \`full_schedule\``)
+  ganttLines.push(`- critical_path_task_count: \`${criticalSet.size}\``)
+  ganttLines.push('')
+  ganttLines.push('```mermaid')
+  ganttLines.push("%%{init: {'themeCSS': '.taskText, .sectionTitle { font-size: 14px; }'}}%%")
+  ganttLines.push('gantt')
+  ganttLines.push('  title Project Schedule')
+  ganttLines.push('  dateFormat YYYY-MM-DD HH:mm')
+  ganttLines.push('  axisFormat %m/%d')
+
+  const rowsByFile = new Map<string, CpmNode[]>()
+  for (const row of rows) {
+    const group = rowsByFile.get(row.schedule_file)
+    if (group) group.push(row)
+    else rowsByFile.set(row.schedule_file, [row])
+  }
+
+  for (const [scheduleFile, fileRows] of rowsByFile.entries()) {
+    ganttLines.push(`  section ${escapeMermaidText(scheduleFile)}`)
+    for (const row of fileRows) {
+      const flags: string[] = []
+      if (criticalSet.has(row.id)) flags.push('crit')
+      if (row.kind === 'milestone') flags.push('milestone')
+
+      const label = escapeMermaidText(row.name ? `${row.id} ${row.name}` : row.id)
+      const attrs = flags.length ? `${flags.join(', ')}, ` : ''
+      ganttLines.push(
+        `  ${label} : ${attrs}${toMermaidTaskId(row.id)}, ${formatGanttDate(row.es, cpm.project_start_date, schedule.calendar)}, ${formatGanttDuration(row.duration_days)}`
+      )
+    }
+  }
+
+  ganttLines.push('```')
+  ganttLines.push('')
+  writeFileSync(join(genDir, 'gantt.md'), ganttLines.join('\n'), 'utf8')
 }
 
 /* =========================
@@ -1267,6 +1480,7 @@ function writeGeneratedCore(
       'cpm.md',
       'critical-path.md',
       'exec.jsonl',
+      'gantt.md',
       'metadata.json',
       'ready.json',
       'ready.md',

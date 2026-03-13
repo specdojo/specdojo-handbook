@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-13T05:52:26Z",
+  "generated_at_utc": "2026-03-13T06:24:44Z",
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution",
   "generated_dir": "docs/ja/sdh-ja-projects/prj-0001/070-execution/generated",
@@ -18,7 +18,7 @@
     "sch-quality-verification.yaml",
     "sch-quality.yaml"
   ],
-  "event_files_count": 0,
+  "event_files_count": 1,
   "default_scheduler_strategy": "critical-first",
   "derived_files": [
     "claim-next.json",
@@ -26,6 +26,7 @@
     "cpm.md",
     "critical-path.md",
     "exec.jsonl",
+    "gantt.md",
     "metadata.json",
     "ready.json",
     "ready.md",
