@@ -1,0 +1,40 @@
+version: 1
+project_id: prj-0001
+schedule_level: container
+domain: quality
+container: governance
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-QLT-GOV-900
+  notes: Container schedule for traceability and test-planning governance artifacts.
+
+tasks:
+  - id: T-SDH-QLT-GOV-010
+    wbs: WBS-QLTY-SFL-070
+    name: update specification traceability link pair
+    duration_days: 0.5
+    depends_on: [M-SDH-350, T-SDH-NFR-010]
+    owner: EN
+    tags: [quality, governance, traceability]
+
+  - id: T-SDH-QLT-GOV-020
+    wbs: WBS-QLTY-TESTPLAN-080
+    name: update test planning and strategy family
+    duration_days: 0.75
+    depends_on: [M-SDH-QLT-CRT-900, M-SDH-QLT-VRF-900, T-SDH-QLT-GOV-010]
+    owner: EN
+    tags: [quality, governance, test-planning]
+
+milestones:
+  - id: M-SDH-QLT-GOV-900
+    name: quality governance container complete
+    depends_on: [T-SDH-QLT-GOV-020]
+    owner: EN
+    date_hint: 2026-04-07

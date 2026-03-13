@@ -1,0 +1,52 @@
+version: 1
+project_id: prj-0001
+schedule_level: domain
+domain: design
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-999
+  notes: >
+    Design domain summary schedule.
+    Execution-granularity tasks are split into container schedules.
+
+tasks:
+  - id: T-SDH-DES-100
+    wbs: WBS-DES-CLD-010
+    name: design context and policy updates summary
+    duration_days: 2
+    depends_on: [M-SDH-300]
+    owner: EN
+    tags: [design, summary, context-policy]
+    notes: Detailed execution is in sch-design-context.yaml and sch-design-policy.yaml.
+
+  - id: T-SDH-DES-200
+    wbs: WBS-DES-CDFD-050
+    name: design flow and interaction updates summary
+    duration_days: 2.5
+    depends_on: [T-SDH-DES-100]
+    owner: EN
+    tags: [design, summary, flow]
+    notes: Detailed execution is in sch-design-flow.yaml.
+
+  - id: T-SDH-DES-300
+    wbs: WBS-DES-SYSD-130
+    name: design structure and engineering updates summary
+    duration_days: 3
+    depends_on: [T-SDH-DES-200]
+    owner: EN
+    tags: [design, summary, structure-engineering]
+    notes: Detailed execution is in sch-design-structure.yaml.
+
+milestones:
+  - id: M-SDH-DES-900
+    name: design domain complete
+    depends_on: [T-SDH-DES-300]
+    owner: EN
+    date_hint: 2026-04-01

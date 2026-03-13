@@ -1,0 +1,88 @@
+version: 1
+project_id: prj-0001
+schedule_level: domain
+domain: nfr
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-999
+  notes: Non-functional requirements schedule derived from NFR WBS families.
+
+tasks:
+  - id: T-SDH-NFR-010
+    wbs: WBS-NFR-INDEX-010
+    name: update nfr index pair
+    duration_days: 0.5
+    depends_on: [M-SDH-200]
+    owner: EN
+    tags: [nfr, index]
+
+  - id: T-SDH-NFR-020
+    wbs: WBS-NFR-AVAILABILITY-020
+    name: update availability requirement pair
+    duration_days: 0.5
+    depends_on: [T-SDH-NFR-010]
+    owner: EN
+    tags: [nfr, availability]
+
+  - id: T-SDH-NFR-030
+    wbs: WBS-NFR-INTEGRITY-030
+    name: update integrity requirement pair
+    duration_days: 0.5
+    depends_on: [T-SDH-NFR-010]
+    owner: EN
+    tags: [nfr, integrity]
+
+  - id: T-SDH-NFR-040
+    wbs: WBS-NFR-MAINTAINABILITY-040
+    name: update maintainability requirement pair
+    duration_days: 0.5
+    depends_on: [T-SDH-NFR-010]
+    owner: EN
+    tags: [nfr, maintainability]
+
+  - id: T-SDH-NFR-050
+    wbs: WBS-NFR-OPERATIONS-050
+    name: update operations requirement pair
+    duration_days: 0.5
+    depends_on: [T-SDH-NFR-010]
+    owner: EN
+    tags: [nfr, operations]
+
+  - id: T-SDH-NFR-060
+    wbs: WBS-NFR-PERFORMANCE-060
+    name: update performance requirement pair
+    duration_days: 0.5
+    depends_on: [T-SDH-NFR-010]
+    owner: EN
+    tags: [nfr, performance]
+
+  - id: T-SDH-NFR-070
+    wbs: WBS-NFR-RELIABILITY-070
+    name: update reliability requirement pair
+    duration_days: 0.5
+    depends_on: [T-SDH-NFR-060]
+    owner: EN
+    tags: [nfr, reliability]
+
+  - id: T-SDH-NFR-080
+    wbs: WBS-NFR-SECURITY-080
+    name: update security and safety requirement pair
+    duration_days: 0.75
+    depends_on: [T-SDH-NFR-030]
+    owner: EN
+    tags: [nfr, security-safety]
+
+  - id: T-SDH-NFR-090
+    wbs: WBS-NFR-USABILITY-090
+    name: update usability requirement pair
+    duration_days: 0.5
+    depends_on: [T-SDH-NFR-010]
+    owner: BO
+    tags: [nfr, usability]

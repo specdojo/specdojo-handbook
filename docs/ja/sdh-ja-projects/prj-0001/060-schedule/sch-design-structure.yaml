@@ -1,0 +1,72 @@
+version: 1
+project_id: prj-0001
+schedule_level: container
+domain: design
+container: structure
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-DES-STR-900
+  notes: Container schedule for structure, model, and engineering support design families.
+
+tasks:
+  - id: T-SDH-DES-STR-010
+    wbs: WBS-DES-DIAGRAM-080
+    name: update shared diagram rule sets
+    duration_days: 0.5
+    depends_on: [M-SDH-DES-CTX-900, M-SDH-DES-POL-900]
+    owner: EN
+    tags: [design, structure, diagrams]
+
+  - id: T-SDH-DES-STR-020
+    wbs: WBS-DES-CDSD-090
+    name: update component design summary pair
+    duration_days: 0.5
+    depends_on: [M-SDH-DES-POL-900]
+    owner: EN
+    tags: [design, structure, summary]
+
+  - id: T-SDH-DES-STR-030
+    wbs: WBS-DES-DMD-100
+    name: update domain model pair
+    duration_days: 0.5
+    depends_on: [M-SDH-300]
+    owner: EN
+    tags: [design, structure, domain-model]
+
+  - id: T-SDH-DES-STR-040
+    wbs: WBS-DES-ENGINEERING-110
+    name: update engineering support documentation set
+    duration_days: 1
+    depends_on: [M-SDH-DES-FLOW-900, T-SDH-DES-STR-030]
+    owner: EN
+    tags: [design, structure, engineering-support]
+
+  - id: T-SDH-DES-STR-050
+    wbs: WBS-DES-STRUCTURE-120
+    name: update logical structure and ui specification pairs
+    duration_days: 0.75
+    depends_on: [T-SDH-DES-STR-010, T-SDH-DES-STR-030]
+    owner: EN
+    tags: [design, structure, logical-ui]
+
+  - id: T-SDH-DES-STR-060
+    wbs: WBS-DES-SYSD-130
+    name: update system design index and policy family
+    duration_days: 1
+    depends_on: [T-SDH-DES-STR-020, T-SDH-DES-STR-040, T-SDH-DES-STR-050]
+    owner: EN
+    tags: [design, structure, system-design]
+
+milestones:
+  - id: M-SDH-DES-STR-900
+    name: design structure container complete
+    depends_on: [T-SDH-DES-STR-060]
+    owner: EN
+    date_hint: 2026-04-01

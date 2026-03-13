@@ -1,0 +1,40 @@
+version: 1
+project_id: prj-0001
+schedule_level: container
+domain: design
+container: policy
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-DES-POL-900
+  notes: Container schedule for design policy rule families.
+
+tasks:
+  - id: T-SDH-DES-POL-010
+    wbs: WBS-DES-COP-030
+    name: update cross-cutting policy pair
+    duration_days: 0.5
+    depends_on: [M-SDH-300]
+    owner: EN
+    tags: [design, policy, cross-cutting]
+
+  - id: T-SDH-DES-POL-020
+    wbs: WBS-DES-CPD-040
+    name: update component policy family
+    duration_days: 0.75
+    depends_on: [T-SDH-DES-POL-010]
+    owner: EN
+    tags: [design, policy, component]
+
+milestones:
+  - id: M-SDH-DES-POL-900
+    name: design policy container complete
+    depends_on: [T-SDH-DES-POL-020]
+    owner: EN
+    date_hint: 2026-03-26

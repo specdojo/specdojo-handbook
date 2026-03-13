@@ -1,0 +1,48 @@
+version: 1
+project_id: prj-0001
+schedule_level: container
+domain: quality
+container: criteria
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-QLT-CRT-900
+  notes: Container schedule for acceptance, external, and user test criteria families.
+
+tasks:
+  - id: T-SDH-QLT-CRT-010
+    wbs: WBS-QLTY-ATC-010
+    name: update acceptance test criteria family
+    duration_days: 1
+    depends_on: [M-SDH-300]
+    owner: BO
+    tags: [quality, criteria, acceptance-tests]
+
+  - id: T-SDH-QLT-CRT-020
+    wbs: WBS-QLTY-ETC-020
+    name: update external test criteria family
+    duration_days: 1
+    depends_on: [M-SDH-300]
+    owner: BO
+    tags: [quality, criteria, external-tests]
+
+  - id: T-SDH-QLT-CRT-030
+    wbs: WBS-QLTY-UTC-050
+    name: update user test criteria family
+    duration_days: 0.75
+    depends_on: [M-SDH-300, T-SDH-BIZ-010]
+    owner: BO
+    tags: [quality, criteria, user-tests]
+
+milestones:
+  - id: M-SDH-QLT-CRT-900
+    name: quality criteria container complete
+    depends_on: [T-SDH-QLT-CRT-010, T-SDH-QLT-CRT-020, T-SDH-QLT-CRT-030]
+    owner: BO
+    date_hint: 2026-03-27

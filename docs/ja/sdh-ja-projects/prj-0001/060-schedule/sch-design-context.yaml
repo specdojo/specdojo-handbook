@@ -1,0 +1,40 @@
+version: 1
+project_id: prj-0001
+schedule_level: container
+domain: design
+container: context
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-DES-CTX-900
+  notes: Container schedule for context landscape and narrative rule families.
+
+tasks:
+  - id: T-SDH-DES-CTX-010
+    wbs: WBS-DES-CLD-010
+    name: update context landscape pair
+    duration_days: 0.5
+    depends_on: [M-SDH-300]
+    owner: EN
+    tags: [design, context, landscape]
+
+  - id: T-SDH-DES-CTX-020
+    wbs: WBS-DES-CND-020
+    name: update context narrative and mermaid family
+    duration_days: 0.75
+    depends_on: [T-SDH-DES-CTX-010]
+    owner: EN
+    tags: [design, context, narrative]
+
+milestones:
+  - id: M-SDH-DES-CTX-900
+    name: design context container complete
+    depends_on: [T-SDH-DES-CTX-020]
+    owner: EN
+    date_hint: 2026-03-26

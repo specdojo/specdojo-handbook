@@ -1,0 +1,64 @@
+version: 1
+project_id: prj-0001
+schedule_level: domain
+domain: business
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-999
+  notes: Business domain schedule derived from business WBS families.
+
+tasks:
+  - id: T-SDH-BIZ-010
+    wbs: WBS-BIZ-BAC-010
+    name: update business acceptance criteria pair
+    duration_days: 0.5
+    depends_on: [M-SDH-200]
+    owner: BO
+    tags: [business, acceptance]
+
+  - id: T-SDH-BIZ-020
+    wbs: WBS-BIZ-BDD-020
+    name: update business data definition pair
+    duration_days: 0.5
+    depends_on: [M-SDH-200]
+    owner: BO
+    tags: [business, data]
+
+  - id: T-SDH-BIZ-030
+    wbs: WBS-BIZ-BDS-030
+    name: update business data schema pair
+    duration_days: 0.5
+    depends_on: [T-SDH-BIZ-020]
+    owner: BO
+    tags: [business, data]
+
+  - id: T-SDH-BIZ-040
+    wbs: WBS-BIZ-BPS-040
+    name: update business process specification pair
+    duration_days: 0.75
+    depends_on: [M-SDH-200]
+    owner: BO
+    tags: [business, process]
+
+  - id: T-SDH-BIZ-050
+    wbs: WBS-BIZ-BR-050
+    name: update business rule pair
+    duration_days: 0.5
+    depends_on: [T-SDH-BIZ-040]
+    owner: BO
+    tags: [business, rules]
+
+  - id: T-SDH-BIZ-060
+    wbs: WBS-BIZ-BES-060
+    name: update business event specification family
+    duration_days: 0.75
+    depends_on: [T-SDH-BIZ-040, T-SDH-BIZ-050]
+    owner: BO
+    tags: [business, events]

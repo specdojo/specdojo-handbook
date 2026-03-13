@@ -1,0 +1,48 @@
+version: 1
+project_id: prj-0001
+schedule_level: container
+domain: design
+container: flow
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-DES-FLOW-900
+  notes: Container schedule for flow and interaction-oriented design documents.
+
+tasks:
+  - id: T-SDH-DES-FLOW-010
+    wbs: WBS-DES-CDFD-050
+    name: update data flow documentation family
+    duration_days: 0.75
+    depends_on: [M-SDH-DES-CTX-900, M-SDH-DES-POL-900]
+    owner: EN
+    tags: [design, flow, data-flow]
+
+  - id: T-SDH-DES-FLOW-020
+    wbs: WBS-DES-CSTD-060
+    name: update state transition documentation family
+    duration_days: 0.75
+    depends_on: [M-SDH-DES-CTX-900]
+    owner: EN
+    tags: [design, flow, state-transition]
+
+  - id: T-SDH-DES-FLOW-030
+    wbs: WBS-DES-CXD-070
+    name: update cross-system design family
+    duration_days: 0.75
+    depends_on: [T-SDH-DES-FLOW-010]
+    owner: EN
+    tags: [design, flow, cross-system]
+
+milestones:
+  - id: M-SDH-DES-FLOW-900
+    name: design flow container complete
+    depends_on: [T-SDH-DES-FLOW-020, T-SDH-DES-FLOW-030]
+    owner: EN
+    date_hint: 2026-03-28

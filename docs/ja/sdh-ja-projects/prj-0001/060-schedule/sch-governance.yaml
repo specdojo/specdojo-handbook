@@ -1,0 +1,56 @@
+version: 1
+project_id: prj-0001
+schedule_level: domain
+domain: governance
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-999
+  notes: Governance domain schedule derived from governance WBS families.
+
+tasks:
+  - id: T-SDH-GOV-010
+    wbs: WBS-GOV-PROJECT-010
+    name: align project overview and scope rule pairs
+    duration_days: 1
+    depends_on: [M-SDH-100]
+    owner: BO
+    tags: [governance, project-docs]
+
+  - id: T-SDH-GOV-020
+    wbs: WBS-GOV-GLOSSARY-020
+    name: update glossary rule and instruction pair
+    duration_days: 0.5
+    depends_on: [T-SDH-GOV-010]
+    owner: BO
+    tags: [governance, glossary]
+
+  - id: T-SDH-GOV-030
+    wbs: WBS-GOV-OPS-030
+    name: update handbook operation and planning rule sets
+    duration_days: 1
+    depends_on: [T-SDH-GOV-010]
+    owner: BO
+    tags: [governance, operations]
+
+  - id: T-SDH-GOV-040
+    wbs: WBS-GOV-MIGRATION-040
+    name: update migration index rule and instruction pair
+    duration_days: 0.5
+    depends_on: [T-SDH-GOV-030]
+    owner: BO
+    tags: [governance, migration]
+
+  - id: T-SDH-GOV-050
+    wbs: WBS-GOV-META-050
+    name: align shared metadata and naming constraints
+    duration_days: 0.75
+    depends_on: [M-SDH-100]
+    owner: EN
+    tags: [governance, meta]

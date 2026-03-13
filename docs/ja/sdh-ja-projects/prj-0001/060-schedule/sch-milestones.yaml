@@ -1,0 +1,72 @@
+version: 1
+project_id: prj-0001
+schedule_level: milestones
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-999
+  notes: Handbook rules and instructions maintenance plan derived from domain WBS files.
+
+milestones:
+  - id: M-SDH-100
+    name: schedule kickoff
+    depends_on: []
+    owner: BO
+    date_hint: 2026-03-16
+    tags: [kickoff]
+
+  - id: M-SDH-200
+    name: governance baseline ready
+    depends_on:
+      - T-SDH-GOV-020
+      - T-SDH-GOV-030
+      - T-SDH-GOV-040
+      - T-SDH-GOV-050
+    owner: BO
+    date_hint: 2026-03-19
+    tags: [governance]
+
+  - id: M-SDH-300
+    name: business and nfr baseline ready
+    depends_on:
+      - T-SDH-BIZ-060
+      - T-SDH-NFR-020
+      - T-SDH-NFR-030
+      - T-SDH-NFR-040
+      - T-SDH-NFR-050
+      - T-SDH-NFR-070
+      - T-SDH-NFR-080
+      - T-SDH-NFR-090
+    owner: EN
+    date_hint: 2026-03-25
+    tags: [definition]
+
+  - id: M-SDH-350
+    name: design baseline ready
+    depends_on:
+      - M-SDH-DES-900
+    owner: EN
+    date_hint: 2026-04-01
+    tags: [design]
+
+  - id: M-SDH-400
+    name: quality and traceability baseline ready
+    depends_on:
+      - M-SDH-QLT-900
+    owner: BO
+    date_hint: 2026-04-07
+    tags: [quality]
+
+  - id: M-SDH-999
+    name: prj-0001 schedule scope completed
+    depends_on:
+      - M-SDH-400
+    owner: BO
+    date_hint: 2026-04-08
+    tags: [finish]

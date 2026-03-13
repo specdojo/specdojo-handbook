@@ -1,0 +1,52 @@
+version: 1
+project_id: prj-0001
+schedule_level: domain
+domain: quality
+assigned_team: specdojo-handbook
+
+calendar:
+  timezone: Asia/Tokyo
+  workdays: [Mon, Tue, Wed, Thu, Fri]
+  holidays: []
+
+settings:
+  start_date: 2026-03-16
+  finish_milestone_id: M-SDH-999
+  notes: >
+    Quality domain summary schedule.
+    Execution-granularity tasks are split into container schedules.
+
+tasks:
+  - id: T-SDH-QLT-100
+    wbs: WBS-QLTY-ATC-010
+    name: quality criteria families summary
+    duration_days: 2.5
+    depends_on: [M-SDH-300]
+    owner: BO
+    tags: [quality, summary, criteria]
+    notes: Detailed execution is in sch-quality-criteria.yaml.
+
+  - id: T-SDH-QLT-200
+    wbs: WBS-QLTY-ITC-030
+    name: quality verification and acceptance summary
+    duration_days: 2
+    depends_on: [M-SDH-350, T-SDH-QLT-100]
+    owner: EN
+    tags: [quality, summary, verification]
+    notes: Detailed execution is in sch-quality-verification.yaml.
+
+  - id: T-SDH-QLT-300
+    wbs: WBS-QLTY-TESTPLAN-080
+    name: quality traceability and planning summary
+    duration_days: 1.5
+    depends_on: [T-SDH-QLT-200]
+    owner: EN
+    tags: [quality, summary, traceability-planning]
+    notes: Detailed execution is in sch-quality-governance.yaml.
+
+milestones:
+  - id: M-SDH-QLT-900
+    name: quality domain complete
+    depends_on: [T-SDH-QLT-300]
+    owner: EN
+    date_hint: 2026-04-07
