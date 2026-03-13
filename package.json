@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "prepare": "lefthook install",
+    "dojo:build": "npm --workspace tools/dojo run build",
     "lint:md": "markdownlint '**/*.md'",
     "lint:md:fix": "markdownlint --fix '**/*.md'",
     "docs:dev": "vitepress dev docs --host 0.0.0.0 --port 5173",

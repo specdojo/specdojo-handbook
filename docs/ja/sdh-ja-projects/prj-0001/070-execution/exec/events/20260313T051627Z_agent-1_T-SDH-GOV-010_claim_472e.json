@@ -1,0 +1,12 @@
+{
+  "v": 1,
+  "ts": "2026-03-13T05:16:27Z",
+  "type": "claim",
+  "task_id": "T-SDH-GOV-010",
+  "by": "agent-1",
+  "msg": "auto-claim",
+  "meta": {
+    "scheduler_strategy": "critical-first",
+    "claimed_via": "dojo-exec-scheduler"
+  }
+}
