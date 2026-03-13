@@ -18,8 +18,8 @@ export const handbookSidebarItems = [
           },
           { text: 'WBS設計', link: '/ja/handbook/guidelines/specdojo-wbs-design-guide' },
           {
-            text: '仕様からタスクの生成アルゴリズム',
-            link: '/ja/handbook/guidelines/specdojo-spec-to-task-algorithm-guide',
+            text: '定義からタスクの生成アルゴリズム',
+            link: '/ja/handbook/guidelines/specdojo-definition-to-task-algorithm-guide',
           },
         ],
       },
