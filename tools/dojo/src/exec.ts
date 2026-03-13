@@ -9,7 +9,7 @@ import {
   statSync,
   rmSync,
 } from 'node:fs'
-import { join, extname, basename, resolve } from 'node:path'
+import { join, extname, basename, resolve, relative } from 'node:path'
 import yaml from 'js-yaml'
 import {
   getProjectExecutionPath,
@@ -71,8 +71,7 @@ type CurrentState = {
 }
 
 type StateSnapshot = {
-  generated_at_utc: string
-  project_path: string
+  schedule_path: string
   tasks: Record<string, CurrentState>
 }
 
@@ -105,8 +104,7 @@ type CpmNode = {
 }
 
 type CpmResult = {
-  generated_at_utc: string
-  project_path: string
+  schedule_path: string
   project_duration_days: number
   nodes: Record<string, CpmNode>
   critical_path: string[]
@@ -114,15 +112,13 @@ type CpmResult = {
 
 type ScheduleHash = {
   schema_version: 1
-  generated_at_utc: string
-  project_path: string
+  schedule_path: string
   schedule_files: string[]
   node_hashes: Record<string, string>
 }
 
 type ScheduleDiff = {
-  generated_at_utc: string
-  project_path: string
+  schedule_path: string
   added: string[]
   removed: string[]
   changed: string[]
@@ -150,8 +146,7 @@ type ReadyTaskView = {
 }
 
 type ReadySnapshot = {
-  generated_at_utc: string
-  project_path: string
+  schedule_path: string
   execution_path: string
   generated_dir: string
   ready_count: number
@@ -167,8 +162,7 @@ type ReadySnapshot = {
 }
 
 type ClaimNextSnapshot = {
-  generated_at_utc: string
-  project_path: string
+  schedule_path: string
   execution_path: string
   generated_dir: string
   default_strategy: SchedulerStrategy
@@ -269,6 +263,19 @@ function sleepMs(ms: number): void {
   const sab = new SharedArrayBuffer(4)
   const int32 = new Int32Array(sab)
   Atomics.wait(int32, 0, 0, ms)
+}
+
+function toPortablePath(path: string): string {
+  return path.replace(/\\/g, '/')
+}
+
+function toArtifactPath(path: string): string {
+  const rel = relative(process.cwd(), path)
+  return toPortablePath(rel || '.')
+}
+
+function toScheduleFilePath(schedulePath: string, filePath: string): string {
+  return toPortablePath(relative(schedulePath, filePath) || '.')
 }
 
 function activateResolvedProjectPaths(paths: ResolvedProjectPaths): void {
@@ -688,8 +695,7 @@ function foldEventsToState(
   for (const id of schedule.nodes.keys()) ensure(id)
 
   return {
-    generated_at_utc: nowUtcIsoSeconds(),
-    project_path: projectPath,
+    schedule_path: toArtifactPath(projectPath),
     tasks,
   }
 }
@@ -896,7 +902,7 @@ function computeCpm(schedule: ScheduleIndex, projectPath: string): CpmResult {
       lf: 0,
       slack: 0,
       depends_on: n.depends_on,
-      schedule_file: n.schedule_file,
+      schedule_file: toScheduleFilePath(projectPath, n.schedule_file),
     }
   }
 
@@ -943,8 +949,7 @@ function computeCpm(schedule: ScheduleIndex, projectPath: string): CpmResult {
   }
 
   return {
-    generated_at_utc: nowUtcIsoSeconds(),
-    project_path: projectPath,
+    schedule_path: toArtifactPath(projectPath),
     project_duration_days: projectDuration,
     nodes,
     critical_path: path,
@@ -961,7 +966,6 @@ function writeCpmFiles(projectPath: string, cpm: CpmResult): void {
   const lines: string[] = []
   lines.push(`# CPM`)
   lines.push('')
-  lines.push(`- generated_at_utc: \`${cpm.generated_at_utc}\``)
   lines.push(`- project_duration_days: \`${cpm.project_duration_days}\``)
   lines.push('')
   lines.push(`| id | kind | dur | ES | EF | LS | LF | slack | depends_on |`)
@@ -977,7 +981,6 @@ function writeCpmFiles(projectPath: string, cpm: CpmResult): void {
   const cp: string[] = []
   cp.push(`# Critical Path`)
   cp.push('')
-  cp.push(`- generated_at_utc: \`${cpm.generated_at_utc}\``)
   cp.push(`- project_duration_days: \`${cpm.project_duration_days}\``)
   cp.push('')
   if (!cpm.critical_path.length) cp.push('_No critical path computed._')
@@ -1018,9 +1021,8 @@ function buildScheduleHash(schedule: ScheduleIndex, projectPath: string): Schedu
 
   return {
     schema_version: 1,
-    generated_at_utc: nowUtcIsoSeconds(),
-    project_path: projectPath,
-    schedule_files: schedule.files.map(p => basename(p)).sort(),
+    schedule_path: toArtifactPath(projectPath),
+    schedule_files: schedule.files.map(p => toScheduleFilePath(projectPath, p)).sort(),
     node_hashes,
   }
 }
@@ -1043,8 +1045,7 @@ function computeScheduleDiff(prev: ScheduleHash | null, cur: ScheduleHash): Sche
     .sort()
 
   return {
-    generated_at_utc: nowUtcIsoSeconds(),
-    project_path: cur.project_path,
+    schedule_path: cur.schedule_path,
     added,
     removed,
     changed,
@@ -1072,8 +1073,6 @@ function writeScheduleHashAndDiff(projectPath: string, schedule: ScheduleIndex):
 
   const lines: string[] = []
   lines.push(`# Schedule Diff`)
-  lines.push('')
-  lines.push(`- generated_at_utc: \`${diff.generated_at_utc}\``)
   lines.push('')
   lines.push(`## Added`)
   lines.push('')
@@ -1142,7 +1141,7 @@ function buildReadySnapshot(
     return {
       id,
       name: node?.name,
-      schedule_file: basename(node?.schedule_file ?? ''),
+      schedule_file: node?.schedule_file ? toScheduleFilePath(projectPath, node.schedule_file) : '',
       fifo_rank: fifoRank.get(id) ?? 0,
       critical_first_rank: criticalRank.get(id) ?? 0,
       cpm: cpmNode
@@ -1158,10 +1157,9 @@ function buildReadySnapshot(
   })
 
   return {
-    generated_at_utc: nowUtcIsoSeconds(),
-    project_path: projectPath,
-    execution_path: executionPath,
-    generated_dir: generatedDir,
+    schedule_path: toArtifactPath(projectPath),
+    execution_path: toArtifactPath(executionPath),
+    generated_dir: toArtifactPath(generatedDir),
     ready_count: ready.length,
     default_strategy: 'critical-first',
     strategies: {
@@ -1185,8 +1183,7 @@ function writeReadyFiles(projectPath: string, readySnapshot: ReadySnapshot): voi
   writeJson(join(genDir, 'ready.json'), readySnapshot)
 
   const claimNext: ClaimNextSnapshot = {
-    generated_at_utc: readySnapshot.generated_at_utc,
-    project_path: readySnapshot.project_path,
+    schedule_path: readySnapshot.schedule_path,
     execution_path: readySnapshot.execution_path,
     generated_dir: readySnapshot.generated_dir,
     default_strategy: readySnapshot.default_strategy,
@@ -1197,8 +1194,7 @@ function writeReadyFiles(projectPath: string, readySnapshot: ReadySnapshot): voi
   const lines: string[] = []
   lines.push(`# Ready Tasks`)
   lines.push('')
-  lines.push(`- generated_at_utc: \`${readySnapshot.generated_at_utc}\``)
-  lines.push(`- project_path: \`${readySnapshot.project_path}\``)
+  lines.push(`- schedule_path: \`${readySnapshot.schedule_path}\``)
   lines.push(`- execution_path: \`${readySnapshot.execution_path}\``)
   lines.push(`- ready_count: \`${readySnapshot.ready_count}\``)
   lines.push(`- default_strategy: \`${readySnapshot.default_strategy}\``)
@@ -1259,10 +1255,10 @@ function writeGeneratedCore(
 
   writeJson(join(genDir, 'metadata.json'), {
     generated_at_utc: nowUtcIsoSeconds(),
-    project_path: projectPath,
-    execution_path: executionRootForProject(projectPath),
-    generated_dir: genDir,
-    schedule_files: schedule.files.map(p => basename(p)).sort(),
+    schedule_path: toArtifactPath(projectPath),
+    execution_path: toArtifactPath(executionRootForProject(projectPath)),
+    generated_dir: toArtifactPath(genDir),
+    schedule_files: schedule.files.map(p => toScheduleFilePath(projectPath, p)).sort(),
     event_files_count: events.length,
     default_scheduler_strategy: 'critical-first',
     derived_files: [

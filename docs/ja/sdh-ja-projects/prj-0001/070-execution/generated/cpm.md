@@ -1,6 +1,5 @@
 # CPM
 
-- generated_at_utc: `2026-03-13T05:16:24Z`
 - project_duration_days: `15.5`
 
 | id | kind | dur | ES | EF | LS | LF | slack | depends_on |

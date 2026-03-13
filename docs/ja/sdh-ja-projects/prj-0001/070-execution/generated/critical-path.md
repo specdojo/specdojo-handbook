@@ -1,6 +1,5 @@
 # Critical Path
 
-- generated_at_utc: `2026-03-13T05:16:24Z`
 - project_duration_days: `15.5`
 
 Critical path (one path, tie-broken):

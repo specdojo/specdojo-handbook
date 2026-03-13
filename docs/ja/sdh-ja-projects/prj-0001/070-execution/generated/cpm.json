@@ -1,6 +1,5 @@
 {
-  "generated_at_utc": "2026-03-13T05:16:24Z",
-  "project_path": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule",
+  "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "project_duration_days": 15.5,
   "nodes": {
     "M-SDH-100": {
@@ -14,7 +13,7 @@
       "lf": 0,
       "slack": 0,
       "depends_on": [],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+      "schedule_file": "sch-milestones.yaml"
     },
     "T-SDH-GOV-010": {
       "id": "T-SDH-GOV-010",
@@ -29,7 +28,7 @@
       "depends_on": [
         "M-SDH-100"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+      "schedule_file": "sch-governance.yaml"
     },
     "T-SDH-GOV-020": {
       "id": "T-SDH-GOV-020",
@@ -44,7 +43,7 @@
       "depends_on": [
         "T-SDH-GOV-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+      "schedule_file": "sch-governance.yaml"
     },
     "T-SDH-GOV-030": {
       "id": "T-SDH-GOV-030",
@@ -59,7 +58,7 @@
       "depends_on": [
         "T-SDH-GOV-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+      "schedule_file": "sch-governance.yaml"
     },
     "T-SDH-GOV-040": {
       "id": "T-SDH-GOV-040",
@@ -74,7 +73,7 @@
       "depends_on": [
         "T-SDH-GOV-030"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+      "schedule_file": "sch-governance.yaml"
     },
     "T-SDH-GOV-050": {
       "id": "T-SDH-GOV-050",
@@ -89,7 +88,7 @@
       "depends_on": [
         "M-SDH-100"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-governance.yaml"
+      "schedule_file": "sch-governance.yaml"
     },
     "M-SDH-200": {
       "id": "M-SDH-200",
@@ -107,7 +106,7 @@
         "T-SDH-GOV-040",
         "T-SDH-GOV-050"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+      "schedule_file": "sch-milestones.yaml"
     },
     "T-SDH-BIZ-010": {
       "id": "T-SDH-BIZ-010",
@@ -122,7 +121,7 @@
       "depends_on": [
         "M-SDH-200"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+      "schedule_file": "sch-business.yaml"
     },
     "T-SDH-BIZ-020": {
       "id": "T-SDH-BIZ-020",
@@ -137,7 +136,7 @@
       "depends_on": [
         "M-SDH-200"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+      "schedule_file": "sch-business.yaml"
     },
     "T-SDH-BIZ-030": {
       "id": "T-SDH-BIZ-030",
@@ -152,7 +151,7 @@
       "depends_on": [
         "T-SDH-BIZ-020"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+      "schedule_file": "sch-business.yaml"
     },
     "T-SDH-BIZ-040": {
       "id": "T-SDH-BIZ-040",
@@ -167,7 +166,7 @@
       "depends_on": [
         "M-SDH-200"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+      "schedule_file": "sch-business.yaml"
     },
     "T-SDH-BIZ-050": {
       "id": "T-SDH-BIZ-050",
@@ -182,7 +181,7 @@
       "depends_on": [
         "T-SDH-BIZ-040"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+      "schedule_file": "sch-business.yaml"
     },
     "T-SDH-BIZ-060": {
       "id": "T-SDH-BIZ-060",
@@ -198,7 +197,7 @@
         "T-SDH-BIZ-040",
         "T-SDH-BIZ-050"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-business.yaml"
+      "schedule_file": "sch-business.yaml"
     },
     "T-SDH-NFR-010": {
       "id": "T-SDH-NFR-010",
@@ -213,7 +212,7 @@
       "depends_on": [
         "M-SDH-200"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-020": {
       "id": "T-SDH-NFR-020",
@@ -228,7 +227,7 @@
       "depends_on": [
         "T-SDH-NFR-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-030": {
       "id": "T-SDH-NFR-030",
@@ -243,7 +242,7 @@
       "depends_on": [
         "T-SDH-NFR-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-040": {
       "id": "T-SDH-NFR-040",
@@ -258,7 +257,7 @@
       "depends_on": [
         "T-SDH-NFR-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-050": {
       "id": "T-SDH-NFR-050",
@@ -273,7 +272,7 @@
       "depends_on": [
         "T-SDH-NFR-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-060": {
       "id": "T-SDH-NFR-060",
@@ -288,7 +287,7 @@
       "depends_on": [
         "T-SDH-NFR-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-070": {
       "id": "T-SDH-NFR-070",
@@ -303,7 +302,7 @@
       "depends_on": [
         "T-SDH-NFR-060"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-080": {
       "id": "T-SDH-NFR-080",
@@ -318,7 +317,7 @@
       "depends_on": [
         "T-SDH-NFR-030"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-090": {
       "id": "T-SDH-NFR-090",
@@ -333,7 +332,7 @@
       "depends_on": [
         "T-SDH-NFR-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-nfr.yaml"
+      "schedule_file": "sch-nfr.yaml"
     },
     "M-SDH-300": {
       "id": "M-SDH-300",
@@ -355,7 +354,7 @@
         "T-SDH-NFR-080",
         "T-SDH-NFR-090"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+      "schedule_file": "sch-milestones.yaml"
     },
     "T-SDH-DES-100": {
       "id": "T-SDH-DES-100",
@@ -370,7 +369,7 @@
       "depends_on": [
         "M-SDH-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design.yaml"
+      "schedule_file": "sch-design.yaml"
     },
     "T-SDH-DES-200": {
       "id": "T-SDH-DES-200",
@@ -385,7 +384,7 @@
       "depends_on": [
         "T-SDH-DES-100"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design.yaml"
+      "schedule_file": "sch-design.yaml"
     },
     "T-SDH-DES-300": {
       "id": "T-SDH-DES-300",
@@ -400,7 +399,7 @@
       "depends_on": [
         "T-SDH-DES-200"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design.yaml"
+      "schedule_file": "sch-design.yaml"
     },
     "M-SDH-DES-900": {
       "id": "M-SDH-DES-900",
@@ -415,7 +414,7 @@
       "depends_on": [
         "T-SDH-DES-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design.yaml"
+      "schedule_file": "sch-design.yaml"
     },
     "M-SDH-350": {
       "id": "M-SDH-350",
@@ -430,7 +429,7 @@
       "depends_on": [
         "M-SDH-DES-900"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+      "schedule_file": "sch-milestones.yaml"
     },
     "T-SDH-DES-CTX-010": {
       "id": "T-SDH-DES-CTX-010",
@@ -445,7 +444,7 @@
       "depends_on": [
         "M-SDH-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-context.yaml"
+      "schedule_file": "sch-design-context.yaml"
     },
     "T-SDH-DES-CTX-020": {
       "id": "T-SDH-DES-CTX-020",
@@ -460,7 +459,7 @@
       "depends_on": [
         "T-SDH-DES-CTX-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-context.yaml"
+      "schedule_file": "sch-design-context.yaml"
     },
     "M-SDH-DES-CTX-900": {
       "id": "M-SDH-DES-CTX-900",
@@ -475,7 +474,7 @@
       "depends_on": [
         "T-SDH-DES-CTX-020"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-context.yaml"
+      "schedule_file": "sch-design-context.yaml"
     },
     "T-SDH-DES-FLOW-020": {
       "id": "T-SDH-DES-FLOW-020",
@@ -490,7 +489,7 @@
       "depends_on": [
         "M-SDH-DES-CTX-900"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-flow.yaml"
+      "schedule_file": "sch-design-flow.yaml"
     },
     "T-SDH-DES-POL-010": {
       "id": "T-SDH-DES-POL-010",
@@ -505,7 +504,7 @@
       "depends_on": [
         "M-SDH-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-policy.yaml"
+      "schedule_file": "sch-design-policy.yaml"
     },
     "T-SDH-DES-POL-020": {
       "id": "T-SDH-DES-POL-020",
@@ -520,7 +519,7 @@
       "depends_on": [
         "T-SDH-DES-POL-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-policy.yaml"
+      "schedule_file": "sch-design-policy.yaml"
     },
     "M-SDH-DES-POL-900": {
       "id": "M-SDH-DES-POL-900",
@@ -535,7 +534,7 @@
       "depends_on": [
         "T-SDH-DES-POL-020"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-policy.yaml"
+      "schedule_file": "sch-design-policy.yaml"
     },
     "T-SDH-DES-FLOW-010": {
       "id": "T-SDH-DES-FLOW-010",
@@ -551,7 +550,7 @@
         "M-SDH-DES-CTX-900",
         "M-SDH-DES-POL-900"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-flow.yaml"
+      "schedule_file": "sch-design-flow.yaml"
     },
     "T-SDH-DES-FLOW-030": {
       "id": "T-SDH-DES-FLOW-030",
@@ -566,7 +565,7 @@
       "depends_on": [
         "T-SDH-DES-FLOW-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-flow.yaml"
+      "schedule_file": "sch-design-flow.yaml"
     },
     "M-SDH-DES-FLOW-900": {
       "id": "M-SDH-DES-FLOW-900",
@@ -582,7 +581,7 @@
         "T-SDH-DES-FLOW-020",
         "T-SDH-DES-FLOW-030"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-flow.yaml"
+      "schedule_file": "sch-design-flow.yaml"
     },
     "T-SDH-DES-STR-010": {
       "id": "T-SDH-DES-STR-010",
@@ -598,7 +597,7 @@
         "M-SDH-DES-CTX-900",
         "M-SDH-DES-POL-900"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+      "schedule_file": "sch-design-structure.yaml"
     },
     "T-SDH-DES-STR-020": {
       "id": "T-SDH-DES-STR-020",
@@ -613,7 +612,7 @@
       "depends_on": [
         "M-SDH-DES-POL-900"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+      "schedule_file": "sch-design-structure.yaml"
     },
     "T-SDH-DES-STR-030": {
       "id": "T-SDH-DES-STR-030",
@@ -628,7 +627,7 @@
       "depends_on": [
         "M-SDH-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+      "schedule_file": "sch-design-structure.yaml"
     },
     "T-SDH-DES-STR-040": {
       "id": "T-SDH-DES-STR-040",
@@ -644,7 +643,7 @@
         "M-SDH-DES-FLOW-900",
         "T-SDH-DES-STR-030"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+      "schedule_file": "sch-design-structure.yaml"
     },
     "T-SDH-DES-STR-050": {
       "id": "T-SDH-DES-STR-050",
@@ -660,7 +659,7 @@
         "T-SDH-DES-STR-010",
         "T-SDH-DES-STR-030"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+      "schedule_file": "sch-design-structure.yaml"
     },
     "T-SDH-DES-STR-060": {
       "id": "T-SDH-DES-STR-060",
@@ -677,7 +676,7 @@
         "T-SDH-DES-STR-040",
         "T-SDH-DES-STR-050"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+      "schedule_file": "sch-design-structure.yaml"
     },
     "M-SDH-DES-STR-900": {
       "id": "M-SDH-DES-STR-900",
@@ -692,7 +691,7 @@
       "depends_on": [
         "T-SDH-DES-STR-060"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-design-structure.yaml"
+      "schedule_file": "sch-design-structure.yaml"
     },
     "T-SDH-QLT-100": {
       "id": "T-SDH-QLT-100",
@@ -707,7 +706,7 @@
       "depends_on": [
         "M-SDH-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
     "T-SDH-QLT-200": {
       "id": "T-SDH-QLT-200",
@@ -723,7 +722,7 @@
         "M-SDH-350",
         "T-SDH-QLT-100"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
     "T-SDH-QLT-300": {
       "id": "T-SDH-QLT-300",
@@ -738,7 +737,7 @@
       "depends_on": [
         "T-SDH-QLT-200"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
     "M-SDH-QLT-900": {
       "id": "M-SDH-QLT-900",
@@ -753,7 +752,7 @@
       "depends_on": [
         "T-SDH-QLT-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
     "M-SDH-400": {
       "id": "M-SDH-400",
@@ -768,7 +767,7 @@
       "depends_on": [
         "M-SDH-QLT-900"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+      "schedule_file": "sch-milestones.yaml"
     },
     "M-SDH-999": {
       "id": "M-SDH-999",
@@ -783,7 +782,7 @@
       "depends_on": [
         "M-SDH-400"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-milestones.yaml"
+      "schedule_file": "sch-milestones.yaml"
     },
     "T-SDH-QLT-CRT-010": {
       "id": "T-SDH-QLT-CRT-010",
@@ -798,7 +797,7 @@
       "depends_on": [
         "M-SDH-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-criteria.yaml"
+      "schedule_file": "sch-quality-criteria.yaml"
     },
     "T-SDH-QLT-CRT-020": {
       "id": "T-SDH-QLT-CRT-020",
@@ -813,7 +812,7 @@
       "depends_on": [
         "M-SDH-300"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-criteria.yaml"
+      "schedule_file": "sch-quality-criteria.yaml"
     },
     "T-SDH-QLT-CRT-030": {
       "id": "T-SDH-QLT-CRT-030",
@@ -829,7 +828,7 @@
         "M-SDH-300",
         "T-SDH-BIZ-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-criteria.yaml"
+      "schedule_file": "sch-quality-criteria.yaml"
     },
     "M-SDH-QLT-CRT-900": {
       "id": "M-SDH-QLT-CRT-900",
@@ -846,7 +845,7 @@
         "T-SDH-QLT-CRT-020",
         "T-SDH-QLT-CRT-030"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-criteria.yaml"
+      "schedule_file": "sch-quality-criteria.yaml"
     },
     "T-SDH-QLT-GOV-010": {
       "id": "T-SDH-QLT-GOV-010",
@@ -862,7 +861,7 @@
         "M-SDH-350",
         "T-SDH-NFR-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-governance.yaml"
+      "schedule_file": "sch-quality-governance.yaml"
     },
     "T-SDH-QLT-VRF-010": {
       "id": "T-SDH-QLT-VRF-010",
@@ -877,7 +876,7 @@
       "depends_on": [
         "M-SDH-350"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-verification.yaml"
+      "schedule_file": "sch-quality-verification.yaml"
     },
     "T-SDH-QLT-VRF-020": {
       "id": "T-SDH-QLT-VRF-020",
@@ -892,7 +891,7 @@
       "depends_on": [
         "T-SDH-QLT-VRF-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-verification.yaml"
+      "schedule_file": "sch-quality-verification.yaml"
     },
     "T-SDH-QLT-VRF-030": {
       "id": "T-SDH-QLT-VRF-030",
@@ -908,7 +907,7 @@
         "T-SDH-QLT-VRF-020",
         "M-SDH-QLT-CRT-900"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-verification.yaml"
+      "schedule_file": "sch-quality-verification.yaml"
     },
     "M-SDH-QLT-VRF-900": {
       "id": "M-SDH-QLT-VRF-900",
@@ -923,7 +922,7 @@
       "depends_on": [
         "T-SDH-QLT-VRF-030"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-verification.yaml"
+      "schedule_file": "sch-quality-verification.yaml"
     },
     "T-SDH-QLT-GOV-020": {
       "id": "T-SDH-QLT-GOV-020",
@@ -940,7 +939,7 @@
         "M-SDH-QLT-VRF-900",
         "T-SDH-QLT-GOV-010"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-governance.yaml"
+      "schedule_file": "sch-quality-governance.yaml"
     },
     "M-SDH-QLT-GOV-900": {
       "id": "M-SDH-QLT-GOV-900",
@@ -955,7 +954,7 @@
       "depends_on": [
         "T-SDH-QLT-GOV-020"
       ],
-      "schedule_file": "/workspaces/spec-dojo-handbook/docs/ja/sdh-ja-projects/prj-0001/060-schedule/sch-quality-governance.yaml"
+      "schedule_file": "sch-quality-governance.yaml"
     }
   },
   "critical_path": [

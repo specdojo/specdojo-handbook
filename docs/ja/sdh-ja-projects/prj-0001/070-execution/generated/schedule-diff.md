@@ -1,7 +1,5 @@
 # Schedule Diff
 
-- generated_at_utc: `2026-03-13T05:16:24Z`
-
 ## Added
 
 - `M-SDH-100`
