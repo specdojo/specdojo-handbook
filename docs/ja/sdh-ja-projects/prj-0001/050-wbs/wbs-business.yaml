@@ -5,6 +5,7 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-BIZ-BAC-010
     name: maintain business acceptance criteria rule and instruction pair
+    description: Maintain the BAC rule and instruction pair for business acceptance criteria documents and their mandatory authoring guidance.
     owner: BO
     component: acceptance
     deliverables:
@@ -16,6 +17,7 @@ wbs:
 
   - id: WBS-BIZ-BDD-020
     name: maintain business data definition rule and instruction pair
+    description: Maintain the BDD rule and instruction pair that governs business data definition documents and their field-level expectations.
     owner: BO
     component: data
     deliverables:
@@ -27,6 +29,7 @@ wbs:
 
   - id: WBS-BIZ-BDS-030
     name: maintain business data schema rule and instruction pair
+    description: Maintain the BDS rule and instruction pair that defines how business data schema documents are structured and constrained.
     owner: BO
     component: data
     deliverables:
@@ -38,6 +41,7 @@ wbs:
 
   - id: WBS-BIZ-BPS-040
     name: maintain business process specification rule and instruction pair
+    description: Maintain the BPS rule and instruction pair for business process specification documents and traceable process outputs.
     owner: BO
     component: process
     deliverables:
@@ -49,6 +53,7 @@ wbs:
 
   - id: WBS-BIZ-BR-050
     name: maintain business rule rule and instruction pair
+    description: Maintain the BR rule and instruction pair that defines how business rules are written, constrained, and reviewed.
     owner: BO
     component: rules
     deliverables:
@@ -60,6 +65,7 @@ wbs:
 
   - id: WBS-BIZ-BES-060
     name: maintain business event specification family
+    description: Maintain the BES index and detail-document rule and instruction files for business event specification documents.
     owner: BO
     component: events
     deliverables:

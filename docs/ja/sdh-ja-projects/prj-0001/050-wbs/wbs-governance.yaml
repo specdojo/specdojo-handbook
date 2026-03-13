@@ -5,6 +5,7 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-GOV-PROJECT-010
     name: maintain project documentation rule and instruction set
+    description: Maintain the project overview, scope, and issues-and-approach rule and instruction files as one governance-owned documentation family.
     owner: BO
     component: project-docs
     deliverables:
@@ -24,6 +25,7 @@ wbs:
 
   - id: WBS-GOV-GLOSSARY-020
     name: maintain glossary rule and instruction pair
+    description: Maintain the glossary rule and instruction pair that governs handbook terminology and glossary authoring structure.
     owner: BO
     component: glossary
     deliverables:
@@ -35,6 +37,7 @@ wbs:
 
   - id: WBS-GOV-OPS-030
     name: maintain handbook operation and planning rule sets
+    description: Maintain the management, operation, and planning rule and instruction files used to run and govern the handbook itself.
     owner: BO
     component: handbook-ops
     deliverables:
@@ -58,6 +61,7 @@ wbs:
 
   - id: WBS-GOV-MIGRATION-040
     name: maintain migration index rule and instruction pair
+    description: Maintain the migration index rule and instruction pair that defines how migration planning indexes are structured and generated.
     owner: BO
     component: migration
     deliverables:
@@ -69,6 +73,7 @@ wbs:
 
   - id: WBS-GOV-META-050
     name: maintain meta rulebook governance set
+    description: Maintain the shared meta rule set that defines metadata, naming, structure, and reusable cross-rule governance constraints.
     owner: EN
     component: meta
     deliverables:

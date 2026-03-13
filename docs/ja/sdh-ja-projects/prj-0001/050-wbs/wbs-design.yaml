@@ -5,6 +5,7 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-DES-CLD-010
     name: maintain context landscape documentation pair
+    description: Maintain the CLD rule and instruction pair for context landscape documents and their required narrative structure.
     owner: EN
     component: landscape
     deliverables:
@@ -16,6 +17,7 @@ wbs:
 
   - id: WBS-DES-CND-020
     name: maintain context narrative and mermaid family
+    description: Maintain the CND markdown and mermaid rule and instruction files for context documentation as one aligned family.
     owner: EN
     component: context
     deliverables:
@@ -31,6 +33,7 @@ wbs:
 
   - id: WBS-DES-COP-030
     name: maintain cross-cutting policy documentation pair
+    description: Maintain the COP rule and instruction pair for cross-cutting policy documents and their fixed policy coverage.
     owner: EN
     component: policy
     deliverables:
@@ -42,6 +45,7 @@ wbs:
 
   - id: WBS-DES-CPD-040
     name: maintain component policy documentation family
+    description: Maintain the CPD markdown and mermaid rule and instruction files for component policy documents.
     owner: EN
     component: component-policy
     deliverables:
@@ -57,6 +61,7 @@ wbs:
 
   - id: WBS-DES-CDFD-050
     name: maintain data flow documentation family
+    description: Maintain the CDFD textual and mermaid rule and instruction files for data flow design documentation.
     owner: EN
     component: data-flow
     deliverables:
@@ -72,6 +77,7 @@ wbs:
 
   - id: WBS-DES-CSTD-060
     name: maintain state transition documentation family
+    description: Maintain the CSTD markdown and mermaid rule and instruction files for state transition design artifacts.
     owner: EN
     component: state-transition
     deliverables:
@@ -87,6 +93,7 @@ wbs:
 
   - id: WBS-DES-CXD-070
     name: maintain cross-system design documentation family
+    description: Maintain the CXD markdown and mermaid rule and instruction files for cross-system design documentation.
     owner: EN
     component: cross-system
     deliverables:
@@ -102,6 +109,7 @@ wbs:
 
   - id: WBS-DES-DIAGRAM-080
     name: maintain catalog and interface diagram rule sets
+    description: Maintain the catalog and interface mermaid rule and instruction files that define shared diagramming conventions.
     owner: EN
     component: diagrams
     deliverables:
@@ -117,6 +125,7 @@ wbs:
 
   - id: WBS-DES-CDSD-090
     name: maintain component design summary pair
+    description: Maintain the CDSD rule and instruction pair for concise component design summary documents.
     owner: EN
     component: design-summary
     deliverables:
@@ -128,6 +137,7 @@ wbs:
 
   - id: WBS-DES-DMD-100
     name: maintain domain model documentation pair
+    description: Maintain the DMD rule and instruction pair for domain model documents and their modeling constraints.
     owner: EN
     component: domain-model
     deliverables:
@@ -139,6 +149,7 @@ wbs:
 
   - id: WBS-DES-ENGINEERING-110
     name: maintain engineering support documentation set
+    description: Maintain the engineering support rule and instruction files covering API, feature, message, and integration support documents.
     owner: EN
     component: engineering-support
     deliverables:
@@ -162,6 +173,7 @@ wbs:
 
   - id: WBS-DES-STRUCTURE-120
     name: maintain logical structure and UI specification pairs
+    description: Maintain the logical structure and UI specification rule and instruction pairs as one shared structure-focused family.
     owner: EN
     component: structure
     deliverables:
@@ -177,6 +189,7 @@ wbs:
 
   - id: WBS-DES-SYSD-130
     name: maintain system design index and policy family
+    description: Maintain the system design index, critical-flow, and cross-cutting-policy rule and instruction files as one system design family.
     owner: EN
     component: system-design
     deliverables:

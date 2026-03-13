@@ -112,6 +112,14 @@ $defs:
         minLength: 1
         description: 'Leaf-level WBS element name. Prefer verb-led, concrete names.'
 
+      description:
+        type: string
+        minLength: 1
+        description: >
+          Optional scope description for this WBS element.
+          Use for concise explanation of what is in scope for this item;
+          do not duplicate done criteria or free-form notes.
+
       owner:
         $ref: '#/$defs/Owner'
 

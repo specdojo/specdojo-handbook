@@ -5,6 +5,7 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-QLTY-ATC-010
     name: maintain acceptance test criteria and derivative instruction family
+    description: Maintain the ATC core rule set and all derivative instruction templates used to author acceptance-test criteria documents.
     owner: BO
     component: acceptance-tests
     deliverables:
@@ -28,6 +29,7 @@ wbs:
 
   - id: WBS-QLTY-ETC-020
     name: maintain external test criteria and derivative instruction family
+    description: Maintain the ETC core rule set and all derivative instruction templates for external-test criteria documents.
     owner: BO
     component: external-tests
     deliverables:
@@ -51,6 +53,7 @@ wbs:
 
   - id: WBS-QLTY-ITC-030
     name: maintain integration test documentation family
+    description: Maintain the integration-test index, criteria, and detail-document rule and instruction files as one coherent documentation family.
     owner: EN
     component: integration-tests
     deliverables:
@@ -70,6 +73,7 @@ wbs:
 
   - id: WBS-QLTY-STC-040
     name: maintain system test documentation family
+    description: Maintain the system-test index, criteria, and supporting detail-document rule and instruction files.
     owner: EN
     component: system-tests
     deliverables:
@@ -89,6 +93,7 @@ wbs:
 
   - id: WBS-QLTY-UTC-050
     name: maintain user test criteria family
+    description: Maintain the UTC index and detail-document rule and instruction files for user-test criteria documents.
     owner: BO
     component: user-tests
     deliverables:
@@ -104,6 +109,7 @@ wbs:
 
   - id: WBS-QLTY-SAC-060
     name: maintain system acceptance condition pair
+    description: Maintain the SAC rule and instruction pair for system acceptance condition documents and their boundary definitions.
     owner: BO
     component: acceptance
     deliverables:
@@ -115,6 +121,7 @@ wbs:
 
   - id: WBS-QLTY-SFL-070
     name: maintain specification traceability link pair
+    description: Maintain the SFL rule and instruction pair that governs traceability links between definition sources and verification artifacts.
     owner: EN
     component: traceability
     deliverables:
@@ -126,6 +133,7 @@ wbs:
 
   - id: WBS-QLTY-TESTPLAN-080
     name: maintain test planning and strategy family
+    description: Maintain the test planning and strategy index and lifecycle rule and instruction files used for handbook test-planning artifacts.
     owner: EN
     component: test-planning
     deliverables:

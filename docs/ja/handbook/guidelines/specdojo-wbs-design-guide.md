@@ -60,6 +60,7 @@ WBS Item = Deliverable責務
 wbs:
   - id: WBS-AUTH-API-010
     name: login endpoint
+    description: email/password を受け取って JWT を返すログインAPIを対象とする
     owner: EN
     deliverables:
       - path: src/auth/login-controller.ts
@@ -74,6 +75,7 @@ wbs:
 | 条件            | 内容                 |
 | --------------- | -------------------- |
 | Deliverable明確 | producesが明確       |
+| Scope明確       | descriptionで対象が分かる |
 | Done Criteria   | 完了条件が明確       |
 | Deterministic   | 成功条件が曖昧でない |
 | Scope Unit      | スコープ単位         |
@@ -176,7 +178,39 @@ login API が email/password を受け取り JWT を返す
 login API を実装する
 ```
 
-## 9. WBS Anti-pattern
+## 9. description / done criteria / notes の役割分担
+
+`description` は **このWBS Itemが何を対象にしているか** を簡潔に説明する。
+
+`done_criteria` は **何をもって完了とみなすか** を記述する。
+
+`notes` は **補足・例外・注意事項** を書く。
+
+整理すると次の通りである。
+
+| 属性 | 役割 |
+| ---- | ---- |
+| name | 短い識別ラベル |
+| description | スコープ説明 |
+| done_criteria | 完了条件 |
+| notes | 補足メモ |
+
+例
+
+```yaml
+wbs:
+  - id: WBS-AUTH-API-010
+    name: login endpoint
+    description: email/password を受け取るログインAPIとJWT返却処理を対象とする
+    owner: EN
+    deliverables:
+      - path: src/auth/login-controller.ts
+        kind: create
+    done_criteria: login API が email/password を受け取り JWT を返す
+    notes: 認証失敗時は 401 を返す
+```
+
+## 10. WBS Anti-pattern
 
 避けるべき例
 
@@ -198,7 +232,7 @@ improve performance
 update login logic
 ```
 
-## 10. WBSとScheduleの関係
+## 11. WBSとScheduleの関係
 
 要求・要件・仕様
 
@@ -235,7 +269,7 @@ tasks:
     wbs: WBS-AUTH-API-010
 ```
 
-## 11. 要求・要件・仕様→WBS生成
+## 12. 要求・要件・仕様→WBS生成
 
 将来的にAIは
 
@@ -260,7 +294,7 @@ WBS-AUTH-API-010 create login endpoint
 WBS-AUTH-API-020 generate JWT
 ```
 
-## 12. まとめ
+## 13. まとめ
 
 SpecDojoのWBSは
 
