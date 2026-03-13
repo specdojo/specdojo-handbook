@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { dirname, resolve } from 'node:path'
 import dotenv from 'dotenv'
 
 export type DojoProjectConfig = {
@@ -18,14 +18,37 @@ export type ConfigLoadResult = {
   config: DojoConfig | null
 }
 
+function findUpward(startDir: string, name: string): string | null {
+  let currentDir = resolve(startDir)
+
+  while (true) {
+    const candidate = resolve(currentDir, name)
+    if (existsSync(candidate)) return candidate
+
+    const parentDir = resolve(currentDir, '..')
+    if (parentDir === currentDir) return null
+    currentDir = parentDir
+  }
+}
+
+export function dojoRootDir(): string {
+  const configPath = findUpward(process.cwd(), 'dojo.config.json')
+  if (configPath) return dirname(configPath)
+
+  const gitMarker = findUpward(process.cwd(), '.git')
+  if (gitMarker) return dirname(gitMarker)
+
+  return process.cwd()
+}
+
 export function loadEnv(): void {
-  // Load .env from repo root (current working directory)
+  // Load .env from the repository root if present.
   // Safe if missing.
-  dotenv.config({ path: resolve(process.cwd(), '.env') })
+  dotenv.config({ path: resolve(dojoRootDir(), '.env') })
 }
 
 export function defaultConfigPath(): string {
-  return resolve(process.cwd(), 'dojo.config.json')
+  return resolve(dojoRootDir(), 'dojo.config.json')
 }
 
 export function getProjectSchedulePath(project: DojoProjectConfig): string {

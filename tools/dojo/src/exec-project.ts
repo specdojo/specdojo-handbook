@@ -1,11 +1,21 @@
-import { resolve, join } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 import {
+  defaultConfigPath,
   getProjectExecutionPath,
   getProjectSchedulePath,
   loadConfig,
   loadEnv,
 } from './dojo-config.js'
 import { ResolvedProjectPaths } from './exec-types.js'
+
+function projectBaseDir(): string {
+  const { configPath } = loadConfig()
+  return dirname(configPath || defaultConfigPath())
+}
+
+function resolveProjectRelative(baseDir: string, pathValue: string): string {
+  return resolve(baseDir, pathValue.trim())
+}
 
 export function activateResolvedProjectPaths(paths: ResolvedProjectPaths): void {
   process.env.DOJO_SCHEDULE_PATH = paths.schedulePath
@@ -14,6 +24,7 @@ export function activateResolvedProjectPaths(paths: ResolvedProjectPaths): void 
 
 export function executionRootForProject(projectPath: string): string {
   loadEnv()
+  const baseDir = projectBaseDir()
 
   const envSchedulePath = process.env.DOJO_SCHEDULE_PATH
   const envExecutionPath = process.env.DOJO_EXECUTION_PATH
@@ -22,18 +33,18 @@ export function executionRootForProject(projectPath: string): string {
     envSchedulePath.trim() &&
     envExecutionPath &&
     envExecutionPath.trim() &&
-    resolve(process.cwd(), envSchedulePath.trim()) === projectPath
+    resolveProjectRelative(baseDir, envSchedulePath) === projectPath
   ) {
-    return resolve(process.cwd(), envExecutionPath.trim())
+    return resolveProjectRelative(baseDir, envExecutionPath)
   }
 
   const { config } = loadConfig()
   if (config) {
     for (const project of Object.values(config.projects)) {
-      const schedulePath = resolve(process.cwd(), getProjectSchedulePath(project))
+      const schedulePath = resolveProjectRelative(baseDir, getProjectSchedulePath(project))
       if (schedulePath !== projectPath) continue
 
-      return resolve(process.cwd(), getProjectExecutionPath(project).trim())
+      return resolveProjectRelative(baseDir, getProjectExecutionPath(project))
     }
   }
 
@@ -53,12 +64,12 @@ export function eventsDirForProject(projectPath: string): string {
 
 export function resolveProjectPaths(opts: { project?: string }): ResolvedProjectPaths {
   loadEnv()
+  const { config, configPath } = loadConfig()
+  const baseDir = dirname(configPath)
 
   const envSchedulePath = process.env.DOJO_SCHEDULE_PATH
   const envExecutionPath = process.env.DOJO_EXECUTION_PATH
   const envProject = process.env.DOJO_PROJECT
-
-  const { config, configPath } = loadConfig()
 
   function fromProjectId(
     projectId: string,
@@ -75,8 +86,8 @@ export function resolveProjectPaths(opts: { project?: string }): ResolvedProject
       throw new Error(`Unknown ${source} value: ${projectId} (check ${configPath})`)
     }
     return {
-      schedulePath: resolve(process.cwd(), getProjectSchedulePath(project)),
-      executionPath: resolve(process.cwd(), getProjectExecutionPath(project)),
+      schedulePath: resolveProjectRelative(baseDir, getProjectSchedulePath(project)),
+      executionPath: resolveProjectRelative(baseDir, getProjectExecutionPath(project)),
     }
   }
 
@@ -99,8 +110,8 @@ export function resolveProjectPaths(opts: { project?: string }): ResolvedProject
       )
     }
     return {
-      schedulePath: resolve(process.cwd(), envSchedulePath.trim()),
-      executionPath: resolve(process.cwd(), envExecutionPath.trim()),
+      schedulePath: resolveProjectRelative(baseDir, envSchedulePath),
+      executionPath: resolveProjectRelative(baseDir, envExecutionPath),
     }
   }
 

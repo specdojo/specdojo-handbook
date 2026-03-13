@@ -36,6 +36,18 @@ import {
 import { ExecEventType, ExecEventV1, SchedulerStrategy } from './exec-types.js'
 import { nowUtcIsoSeconds, requireNonEmpty } from './exec-shared.js'
 
+type LoadedExecState = {
+  schedule: ReturnType<typeof buildScheduleIndex>
+  events: ReturnType<typeof readAllEventFiles>
+  snapshot: ReturnType<typeof foldEventsToState>
+}
+
+type LockedEventAction = {
+  type: 'claim' | 'complete' | 'block' | 'unblock' | 'cancel'
+  check: (state: LoadedExecState, taskId: string, actor: string) => { ok: boolean; reason?: string }
+  requireSingleDoing?: boolean
+}
+
 function addProjectOptions(cmd: Command): Command {
   return cmd.option('--project <projectId>', 'Project id in dojo.config.json (e.g. shj-0001)')
 }
@@ -58,8 +70,137 @@ function addCommonAddOptions(cmd: Command): Command {
     .option('--meta <k=v...>', 'meta key=value (repeatable)', collectRepeatable, [])
 }
 
+function resolveProjectContext(opts: { project?: string }): {
+  schedulePath: string
+  executionPath: string
+} {
+  const resolvedPaths = resolveProjectPaths({ project: opts.project })
+  activateResolvedProjectPaths(resolvedPaths)
+  return resolvedPaths
+}
+
+function printCommandError(error: unknown, fail = true): void {
+  const message = error instanceof Error ? error.message : String(error)
+  process.stdout.write(message + '\n')
+  if (fail) exitWithCode(false)
+  else process.exitCode = 1
+}
+
+function loadValidatedExecState(projectPath: string): LoadedExecState | null {
+  const res = validateAll(projectPath)
+  if (!res.ok) {
+    printValidateResult(res)
+    exitWithCode(false)
+    return null
+  }
+
+  const schedule = buildScheduleIndex(projectPath)
+  const events = readAllEventFiles(projectPath)
+  const snapshot = foldEventsToState(events, schedule, projectPath)
+  return { schedule, events, snapshot }
+}
+
+function ensureActorCanClaimNext(
+  snapshot: LoadedExecState['snapshot'],
+  actor: string,
+  allowMultipleDoing: boolean
+): boolean {
+  const doingTasks = findDoingTasksForActor(snapshot, actor)
+  if (allowMultipleDoing || doingTasks.length === 0) return true
+
+  process.stdout.write(
+    `Actor ${actor} already has doing task(s): ${doingTasks.join(', ')}\n` +
+      `Use --allow-multiple-doing to override.\n`
+  )
+  exitWithCode(false)
+  return false
+}
+
+function runSimpleEventCommand(opts: any, type: ExecEventType): void {
+  try {
+    const { schedulePath } = resolveProjectContext(opts)
+    const event = buildEvent(type, opts)
+    const out = writeEventFile(schedulePath, event)
+    process.stdout.write(out + '\n')
+    exitWithCode(true)
+  } catch (error) {
+    printCommandError(error, false)
+  }
+}
+
+function runLockedEventCommand(opts: any, action: LockedEventAction): void {
+  let lockDir = ''
+
+  try {
+    const { schedulePath } = resolveProjectContext(opts)
+    const actor = requireNonEmpty('by', opts.by)
+    const taskId = requireNonEmpty('task', opts.task)
+    const allowMultipleDoing = !!opts.allowMultipleDoing
+    const lockTimeoutMs = Number(opts.lockTimeoutMs)
+    const lockStaleMs = Number(opts.lockStaleMs)
+
+    lockDir = acquireSchedulerLock(schedulePath, { actor, lockTimeoutMs, lockStaleMs })
+
+    const state = loadValidatedExecState(schedulePath)
+    if (!state) return
+
+    if (
+      action.requireSingleDoing &&
+      !ensureActorCanClaimNext(state.snapshot, actor, allowMultipleDoing)
+    ) {
+      return
+    }
+
+    const check = action.check(state, taskId, actor)
+    if (!check.ok) {
+      process.stdout.write(`Cannot ${action.type} ${taskId}: ${check.reason}\n`)
+      exitWithCode(false)
+      return
+    }
+
+    const event = buildEvent(action.type, opts)
+    const out = writeEventFile(schedulePath, event)
+    process.stdout.write(out + '\n')
+    exitWithCode(true)
+  } catch (error) {
+    printCommandError(error)
+  } finally {
+    if (lockDir) {
+      try {
+        releaseSchedulerLock(lockDir)
+      } catch {}
+    }
+  }
+}
+
 export function registerExecCommands(program: Command): void {
   const exec = program.command('exec').description('Execution helpers')
+  const lockedActions: Record<LockedEventAction['type'], LockedEventAction> = {
+    claim: {
+      type: 'claim',
+      requireSingleDoing: true,
+      check: ({ schedule, snapshot }, taskId) => canClaimTask(schedule, snapshot, taskId),
+    },
+    complete: {
+      type: 'complete',
+      check: ({ schedule, snapshot }, taskId, actor) =>
+        canCompleteTask(schedule, snapshot, taskId, actor),
+    },
+    block: {
+      type: 'block',
+      check: ({ schedule, snapshot }, taskId, actor) =>
+        canBlockTask(schedule, snapshot, taskId, actor),
+    },
+    unblock: {
+      type: 'unblock',
+      check: ({ schedule, snapshot }, taskId) => canUnblockTask(schedule, snapshot, taskId),
+    },
+    cancel: {
+      type: 'cancel',
+      check: ({ schedule, snapshot }, taskId, actor) =>
+        canCancelTask(schedule, snapshot, taskId, actor),
+    },
+  }
 
   const types: ExecEventType[] = [
     'claim',
@@ -71,333 +212,59 @@ export function registerExecCommands(program: Command): void {
     'link',
     'estimate',
   ]
+
   for (const t of types) {
     const cmd = exec.command(t).description(`Write ${t} event JSON into exec/events/ (UTC)`)
     addCommonAddOptions(cmd)
 
-    if (t === 'claim' || t === 'complete' || t === 'block' || t === 'unblock' || t === 'cancel') {
-      addLockOptions(cmd)
-    }
+    if (t in lockedActions) addLockOptions(cmd)
 
-    if (t === 'claim') {
-      cmd.action(opts => {
-        let projectPath = ''
-        let lockDir = ''
-        try {
-          const resolvedPaths = resolveProjectPaths({ project: opts.project })
-          activateResolvedProjectPaths(resolvedPaths)
-          projectPath = resolvedPaths.schedulePath
-          const actor = requireNonEmpty('by', opts.by)
-          const taskId = requireNonEmpty('task', opts.task)
-          const allowMultipleDoing = !!opts.allowMultipleDoing
-          const lockTimeoutMs = Number(opts.lockTimeoutMs)
-          const lockStaleMs = Number(opts.lockStaleMs)
-
-          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
-
-          const res = validateAll(projectPath)
-          if (!res.ok) {
-            printValidateResult(res)
-            exitWithCode(false)
-            return
-          }
-
-          const schedule = buildScheduleIndex(projectPath)
-          const events = readAllEventFiles(projectPath)
-          const snapshot = foldEventsToState(events, schedule, projectPath)
-
-          const doingTasks = findDoingTasksForActor(snapshot, actor)
-          if (!allowMultipleDoing && doingTasks.length > 0) {
-            process.stdout.write(
-              `Actor ${actor} already has doing task(s): ${doingTasks.join(', ')}\n` +
-                `Use --allow-multiple-doing to override.\n`
-            )
-            exitWithCode(false)
-            return
-          }
-
-          const claimCheck = canClaimTask(schedule, snapshot, taskId)
-          if (!claimCheck.ok) {
-            process.stdout.write(`Cannot claim ${taskId}: ${claimCheck.reason}\n`)
-            exitWithCode(false)
-            return
-          }
-
-          const event = buildEvent('claim', opts)
-          const out = writeEventFile(projectPath, event)
-          process.stdout.write(out + '\n')
-          exitWithCode(true)
-        } catch (e: any) {
-          process.stdout.write(String(e?.message ?? e) + '\n')
-          exitWithCode(false)
-        } finally {
-          if (lockDir) {
-            try {
-              releaseSchedulerLock(lockDir)
-            } catch {}
-          }
-        }
-      })
-    } else if (t === 'complete') {
-      cmd.action(opts => {
-        let projectPath = ''
-        let lockDir = ''
-        try {
-          const resolvedPaths = resolveProjectPaths({ project: opts.project })
-          activateResolvedProjectPaths(resolvedPaths)
-          projectPath = resolvedPaths.schedulePath
-          const actor = requireNonEmpty('by', opts.by)
-          const taskId = requireNonEmpty('task', opts.task)
-          const lockTimeoutMs = Number(opts.lockTimeoutMs)
-          const lockStaleMs = Number(opts.lockStaleMs)
-
-          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
-
-          const res = validateAll(projectPath)
-          if (!res.ok) {
-            printValidateResult(res)
-            exitWithCode(false)
-            return
-          }
-
-          const schedule = buildScheduleIndex(projectPath)
-          const events = readAllEventFiles(projectPath)
-          const snapshot = foldEventsToState(events, schedule, projectPath)
-
-          const completeCheck = canCompleteTask(schedule, snapshot, taskId, actor)
-          if (!completeCheck.ok) {
-            process.stdout.write(`Cannot complete ${taskId}: ${completeCheck.reason}\n`)
-            exitWithCode(false)
-            return
-          }
-
-          const event = buildEvent('complete', opts)
-          const out = writeEventFile(projectPath, event)
-          process.stdout.write(out + '\n')
-          exitWithCode(true)
-        } catch (e: any) {
-          process.stdout.write(String(e?.message ?? e) + '\n')
-          exitWithCode(false)
-        } finally {
-          if (lockDir) {
-            try {
-              releaseSchedulerLock(lockDir)
-            } catch {}
-          }
-        }
-      })
-    } else if (t === 'block') {
-      cmd.action(opts => {
-        let projectPath = ''
-        let lockDir = ''
-        try {
-          const resolvedPaths = resolveProjectPaths({ project: opts.project })
-          activateResolvedProjectPaths(resolvedPaths)
-          projectPath = resolvedPaths.schedulePath
-          const actor = requireNonEmpty('by', opts.by)
-          const taskId = requireNonEmpty('task', opts.task)
-          const lockTimeoutMs = Number(opts.lockTimeoutMs)
-          const lockStaleMs = Number(opts.lockStaleMs)
-
-          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
-
-          const res = validateAll(projectPath)
-          if (!res.ok) {
-            printValidateResult(res)
-            exitWithCode(false)
-            return
-          }
-
-          const schedule = buildScheduleIndex(projectPath)
-          const events = readAllEventFiles(projectPath)
-          const snapshot = foldEventsToState(events, schedule, projectPath)
-
-          const blockCheck = canBlockTask(schedule, snapshot, taskId, actor)
-          if (!blockCheck.ok) {
-            process.stdout.write(`Cannot block ${taskId}: ${blockCheck.reason}\n`)
-            exitWithCode(false)
-            return
-          }
-
-          const event = buildEvent('block', opts)
-          const out = writeEventFile(projectPath, event)
-          process.stdout.write(out + '\n')
-          exitWithCode(true)
-        } catch (e: any) {
-          process.stdout.write(String(e?.message ?? e) + '\n')
-          exitWithCode(false)
-        } finally {
-          if (lockDir) {
-            try {
-              releaseSchedulerLock(lockDir)
-            } catch {}
-          }
-        }
-      })
-    } else if (t === 'unblock') {
-      cmd.action(opts => {
-        let projectPath = ''
-        let lockDir = ''
-        try {
-          const resolvedPaths = resolveProjectPaths({ project: opts.project })
-          activateResolvedProjectPaths(resolvedPaths)
-          projectPath = resolvedPaths.schedulePath
-          const actor = requireNonEmpty('by', opts.by)
-          const taskId = requireNonEmpty('task', opts.task)
-          const lockTimeoutMs = Number(opts.lockTimeoutMs)
-          const lockStaleMs = Number(opts.lockStaleMs)
-
-          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
-
-          const res = validateAll(projectPath)
-          if (!res.ok) {
-            printValidateResult(res)
-            exitWithCode(false)
-            return
-          }
-
-          const schedule = buildScheduleIndex(projectPath)
-          const events = readAllEventFiles(projectPath)
-          const snapshot = foldEventsToState(events, schedule, projectPath)
-
-          const unblockCheck = canUnblockTask(schedule, snapshot, taskId)
-          if (!unblockCheck.ok) {
-            process.stdout.write(`Cannot unblock ${taskId}: ${unblockCheck.reason}\n`)
-            exitWithCode(false)
-            return
-          }
-
-          const event = buildEvent('unblock', opts)
-          const out = writeEventFile(projectPath, event)
-          process.stdout.write(out + '\n')
-          exitWithCode(true)
-        } catch (e: any) {
-          process.stdout.write(String(e?.message ?? e) + '\n')
-          exitWithCode(false)
-        } finally {
-          if (lockDir) {
-            try {
-              releaseSchedulerLock(lockDir)
-            } catch {}
-          }
-        }
-      })
-    } else if (t === 'cancel') {
-      cmd.action(opts => {
-        let projectPath = ''
-        let lockDir = ''
-        try {
-          const resolvedPaths = resolveProjectPaths({ project: opts.project })
-          activateResolvedProjectPaths(resolvedPaths)
-          projectPath = resolvedPaths.schedulePath
-          const actor = requireNonEmpty('by', opts.by)
-          const taskId = requireNonEmpty('task', opts.task)
-          const lockTimeoutMs = Number(opts.lockTimeoutMs)
-          const lockStaleMs = Number(opts.lockStaleMs)
-
-          lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
-
-          const res = validateAll(projectPath)
-          if (!res.ok) {
-            printValidateResult(res)
-            exitWithCode(false)
-            return
-          }
-
-          const schedule = buildScheduleIndex(projectPath)
-          const events = readAllEventFiles(projectPath)
-          const snapshot = foldEventsToState(events, schedule, projectPath)
-
-          const cancelCheck = canCancelTask(schedule, snapshot, taskId, actor)
-          if (!cancelCheck.ok) {
-            process.stdout.write(`Cannot cancel ${taskId}: ${cancelCheck.reason}\n`)
-            exitWithCode(false)
-            return
-          }
-
-          const event = buildEvent('cancel', opts)
-          const out = writeEventFile(projectPath, event)
-          process.stdout.write(out + '\n')
-          exitWithCode(true)
-        } catch (e: any) {
-          process.stdout.write(String(e?.message ?? e) + '\n')
-          exitWithCode(false)
-        } finally {
-          if (lockDir) {
-            try {
-              releaseSchedulerLock(lockDir)
-            } catch {}
-          }
-        }
-      })
+    if (t in lockedActions) {
+      cmd.action(opts => runLockedEventCommand(opts, lockedActions[t as LockedEventAction['type']]))
     } else {
-      cmd.action(opts => {
-        let projectPath = ''
-        try {
-          const resolvedPaths = resolveProjectPaths({ project: opts.project })
-          activateResolvedProjectPaths(resolvedPaths)
-          projectPath = resolvedPaths.schedulePath
-        } catch (e: any) {
-          process.stdout.write(String(e?.message ?? e) + '\n')
-          process.exitCode = 1
-          return
-        }
-        const event = buildEvent(t, opts)
-        const out = writeEventFile(projectPath, event)
-        process.stdout.write(out + '\n')
-      })
+      cmd.action(opts => runSimpleEventCommand(opts, t))
     }
   }
 
   const vcmd = exec.command('validate').description('Validate schedule + events')
   addProjectOptions(vcmd)
   vcmd.action(opts => {
-    let projectPath = ''
     try {
-      const resolvedPaths = resolveProjectPaths({ project: opts.project })
-      activateResolvedProjectPaths(resolvedPaths)
-      projectPath = resolvedPaths.schedulePath
-    } catch (e: any) {
-      process.stdout.write(String(e?.message ?? e) + '\n')
-      process.exitCode = 1
-      return
+      const { schedulePath } = resolveProjectContext(opts)
+      const res = validateAll(schedulePath)
+      printValidateResult(res)
+      exitWithCode(res.ok)
+    } catch (error) {
+      printCommandError(error, false)
     }
-    const res = validateAll(projectPath)
-    printValidateResult(res)
-    exitWithCode(res.ok)
   })
 
   const bcmd = exec.command('build').description('Generate all files under generated/')
   addProjectOptions(bcmd)
   bcmd.action(opts => {
-    let projectPath = ''
     try {
-      const resolvedPaths = resolveProjectPaths({ project: opts.project })
-      activateResolvedProjectPaths(resolvedPaths)
-      projectPath = resolvedPaths.schedulePath
-    } catch (e: any) {
-      process.stdout.write(String(e?.message ?? e) + '\n')
-      process.exitCode = 1
-      return
+      const { schedulePath } = resolveProjectContext(opts)
+
+      const res = validateAll(schedulePath)
+      printValidateResult(res)
+      if (!res.ok) {
+        exitWithCode(false)
+        return
+      }
+
+      const schedule = buildScheduleIndex(schedulePath)
+      const events = readAllEventFiles(schedulePath)
+      const cpm = computeCpm(schedule, schedulePath)
+
+      writeGeneratedCore(schedulePath, events, schedule, cpm)
+      writeScheduleHashAndDiff(schedulePath, schedule)
+      writeCpmFiles(schedulePath, cpm)
+
+      process.stdout.write(`\nGenerated: ${generatedDirForProject(schedulePath)}\n`)
+      exitWithCode(true)
+    } catch (error) {
+      printCommandError(error, false)
     }
-
-    const res = validateAll(projectPath)
-    printValidateResult(res)
-    if (!res.ok) {
-      exitWithCode(false)
-      return
-    }
-
-    const schedule = buildScheduleIndex(projectPath)
-    const events = readAllEventFiles(projectPath)
-    const cpm = computeCpm(schedule, projectPath)
-
-    writeGeneratedCore(projectPath, events, schedule, cpm)
-    writeScheduleHashAndDiff(projectPath, schedule)
-    writeCpmFiles(projectPath, cpm)
-
-    process.stdout.write(`\nGenerated: ${generatedDirForProject(projectPath)}\n`)
-    exitWithCode(true)
   })
 
   const scmd = exec
@@ -411,13 +278,10 @@ export function registerExecCommands(program: Command): void {
   addLockOptions(scmd)
 
   scmd.action(opts => {
-    let projectPath = ''
     let lockDir = ''
-    try {
-      const resolvedPaths = resolveProjectPaths({ project: opts.project })
-      activateResolvedProjectPaths(resolvedPaths)
-      projectPath = resolvedPaths.schedulePath
 
+    try {
+      const { schedulePath } = resolveProjectContext(opts)
       const actor = requireNonEmpty('by', opts.by)
       const strategy = String(opts.strategy) as SchedulerStrategy
       const dryRun = !!opts.dryRun
@@ -426,34 +290,17 @@ export function registerExecCommands(program: Command): void {
       const lockTimeoutMs = Number(opts.lockTimeoutMs)
       const lockStaleMs = Number(opts.lockStaleMs)
 
-      lockDir = acquireSchedulerLock(projectPath, { actor, lockTimeoutMs, lockStaleMs })
+      lockDir = acquireSchedulerLock(schedulePath, { actor, lockTimeoutMs, lockStaleMs })
 
-      const res = validateAll(projectPath)
-      if (!res.ok) {
-        printValidateResult(res)
-        exitWithCode(false)
-        return
-      }
+      const state = loadValidatedExecState(schedulePath)
+      if (!state) return
+      if (!ensureActorCanClaimNext(state.snapshot, actor, allowMultipleDoing)) return
 
-      const schedule = buildScheduleIndex(projectPath)
-      const events = readAllEventFiles(projectPath)
-      const snapshot = foldEventsToState(events, schedule, projectPath)
-
-      const doingTasks = findDoingTasksForActor(snapshot, actor)
-      if (!allowMultipleDoing && doingTasks.length > 0) {
-        process.stdout.write(
-          `Actor ${actor} already has doing task(s): ${doingTasks.join(', ')}\n` +
-            `Use --allow-multiple-doing to override.\n`
-        )
-        exitWithCode(false)
-        return
-      }
-
-      const ready = computeReadyIds(schedule, snapshot)
+      const ready = computeReadyIds(state.schedule, state.snapshot)
 
       let cpm = null
       try {
-        cpm = computeCpm(schedule, projectPath)
+        cpm = computeCpm(state.schedule, schedulePath)
       } catch {
         cpm = null
       }
@@ -484,12 +331,11 @@ export function registerExecCommands(program: Command): void {
         },
       }
 
-      const out = writeEventFile(projectPath, ev)
+      const out = writeEventFile(schedulePath, ev)
       process.stdout.write(out + '\n')
       exitWithCode(true)
-    } catch (e: any) {
-      process.stdout.write(String(e?.message ?? e) + '\n')
-      exitWithCode(false)
+    } catch (error) {
+      printCommandError(error)
     } finally {
       if (lockDir) {
         try {
@@ -505,17 +351,15 @@ export function registerExecCommands(program: Command): void {
   addProjectOptions(wcmd)
   wcmd.action(opts => {
     try {
-      const resolvedPaths = resolveProjectPaths({ project: opts.project })
-      activateResolvedProjectPaths(resolvedPaths)
+      const resolvedPaths = resolveProjectContext(opts)
       process.stdout.write(`schedule-path: ${resolvedPaths.schedulePath}\n`)
       process.stdout.write(`execution-path: ${resolvedPaths.executionPath}\n`)
       const projectPath = resolvedPaths.schedulePath
       process.stdout.write(`exec/events : ${eventsDirForProject(projectPath)}\n`)
       process.stdout.write(`generated   : ${generatedDirForProject(projectPath)}\n`)
       process.stdout.write(`scheduler-lock: ${schedulerLockPath(projectPath)}\n`)
-    } catch (e: any) {
-      process.stdout.write(String(e?.message ?? e) + '\n')
-      process.exitCode = 1
+    } catch (error) {
+      printCommandError(error, false)
     }
   })
 }
