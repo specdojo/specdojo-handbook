@@ -665,7 +665,11 @@ function writeReadyFiles(projectPath: string, readySnapshot: ReadySnapshot): voi
   writeFileSync(join(genDir, 'ready.md'), lines.join('\n'), 'utf8')
 }
 
-export function writeCpmFiles(projectPath: string, cpm: CpmResult): void {
+export function writeCpmFiles(
+  projectPath: string,
+  cpm: CpmResult,
+  stateSnapshot?: StateSnapshot
+): void {
   const genDir = generatedDirForProject(projectPath)
   ensureDir(genDir)
 
@@ -706,6 +710,25 @@ export function writeCpmFiles(projectPath: string, cpm: CpmResult): void {
 
   const schedule = buildScheduleIndex(projectPath)
   const criticalSet = new Set(cpm.critical_path)
+  const taskRows = rows.filter(row => row.kind === 'task')
+  const stateCounts: Record<'todo' | 'doing' | 'blocked' | 'done' | 'cancelled', number> = {
+    todo: 0,
+    doing: 0,
+    blocked: 0,
+    done: 0,
+    cancelled: 0,
+  }
+
+  for (const row of taskRows) {
+    const state = stateSnapshot?.tasks[row.id]?.state ?? 'todo'
+    stateCounts[state] += 1
+  }
+
+  const doneCount = stateCounts.done
+  const totalTaskCount = taskRows.length
+  const progressPercent =
+    totalTaskCount > 0 ? ((doneCount / totalTaskCount) * 100).toFixed(1) : '0.0'
+
   const ganttLines: string[] = []
   ganttLines.push(`# Gantt Chart`)
   ganttLines.push('')
@@ -714,6 +737,11 @@ export function writeCpmFiles(projectPath: string, cpm: CpmResult): void {
   ganttLines.push(`- project_duration_days: \`${cpm.project_duration_days}\``)
   ganttLines.push(`- scope: \`full_schedule\``)
   ganttLines.push(`- critical_path_task_count: \`${criticalSet.size}\``)
+  ganttLines.push(`- progress_percent: \`${progressPercent}%\``)
+  ganttLines.push(`- done_tasks: \`${doneCount}/${totalTaskCount}\``)
+  ganttLines.push(
+    `- task_state_counts: \`todo=${stateCounts.todo}, doing=${stateCounts.doing}, blocked=${stateCounts.blocked}, done=${stateCounts.done}, cancelled=${stateCounts.cancelled}\``
+  )
   ganttLines.push('')
   ganttLines.push('```mermaid')
   ganttLines.push(
@@ -740,7 +768,15 @@ export function writeCpmFiles(projectPath: string, cpm: CpmResult): void {
       if (criticalSet.has(row.id)) flags.push('crit')
       if (row.kind === 'milestone') flags.push('milestone')
 
-      const label = escapeMermaidText(row.name ? `${row.id} ${row.name}` : row.id)
+      const taskState = row.kind === 'task' ? (stateSnapshot?.tasks[row.id]?.state ?? 'todo') : null
+      if (taskState === 'done' || taskState === 'cancelled') flags.push('done')
+      if (taskState === 'doing') flags.push('active')
+
+      const stateSuffix =
+        taskState === 'blocked' ? ' [blocked]' : taskState === 'cancelled' ? ' [cancelled]' : ''
+      const label = escapeMermaidText(
+        row.name ? `${row.id} ${row.name}${stateSuffix}` : `${row.id}${stateSuffix}`
+      )
       const attrs = flags.length ? `${flags.join(', ')}, ` : ''
       ganttLines.push(
         `  ${label} : ${attrs}${toMermaidTaskId(row.id)}, ${formatGanttDate(row.es, cpm.project_start_date, schedule.calendar)}, ${formatGanttDuration(row.duration_days)}`

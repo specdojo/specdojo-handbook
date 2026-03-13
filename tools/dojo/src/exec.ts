@@ -256,9 +256,9 @@ export function registerExecCommands(program: Command): void {
       const events = readAllEventFiles(schedulePath)
       const cpm = computeCpm(schedule, schedulePath)
 
-      writeGeneratedCore(schedulePath, events, schedule, cpm)
+      const snapshot = writeGeneratedCore(schedulePath, events, schedule, cpm)
       writeScheduleHashAndDiff(schedulePath, schedule)
-      writeCpmFiles(schedulePath, cpm)
+      writeCpmFiles(schedulePath, cpm, snapshot)
 
       process.stdout.write(`\nGenerated: ${generatedDirForProject(schedulePath)}\n`)
       exitWithCode(true)

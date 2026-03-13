@@ -5,6 +5,9 @@
 - project_duration_days: `15.5`
 - scope: `full_schedule`
 - critical_path_task_count: `19`
+- progress_percent: `0.0%`
+- done_tasks: `0/47`
+- task_state_counts: `todo=46, doing=1, blocked=0, done=0, cancelled=0`
 
 ```mermaid
 %%{init: {'gantt': {'leftPadding': 180, 'sectionFontSize': 11, 'fontSize': 12}}}%%
@@ -21,7 +24,7 @@ gantt
   M-SDH-400 quality and traceability baseline ready : crit, milestone, task_M-SDH-400, 2026-04-07 12:00, 0d
   M-SDH-999 prj-0001 schedule scope completed : crit, milestone, task_M-SDH-999, 2026-04-07 12:00, 0d
   section governance
-  T-SDH-GOV-010 align project overview and scope rule pairs : crit, task_T-SDH-GOV-010, 2026-03-16 00:00, 1d
+  T-SDH-GOV-010 align project overview and scope rule pairs : crit, active, task_T-SDH-GOV-010, 2026-03-16 00:00, 1d
   T-SDH-GOV-050 align shared metadata and naming constraints : task_T-SDH-GOV-050, 2026-03-16 00:00, 18h
   T-SDH-GOV-020 update glossary rule and instruction pair : task_T-SDH-GOV-020, 2026-03-17 00:00, 12h
   T-SDH-GOV-030 update handbook operation and planning rule sets : crit, task_T-SDH-GOV-030, 2026-03-17 00:00, 1d
