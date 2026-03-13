@@ -1,0 +1,399 @@
+import { extname, join, resolve } from 'node:path'
+import { mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import {
+  CurrentState,
+  ExecEventType,
+  ExecEventV1,
+  ExecState,
+  ScheduleIndex,
+  SchedulerLockOptions,
+  StateSnapshot,
+} from './exec-types.js'
+import {
+  collectRepeatable,
+  ensureDir,
+  isUtcIsoSeconds,
+  listFilesRecursive,
+  nowUtcIsoSeconds,
+  parseKeyValuePairs,
+  randomHex,
+  readJson,
+  requireNonEmpty,
+  safeSlug,
+  sleepMs,
+  toArtifactPath,
+  tsForFilenameUtc,
+  writeJson,
+} from './exec-shared.js'
+import { eventsDirForProject, executionRootForProject } from './exec-project.js'
+
+export { collectRepeatable }
+
+export function validateEventShape(obj: any, source: string): string[] {
+  const errs: string[] = []
+  function err(msg: string): void {
+    errs.push(`${source}: ${msg}`)
+  }
+
+  if (!obj || typeof obj !== 'object') {
+    err('not a JSON object')
+    return errs
+  }
+  if (obj.v !== 1) err('v must be 1')
+  if (typeof obj.ts !== 'string' || !isUtcIsoSeconds(obj.ts)) {
+    err('ts must be UTC ISO seconds like 2026-03-05T03:10:00Z')
+  }
+  const allowed = new Set<ExecEventType>([
+    'claim',
+    'note',
+    'block',
+    'unblock',
+    'complete',
+    'cancel',
+    'link',
+    'estimate',
+  ])
+  if (typeof obj.type !== 'string' || !allowed.has(obj.type)) {
+    err(`type must be one of ${Array.from(allowed).join(', ')}`)
+  }
+  if (typeof obj.task_id !== 'string' || obj.task_id.trim() === '') {
+    err('task_id must be non-empty string')
+  }
+  if (typeof obj.by !== 'string' || obj.by.trim() === '') err('by must be non-empty string')
+  if (typeof obj.msg !== 'string') err('msg must be string')
+  if (
+    obj.refs !== undefined &&
+    (typeof obj.refs !== 'object' || obj.refs === null || Array.isArray(obj.refs))
+  ) {
+    err('refs must be object if provided')
+  }
+  if (
+    obj.meta !== undefined &&
+    (typeof obj.meta !== 'object' || obj.meta === null || Array.isArray(obj.meta))
+  ) {
+    err('meta must be object if provided')
+  }
+  return errs
+}
+
+export function readAllEventFiles(projectPath: string): { path: string; event: ExecEventV1 }[] {
+  const dir = eventsDirForProject(projectPath)
+  const files = listFilesRecursive(dir).filter(p => extname(p).toLowerCase() === '.json')
+
+  const items: { path: string; event: ExecEventV1 }[] = []
+  for (const f of files) items.push({ path: f, event: readJson(f) as ExecEventV1 })
+
+  items.sort((a, b) => {
+    if (a.event.ts < b.event.ts) return -1
+    if (a.event.ts > b.event.ts) return 1
+    return a.path.localeCompare(b.path)
+  })
+
+  return items
+}
+
+export function buildEvent(type: ExecEventType, o: any): ExecEventV1 {
+  const task_id = requireNonEmpty('task', o.task)
+  const by = requireNonEmpty('by', o.by)
+  const msg = requireNonEmpty('msg', o.msg)
+
+  const refs = parseKeyValuePairs(o.ref)
+  const metaPairs = parseKeyValuePairs(o.meta)
+  const meta = metaPairs
+    ? (Object.fromEntries(Object.entries(metaPairs)) as Record<string, unknown>)
+    : undefined
+
+  const e: ExecEventV1 = { v: 1, ts: nowUtcIsoSeconds(), type, task_id, by, msg }
+  if (o.runId) e.run_id = String(o.runId)
+  if (refs) e.refs = refs
+  if (meta) e.meta = meta
+  return e
+}
+
+export function writeEventFile(projectPath: string, event: ExecEventV1): string {
+  const execDir = eventsDirForProject(projectPath)
+  ensureDir(execDir)
+
+  const tsPart = tsForFilenameUtc(event.ts)
+  const byPart = safeSlug(event.by)
+  const idPart = safeSlug(event.task_id)
+  const rand = randomHex(2)
+
+  const filename = `${tsPart}_${byPart}_${idPart}_${event.type}_${rand}.json`
+  const fullpath = join(execDir, filename)
+
+  writeFileSync(fullpath, JSON.stringify(event, null, 2) + '\n', 'utf8')
+  return fullpath
+}
+
+export function foldEventsToState(
+  events: { path: string; event: ExecEventV1 }[],
+  schedule: ScheduleIndex,
+  projectPath: string
+): StateSnapshot {
+  const tasks: Record<string, CurrentState> = {}
+
+  function ensure(id: string): CurrentState {
+    if (!tasks[id]) tasks[id] = { state: 'todo' }
+    return tasks[id]
+  }
+
+  for (const { event } of events) {
+    const cur = ensure(event.task_id)
+    cur.last_ts = event.ts
+    cur.last_by = event.by
+    cur.last_type = event.type
+    cur.last_msg = event.msg
+    if (event.refs) cur.refs = event.refs
+    if (event.meta) cur.meta = event.meta
+
+    if (event.type === 'claim') cur.state = 'doing'
+    else if (event.type === 'block') cur.state = 'blocked'
+    else if (event.type === 'unblock') cur.state = 'todo'
+    else if (event.type === 'complete') cur.state = 'done'
+    else if (event.type === 'cancel') cur.state = 'cancelled'
+  }
+
+  for (const id of schedule.nodes.keys()) ensure(id)
+
+  return {
+    schedule_path: toArtifactPath(projectPath),
+    tasks,
+  }
+}
+
+export function isDependencySatisfied(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  nodeId: string,
+  visiting = new Set<string>()
+): boolean {
+  const node = schedule.nodes.get(nodeId)
+  if (!node) return false
+
+  if (node.kind === 'task') {
+    return (snapshot.tasks[nodeId]?.state ?? 'todo') === 'done'
+  }
+
+  if (visiting.has(nodeId)) return false
+  visiting.add(nodeId)
+  const ok = node.depends_on.every(dep => isDependencySatisfied(schedule, snapshot, dep, visiting))
+  visiting.delete(nodeId)
+  return ok
+}
+
+export function computeReadyIds(schedule: ScheduleIndex, snapshot: StateSnapshot): string[] {
+  function stateOf(id: string): ExecState {
+    return snapshot.tasks[id]?.state ?? 'todo'
+  }
+
+  const ready: string[] = []
+  for (const n of schedule.nodes.values()) {
+    if (n.kind !== 'task') continue
+    const st = stateOf(n.id)
+    if (st === 'done' || st === 'cancelled' || st === 'doing' || st === 'blocked') continue
+    if (n.depends_on.every(d => isDependencySatisfied(schedule, snapshot, d))) ready.push(n.id)
+  }
+  ready.sort()
+  return ready
+}
+
+export function findDoingTasksForActor(snapshot: StateSnapshot, actor: string): string[] {
+  return Object.entries(snapshot.tasks)
+    .filter(([, st]) => st.state === 'doing' && st.last_by === actor)
+    .map(([taskId]) => taskId)
+    .sort()
+}
+
+export function canClaimTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot claim non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'doing') return { ok: false, reason: `task already doing: ${taskId}` }
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task cancelled: ${taskId}` }
+  if (state === 'blocked') return { ok: false, reason: `task blocked: ${taskId}` }
+
+  for (const dep of node.depends_on) {
+    if (!isDependencySatisfied(schedule, snapshot, dep)) {
+      return { ok: false, reason: `dependency not satisfied: ${dep}` }
+    }
+  }
+
+  return { ok: true }
+}
+
+export function canCompleteTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string,
+  actor: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot complete non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'todo') return { ok: false, reason: `task not started: ${taskId}` }
+  if (state === 'blocked') return { ok: false, reason: `task is blocked: ${taskId}` }
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task cancelled: ${taskId}` }
+
+  if (state !== 'doing') return { ok: false, reason: `task is not doing: ${taskId}` }
+  if (cur?.last_by !== actor) {
+    return {
+      ok: false,
+      reason: `task is being worked on by another actor: ${cur?.last_by ?? '(unknown)'}`,
+    }
+  }
+
+  return { ok: true }
+}
+
+export function canBlockTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string,
+  actor: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot block non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'todo') return { ok: false, reason: `task not started: ${taskId}` }
+  if (state === 'blocked') return { ok: false, reason: `task already blocked: ${taskId}` }
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task cancelled: ${taskId}` }
+
+  if (state !== 'doing') return { ok: false, reason: `task is not doing: ${taskId}` }
+  if (cur?.last_by !== actor) {
+    return {
+      ok: false,
+      reason: `task is being worked on by another actor: ${cur?.last_by ?? '(unknown)'}`,
+    }
+  }
+
+  return { ok: true }
+}
+
+export function canUnblockTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot unblock non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'todo') return { ok: false, reason: `task is not blocked: ${taskId}` }
+  if (state === 'doing') return { ok: false, reason: `task is not blocked: ${taskId}` }
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task cancelled: ${taskId}` }
+
+  if (state !== 'blocked') return { ok: false, reason: `task is not blocked: ${taskId}` }
+
+  return { ok: true }
+}
+
+export function canCancelTask(
+  schedule: ScheduleIndex,
+  snapshot: StateSnapshot,
+  taskId: string,
+  actor: string
+): { ok: boolean; reason?: string } {
+  const node = schedule.nodes.get(taskId)
+  if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
+  if (node.kind !== 'task') return { ok: false, reason: `cannot cancel non-task node: ${taskId}` }
+
+  const cur = snapshot.tasks[taskId]
+  const state = cur?.state ?? 'todo'
+
+  if (state === 'done') return { ok: false, reason: `task already done: ${taskId}` }
+  if (state === 'cancelled') return { ok: false, reason: `task already cancelled: ${taskId}` }
+
+  if (state === 'doing' && cur?.last_by !== actor) {
+    return {
+      ok: false,
+      reason: `task is being worked on by another actor: ${cur?.last_by ?? '(unknown)'}`,
+    }
+  }
+
+  return { ok: true }
+}
+
+function schedulerLockDir(projectPath: string): string {
+  return join(executionRootForProject(projectPath), 'exec', '.locks', 'scheduler.lock')
+}
+
+export function acquireSchedulerLock(projectPath: string, opts: SchedulerLockOptions): string {
+  const lockDir = schedulerLockDir(projectPath)
+  const lockParent = resolve(lockDir, '..')
+  ensureDir(lockParent)
+
+  const start = Date.now()
+
+  while (true) {
+    try {
+      mkdirSync(lockDir)
+      writeJson(join(lockDir, 'owner.json'), {
+        actor: opts.actor,
+        pid: process.pid,
+        acquired_at_utc: nowUtcIsoSeconds(),
+      })
+      return lockDir
+    } catch (e: any) {
+      if (e?.code !== 'EEXIST') throw e
+
+      try {
+        const st = statSync(lockDir)
+        const ageMs = Date.now() - st.mtimeMs
+        if (ageMs > opts.lockStaleMs) {
+          rmSync(lockDir, { recursive: true, force: true })
+          continue
+        }
+      } catch {
+        continue
+      }
+
+      if (Date.now() - start > opts.lockTimeoutMs) {
+        let ownerInfo = ''
+        try {
+          ownerInfo = readFileSync(join(lockDir, 'owner.json'), 'utf8')
+        } catch {
+          ownerInfo = '(owner metadata unavailable)'
+        }
+        throw new Error(
+          `Failed to acquire scheduler lock within ${opts.lockTimeoutMs} ms.\n` +
+            `Lock: ${lockDir}\n` +
+            `Owner: ${ownerInfo}`
+        )
+      }
+
+      sleepMs(200)
+    }
+  }
+}
+
+export function releaseSchedulerLock(lockDir: string): void {
+  rmSync(lockDir, { recursive: true, force: true })
+}
+
+export function schedulerLockPath(projectPath: string): string {
+  return schedulerLockDir(projectPath)
+}
