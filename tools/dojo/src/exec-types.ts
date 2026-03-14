@@ -54,6 +54,7 @@ export type StateSnapshot = {
 export type ScheduleNode = {
   id: string
   name?: string
+  owner?: string
   depends_on: string[]
   duration_days: number
   kind: 'task' | 'milestone'
@@ -77,6 +78,7 @@ export type ScheduleIndex = {
 export type CpmNode = {
   id: string
   name?: string
+  owner?: string
   kind: 'task' | 'milestone'
   duration_days: number
   es: number
@@ -119,6 +121,7 @@ export type SchedulerLockOptions = {
 export type ReadyTaskView = {
   id: string
   name?: string
+  owner?: string
   schedule_file: string
   fifo_rank: number
   critical_first_rank: number

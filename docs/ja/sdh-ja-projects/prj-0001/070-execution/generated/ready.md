@@ -14,9 +14,9 @@
 
 ## Ready Order (critical-first)
 
-| rank | id | slack | ES | schedule_file |
-|---:|---|---:|---:|---|
-| 1 | `T-SDH-GOV-050` | 1.75 | 0 | sch-governance.yaml |
+| rank | id | owner | slack | ES | schedule_file |
+|---:|---|---|---:|---:|---|
+| 1 | `T-SDH-GOV-050` | EN | 1.75 | 0 | sch-governance.yaml |
 
 ## FIFO Order
 

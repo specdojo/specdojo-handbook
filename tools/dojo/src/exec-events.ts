@@ -208,11 +208,22 @@ export function findDoingTasksForActor(snapshot: StateSnapshot, actor: string): 
 export function canClaimTask(
   schedule: ScheduleIndex,
   snapshot: StateSnapshot,
-  taskId: string
+  taskId: string,
+  actorOwner?: string,
+  allowOwnerMismatch = false
 ): { ok: boolean; reason?: string } {
   const node = schedule.nodes.get(taskId)
   if (!node) return { ok: false, reason: `task not found in schedule: ${taskId}` }
   if (node.kind !== 'task') return { ok: false, reason: `cannot claim non-task node: ${taskId}` }
+
+  if (node.owner && !allowOwnerMismatch && actorOwner !== node.owner) {
+    return {
+      ok: false,
+      reason:
+        `task assigned to owner ${node.owner}; acting owner is ${actorOwner ?? '(unspecified)'}. ` +
+        `Use --owner ${node.owner}, DOJO_OWNER=${node.owner}, or --allow-owner-mismatch.`,
+    }
+  }
 
   const cur = snapshot.tasks[taskId]
   const state = cur?.state ?? 'todo'

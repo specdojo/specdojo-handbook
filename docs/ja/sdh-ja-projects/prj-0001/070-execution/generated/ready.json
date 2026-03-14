@@ -22,6 +22,7 @@
     {
       "id": "T-SDH-GOV-050",
       "name": "align shared metadata and naming constraints",
+      "owner": "EN",
       "schedule_file": "sch-governance.yaml",
       "fifo_rank": 1,
       "critical_first_rank": 1,

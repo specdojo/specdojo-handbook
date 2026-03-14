@@ -6,6 +6,7 @@
     "M-SDH-100": {
       "id": "M-SDH-100",
       "name": "schedule kickoff",
+      "owner": "BO",
       "kind": "milestone",
       "duration_days": 0,
       "es": 0,
@@ -19,6 +20,7 @@
     "T-SDH-GOV-010": {
       "id": "T-SDH-GOV-010",
       "name": "align project overview and scope rule pairs",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 1,
       "es": 0,
@@ -34,6 +36,7 @@
     "T-SDH-GOV-020": {
       "id": "T-SDH-GOV-020",
       "name": "update glossary rule and instruction pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.5,
       "es": 1,
@@ -49,6 +52,7 @@
     "T-SDH-GOV-030": {
       "id": "T-SDH-GOV-030",
       "name": "update handbook operation and planning rule sets",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 1,
       "es": 1,
@@ -64,6 +68,7 @@
     "T-SDH-GOV-040": {
       "id": "T-SDH-GOV-040",
       "name": "update migration index rule and instruction pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.5,
       "es": 2,
@@ -79,6 +84,7 @@
     "T-SDH-GOV-050": {
       "id": "T-SDH-GOV-050",
       "name": "align shared metadata and naming constraints",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 0,
@@ -94,6 +100,7 @@
     "M-SDH-200": {
       "id": "M-SDH-200",
       "name": "governance baseline ready",
+      "owner": "BO",
       "kind": "milestone",
       "duration_days": 0,
       "es": 2.5,
@@ -112,6 +119,7 @@
     "T-SDH-BIZ-010": {
       "id": "T-SDH-BIZ-010",
       "name": "update business acceptance criteria pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.5,
       "es": 2.5,
@@ -127,6 +135,7 @@
     "T-SDH-BIZ-020": {
       "id": "T-SDH-BIZ-020",
       "name": "update business data definition pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.5,
       "es": 2.5,
@@ -142,6 +151,7 @@
     "T-SDH-BIZ-030": {
       "id": "T-SDH-BIZ-030",
       "name": "update business data schema pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3,
@@ -157,6 +167,7 @@
     "T-SDH-BIZ-040": {
       "id": "T-SDH-BIZ-040",
       "name": "update business process specification pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.75,
       "es": 2.5,
@@ -172,6 +183,7 @@
     "T-SDH-BIZ-050": {
       "id": "T-SDH-BIZ-050",
       "name": "update business rule pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3.25,
@@ -187,6 +199,7 @@
     "T-SDH-BIZ-060": {
       "id": "T-SDH-BIZ-060",
       "name": "update business event specification family",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.75,
       "es": 3.75,
@@ -203,6 +216,7 @@
     "T-SDH-NFR-010": {
       "id": "T-SDH-NFR-010",
       "name": "update nfr index pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 2.5,
@@ -218,6 +232,7 @@
     "T-SDH-NFR-020": {
       "id": "T-SDH-NFR-020",
       "name": "update availability requirement pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3,
@@ -233,6 +248,7 @@
     "T-SDH-NFR-030": {
       "id": "T-SDH-NFR-030",
       "name": "update integrity requirement pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3,
@@ -248,6 +264,7 @@
     "T-SDH-NFR-040": {
       "id": "T-SDH-NFR-040",
       "name": "update maintainability requirement pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3,
@@ -263,6 +280,7 @@
     "T-SDH-NFR-050": {
       "id": "T-SDH-NFR-050",
       "name": "update operations requirement pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3,
@@ -278,6 +296,7 @@
     "T-SDH-NFR-060": {
       "id": "T-SDH-NFR-060",
       "name": "update performance requirement pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3,
@@ -293,6 +312,7 @@
     "T-SDH-NFR-070": {
       "id": "T-SDH-NFR-070",
       "name": "update reliability requirement pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3.5,
@@ -308,6 +328,7 @@
     "T-SDH-NFR-080": {
       "id": "T-SDH-NFR-080",
       "name": "update security and safety requirement pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 3.5,
@@ -323,6 +344,7 @@
     "T-SDH-NFR-090": {
       "id": "T-SDH-NFR-090",
       "name": "update usability requirement pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.5,
       "es": 3,
@@ -338,6 +360,7 @@
     "M-SDH-300": {
       "id": "M-SDH-300",
       "name": "business and nfr baseline ready",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 4.5,
@@ -360,6 +383,7 @@
     "T-SDH-DES-100": {
       "id": "T-SDH-DES-100",
       "name": "design context and policy updates summary",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 2,
       "es": 4.5,
@@ -375,6 +399,7 @@
     "T-SDH-DES-200": {
       "id": "T-SDH-DES-200",
       "name": "design flow and interaction updates summary",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 2.5,
       "es": 6.5,
@@ -390,6 +415,7 @@
     "T-SDH-DES-300": {
       "id": "T-SDH-DES-300",
       "name": "design structure and engineering updates summary",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 3,
       "es": 9,
@@ -405,6 +431,7 @@
     "M-SDH-DES-900": {
       "id": "M-SDH-DES-900",
       "name": "design domain complete",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 12,
@@ -420,6 +447,7 @@
     "M-SDH-350": {
       "id": "M-SDH-350",
       "name": "design baseline ready",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 12,
@@ -435,6 +463,7 @@
     "T-SDH-DES-CTX-010": {
       "id": "T-SDH-DES-CTX-010",
       "name": "update context landscape pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 4.5,
@@ -450,6 +479,7 @@
     "T-SDH-DES-CTX-020": {
       "id": "T-SDH-DES-CTX-020",
       "name": "update context narrative and mermaid family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 5,
@@ -465,6 +495,7 @@
     "M-SDH-DES-CTX-900": {
       "id": "M-SDH-DES-CTX-900",
       "name": "design context container complete",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 5.75,
@@ -480,6 +511,7 @@
     "T-SDH-DES-FLOW-020": {
       "id": "T-SDH-DES-FLOW-020",
       "name": "update state transition documentation family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 5.75,
@@ -495,6 +527,7 @@
     "T-SDH-DES-POL-010": {
       "id": "T-SDH-DES-POL-010",
       "name": "update cross-cutting policy pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 4.5,
@@ -510,6 +543,7 @@
     "T-SDH-DES-POL-020": {
       "id": "T-SDH-DES-POL-020",
       "name": "update component policy family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 5,
@@ -525,6 +559,7 @@
     "M-SDH-DES-POL-900": {
       "id": "M-SDH-DES-POL-900",
       "name": "design policy container complete",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 5.75,
@@ -540,6 +575,7 @@
     "T-SDH-DES-FLOW-010": {
       "id": "T-SDH-DES-FLOW-010",
       "name": "update data flow documentation family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 5.75,
@@ -556,6 +592,7 @@
     "T-SDH-DES-FLOW-030": {
       "id": "T-SDH-DES-FLOW-030",
       "name": "update cross-system design family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 6.5,
@@ -571,6 +608,7 @@
     "M-SDH-DES-FLOW-900": {
       "id": "M-SDH-DES-FLOW-900",
       "name": "design flow container complete",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 7.25,
@@ -587,6 +625,7 @@
     "T-SDH-DES-STR-010": {
       "id": "T-SDH-DES-STR-010",
       "name": "update shared diagram rule sets",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 5.75,
@@ -603,6 +642,7 @@
     "T-SDH-DES-STR-020": {
       "id": "T-SDH-DES-STR-020",
       "name": "update component design summary pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 5.75,
@@ -618,6 +658,7 @@
     "T-SDH-DES-STR-030": {
       "id": "T-SDH-DES-STR-030",
       "name": "update domain model pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 4.5,
@@ -633,6 +674,7 @@
     "T-SDH-DES-STR-040": {
       "id": "T-SDH-DES-STR-040",
       "name": "update engineering support documentation set",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 1,
       "es": 7.25,
@@ -649,6 +691,7 @@
     "T-SDH-DES-STR-050": {
       "id": "T-SDH-DES-STR-050",
       "name": "update logical structure and ui specification pairs",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 6.25,
@@ -665,6 +708,7 @@
     "T-SDH-DES-STR-060": {
       "id": "T-SDH-DES-STR-060",
       "name": "update system design index and policy family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 1,
       "es": 8.25,
@@ -682,6 +726,7 @@
     "M-SDH-DES-STR-900": {
       "id": "M-SDH-DES-STR-900",
       "name": "design structure container complete",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 9.25,
@@ -697,6 +742,7 @@
     "T-SDH-QLT-100": {
       "id": "T-SDH-QLT-100",
       "name": "quality criteria families summary",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 2.5,
       "es": 4.5,
@@ -712,6 +758,7 @@
     "T-SDH-QLT-200": {
       "id": "T-SDH-QLT-200",
       "name": "quality verification and acceptance summary",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 2,
       "es": 12,
@@ -728,6 +775,7 @@
     "T-SDH-QLT-300": {
       "id": "T-SDH-QLT-300",
       "name": "quality traceability and planning summary",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 1.5,
       "es": 14,
@@ -743,6 +791,7 @@
     "M-SDH-QLT-900": {
       "id": "M-SDH-QLT-900",
       "name": "quality domain complete",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 15.5,
@@ -758,6 +807,7 @@
     "M-SDH-400": {
       "id": "M-SDH-400",
       "name": "quality and traceability baseline ready",
+      "owner": "BO",
       "kind": "milestone",
       "duration_days": 0,
       "es": 15.5,
@@ -773,6 +823,7 @@
     "M-SDH-999": {
       "id": "M-SDH-999",
       "name": "prj-0001 schedule scope completed",
+      "owner": "BO",
       "kind": "milestone",
       "duration_days": 0,
       "es": 15.5,
@@ -788,6 +839,7 @@
     "T-SDH-QLT-CRT-010": {
       "id": "T-SDH-QLT-CRT-010",
       "name": "update acceptance test criteria family",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 1,
       "es": 4.5,
@@ -803,6 +855,7 @@
     "T-SDH-QLT-CRT-020": {
       "id": "T-SDH-QLT-CRT-020",
       "name": "update external test criteria family",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 1,
       "es": 4.5,
@@ -818,6 +871,7 @@
     "T-SDH-QLT-CRT-030": {
       "id": "T-SDH-QLT-CRT-030",
       "name": "update user test criteria family",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.75,
       "es": 4.5,
@@ -834,6 +888,7 @@
     "M-SDH-QLT-CRT-900": {
       "id": "M-SDH-QLT-CRT-900",
       "name": "quality criteria container complete",
+      "owner": "BO",
       "kind": "milestone",
       "duration_days": 0,
       "es": 5.5,
@@ -851,6 +906,7 @@
     "T-SDH-QLT-GOV-010": {
       "id": "T-SDH-QLT-GOV-010",
       "name": "update specification traceability link pair",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.5,
       "es": 12,
@@ -867,6 +923,7 @@
     "T-SDH-QLT-VRF-010": {
       "id": "T-SDH-QLT-VRF-010",
       "name": "update integration test documentation family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 12,
@@ -882,6 +939,7 @@
     "T-SDH-QLT-VRF-020": {
       "id": "T-SDH-QLT-VRF-020",
       "name": "update system test documentation family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 12.75,
@@ -897,6 +955,7 @@
     "T-SDH-QLT-VRF-030": {
       "id": "T-SDH-QLT-VRF-030",
       "name": "update system acceptance condition pair",
+      "owner": "BO",
       "kind": "task",
       "duration_days": 0.5,
       "es": 13.5,
@@ -913,6 +972,7 @@
     "M-SDH-QLT-VRF-900": {
       "id": "M-SDH-QLT-VRF-900",
       "name": "quality verification container complete",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 14,
@@ -928,6 +988,7 @@
     "T-SDH-QLT-GOV-020": {
       "id": "T-SDH-QLT-GOV-020",
       "name": "update test planning and strategy family",
+      "owner": "EN",
       "kind": "task",
       "duration_days": 0.75,
       "es": 14,
@@ -945,6 +1006,7 @@
     "M-SDH-QLT-GOV-900": {
       "id": "M-SDH-QLT-GOV-900",
       "name": "quality governance container complete",
+      "owner": "EN",
       "kind": "milestone",
       "duration_days": 0,
       "es": 14.75,

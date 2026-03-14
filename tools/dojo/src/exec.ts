@@ -44,7 +44,12 @@ type LoadedExecState = {
 
 type LockedEventAction = {
   type: 'claim' | 'complete' | 'block' | 'unblock' | 'cancel'
-  check: (state: LoadedExecState, taskId: string, actor: string) => { ok: boolean; reason?: string }
+  check: (
+    state: LoadedExecState,
+    taskId: string,
+    actor: string,
+    opts: any
+  ) => { ok: boolean; reason?: string }
   requireSingleDoing?: boolean
 }
 
@@ -57,6 +62,15 @@ function addLockOptions(cmd: Command): Command {
     .option('--allow-multiple-doing', 'Allow this actor to hold multiple doing tasks', false)
     .option('--lock-timeout-ms <ms>', 'Lock acquisition timeout in ms', '10000')
     .option('--lock-stale-ms <ms>', 'Lock stale threshold in ms', '300000')
+}
+
+function addOwnerOptions(cmd: Command): Command {
+  return cmd
+    .option(
+      '--owner <owner>',
+      'Planned owner label for assignment checks (defaults to DOJO_OWNER or actor)'
+    )
+    .option('--allow-owner-mismatch', 'Allow claiming a task assigned to a different owner', false)
 }
 
 function addCommonAddOptions(cmd: Command): Command {
@@ -77,6 +91,12 @@ function resolveProjectContext(opts: { project?: string }): {
   const resolvedPaths = resolveProjectPaths({ project: opts.project })
   activateResolvedProjectPaths(resolvedPaths)
   return resolvedPaths
+}
+
+function resolveClaimOwner(opts: { owner?: string }, actor: string): string {
+  const cliOwner = typeof opts.owner === 'string' ? opts.owner.trim() : ''
+  const envOwner = typeof process.env.DOJO_OWNER === 'string' ? process.env.DOJO_OWNER.trim() : ''
+  return cliOwner || envOwner || actor
 }
 
 function printCommandError(error: unknown, fail = true): void {
@@ -151,7 +171,7 @@ function runLockedEventCommand(opts: any, action: LockedEventAction): void {
       return
     }
 
-    const check = action.check(state, taskId, actor)
+    const check = action.check(state, taskId, actor, opts)
     if (!check.ok) {
       process.stdout.write(`Cannot ${action.type} ${taskId}: ${check.reason}\n`)
       exitWithCode(false)
@@ -159,6 +179,18 @@ function runLockedEventCommand(opts: any, action: LockedEventAction): void {
     }
 
     const event = buildEvent(action.type, opts)
+    if (action.type === 'claim') {
+      const plannedOwner = state.schedule.nodes.get(taskId)?.owner
+      const claimOwner = resolveClaimOwner(opts, actor)
+      event.meta = {
+        ...(event.meta ?? {}),
+        claim_owner: claimOwner,
+      }
+      if (plannedOwner) event.meta.planned_owner = plannedOwner
+      if (plannedOwner && claimOwner !== plannedOwner && opts.allowOwnerMismatch) {
+        event.meta.owner_override = true
+      }
+    }
     const out = writeEventFile(schedulePath, event)
     process.stdout.write(out + '\n')
     exitWithCode(true)
@@ -179,7 +211,14 @@ export function registerExecCommands(program: Command): void {
     claim: {
       type: 'claim',
       requireSingleDoing: true,
-      check: ({ schedule, snapshot }, taskId) => canClaimTask(schedule, snapshot, taskId),
+      check: ({ schedule, snapshot }, taskId, actor, opts) =>
+        canClaimTask(
+          schedule,
+          snapshot,
+          taskId,
+          resolveClaimOwner(opts, actor),
+          !!opts.allowOwnerMismatch
+        ),
     },
     complete: {
       type: 'complete',
@@ -218,6 +257,7 @@ export function registerExecCommands(program: Command): void {
     addCommonAddOptions(cmd)
 
     if (t in lockedActions) addLockOptions(cmd)
+    if (t === 'claim') addOwnerOptions(cmd)
 
     if (t in lockedActions) {
       cmd.action(opts => runLockedEventCommand(opts, lockedActions[t as LockedEventAction['type']]))
@@ -272,6 +312,7 @@ export function registerExecCommands(program: Command): void {
     .description('Auto-claim next task safely (with project-level lock).')
   addProjectOptions(scmd)
   scmd.requiredOption('--by <actor>', 'Actor (agent name)')
+  addOwnerOptions(scmd)
   scmd.option('--strategy <strategy>', 'critical-first|fifo', 'critical-first')
   scmd.option('--dry-run', 'Do not write; print selected task only', false)
   scmd.option('--msg <message>', 'Claim message', 'auto-claim')
@@ -286,6 +327,8 @@ export function registerExecCommands(program: Command): void {
       const strategy = String(opts.strategy) as SchedulerStrategy
       const dryRun = !!opts.dryRun
       const msg = String(opts.msg ?? 'auto-claim')
+      const claimOwner = resolveClaimOwner(opts, actor)
+      const allowOwnerMismatch = !!opts.allowOwnerMismatch
       const allowMultipleDoing = !!opts.allowMultipleDoing
       const lockTimeoutMs = Number(opts.lockTimeoutMs)
       const lockStaleMs = Number(opts.lockStaleMs)
@@ -305,9 +348,26 @@ export function registerExecCommands(program: Command): void {
         cpm = null
       }
 
-      const next = selectNextTask(ready, cpm, strategy)
+      const readyForOwner = ready.filter(taskId => {
+        const claimCheck = canClaimTask(
+          state.schedule,
+          state.snapshot,
+          taskId,
+          claimOwner,
+          allowOwnerMismatch
+        )
+        return claimCheck.ok
+      })
+
+      const next = selectNextTask(readyForOwner, cpm, strategy)
       if (!next) {
-        process.stdout.write('No ready task to claim.\n')
+        if (ready.length > 0 && !allowOwnerMismatch) {
+          process.stdout.write(
+            `No ready task assigned to owner ${claimOwner}. Use --owner, DOJO_OWNER, or --allow-owner-mismatch.\n`
+          )
+        } else {
+          process.stdout.write('No ready task to claim.\n')
+        }
         exitWithCode(true)
         return
       }
@@ -326,9 +386,18 @@ export function registerExecCommands(program: Command): void {
         by: actor,
         msg,
         meta: {
+          claim_owner: claimOwner,
+          planned_owner: state.schedule.nodes.get(next)?.owner,
           scheduler_strategy: strategy,
           claimed_via: 'dojo-exec-scheduler',
         },
+      }
+      if (
+        ev.meta?.planned_owner &&
+        ev.meta.claim_owner !== ev.meta.planned_owner &&
+        allowOwnerMismatch
+      ) {
+        ev.meta.owner_override = true
       }
 
       const out = writeEventFile(schedulePath, ev)

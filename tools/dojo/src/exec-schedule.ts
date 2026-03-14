@@ -299,6 +299,7 @@ export function buildScheduleIndex(projectPath: string): ScheduleIndex {
       nodes.set(id, {
         id,
         name: typeof t.name === 'string' ? t.name : undefined,
+        owner: typeof t.owner === 'string' ? t.owner : undefined,
         depends_on: Array.isArray(t.depends_on) ? t.depends_on.map(String) : [],
         duration_days: typeof t.duration_days === 'number' ? t.duration_days : 0,
         kind: 'task',
@@ -313,6 +314,7 @@ export function buildScheduleIndex(projectPath: string): ScheduleIndex {
       nodes.set(id, {
         id,
         name: typeof m.name === 'string' ? m.name : undefined,
+        owner: typeof m.owner === 'string' ? m.owner : undefined,
         depends_on: Array.isArray(m.depends_on) ? m.depends_on.map(String) : [],
         duration_days: 0,
         kind: 'milestone',
@@ -461,6 +463,7 @@ export function computeCpm(schedule: ScheduleIndex, projectPath: string): CpmRes
     nodes[id] = {
       id,
       name: n.name,
+      owner: n.owner,
       kind: n.kind,
       duration_days: n.duration_days,
       es,
@@ -572,6 +575,7 @@ function buildReadySnapshot(
     return {
       id,
       name: node?.name,
+      owner: node?.owner,
       schedule_file: node?.schedule_file ? toScheduleFilePath(projectPath, node.schedule_file) : '',
       fifo_rank: fifoRank.get(id) ?? 0,
       critical_first_rank: criticalRank.get(id) ?? 0,
@@ -648,11 +652,11 @@ function writeReadyFiles(projectPath: string, readySnapshot: ReadySnapshot): voi
   } else {
     lines.push(`## Ready Order (critical-first)`)
     lines.push('')
-    lines.push(`| rank | id | slack | ES | schedule_file |`)
-    lines.push(`|---:|---|---:|---:|---|`)
+    lines.push(`| rank | id | owner | slack | ES | schedule_file |`)
+    lines.push(`|---:|---|---|---:|---:|---|`)
     for (const task of readySnapshot.tasks) {
       lines.push(
-        `| ${task.critical_first_rank} | \`${task.id}\` | ${task.cpm?.slack ?? '-'} | ${task.cpm?.es ?? '-'} | ${task.schedule_file || '-'} |`
+        `| ${task.critical_first_rank} | \`${task.id}\` | ${task.owner ?? '-'} | ${task.cpm?.slack ?? '-'} | ${task.cpm?.es ?? '-'} | ${task.schedule_file || '-'} |`
       )
     }
     lines.push('')
@@ -681,11 +685,11 @@ export function writeCpmFiles(
   lines.push('')
   lines.push(`- project_duration_days: \`${cpm.project_duration_days}\``)
   lines.push('')
-  lines.push(`| id | kind | dur | ES | EF | LS | LF | slack | depends_on |`)
-  lines.push(`|---|---:|---:|---:|---:|---:|---:|---:|---|`)
+  lines.push(`| id | owner | kind | dur | ES | EF | LS | LF | slack | depends_on |`)
+  lines.push(`|---|---|---:|---:|---:|---:|---:|---:|---:|---|`)
   for (const r of rows) {
     lines.push(
-      `| \`${r.id}\` | ${r.kind} | ${r.duration_days} | ${r.es} | ${r.ef} | ${r.ls} | ${r.lf} | ${r.slack} | ${r.depends_on.join(', ')} |`
+      `| \`${r.id}\` | ${r.owner ?? '-'} | ${r.kind} | ${r.duration_days} | ${r.es} | ${r.ef} | ${r.ls} | ${r.lf} | ${r.slack} | ${r.depends_on.join(', ')} |`
     )
   }
   lines.push('')
@@ -793,6 +797,7 @@ function normalizeNodeForHash(n: ScheduleNode): any {
   return {
     id: n.id,
     name: n.name ?? '',
+    owner: n.owner ?? '',
     kind: n.kind,
     duration_days: n.duration_days,
     depends_on: [...n.depends_on].sort(),
