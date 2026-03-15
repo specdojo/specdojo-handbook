@@ -6,22 +6,22 @@
   "default_strategy": "critical-first",
   "strategies": {
     "critical-first": {
-      "next_task_id": "T-SDH-GOV-050",
+      "next_task_id": "T-SDH-GOV-040",
       "ordered_task_ids": [
-        "T-SDH-GOV-050"
+        "T-SDH-GOV-040"
       ]
     },
     "fifo": {
-      "next_task_id": "T-SDH-GOV-050",
+      "next_task_id": "T-SDH-GOV-040",
       "ordered_task_ids": [
-        "T-SDH-GOV-050"
+        "T-SDH-GOV-040"
       ]
     }
   },
   "tasks": [
     {
-      "id": "T-SDH-GOV-050",
-      "name": "align shared metadata and naming constraints",
+      "id": "T-SDH-GOV-040",
+      "name": "共有メタルールブックガバナンスセットの整合",
       "owner": "ARC",
       "schedule_file": "sch-governance.yaml",
       "fifo_rank": 1,
@@ -29,9 +29,9 @@
       "cpm": {
         "es": 0,
         "ef": 0.75,
-        "ls": 1.75,
-        "lf": 2.5,
-        "slack": 1.75
+        "ls": 2.5,
+        "lf": 3.25,
+        "slack": 2.5
       }
     }
   ]

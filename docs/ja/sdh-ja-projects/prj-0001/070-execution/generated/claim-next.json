@@ -5,15 +5,15 @@
   "default_strategy": "critical-first",
   "strategies": {
     "critical-first": {
-      "next_task_id": "T-SDH-GOV-050",
+      "next_task_id": "T-SDH-GOV-040",
       "ordered_task_ids": [
-        "T-SDH-GOV-050"
+        "T-SDH-GOV-040"
       ]
     },
     "fifo": {
-      "next_task_id": "T-SDH-GOV-050",
+      "next_task_id": "T-SDH-GOV-040",
       "ordered_task_ids": [
-        "T-SDH-GOV-050"
+        "T-SDH-GOV-040"
       ]
     }
   }

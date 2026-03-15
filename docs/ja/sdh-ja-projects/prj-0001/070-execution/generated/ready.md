@@ -9,15 +9,15 @@
 
 | strategy | next_task_id |
 |---|---|
-| critical-first | `T-SDH-GOV-050` |
-| fifo | `T-SDH-GOV-050` |
+| critical-first | `T-SDH-GOV-040` |
+| fifo | `T-SDH-GOV-040` |
 
 ## Ready Order (critical-first)
 
 | rank | id | owner | slack | ES | schedule_file |
 |---:|---|---|---:|---:|---|
-| 1 | `T-SDH-GOV-050` | ARC | 1.75 | 0 | sch-governance.yaml |
+| 1 | `T-SDH-GOV-040` | ARC | 2.5 | 0 | sch-governance.yaml |
 
 ## FIFO Order
 
-- `T-SDH-GOV-050`
+- `T-SDH-GOV-040`

@@ -1,11 +1,11 @@
 {
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "project_start_date": "2026-03-16",
-  "project_duration_days": 15.5,
+  "project_duration_days": 11.5,
   "nodes": {
     "M-SDH-100": {
       "id": "M-SDH-100",
-      "name": "schedule kickoff",
+      "name": "スケジュールキックオフ",
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
@@ -19,7 +19,7 @@
     },
     "T-SDH-GOV-010": {
       "id": "T-SDH-GOV-010",
-      "name": "align project overview and scope rule pairs",
+      "name": "プロジェクトドキュメントルールの起草・レビュー",
       "owner": "PO",
       "kind": "task",
       "duration_days": 1,
@@ -33,156 +33,140 @@
       ],
       "schedule_file": "sch-governance.yaml"
     },
-    "T-SDH-GOV-020": {
-      "id": "T-SDH-GOV-020",
-      "name": "update glossary rule and instruction pair",
+    "T-SDH-GOV-011": {
+      "id": "T-SDH-GOV-011",
+      "name": "プロジェクトドキュメント派生成果物の起草・レビュー",
       "owner": "PO",
       "kind": "task",
-      "duration_days": 0.5,
+      "duration_days": 0.75,
       "es": 1,
-      "ef": 1.5,
+      "ef": 1.75,
+      "ls": 2.5,
+      "lf": 3.25,
+      "slack": 1.5,
+      "depends_on": [
+        "T-SDH-GOV-010"
+      ],
+      "schedule_file": "sch-governance.yaml"
+    },
+    "T-SDH-GOV-020": {
+      "id": "T-SDH-GOV-020",
+      "name": "移行ルールの起草・レビュー",
+      "owner": "PO",
+      "kind": "task",
+      "duration_days": 1.25,
+      "es": 1,
+      "ef": 2.25,
+      "ls": 1,
+      "lf": 2.25,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-GOV-010"
+      ],
+      "schedule_file": "sch-governance.yaml"
+    },
+    "T-SDH-GOV-021": {
+      "id": "T-SDH-GOV-021",
+      "name": "移行派生成果物の起草・レビュー",
+      "owner": "PO",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 2.25,
+      "ef": 3.25,
+      "ls": 2.25,
+      "lf": 3.25,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-GOV-020"
+      ],
+      "schedule_file": "sch-governance.yaml"
+    },
+    "T-SDH-GOV-030": {
+      "id": "T-SDH-GOV-030",
+      "name": "運用ルールの起草・レビュー",
+      "owner": "PO",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 1,
+      "ef": 1.75,
       "ls": 2,
-      "lf": 2.5,
+      "lf": 2.75,
       "slack": 1,
       "depends_on": [
         "T-SDH-GOV-010"
       ],
       "schedule_file": "sch-governance.yaml"
     },
-    "T-SDH-GOV-030": {
-      "id": "T-SDH-GOV-030",
-      "name": "update handbook operation and planning rule sets",
-      "owner": "PO",
-      "kind": "task",
-      "duration_days": 1,
-      "es": 1,
-      "ef": 2,
-      "ls": 1,
-      "lf": 2,
-      "slack": 0,
-      "depends_on": [
-        "T-SDH-GOV-010"
-      ],
-      "schedule_file": "sch-governance.yaml"
-    },
-    "T-SDH-GOV-040": {
-      "id": "T-SDH-GOV-040",
-      "name": "update migration index rule and instruction pair",
+    "T-SDH-GOV-031": {
+      "id": "T-SDH-GOV-031",
+      "name": "運用派生成果物の起草・レビュー",
       "owner": "PO",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 2,
-      "ef": 2.5,
-      "ls": 2,
-      "lf": 2.5,
-      "slack": 0,
+      "es": 1.75,
+      "ef": 2.25,
+      "ls": 2.75,
+      "lf": 3.25,
+      "slack": 1,
       "depends_on": [
         "T-SDH-GOV-030"
       ],
       "schedule_file": "sch-governance.yaml"
     },
-    "T-SDH-GOV-050": {
-      "id": "T-SDH-GOV-050",
-      "name": "align shared metadata and naming constraints",
+    "T-SDH-GOV-040": {
+      "id": "T-SDH-GOV-040",
+      "name": "共有メタルールブックガバナンスセットの整合",
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.75,
       "es": 0,
       "ef": 0.75,
-      "ls": 1.75,
-      "lf": 2.5,
-      "slack": 1.75,
+      "ls": 2.5,
+      "lf": 3.25,
+      "slack": 2.5,
       "depends_on": [
         "M-SDH-100"
       ],
       "schedule_file": "sch-governance.yaml"
     },
-    "M-SDH-200": {
-      "id": "M-SDH-200",
-      "name": "governance baseline ready",
+    "M-SDH-GOV-900": {
+      "id": "M-SDH-GOV-900",
+      "name": "ガバナンスドメイン完了",
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 2.5,
-      "ef": 2.5,
-      "ls": 2.5,
-      "lf": 2.5,
+      "es": 3.25,
+      "ef": 3.25,
+      "ls": 3.25,
+      "lf": 3.25,
       "slack": 0,
       "depends_on": [
-        "T-SDH-GOV-020",
-        "T-SDH-GOV-030",
-        "T-SDH-GOV-040",
-        "T-SDH-GOV-050"
+        "T-SDH-GOV-011",
+        "T-SDH-GOV-021",
+        "T-SDH-GOV-031",
+        "T-SDH-GOV-040"
+      ],
+      "schedule_file": "sch-governance.yaml"
+    },
+    "M-SDH-200": {
+      "id": "M-SDH-200",
+      "name": "ガバナンスベースライン確定",
+      "owner": "PO",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 3.25,
+      "ef": 3.25,
+      "ls": 3.25,
+      "lf": 3.25,
+      "slack": 0,
+      "depends_on": [
+        "M-SDH-GOV-900"
       ],
       "schedule_file": "sch-milestones.yaml"
     },
     "T-SDH-BIZ-010": {
       "id": "T-SDH-BIZ-010",
-      "name": "update business acceptance criteria pair",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 2.5,
-      "ef": 3,
-      "ls": 13,
-      "lf": 13.5,
-      "slack": 10.5,
-      "depends_on": [
-        "M-SDH-200"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-020": {
-      "id": "T-SDH-BIZ-020",
-      "name": "update business data definition pair",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 2.5,
-      "ef": 3,
-      "ls": 14.5,
-      "lf": 15,
-      "slack": 12,
-      "depends_on": [
-        "M-SDH-200"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-030": {
-      "id": "T-SDH-BIZ-030",
-      "name": "update business data schema pair",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 3,
-      "ef": 3.5,
-      "ls": 15,
-      "lf": 15.5,
-      "slack": 12,
-      "depends_on": [
-        "T-SDH-BIZ-020"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-040": {
-      "id": "T-SDH-BIZ-040",
-      "name": "update business process specification pair",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 2.5,
-      "ef": 3.25,
-      "ls": 2.5,
-      "lf": 3.25,
-      "slack": 0,
-      "depends_on": [
-        "M-SDH-200"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-050": {
-      "id": "T-SDH-BIZ-050",
-      "name": "update business rule pair",
+      "name": "業務プロセス仕様ルールの起草・レビュー",
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.5,
@@ -192,629 +176,1324 @@
       "lf": 3.75,
       "slack": 0,
       "depends_on": [
+        "M-SDH-200"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-011": {
+      "id": "T-SDH-BIZ-011",
+      "name": "業務プロセス仕様派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 3.75,
+      "ef": 4,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 3,
+      "depends_on": [
+        "T-SDH-BIZ-010"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-020": {
+      "id": "T-SDH-BIZ-020",
+      "name": "ビジネスルールのルール起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 3.75,
+      "lf": 4.25,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-010"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-021": {
+      "id": "T-SDH-BIZ-021",
+      "name": "ビジネスルール派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-BIZ-020"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-030": {
+      "id": "T-SDH-BIZ-030",
+      "name": "業務データディクショナリルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.25,
+      "ef": 3.75,
+      "ls": 5.25,
+      "lf": 5.75,
+      "slack": 2,
+      "depends_on": [
+        "M-SDH-200"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-031": {
+      "id": "T-SDH-BIZ-031",
+      "name": "業務データディクショナリ派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 3.75,
+      "ef": 4,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 3,
+      "depends_on": [
+        "T-SDH-BIZ-030"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-040": {
+      "id": "T-SDH-BIZ-040",
+      "name": "帳票仕様ルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-BIZ-030"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-041": {
+      "id": "T-SDH-BIZ-041",
+      "name": "帳票仕様派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
         "T-SDH-BIZ-040"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-050": {
+      "id": "T-SDH-BIZ-050",
+      "name": "画面仕様ルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-BIZ-010"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-051": {
+      "id": "T-SDH-BIZ-051",
+      "name": "画面仕様派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-BIZ-050"
       ],
       "schedule_file": "sch-business.yaml"
     },
     "T-SDH-BIZ-060": {
       "id": "T-SDH-BIZ-060",
-      "name": "update business event specification family",
+      "name": "用語集ルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.25,
+      "ef": 3.75,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 3,
+      "depends_on": [
+        "M-SDH-200"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-061": {
+      "id": "T-SDH-BIZ-061",
+      "name": "用語集派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 3.75,
+      "ef": 4,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 3,
+      "depends_on": [
+        "T-SDH-BIZ-060"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-070": {
+      "id": "T-SDH-BIZ-070",
+      "name": "リファレンスデータルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 3.25,
+      "ef": 4.25,
+      "ls": 5.25,
+      "lf": 6.25,
+      "slack": 2,
+      "depends_on": [
+        "M-SDH-200"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-071": {
+      "id": "T-SDH-BIZ-071",
+      "name": "リファレンスデータ派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 4.25,
+      "ef": 5,
+      "ls": 6.25,
+      "lf": 7,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-BIZ-070"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-080": {
+      "id": "T-SDH-BIZ-080",
+      "name": "業務イベント仕様ルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 4.25,
+      "ef": 5,
+      "ls": 4.25,
+      "lf": 5,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-020"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-081": {
+      "id": "T-SDH-BIZ-081",
+      "name": "業務イベント仕様派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 5,
+      "ef": 5.5,
+      "ls": 5.75,
+      "lf": 6.25,
+      "slack": 0.75,
+      "depends_on": [
+        "T-SDH-BIZ-080"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-090": {
+      "id": "T-SDH-BIZ-090",
+      "name": "概念データフロールールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 5,
+      "ef": 5.75,
+      "ls": 5,
+      "lf": 5.75,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-080"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-091": {
+      "id": "T-SDH-BIZ-091",
+      "name": "概念データフロー派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 5.75,
+      "ef": 6.25,
+      "ls": 5.75,
+      "lf": 6.25,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-090"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-100": {
+      "id": "T-SDH-BIZ-100",
+      "name": "概念データストアルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-BIZ-030"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-101": {
+      "id": "T-SDH-BIZ-101",
+      "name": "概念データストア派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-BIZ-100"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-110": {
+      "id": "T-SDH-BIZ-110",
+      "name": "概念状態遷移ルールの起草・レビュー",
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.75,
       "es": 3.75,
       "ef": 4.5,
-      "ls": 3.75,
-      "lf": 4.5,
+      "ls": 5.75,
+      "lf": 6.5,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-BIZ-030"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-111": {
+      "id": "T-SDH-BIZ-111",
+      "name": "概念状態遷移派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 4.5,
+      "ef": 5,
+      "ls": 6.5,
+      "lf": 7,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-BIZ-110"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-120": {
+      "id": "T-SDH-BIZ-120",
+      "name": "概念クラス図ルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-BIZ-030"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-121": {
+      "id": "T-SDH-BIZ-121",
+      "name": "概念クラス図派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-BIZ-120"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-130": {
+      "id": "T-SDH-BIZ-130",
+      "name": "システム機能一覧ルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 5,
+      "ef": 5.75,
+      "ls": 5,
+      "lf": 5.75,
       "slack": 0,
       "depends_on": [
-        "T-SDH-BIZ-040",
-        "T-SDH-BIZ-050"
+        "T-SDH-BIZ-080"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-131": {
+      "id": "T-SDH-BIZ-131",
+      "name": "システム機能一覧派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 5.75,
+      "ef": 6.25,
+      "ls": 5.75,
+      "lf": 6.25,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-130"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-140": {
+      "id": "T-SDH-BIZ-140",
+      "name": "業務受入条件ルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 6.25,
+      "ef": 6.75,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-081",
+        "T-SDH-BIZ-091",
+        "T-SDH-BIZ-131"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "T-SDH-BIZ-141": {
+      "id": "T-SDH-BIZ-141",
+      "name": "業務受入条件派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 6.75,
+      "ef": 7,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-140"
+      ],
+      "schedule_file": "sch-business.yaml"
+    },
+    "M-SDH-BIZ-900": {
+      "id": "M-SDH-BIZ-900",
+      "name": "業務ドメイン完了",
+      "owner": "BA",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 7,
+      "ef": 7,
+      "ls": 7,
+      "lf": 7,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-BIZ-011",
+        "T-SDH-BIZ-021",
+        "T-SDH-BIZ-031",
+        "T-SDH-BIZ-041",
+        "T-SDH-BIZ-051",
+        "T-SDH-BIZ-061",
+        "T-SDH-BIZ-071",
+        "T-SDH-BIZ-081",
+        "T-SDH-BIZ-091",
+        "T-SDH-BIZ-101",
+        "T-SDH-BIZ-111",
+        "T-SDH-BIZ-121",
+        "T-SDH-BIZ-131",
+        "T-SDH-BIZ-141"
       ],
       "schedule_file": "sch-business.yaml"
     },
     "T-SDH-NFR-010": {
       "id": "T-SDH-NFR-010",
-      "name": "update nfr index pair",
+      "name": "NFR インデックスルールの起草・レビュー",
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 2.5,
-      "ef": 3,
-      "ls": 2.75,
-      "lf": 3.25,
-      "slack": 0.25,
+      "es": 3.25,
+      "ef": 3.75,
+      "ls": 5.25,
+      "lf": 5.75,
+      "slack": 2,
       "depends_on": [
         "M-SDH-200"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
+    "T-SDH-NFR-011": {
+      "id": "T-SDH-NFR-011",
+      "name": "NFR インデックス派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 3.75,
+      "ef": 4,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 3,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
     "T-SDH-NFR-020": {
       "id": "T-SDH-NFR-020",
-      "name": "update availability requirement pair",
+      "name": "可用性要件ルールの起草・レビュー",
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 3,
-      "ef": 3.5,
-      "ls": 4,
-      "lf": 4.5,
-      "slack": 1,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2.5,
       "depends_on": [
         "T-SDH-NFR-010"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-021": {
+      "id": "T-SDH-NFR-021",
+      "name": "可用性要件派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-NFR-020"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
     "T-SDH-NFR-030": {
       "id": "T-SDH-NFR-030",
-      "name": "update integrity requirement pair",
+      "name": "完全性要件ルールの起草・レビュー",
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 3,
-      "ef": 3.5,
-      "ls": 3.25,
-      "lf": 3.75,
-      "slack": 0.25,
-      "depends_on": [
-        "T-SDH-NFR-010"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-040": {
-      "id": "T-SDH-NFR-040",
-      "name": "update maintainability requirement pair",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 3,
-      "ef": 3.5,
-      "ls": 4,
-      "lf": 4.5,
-      "slack": 1,
-      "depends_on": [
-        "T-SDH-NFR-010"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-050": {
-      "id": "T-SDH-NFR-050",
-      "name": "update operations requirement pair",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 3,
-      "ef": 3.5,
-      "ls": 4,
-      "lf": 4.5,
-      "slack": 1,
-      "depends_on": [
-        "T-SDH-NFR-010"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-060": {
-      "id": "T-SDH-NFR-060",
-      "name": "update performance requirement pair",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 3,
-      "ef": 3.5,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 0.5,
-      "depends_on": [
-        "T-SDH-NFR-010"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-070": {
-      "id": "T-SDH-NFR-070",
-      "name": "update reliability requirement pair",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 3.5,
-      "ef": 4,
-      "ls": 4,
-      "lf": 4.5,
-      "slack": 0.5,
-      "depends_on": [
-        "T-SDH-NFR-060"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-080": {
-      "id": "T-SDH-NFR-080",
-      "name": "update security and safety requirement pair",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 3.5,
+      "es": 3.75,
       "ef": 4.25,
-      "ls": 3.75,
-      "lf": 4.5,
-      "slack": 0.25,
+      "ls": 5.75,
+      "lf": 6.25,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-031": {
+      "id": "T-SDH-NFR-031",
+      "name": "完全性要件派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
       "depends_on": [
         "T-SDH-NFR-030"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
-    "T-SDH-NFR-090": {
-      "id": "T-SDH-NFR-090",
-      "name": "update usability requirement pair",
-      "owner": "BA",
+    "T-SDH-NFR-040": {
+      "id": "T-SDH-NFR-040",
+      "name": "保守性要件ルールの起草・レビュー",
+      "owner": "QE",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 3,
-      "ef": 3.5,
-      "ls": 4,
-      "lf": 4.5,
-      "slack": 1,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2.5,
       "depends_on": [
         "T-SDH-NFR-010"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
-    "M-SDH-300": {
-      "id": "M-SDH-300",
-      "name": "business and nfr baseline ready",
+    "T-SDH-NFR-041": {
+      "id": "T-SDH-NFR-041",
+      "name": "保守性要件派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-NFR-040"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-050": {
+      "id": "T-SDH-NFR-050",
+      "name": "運用性要件ルールの起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-051": {
+      "id": "T-SDH-NFR-051",
+      "name": "運用性要件派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-NFR-050"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-060": {
+      "id": "T-SDH-NFR-060",
+      "name": "性能要件ルールの起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 5.75,
+      "lf": 6.25,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-061": {
+      "id": "T-SDH-NFR-061",
+      "name": "性能要件派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-NFR-060"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-070": {
+      "id": "T-SDH-NFR-070",
+      "name": "信頼性要件ルールの起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 4.25,
+      "ef": 4.75,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-NFR-060"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-071": {
+      "id": "T-SDH-NFR-071",
+      "name": "信頼性要件派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.75,
+      "ef": 5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-NFR-070"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-080": {
+      "id": "T-SDH-NFR-080",
+      "name": "セキュリティ・安全性要件ルールの起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 4.25,
+      "ef": 4.75,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-NFR-030"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-081": {
+      "id": "T-SDH-NFR-081",
+      "name": "セキュリティ・安全性要件派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.75,
+      "ef": 5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-NFR-080"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-090": {
+      "id": "T-SDH-NFR-090",
+      "name": "ユーザビリティ要件ルールの起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 3.75,
+      "ef": 4.25,
+      "ls": 6.25,
+      "lf": 6.75,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-NFR-010"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "T-SDH-NFR-091": {
+      "id": "T-SDH-NFR-091",
+      "name": "ユーザビリティ要件派生成果物の起草・レビュー",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 4.25,
+      "ef": 4.5,
+      "ls": 6.75,
+      "lf": 7,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-NFR-090"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "M-SDH-NFR-900": {
+      "id": "M-SDH-NFR-900",
+      "name": "非機能要件ドメイン完了",
       "owner": "QE",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 4.5,
-      "ef": 4.5,
-      "ls": 4.5,
-      "lf": 4.5,
+      "es": 5,
+      "ef": 5,
+      "ls": 7,
+      "lf": 7,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-NFR-011",
+        "T-SDH-NFR-021",
+        "T-SDH-NFR-031",
+        "T-SDH-NFR-041",
+        "T-SDH-NFR-051",
+        "T-SDH-NFR-061",
+        "T-SDH-NFR-071",
+        "T-SDH-NFR-081",
+        "T-SDH-NFR-091"
+      ],
+      "schedule_file": "sch-nfr.yaml"
+    },
+    "M-SDH-300": {
+      "id": "M-SDH-300",
+      "name": "業務・非機能要件ベースライン確定",
+      "owner": "PO",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 7,
+      "ef": 7,
+      "ls": 7,
+      "lf": 7,
       "slack": 0,
       "depends_on": [
-        "T-SDH-BIZ-060",
-        "T-SDH-NFR-020",
-        "T-SDH-NFR-030",
-        "T-SDH-NFR-040",
-        "T-SDH-NFR-050",
-        "T-SDH-NFR-070",
-        "T-SDH-NFR-080",
-        "T-SDH-NFR-090"
+        "M-SDH-BIZ-900",
+        "M-SDH-NFR-900"
       ],
       "schedule_file": "sch-milestones.yaml"
     },
-    "T-SDH-DES-100": {
-      "id": "T-SDH-DES-100",
-      "name": "design context and policy updates summary",
+    "T-SDH-DES-010": {
+      "id": "T-SDH-DES-010",
+      "name": "外部インターフェースルールの起草・レビュー",
       "owner": "ARC",
       "kind": "task",
-      "duration_days": 2,
-      "es": 4.5,
-      "ef": 6.5,
-      "ls": 4.5,
-      "lf": 6.5,
+      "duration_days": 1.25,
+      "es": 7,
+      "ef": 8.25,
+      "ls": 7.5,
+      "lf": 8.75,
+      "slack": 0.5,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-011": {
+      "id": "T-SDH-DES-011",
+      "name": "外部インターフェース派生成果物の起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 8.25,
+      "ef": 9.25,
+      "ls": 8.75,
+      "lf": 9.75,
+      "slack": 0.5,
+      "depends_on": [
+        "T-SDH-DES-010"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-020": {
+      "id": "T-SDH-DES-020",
+      "name": "C4 コンテキスト図ルールの起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 7,
+      "ef": 7.75,
+      "ls": 7,
+      "lf": 7.75,
       "slack": 0,
       "depends_on": [
         "M-SDH-300"
       ],
       "schedule_file": "sch-design.yaml"
     },
-    "T-SDH-DES-200": {
-      "id": "T-SDH-DES-200",
-      "name": "design flow and interaction updates summary",
+    "T-SDH-DES-021": {
+      "id": "T-SDH-DES-021",
+      "name": "C4 コンテキスト図派生成果物の起草・レビュー",
       "owner": "ARC",
       "kind": "task",
-      "duration_days": 2.5,
-      "es": 6.5,
-      "ef": 9,
-      "ls": 6.5,
-      "lf": 9,
-      "slack": 0,
+      "duration_days": 0.5,
+      "es": 7.75,
+      "ef": 8.25,
+      "ls": 11,
+      "lf": 11.5,
+      "slack": 3.25,
       "depends_on": [
-        "T-SDH-DES-100"
+        "T-SDH-DES-020"
       ],
       "schedule_file": "sch-design.yaml"
     },
-    "T-SDH-DES-300": {
-      "id": "T-SDH-DES-300",
-      "name": "design structure and engineering updates summary",
+    "T-SDH-DES-030": {
+      "id": "T-SDH-DES-030",
+      "name": "C4 コンテナ図ルールの起草・レビュー",
       "owner": "ARC",
       "kind": "task",
-      "duration_days": 3,
-      "es": 9,
-      "ef": 12,
-      "ls": 9,
-      "lf": 12,
+      "duration_days": 0.75,
+      "es": 7.75,
+      "ef": 8.5,
+      "ls": 7.75,
+      "lf": 8.5,
       "slack": 0,
       "depends_on": [
-        "T-SDH-DES-200"
+        "T-SDH-DES-020"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-031": {
+      "id": "T-SDH-DES-031",
+      "name": "C4 コンテナ図派生成果物の起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 8.5,
+      "ef": 9,
+      "ls": 11,
+      "lf": 11.5,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-DES-030"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-040": {
+      "id": "T-SDH-DES-040",
+      "name": "C4 コンポーネント図ルールの起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 8.5,
+      "ef": 9.25,
+      "ls": 8.5,
+      "lf": 9.25,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-DES-030"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-041": {
+      "id": "T-SDH-DES-041",
+      "name": "C4 コンポーネント図派生成果物の起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 9.25,
+      "ef": 9.75,
+      "ls": 9.25,
+      "lf": 9.75,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-DES-040"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-050": {
+      "id": "T-SDH-DES-050",
+      "name": "インフラ構成図ルールの起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 7.75,
+      "ef": 8.25,
+      "ls": 9,
+      "lf": 9.5,
+      "slack": 1.25,
+      "depends_on": [
+        "T-SDH-DES-020"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-051": {
+      "id": "T-SDH-DES-051",
+      "name": "インフラ構成図派生成果物の起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 8.25,
+      "ef": 8.5,
+      "ls": 9.5,
+      "lf": 9.75,
+      "slack": 1.25,
+      "depends_on": [
+        "T-SDH-DES-050"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-060": {
+      "id": "T-SDH-DES-060",
+      "name": "技術スタック定義ルールの起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 7,
+      "ef": 7.5,
+      "ls": 9,
+      "lf": 9.5,
+      "slack": 2,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-061": {
+      "id": "T-SDH-DES-061",
+      "name": "技術スタック定義派生成果物の起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 7.5,
+      "ef": 7.75,
+      "ls": 9.5,
+      "lf": 9.75,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-DES-060"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-070": {
+      "id": "T-SDH-DES-070",
+      "name": "システム設計ルールの起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 9.75,
+      "ef": 10.75,
+      "ls": 9.75,
+      "lf": 10.75,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-DES-011",
+        "T-SDH-DES-041",
+        "T-SDH-DES-051",
+        "T-SDH-DES-061"
+      ],
+      "schedule_file": "sch-design.yaml"
+    },
+    "T-SDH-DES-071": {
+      "id": "T-SDH-DES-071",
+      "name": "システム設計派生成果物の起草・レビュー",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 10.75,
+      "ef": 11.5,
+      "ls": 10.75,
+      "lf": 11.5,
+      "slack": 0,
+      "depends_on": [
+        "T-SDH-DES-070"
       ],
       "schedule_file": "sch-design.yaml"
     },
     "M-SDH-DES-900": {
       "id": "M-SDH-DES-900",
-      "name": "design domain complete",
+      "name": "設計ドメイン完了",
       "owner": "ARC",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 12,
-      "ef": 12,
-      "ls": 12,
-      "lf": 12,
+      "es": 11.5,
+      "ef": 11.5,
+      "ls": 11.5,
+      "lf": 11.5,
       "slack": 0,
       "depends_on": [
-        "T-SDH-DES-300"
+        "T-SDH-DES-011",
+        "T-SDH-DES-021",
+        "T-SDH-DES-031",
+        "T-SDH-DES-041",
+        "T-SDH-DES-051",
+        "T-SDH-DES-061",
+        "T-SDH-DES-071"
       ],
       "schedule_file": "sch-design.yaml"
     },
     "M-SDH-350": {
       "id": "M-SDH-350",
-      "name": "design baseline ready",
+      "name": "設計ベースライン確定",
       "owner": "ARC",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 12,
-      "ef": 12,
-      "ls": 12,
-      "lf": 12,
+      "es": 11.5,
+      "ef": 11.5,
+      "ls": 11.5,
+      "lf": 11.5,
       "slack": 0,
       "depends_on": [
         "M-SDH-DES-900"
       ],
       "schedule_file": "sch-milestones.yaml"
     },
-    "T-SDH-DES-CTX-010": {
-      "id": "T-SDH-DES-CTX-010",
-      "name": "update context landscape pair",
-      "owner": "ARC",
+    "T-SDH-QLT-010": {
+      "id": "T-SDH-QLT-010",
+      "name": "システム受入条件ルールの起草・レビュー",
+      "owner": "QE",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 4.5,
-      "ef": 5,
+      "es": 7,
+      "ef": 7.5,
       "ls": 10.75,
       "lf": 11.25,
-      "slack": 6.25,
+      "slack": 3.75,
       "depends_on": [
         "M-SDH-300"
       ],
-      "schedule_file": "sch-design-context.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
-    "T-SDH-DES-CTX-020": {
-      "id": "T-SDH-DES-CTX-020",
-      "name": "update context narrative and mermaid family",
-      "owner": "ARC",
+    "T-SDH-QLT-011": {
+      "id": "T-SDH-QLT-011",
+      "name": "システム受入条件派生成果物の起草・レビュー",
+      "owner": "QE",
       "kind": "task",
-      "duration_days": 0.75,
-      "es": 5,
-      "ef": 5.75,
+      "duration_days": 0.25,
+      "es": 7.5,
+      "ef": 7.75,
       "ls": 11.25,
-      "lf": 12,
-      "slack": 6.25,
+      "lf": 11.5,
+      "slack": 3.75,
       "depends_on": [
-        "T-SDH-DES-CTX-010"
+        "T-SDH-QLT-010"
       ],
-      "schedule_file": "sch-design-context.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
-    "M-SDH-DES-CTX-900": {
-      "id": "M-SDH-DES-CTX-900",
-      "name": "design context container complete",
-      "owner": "ARC",
-      "kind": "milestone",
-      "duration_days": 0,
-      "es": 5.75,
-      "ef": 5.75,
-      "ls": 12,
-      "lf": 12,
-      "slack": 6.25,
-      "depends_on": [
-        "T-SDH-DES-CTX-020"
-      ],
-      "schedule_file": "sch-design-context.yaml"
-    },
-    "T-SDH-DES-FLOW-020": {
-      "id": "T-SDH-DES-FLOW-020",
-      "name": "update state transition documentation family",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 5.75,
-      "ef": 6.5,
-      "ls": 12.75,
-      "lf": 13.5,
-      "slack": 7,
-      "depends_on": [
-        "M-SDH-DES-CTX-900"
-      ],
-      "schedule_file": "sch-design-flow.yaml"
-    },
-    "T-SDH-DES-POL-010": {
-      "id": "T-SDH-DES-POL-010",
-      "name": "update cross-cutting policy pair",
-      "owner": "ARC",
+    "T-SDH-QLT-020": {
+      "id": "T-SDH-QLT-020",
+      "name": "テスト戦略・計画ルールの起草・レビュー",
+      "owner": "QE",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 4.5,
-      "ef": 5,
+      "es": 7,
+      "ef": 7.5,
+      "ls": 9,
+      "lf": 9.5,
+      "slack": 2,
+      "depends_on": [
+        "M-SDH-300"
+      ],
+      "schedule_file": "sch-quality.yaml"
+    },
+    "T-SDH-QLT-021": {
+      "id": "T-SDH-QLT-021",
+      "name": "テスト戦略・計画派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 7.5,
+      "ef": 7.75,
+      "ls": 9.5,
+      "lf": 9.75,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-QLT-020"
+      ],
+      "schedule_file": "sch-quality.yaml"
+    },
+    "T-SDH-QLT-030": {
+      "id": "T-SDH-QLT-030",
+      "name": "単体テストドキュメントルールの起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 7.75,
+      "ef": 8.5,
+      "ls": 10.25,
+      "lf": 11,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-QLT-021"
+      ],
+      "schedule_file": "sch-quality.yaml"
+    },
+    "T-SDH-QLT-031": {
+      "id": "T-SDH-QLT-031",
+      "name": "単体テストドキュメント派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 8.5,
+      "ef": 9,
+      "ls": 11,
+      "lf": 11.5,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-QLT-030"
+      ],
+      "schedule_file": "sch-quality.yaml"
+    },
+    "T-SDH-QLT-040": {
+      "id": "T-SDH-QLT-040",
+      "name": "結合テストドキュメントルールの起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 7.75,
+      "ef": 8.5,
+      "ls": 10.25,
+      "lf": 11,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-QLT-021"
+      ],
+      "schedule_file": "sch-quality.yaml"
+    },
+    "T-SDH-QLT-041": {
+      "id": "T-SDH-QLT-041",
+      "name": "結合テストドキュメント派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 8.5,
+      "ef": 9,
+      "ls": 11,
+      "lf": 11.5,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-QLT-040"
+      ],
+      "schedule_file": "sch-quality.yaml"
+    },
+    "T-SDH-QLT-050": {
+      "id": "T-SDH-QLT-050",
+      "name": "外部結合テストルールの起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 1,
+      "es": 7.75,
+      "ef": 8.75,
+      "ls": 9.75,
+      "lf": 10.75,
+      "slack": 2,
+      "depends_on": [
+        "T-SDH-QLT-021"
+      ],
+      "schedule_file": "sch-quality.yaml"
+    },
+    "T-SDH-QLT-051": {
+      "id": "T-SDH-QLT-051",
+      "name": "外部結合テスト派生成果物の起草・レビュー",
+      "owner": "QE",
+      "kind": "task",
+      "duration_days": 0.75,
+      "es": 8.75,
+      "ef": 9.5,
       "ls": 10.75,
-      "lf": 11.25,
-      "slack": 6.25,
+      "lf": 11.5,
+      "slack": 2,
       "depends_on": [
-        "M-SDH-300"
+        "T-SDH-QLT-050"
       ],
-      "schedule_file": "sch-design-policy.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
-    "T-SDH-DES-POL-020": {
-      "id": "T-SDH-DES-POL-020",
-      "name": "update component policy family",
-      "owner": "ARC",
+    "T-SDH-QLT-060": {
+      "id": "T-SDH-QLT-060",
+      "name": "システムテストドキュメントルールの起草・レビュー",
+      "owner": "QE",
       "kind": "task",
       "duration_days": 0.75,
-      "es": 5,
-      "ef": 5.75,
-      "ls": 11.25,
-      "lf": 12,
-      "slack": 6.25,
+      "es": 7.75,
+      "ef": 8.5,
+      "ls": 10.25,
+      "lf": 11,
+      "slack": 2.5,
       "depends_on": [
-        "T-SDH-DES-POL-010"
+        "T-SDH-QLT-021"
       ],
-      "schedule_file": "sch-design-policy.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
-    "M-SDH-DES-POL-900": {
-      "id": "M-SDH-DES-POL-900",
-      "name": "design policy container complete",
-      "owner": "ARC",
-      "kind": "milestone",
-      "duration_days": 0,
-      "es": 5.75,
-      "ef": 5.75,
-      "ls": 12,
-      "lf": 12,
-      "slack": 6.25,
-      "depends_on": [
-        "T-SDH-DES-POL-020"
-      ],
-      "schedule_file": "sch-design-policy.yaml"
-    },
-    "T-SDH-DES-FLOW-010": {
-      "id": "T-SDH-DES-FLOW-010",
-      "name": "update data flow documentation family",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 5.75,
-      "ef": 6.5,
-      "ls": 12,
-      "lf": 12.75,
-      "slack": 6.25,
-      "depends_on": [
-        "M-SDH-DES-CTX-900",
-        "M-SDH-DES-POL-900"
-      ],
-      "schedule_file": "sch-design-flow.yaml"
-    },
-    "T-SDH-DES-FLOW-030": {
-      "id": "T-SDH-DES-FLOW-030",
-      "name": "update cross-system design family",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 6.5,
-      "ef": 7.25,
-      "ls": 12.75,
-      "lf": 13.5,
-      "slack": 6.25,
-      "depends_on": [
-        "T-SDH-DES-FLOW-010"
-      ],
-      "schedule_file": "sch-design-flow.yaml"
-    },
-    "M-SDH-DES-FLOW-900": {
-      "id": "M-SDH-DES-FLOW-900",
-      "name": "design flow container complete",
-      "owner": "ARC",
-      "kind": "milestone",
-      "duration_days": 0,
-      "es": 7.25,
-      "ef": 7.25,
-      "ls": 13.5,
-      "lf": 13.5,
-      "slack": 6.25,
-      "depends_on": [
-        "T-SDH-DES-FLOW-020",
-        "T-SDH-DES-FLOW-030"
-      ],
-      "schedule_file": "sch-design-flow.yaml"
-    },
-    "T-SDH-DES-STR-010": {
-      "id": "T-SDH-DES-STR-010",
-      "name": "update shared diagram rule sets",
-      "owner": "ARC",
+    "T-SDH-QLT-061": {
+      "id": "T-SDH-QLT-061",
+      "name": "システムテストドキュメント派生成果物の起草・レビュー",
+      "owner": "QE",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 5.75,
-      "ef": 6.25,
-      "ls": 13.25,
-      "lf": 13.75,
-      "slack": 7.5,
+      "es": 8.5,
+      "ef": 9,
+      "ls": 11,
+      "lf": 11.5,
+      "slack": 2.5,
       "depends_on": [
-        "M-SDH-DES-CTX-900",
-        "M-SDH-DES-POL-900"
+        "T-SDH-QLT-060"
       ],
-      "schedule_file": "sch-design-structure.yaml"
+      "schedule_file": "sch-quality.yaml"
     },
-    "T-SDH-DES-STR-020": {
-      "id": "T-SDH-DES-STR-020",
-      "name": "update component design summary pair",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 5.75,
-      "ef": 6.25,
-      "ls": 14,
-      "lf": 14.5,
-      "slack": 8.25,
-      "depends_on": [
-        "M-SDH-DES-POL-900"
-      ],
-      "schedule_file": "sch-design-structure.yaml"
-    },
-    "T-SDH-DES-STR-030": {
-      "id": "T-SDH-DES-STR-030",
-      "name": "update domain model pair",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 4.5,
-      "ef": 5,
-      "ls": 13,
-      "lf": 13.5,
-      "slack": 8.5,
-      "depends_on": [
-        "M-SDH-300"
-      ],
-      "schedule_file": "sch-design-structure.yaml"
-    },
-    "T-SDH-DES-STR-040": {
-      "id": "T-SDH-DES-STR-040",
-      "name": "update engineering support documentation set",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 1,
-      "es": 7.25,
-      "ef": 8.25,
-      "ls": 13.5,
-      "lf": 14.5,
-      "slack": 6.25,
-      "depends_on": [
-        "M-SDH-DES-FLOW-900",
-        "T-SDH-DES-STR-030"
-      ],
-      "schedule_file": "sch-design-structure.yaml"
-    },
-    "T-SDH-DES-STR-050": {
-      "id": "T-SDH-DES-STR-050",
-      "name": "update logical structure and ui specification pairs",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 6.25,
-      "ef": 7,
-      "ls": 13.75,
-      "lf": 14.5,
-      "slack": 7.5,
-      "depends_on": [
-        "T-SDH-DES-STR-010",
-        "T-SDH-DES-STR-030"
-      ],
-      "schedule_file": "sch-design-structure.yaml"
-    },
-    "T-SDH-DES-STR-060": {
-      "id": "T-SDH-DES-STR-060",
-      "name": "update system design index and policy family",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 1,
-      "es": 8.25,
-      "ef": 9.25,
-      "ls": 14.5,
-      "lf": 15.5,
-      "slack": 6.25,
-      "depends_on": [
-        "T-SDH-DES-STR-020",
-        "T-SDH-DES-STR-040",
-        "T-SDH-DES-STR-050"
-      ],
-      "schedule_file": "sch-design-structure.yaml"
-    },
-    "M-SDH-DES-STR-900": {
-      "id": "M-SDH-DES-STR-900",
-      "name": "design structure container complete",
-      "owner": "ARC",
-      "kind": "milestone",
-      "duration_days": 0,
-      "es": 9.25,
-      "ef": 9.25,
-      "ls": 15.5,
-      "lf": 15.5,
-      "slack": 6.25,
-      "depends_on": [
-        "T-SDH-DES-STR-060"
-      ],
-      "schedule_file": "sch-design-structure.yaml"
-    },
-    "T-SDH-QLT-100": {
-      "id": "T-SDH-QLT-100",
-      "name": "quality criteria families summary",
+    "T-SDH-QLT-070": {
+      "id": "T-SDH-QLT-070",
+      "name": "受入テストドキュメントルールの起草・レビュー",
       "owner": "BA",
       "kind": "task",
-      "duration_days": 2.5,
-      "es": 4.5,
-      "ef": 7,
-      "ls": 9.5,
-      "lf": 12,
-      "slack": 5,
+      "duration_days": 1,
+      "es": 7.75,
+      "ef": 8.75,
+      "ls": 9.75,
+      "lf": 10.75,
+      "slack": 2,
       "depends_on": [
-        "M-SDH-300"
+        "T-SDH-QLT-021"
       ],
       "schedule_file": "sch-quality.yaml"
     },
-    "T-SDH-QLT-200": {
-      "id": "T-SDH-QLT-200",
-      "name": "quality verification and acceptance summary",
-      "owner": "QE",
+    "T-SDH-QLT-071": {
+      "id": "T-SDH-QLT-071",
+      "name": "受入テストドキュメント派生成果物の起草・レビュー",
+      "owner": "BA",
       "kind": "task",
-      "duration_days": 2,
-      "es": 12,
-      "ef": 14,
-      "ls": 12,
-      "lf": 14,
-      "slack": 0,
+      "duration_days": 0.75,
+      "es": 8.75,
+      "ef": 9.5,
+      "ls": 10.75,
+      "lf": 11.5,
+      "slack": 2,
       "depends_on": [
-        "M-SDH-350",
-        "T-SDH-QLT-100"
-      ],
-      "schedule_file": "sch-quality.yaml"
-    },
-    "T-SDH-QLT-300": {
-      "id": "T-SDH-QLT-300",
-      "name": "quality traceability and planning summary",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 1.5,
-      "es": 14,
-      "ef": 15.5,
-      "ls": 14,
-      "lf": 15.5,
-      "slack": 0,
-      "depends_on": [
-        "T-SDH-QLT-200"
+        "T-SDH-QLT-070"
       ],
       "schedule_file": "sch-quality.yaml"
     },
     "M-SDH-QLT-900": {
       "id": "M-SDH-QLT-900",
-      "name": "quality domain complete",
+      "name": "品質ドメイン完了",
       "owner": "QE",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 15.5,
-      "ef": 15.5,
-      "ls": 15.5,
-      "lf": 15.5,
-      "slack": 0,
+      "es": 9.5,
+      "ef": 9.5,
+      "ls": 11.5,
+      "lf": 11.5,
+      "slack": 2,
       "depends_on": [
-        "T-SDH-QLT-300"
+        "T-SDH-QLT-011",
+        "T-SDH-QLT-021",
+        "T-SDH-QLT-031",
+        "T-SDH-QLT-041",
+        "T-SDH-QLT-051",
+        "T-SDH-QLT-061",
+        "T-SDH-QLT-071"
       ],
       "schedule_file": "sch-quality.yaml"
     },
     "M-SDH-400": {
       "id": "M-SDH-400",
-      "name": "quality and traceability baseline ready",
+      "name": "品質ベースライン確定",
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 15.5,
-      "ef": 15.5,
-      "ls": 15.5,
-      "lf": 15.5,
-      "slack": 0,
+      "es": 9.5,
+      "ef": 9.5,
+      "ls": 11.5,
+      "lf": 11.5,
+      "slack": 2,
       "depends_on": [
         "M-SDH-QLT-900"
       ],
@@ -822,223 +1501,44 @@
     },
     "M-SDH-999": {
       "id": "M-SDH-999",
-      "name": "prj-0001 schedule scope completed",
+      "name": "prj-0001 スケジュールスコープ完了",
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 15.5,
-      "ef": 15.5,
-      "ls": 15.5,
-      "lf": 15.5,
-      "slack": 0,
+      "es": 9.5,
+      "ef": 9.5,
+      "ls": 11.5,
+      "lf": 11.5,
+      "slack": 2,
       "depends_on": [
         "M-SDH-400"
       ],
       "schedule_file": "sch-milestones.yaml"
-    },
-    "T-SDH-QLT-CRT-010": {
-      "id": "T-SDH-QLT-CRT-010",
-      "name": "update acceptance test criteria family",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 1,
-      "es": 4.5,
-      "ef": 5.5,
-      "ls": 13.25,
-      "lf": 14.25,
-      "slack": 8.75,
-      "depends_on": [
-        "M-SDH-300"
-      ],
-      "schedule_file": "sch-quality-criteria.yaml"
-    },
-    "T-SDH-QLT-CRT-020": {
-      "id": "T-SDH-QLT-CRT-020",
-      "name": "update external test criteria family",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 1,
-      "es": 4.5,
-      "ef": 5.5,
-      "ls": 13.25,
-      "lf": 14.25,
-      "slack": 8.75,
-      "depends_on": [
-        "M-SDH-300"
-      ],
-      "schedule_file": "sch-quality-criteria.yaml"
-    },
-    "T-SDH-QLT-CRT-030": {
-      "id": "T-SDH-QLT-CRT-030",
-      "name": "update user test criteria family",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 4.5,
-      "ef": 5.25,
-      "ls": 13.5,
-      "lf": 14.25,
-      "slack": 9,
-      "depends_on": [
-        "M-SDH-300",
-        "T-SDH-BIZ-010"
-      ],
-      "schedule_file": "sch-quality-criteria.yaml"
-    },
-    "M-SDH-QLT-CRT-900": {
-      "id": "M-SDH-QLT-CRT-900",
-      "name": "quality criteria container complete",
-      "owner": "BA",
-      "kind": "milestone",
-      "duration_days": 0,
-      "es": 5.5,
-      "ef": 5.5,
-      "ls": 14.25,
-      "lf": 14.25,
-      "slack": 8.75,
-      "depends_on": [
-        "T-SDH-QLT-CRT-010",
-        "T-SDH-QLT-CRT-020",
-        "T-SDH-QLT-CRT-030"
-      ],
-      "schedule_file": "sch-quality-criteria.yaml"
-    },
-    "T-SDH-QLT-GOV-010": {
-      "id": "T-SDH-QLT-GOV-010",
-      "name": "update specification traceability link pair",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 12,
-      "ef": 12.5,
-      "ls": 14.25,
-      "lf": 14.75,
-      "slack": 2.25,
-      "depends_on": [
-        "M-SDH-350",
-        "T-SDH-NFR-010"
-      ],
-      "schedule_file": "sch-quality-governance.yaml"
-    },
-    "T-SDH-QLT-VRF-010": {
-      "id": "T-SDH-QLT-VRF-010",
-      "name": "update integration test documentation family",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 12,
-      "ef": 12.75,
-      "ls": 12.75,
-      "lf": 13.5,
-      "slack": 0.75,
-      "depends_on": [
-        "M-SDH-350"
-      ],
-      "schedule_file": "sch-quality-verification.yaml"
-    },
-    "T-SDH-QLT-VRF-020": {
-      "id": "T-SDH-QLT-VRF-020",
-      "name": "update system test documentation family",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 12.75,
-      "ef": 13.5,
-      "ls": 13.5,
-      "lf": 14.25,
-      "slack": 0.75,
-      "depends_on": [
-        "T-SDH-QLT-VRF-010"
-      ],
-      "schedule_file": "sch-quality-verification.yaml"
-    },
-    "T-SDH-QLT-VRF-030": {
-      "id": "T-SDH-QLT-VRF-030",
-      "name": "update system acceptance condition pair",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.5,
-      "es": 13.5,
-      "ef": 14,
-      "ls": 14.25,
-      "lf": 14.75,
-      "slack": 0.75,
-      "depends_on": [
-        "T-SDH-QLT-VRF-020",
-        "M-SDH-QLT-CRT-900"
-      ],
-      "schedule_file": "sch-quality-verification.yaml"
-    },
-    "M-SDH-QLT-VRF-900": {
-      "id": "M-SDH-QLT-VRF-900",
-      "name": "quality verification container complete",
-      "owner": "QE",
-      "kind": "milestone",
-      "duration_days": 0,
-      "es": 14,
-      "ef": 14,
-      "ls": 14.75,
-      "lf": 14.75,
-      "slack": 0.75,
-      "depends_on": [
-        "T-SDH-QLT-VRF-030"
-      ],
-      "schedule_file": "sch-quality-verification.yaml"
-    },
-    "T-SDH-QLT-GOV-020": {
-      "id": "T-SDH-QLT-GOV-020",
-      "name": "update test planning and strategy family",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.75,
-      "es": 14,
-      "ef": 14.75,
-      "ls": 14.75,
-      "lf": 15.5,
-      "slack": 0.75,
-      "depends_on": [
-        "M-SDH-QLT-CRT-900",
-        "M-SDH-QLT-VRF-900",
-        "T-SDH-QLT-GOV-010"
-      ],
-      "schedule_file": "sch-quality-governance.yaml"
-    },
-    "M-SDH-QLT-GOV-900": {
-      "id": "M-SDH-QLT-GOV-900",
-      "name": "quality governance container complete",
-      "owner": "QE",
-      "kind": "milestone",
-      "duration_days": 0,
-      "es": 14.75,
-      "ef": 14.75,
-      "ls": 15.5,
-      "lf": 15.5,
-      "slack": 0.75,
-      "depends_on": [
-        "T-SDH-QLT-GOV-020"
-      ],
-      "schedule_file": "sch-quality-governance.yaml"
     }
   },
   "critical_path": [
     "M-SDH-100",
     "T-SDH-GOV-010",
-    "T-SDH-GOV-030",
-    "T-SDH-GOV-040",
+    "T-SDH-GOV-020",
+    "T-SDH-GOV-021",
+    "M-SDH-GOV-900",
     "M-SDH-200",
-    "T-SDH-BIZ-040",
-    "T-SDH-BIZ-050",
-    "T-SDH-BIZ-060",
+    "T-SDH-BIZ-010",
+    "T-SDH-BIZ-020",
+    "T-SDH-BIZ-080",
+    "T-SDH-BIZ-090",
+    "T-SDH-BIZ-091",
+    "T-SDH-BIZ-140",
+    "T-SDH-BIZ-141",
+    "M-SDH-BIZ-900",
     "M-SDH-300",
-    "T-SDH-DES-100",
-    "T-SDH-DES-200",
-    "T-SDH-DES-300",
+    "T-SDH-DES-020",
+    "T-SDH-DES-030",
+    "T-SDH-DES-040",
+    "T-SDH-DES-041",
+    "T-SDH-DES-070",
+    "T-SDH-DES-071",
     "M-SDH-DES-900",
-    "M-SDH-350",
-    "T-SDH-QLT-200",
-    "T-SDH-QLT-300",
-    "M-SDH-QLT-900",
-    "M-SDH-400",
-    "M-SDH-999"
+    "M-SDH-350"
   ]
 }

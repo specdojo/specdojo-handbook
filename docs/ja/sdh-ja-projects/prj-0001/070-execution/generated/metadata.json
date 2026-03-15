@@ -1,21 +1,14 @@
 {
-  "generated_at_utc": "2026-03-14T03:17:44Z",
+  "generated_at_utc": "2026-03-15T12:32:15Z",
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution",
   "generated_dir": "docs/ja/sdh-ja-projects/prj-0001/070-execution/generated",
   "schedule_files": [
     "sch-business.yaml",
-    "sch-design-context.yaml",
-    "sch-design-flow.yaml",
-    "sch-design-policy.yaml",
-    "sch-design-structure.yaml",
     "sch-design.yaml",
     "sch-governance.yaml",
     "sch-milestones.yaml",
     "sch-nfr.yaml",
-    "sch-quality-criteria.yaml",
-    "sch-quality-governance.yaml",
-    "sch-quality-verification.yaml",
     "sch-quality.yaml"
   ],
   "event_files_count": 1,
