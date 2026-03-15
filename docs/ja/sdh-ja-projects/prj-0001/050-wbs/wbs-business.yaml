@@ -3,45 +3,11 @@ project_id: prj-0001
 domain: business
 assigned_team: specdojo-handbook
 wbs:
-  - id: WBS-BIZ-BAC-010
-    name: maintain business acceptance criteria rule and instruction pair
-    description: Maintain the BAC rule and instruction pair for business acceptance criteria documents and their mandatory authoring guidance.
-    owner: BA
-    component: acceptance
-    deliverables:
-      - path: docs/ja/handbook/rules/bac-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/bac-instruction.md
-        kind: modify
-    done_criteria: The BAC rule and instruction pair defines required business acceptance sections, completion conditions, and AI authoring constraints without ambiguous wording.
-
-  - id: WBS-BIZ-BDD-020
-    name: maintain business data definition rule and instruction pair
-    description: Maintain the BDD rule and instruction pair that governs business data definition documents and their field-level expectations.
-    owner: BA
-    component: data
-    deliverables:
-      - path: docs/ja/handbook/rules/bdd-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/bdd-instruction.md
-        kind: modify
-    done_criteria: The BDD rule and instruction pair defines the mandatory data-definition structure, attribute descriptions, and AI guidance needed to author business data documents consistently.
-
-  - id: WBS-BIZ-BDS-030
-    name: maintain business data schema rule and instruction pair
-    description: Maintain the BDS rule and instruction pair that defines how business data schema documents are structured and constrained.
-    owner: BA
-    component: data
-    deliverables:
-      - path: docs/ja/handbook/rules/bds-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/bds-instruction.md
-        kind: modify
-    done_criteria: The BDS rule and instruction pair defines structure, field-level expectations, and prohibition rules needed to generate business schema documents coherently.
-
-  - id: WBS-BIZ-BPS-040
-    name: maintain business process specification rule and instruction pair
-    description: Maintain the BPS rule and instruction pair for business process specification documents and traceable process outputs.
+  - id: WBS-BIZ-BPS-010
+    name: maintain business process specification pair
+    description: >
+      Maintain the BPS rule and instruction pair for business process specification
+      documents that define business flows, procedures, and participant roles (catalog §3).
     owner: BA
     component: process
     deliverables:
@@ -49,11 +15,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/bps-instruction.md
         kind: modify
-    done_criteria: The BPS rule and instruction pair defines the required process-specification sections, traceable outputs, and AI guidance needed for business process documents.
+    done_criteria: >
+      The BPS rule and instruction pair defines required process-specification sections,
+      traceable outputs, and AI guidance needed for business process documents.
 
-  - id: WBS-BIZ-BR-050
-    name: maintain business rule rule and instruction pair
-    description: Maintain the BR rule and instruction pair that defines how business rules are written, constrained, and reviewed.
+  - id: WBS-BIZ-BR-020
+    name: maintain business rule pair
+    description: >
+      Maintain the BR rule and instruction pair that defines how business rules
+      are written, constrained, and reviewed (catalog §3).
     owner: BA
     component: rules
     deliverables:
@@ -61,11 +31,103 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/br-instruction.md
         kind: modify
-    done_criteria: The BR rule and instruction pair defines how business rules are structured, constrained, and expressed so that AI-generated content remains testable and unambiguous.
+    done_criteria: >
+      The BR rule and instruction pair defines how business rules are structured,
+      constrained, and expressed so that AI-generated content remains testable and unambiguous.
 
-  - id: WBS-BIZ-BES-060
+  - id: WBS-BIZ-BDD-030
+    name: maintain business data dictionary pair
+    description: >
+      Maintain the BDD rule and instruction pair that governs business data definition
+      documents and their field-level expectations (catalog §3).
+    owner: BA
+    component: data
+    deliverables:
+      - path: docs/ja/handbook/rules/bdd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bdd-instruction.md
+        kind: modify
+    done_criteria: >
+      The BDD rule and instruction pair defines the mandatory data-definition structure,
+      attribute descriptions, and AI guidance needed to author business data documents consistently.
+
+  - id: WBS-BIZ-BDS-040
+    name: maintain form specification pair
+    description: >
+      Maintain the BDS rule and instruction pair that defines how form and report
+      specifications are structured and constrained (catalog §3).
+    owner: BA
+    component: forms
+    deliverables:
+      - path: docs/ja/handbook/rules/bds-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bds-instruction.md
+        kind: modify
+    done_criteria: >
+      The BDS rule and instruction pair defines structure, layout expectations,
+      and prohibition rules needed to generate form specification documents coherently.
+
+  - id: WBS-BIZ-UIS-050
+    name: maintain screen specification pair
+    description: >
+      Maintain the UIS rule and instruction pair for screen layout, transition,
+      and operation specification documents (catalog §3).
+    owner: BA
+    component: screen
+    deliverables:
+      - path: docs/ja/handbook/rules/uis-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/uis-instruction.md
+        kind: modify
+    done_criteria: >
+      The UIS rule and instruction pair defines mandatory screen specification sections,
+      transition rules, and AI authoring guidance for screen specification documents.
+
+  - id: WBS-BIZ-GL-060
+    name: maintain glossary pair
+    description: >
+      Maintain the glossary rule and instruction pair that governs project-wide
+      terminology and glossary authoring structure (catalog §3).
+    owner: BA
+    component: glossary
+    deliverables:
+      - path: docs/ja/handbook/rules/gl-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/gl-instruction.md
+        kind: modify
+    done_criteria: >
+      The glossary rule and instruction pair defines the required glossary structure,
+      term-writing rules, and reusable AI guidance for terminology documents.
+
+  - id: WBS-BIZ-REFDATA-070
+    name: maintain reference data definition set
+    description: >
+      Maintain the classification list (CLD), status list (STSD), and storage location
+      list (SLD) rule and instruction files as one reference data family (catalog §3).
+    owner: BA
+    component: reference-data
+    deliverables:
+      - path: docs/ja/handbook/rules/cld-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cld-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/stsd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/stsd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/sld-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/sld-instruction.md
+        kind: modify
+    done_criteria: >
+      Reference data rule and instruction files define consistent structures for
+      classification, status, and storage location documents with AI authoring guidance.
+
+  - id: WBS-BIZ-BES-080
     name: maintain business event specification family
-    description: Maintain the BES index and detail-document rule and instruction files for business event specification documents.
+    description: >
+      Maintain the BES index and detail-document rule and instruction files
+      for business event specification documents (catalog §3.1).
     owner: BA
     component: events
     deliverables:
@@ -77,4 +139,114 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/bes-instruction.md
         kind: modify
-    done_criteria: The BES family defines both index and detail-document requirements so business event specifications can be authored with consistent scope allocation and section structure.
+    done_criteria: >
+      The BES family defines both index and detail-document requirements so business
+      event specifications can be authored with consistent scope allocation and section structure.
+
+  - id: WBS-BIZ-CDFD-090
+    name: maintain conceptual data flow documentation family
+    description: >
+      Maintain the CDFD textual and mermaid rule and instruction files
+      for conceptual data flow diagrams (catalog §3.2).
+    owner: BA
+    component: data-flow
+    deliverables:
+      - path: docs/ja/handbook/rules/cdfd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cdfd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/cdfd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cdfd-mermaid-instruction.md
+        kind: modify
+    done_criteria: >
+      The CDFD family defines consistent structure and AI guidance for textual
+      and mermaid representations of conceptual data flow documents.
+
+  - id: WBS-BIZ-CDSD-100
+    name: maintain conceptual data store definition pair
+    description: >
+      Maintain the CDSD rule and instruction pair for conceptual data store
+      structure and attribute definitions (catalog §3.2).
+    owner: BA
+    component: data-store
+    deliverables:
+      - path: docs/ja/handbook/rules/cdsd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cdsd-instruction.md
+        kind: modify
+    done_criteria: >
+      The CDSD rule and instruction pair defines data store structure,
+      attribute descriptions, and AI guidance for conceptual data store documents.
+
+  - id: WBS-BIZ-CSTD-110
+    name: maintain conceptual state transition documentation family
+    description: >
+      Maintain the CSTD markdown and mermaid rule and instruction files
+      for conceptual state transition diagrams (catalog §3.2).
+    owner: BA
+    component: state-transition
+    deliverables:
+      - path: docs/ja/handbook/rules/cstd-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cstd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/cstd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/cstd-mermaid-instruction.md
+        kind: modify
+    done_criteria: >
+      The CSTD family defines narrative and mermaid requirements for conceptual
+      state transition documents with consistent headings, coverage, and prohibition rules.
+
+  - id: WBS-BIZ-CCD-120
+    name: maintain conceptual class diagram mermaid pair
+    description: >
+      Maintain the CCD mermaid rule and instruction pair
+      for conceptual class diagram documents (catalog §3.2).
+    owner: BA
+    component: class-diagram
+    deliverables:
+      - path: docs/ja/handbook/rules/ccd-mermaid-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/ccd-mermaid-instruction.md
+        kind: modify
+    done_criteria: >
+      The CCD mermaid rule and instruction pair defines diagram syntax,
+      mandatory nodes and relationships, and AI guidance for conceptual class diagrams.
+
+  - id: WBS-BIZ-SF-130
+    name: maintain system function list family
+    description: >
+      Maintain the SF index and detail-document rule and instruction files
+      for system function list documents (catalog §3.3).
+    owner: BA
+    component: system-functions
+    deliverables:
+      - path: docs/ja/handbook/rules/sf-index-rules.md
+        kind: create
+      - path: docs/ja/handbook/instructions/sf-index-instruction.md
+        kind: create
+      - path: docs/ja/handbook/rules/sf-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/sf-instruction.md
+        kind: modify
+    done_criteria: >
+      The SF family defines both index and detail-document requirements so system
+      function lists can be authored with consistent scope allocation and section structure.
+
+  - id: WBS-BIZ-BAC-140
+    name: maintain business acceptance criteria pair
+    description: >
+      Maintain the BAC rule and instruction pair for business acceptance criteria
+      documents and their mandatory authoring guidance (catalog §5).
+    owner: BA
+    component: acceptance
+    deliverables:
+      - path: docs/ja/handbook/rules/bac-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/bac-instruction.md
+        kind: modify
+    done_criteria: >
+      The BAC rule and instruction pair defines required business acceptance sections,
+      completion conditions, and AI authoring constraints without ambiguous wording.

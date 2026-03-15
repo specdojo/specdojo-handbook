@@ -5,7 +5,9 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-NFR-INDEX-010
     name: maintain non-functional requirements index pair
-    description: Maintain the NFR index rule and instruction pair that defines the common structure for non-functional requirement document sets.
+    description: >
+      Maintain the NFR index rule and instruction pair that defines
+      the common structure for non-functional requirement document sets (catalog §8).
     owner: QE
     component: index
     deliverables:
@@ -13,11 +15,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-index-instruction.md
         kind: modify
-    done_criteria: The NFR index rule and instruction pair defines the common index structure, selection logic, and AI guidance for non-functional requirement document sets.
+    done_criteria: >
+      The NFR index rule and instruction pair defines the common index structure,
+      selection logic, and AI guidance for non-functional requirement document sets.
 
-  - id: WBS-NFR-AVAILABILITY-020
+  - id: WBS-NFR-AVAIL-020
     name: maintain availability requirement pair
-    description: Maintain the availability NFR rule and instruction pair for availability-focused non-functional requirement documents.
+    description: >
+      Maintain the availability NFR rule and instruction pair
+      for availability-focused non-functional requirement documents (catalog §8).
     owner: QE
     component: availability
     deliverables:
@@ -25,11 +31,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-availability-instruction.md
         kind: modify
-    done_criteria: The availability NFR rule and instruction pair defines mandatory availability criteria, evidence expectations, and AI guidance without ambiguous thresholds.
+    done_criteria: >
+      The availability NFR rule and instruction pair defines mandatory availability
+      criteria, evidence expectations, and AI guidance without ambiguous thresholds.
 
-  - id: WBS-NFR-INTEGRITY-030
+  - id: WBS-NFR-INTEG-030
     name: maintain integrity requirement pair
-    description: Maintain the integrity NFR rule and instruction pair for integrity-focused non-functional requirement documents.
+    description: >
+      Maintain the integrity NFR rule and instruction pair
+      for integrity-focused non-functional requirement documents (catalog §8).
     owner: QE
     component: integrity
     deliverables:
@@ -37,11 +47,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-integrity-instruction.md
         kind: modify
-    done_criteria: The integrity NFR rule and instruction pair defines required integrity controls, document sections, and AI guidance for integrity-focused non-functional specifications.
+    done_criteria: >
+      The integrity NFR rule and instruction pair defines required integrity controls,
+      document sections, and AI guidance for integrity-focused non-functional specifications.
 
-  - id: WBS-NFR-MAINTAINABILITY-040
+  - id: WBS-NFR-MAINT-040
     name: maintain maintainability requirement pair
-    description: Maintain the maintainability NFR rule and instruction pair for maintainability requirement documents.
+    description: >
+      Maintain the maintainability NFR rule and instruction pair
+      for maintainability requirement documents (catalog §8).
     owner: QE
     component: maintainability
     deliverables:
@@ -49,11 +63,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-maintainability-instruction.md
         kind: modify
-    done_criteria: The maintainability NFR rule and instruction pair defines measurable maintainability expectations, required sections, and AI guidance for maintainability documents.
+    done_criteria: >
+      The maintainability NFR rule and instruction pair defines measurable maintainability
+      expectations, required sections, and AI guidance for maintainability documents.
 
-  - id: WBS-NFR-OPERATIONS-050
+  - id: WBS-NFR-OPS-050
     name: maintain operations requirement pair
-    description: Maintain the operations NFR rule and instruction pair for operations and observability-focused non-functional requirements.
+    description: >
+      Maintain the operations NFR rule and instruction pair
+      for operations and observability-focused non-functional requirements (catalog §8).
     owner: QE
     component: operations
     deliverables:
@@ -61,11 +79,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-operations-instruction.md
         kind: modify
-    done_criteria: The operations NFR rule and instruction pair defines operational constraints, observability expectations, and AI guidance for operations-focused non-functional requirements.
+    done_criteria: >
+      The operations NFR rule and instruction pair defines operational constraints,
+      observability expectations, and AI guidance for operations-focused non-functional requirements.
 
-  - id: WBS-NFR-PERFORMANCE-060
+  - id: WBS-NFR-PERF-060
     name: maintain performance requirement pair
-    description: Maintain the performance NFR rule and instruction pair for measurable performance requirement documents.
+    description: >
+      Maintain the performance NFR rule and instruction pair
+      for measurable performance requirement documents (catalog §8).
     owner: QE
     component: performance
     deliverables:
@@ -73,11 +95,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-performance-instruction.md
         kind: modify
-    done_criteria: The performance NFR rule and instruction pair defines measurable performance targets, workload assumptions, and AI guidance for performance requirement documents.
+    done_criteria: >
+      The performance NFR rule and instruction pair defines measurable performance
+      targets, workload assumptions, and AI guidance for performance requirement documents.
 
-  - id: WBS-NFR-RELIABILITY-070
+  - id: WBS-NFR-RELY-070
     name: maintain reliability requirement pair
-    description: Maintain the reliability NFR rule and instruction pair for failure-handling and resilience requirement documents.
+    description: >
+      Maintain the reliability NFR rule and instruction pair
+      for failure-handling and resilience requirement documents (catalog §8).
     owner: QE
     component: reliability
     deliverables:
@@ -85,11 +111,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-reliability-instruction.md
         kind: modify
-    done_criteria: The reliability NFR rule and instruction pair defines failure-handling expectations, evidence needs, and AI guidance for reliability requirements.
+    done_criteria: >
+      The reliability NFR rule and instruction pair defines failure-handling expectations,
+      evidence needs, and AI guidance for reliability requirements.
 
-  - id: WBS-NFR-SECURITY-080
+  - id: WBS-NFR-SEC-080
     name: maintain security and safety requirement pair
-    description: Maintain the security and safety NFR rule and instruction pair for threat, control, and safety-focused requirement documents.
+    description: >
+      Maintain the security and safety NFR rule and instruction pair
+      for threat, control, and safety-focused requirement documents (catalog §8).
     owner: QE
     component: security-safety
     deliverables:
@@ -97,11 +127,15 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-security-safety-instruction.md
         kind: modify
-    done_criteria: The security and safety NFR rule and instruction pair defines mandatory threat, control, and safety coverage with AI guidance that remains concrete and auditable.
+    done_criteria: >
+      The security and safety NFR rule and instruction pair defines mandatory threat,
+      control, and safety coverage with AI guidance that remains concrete and auditable.
 
-  - id: WBS-NFR-USABILITY-090
+  - id: WBS-NFR-USAB-090
     name: maintain usability requirement pair
-    description: Maintain the usability NFR rule and instruction pair for user-centered non-functional requirement documents.
+    description: >
+      Maintain the usability NFR rule and instruction pair
+      for user-centered non-functional requirement documents (catalog §8).
     owner: BA
     component: usability
     deliverables:
@@ -109,4 +143,6 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-usability-instruction.md
         kind: modify
-    done_criteria: The usability NFR rule and instruction pair defines user-centered criteria, measurement expectations, and AI guidance for usability requirement documents.
+    done_criteria: >
+      The usability NFR rule and instruction pair defines user-centered criteria,
+      measurement expectations, and AI guidance for usability requirement documents.

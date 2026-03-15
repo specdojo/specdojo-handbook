@@ -3,9 +3,131 @@ project_id: prj-0001
 domain: quality
 assigned_team: specdojo-handbook
 wbs:
-  - id: WBS-QLTY-ATC-010
-    name: maintain acceptance test criteria and derivative instruction family
-    description: Maintain the ATC core rule set and all derivative instruction templates used to author acceptance-test criteria documents.
+  - id: WBS-QLTY-SAC-010
+    name: maintain system acceptance condition pair
+    description: >
+      Maintain the SAC rule and instruction pair for system acceptance condition
+      documents and their boundary definitions (catalog §9).
+    owner: QE
+    component: acceptance
+    deliverables:
+      - path: docs/ja/handbook/rules/sac-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/sac-instruction.md
+        kind: modify
+    done_criteria: >
+      The SAC rule and instruction pair defines the mandatory system-acceptance content,
+      acceptance boundaries, and AI guidance needed for acceptance condition documents.
+
+  - id: WBS-QLTY-TSP-020
+    name: maintain test strategy and planning pair
+    description: >
+      Maintain the TSP index rule and instruction pair that defines
+      test strategy, levels, and overall planning structure (catalog §10.1).
+    owner: QE
+    component: test-planning
+    deliverables:
+      - path: docs/ja/handbook/rules/tsp-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/tsp-index-instruction.md
+        kind: modify
+    done_criteria: >
+      The TSP index rule and instruction pair defines test strategy content,
+      level definitions, and AI guidance for test planning documents.
+
+  - id: WBS-QLTY-UTC-030
+    name: maintain unit test documentation family
+    description: >
+      Maintain the UTC index and detail-document rule and instruction files
+      for unit test catalog documents (catalog §10.2).
+    owner: QE
+    component: unit-tests
+    deliverables:
+      - path: docs/ja/handbook/rules/utc-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/utc-index-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/utc-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/utc-instruction.md
+        kind: modify
+    done_criteria: >
+      The UTC family defines unit-test index and detail requirements with fixed headings,
+      test expectations, and AI guidance for authoring unit test catalogs.
+
+  - id: WBS-QLTY-ITC-040
+    name: maintain integration test documentation family
+    description: >
+      Maintain the ITC index and detail-document rule and instruction files
+      for internal integration test catalog documents (catalog §10.3).
+    owner: QE
+    component: integration-tests
+    deliverables:
+      - path: docs/ja/handbook/rules/itc-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/itc-index-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/itc-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/itc-instruction.md
+        kind: modify
+    done_criteria: >
+      The ITC family defines index, criteria, and detail-document expectations
+      with explicit required content and AI instructions for integration test artifacts.
+
+  - id: WBS-QLTY-ETC-050
+    name: maintain external integration test documentation family
+    description: >
+      Maintain the ETC index and detail-document rule and instruction files,
+      plus derivative test design and scenario instructions (catalog §10.4).
+    owner: QE
+    component: external-tests
+    deliverables:
+      - path: docs/ja/handbook/rules/etc-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/etc-index-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/etc-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/etc-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/etd-index-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/etd-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/ets-index-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/ets-instruction.md
+        kind: modify
+    done_criteria: >
+      The ETC family defines the external-test rule set and all derivative instruction
+      templates with aligned structure, scope allocation, and AI authoring guidance.
+
+  - id: WBS-QLTY-STC-060
+    name: maintain system test documentation family
+    description: >
+      Maintain the STC index and detail-document rule and instruction files
+      for system test catalog documents (catalog §10.5).
+    owner: QE
+    component: system-tests
+    deliverables:
+      - path: docs/ja/handbook/rules/stc-index-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/stc-index-instruction.md
+        kind: modify
+      - path: docs/ja/handbook/rules/stc-rules.md
+        kind: modify
+      - path: docs/ja/handbook/instructions/stc-instruction.md
+        kind: modify
+    done_criteria: >
+      The STC family defines index and detail-document structures with aligned
+      terminology and AI generation guidance for system test artifacts.
+
+  - id: WBS-QLTY-ATC-070
+    name: maintain acceptance test documentation family
+    description: >
+      Maintain the ATC index and detail-document rule and instruction files,
+      plus derivative test design and scenario instructions (catalog §10.6).
     owner: BA
     component: acceptance-tests
     deliverables:
@@ -25,124 +147,6 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/ats-instruction.md
         kind: modify
-    done_criteria: The ATC family defines the core acceptance-test rule set and all derivative instruction templates with consistent scope partitioning, required sections, and AI guidance.
-
-  - id: WBS-QLTY-ETC-020
-    name: maintain external test criteria and derivative instruction family
-    description: Maintain the ETC core rule set and all derivative instruction templates for external-test criteria documents.
-    owner: BA
-    component: external-tests
-    deliverables:
-      - path: docs/ja/handbook/rules/etc-index-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/etc-index-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/rules/etc-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/etc-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/etd-index-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/etd-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/ets-index-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/ets-instruction.md
-        kind: modify
-    done_criteria: The ETC family defines the external-test rule set and all derivative instruction templates with aligned structure, scope allocation, and AI authoring guidance.
-
-  - id: WBS-QLTY-ITC-030
-    name: maintain integration test documentation family
-    description: Maintain the integration-test index, criteria, and detail-document rule and instruction files as one coherent documentation family.
-    owner: QE
-    component: integration-tests
-    deliverables:
-      - path: docs/ja/handbook/rules/itc-index-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/itc-index-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/rules/itc-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/itc-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/rules/itd-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/itd-instruction.md
-        kind: modify
-    done_criteria: The integration-test family defines index, criteria, and detail-document expectations with explicit required content and AI instructions for integration test artifacts.
-
-  - id: WBS-QLTY-STC-040
-    name: maintain system test documentation family
-    description: Maintain the system-test index, criteria, and supporting detail-document rule and instruction files.
-    owner: QE
-    component: system-tests
-    deliverables:
-      - path: docs/ja/handbook/rules/stc-index-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/stc-index-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/rules/stc-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/stc-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/rules/stsd-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/stsd-instruction.md
-        kind: modify
-    done_criteria: The system-test family defines index, criteria, and supporting detail-document structures with aligned terminology and AI generation guidance.
-
-  - id: WBS-QLTY-UTC-050
-    name: maintain user test criteria family
-    description: Maintain the UTC index and detail-document rule and instruction files for user-test criteria documents.
-    owner: BA
-    component: user-tests
-    deliverables:
-      - path: docs/ja/handbook/rules/utc-index-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/utc-index-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/rules/utc-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/utc-instruction.md
-        kind: modify
-    done_criteria: The UTC family defines user-test index and detail requirements with fixed headings, acceptance expectations, and AI guidance for authoring user-facing test criteria.
-
-  - id: WBS-QLTY-SAC-060
-    name: maintain system acceptance condition pair
-    description: Maintain the SAC rule and instruction pair for system acceptance condition documents and their boundary definitions.
-    owner: BA
-    component: acceptance
-    deliverables:
-      - path: docs/ja/handbook/rules/sac-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/sac-instruction.md
-        kind: modify
-    done_criteria: The SAC rule and instruction pair defines the mandatory system-acceptance content, acceptance boundaries, and AI guidance needed for acceptance condition documents.
-
-  - id: WBS-QLTY-SFL-070
-    name: maintain specification traceability link pair
-    description: Maintain the SFL rule and instruction pair that governs traceability links between definition sources and verification artifacts.
-    owner: QE
-    component: traceability
-    deliverables:
-      - path: docs/ja/handbook/rules/sfl-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/sfl-instruction.md
-        kind: modify
-    done_criteria: The SFL rule and instruction pair defines the traceability-link structure and AI guidance needed to connect specification sources and downstream verification artifacts.
-
-  - id: WBS-QLTY-TESTPLAN-080
-    name: maintain test planning and strategy family
-    description: Maintain the test planning and strategy index and lifecycle rule and instruction files used for handbook test-planning artifacts.
-    owner: QE
-    component: test-planning
-    deliverables:
-      - path: docs/ja/handbook/rules/tsp-index-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/tsp-index-instruction.md
-        kind: modify
-      - path: docs/ja/handbook/rules/tsl-rules.md
-        kind: modify
-      - path: docs/ja/handbook/instructions/tsl-instruction.md
-        kind: modify
-    done_criteria: Test planning and strategy rule and instruction files define the index and lifecycle content needed to author consistent handbook test-planning artifacts.
+    done_criteria: >
+      The ATC family defines the acceptance-test rule set and all derivative instruction
+      templates with consistent scope partitioning, required sections, and AI guidance.
