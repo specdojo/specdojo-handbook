@@ -5,9 +5,8 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-DES-IFX-010
     name: 外部インターフェースドキュメントファミリーの整備
-    description: >
-      外部システムIF一覧・API・ファイル・メッセージ仕様の
-      ルール・指示ファイルを1つのインターフェースファミリーとして整備する（カタログ §4）。
+    description: |
+      外部システムIF一覧・API・ファイル・メッセージ仕様の ルール・指示ファイルを1つのインターフェースファミリーとして整備する（カタログ §4）。
     owner: ARC
     component: external-if
     deliverables:
@@ -27,16 +26,28 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/ifx-msg-instruction.md
         kind: modify
-    done_criteria: >
-      外部インターフェースのルール・指示ファイルが、IF一覧・API・ファイル・
-      メッセージ仕様ドキュメント全体にわたり一貫した構造・必須フィールド・
-      AI生成制約を定義していること。
-
+      - path: docs/ja/handbook/templates/ifx-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ifx-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/ifx-api-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ifx-api-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/ifx-file-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ifx-file-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/ifx-msg-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ifx-msg-sample.md
+        kind: modify
+    done_criteria: |
+      外部インターフェースのルール・指示ファイルが、IF一覧・API・ファイル・ メッセージ仕様ドキュメント全体にわたり一貫した構造・必須フィールド・ AI生成制約を定義していること。
   - id: WBS-DES-CXD-020
     name: C4 コンテキスト図ドキュメントファミリーの整備
-    description: >
-      C4 コンテキストレベルドキュメントの CXD Markdown および Mermaid の
-      ルール・指示ファイルを整備する（カタログ §6.1）。
+    description: |
+      C4 コンテキストレベルドキュメントの CXD Markdown および Mermaid の ルール・指示ファイルを整備する（カタログ §6.1）。
     owner: ARC
     component: c4-context
     deliverables:
@@ -48,15 +59,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/cxd-mermaid-instruction.md
         kind: modify
-    done_criteria: >
-      CXD ファミリーが、C4 コンテキスト図の Markdown と Mermaid の
-      出力を整合させ、必須コンテンツとAIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/cxd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cxd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/cxd-mermaid-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cxd-mermaid-sample.md
+        kind: modify
+    done_criteria: |
+      CXD ファミリーが、C4 コンテキスト図の Markdown と Mermaid の 出力を整合させ、必須コンテンツとAIガイダンスを定義していること。
   - id: WBS-DES-CND-030
     name: C4 コンテナ図ドキュメントファミリーの整備
-    description: >
-      C4 コンテナレベルドキュメントの CND Markdown および Mermaid の
-      ルール・指示ファイルを整備する（カタログ §6.1）。
+    description: |
+      C4 コンテナレベルドキュメントの CND Markdown および Mermaid の ルール・指示ファイルを整備する（カタログ §6.1）。
     owner: ARC
     component: c4-container
     deliverables:
@@ -68,15 +84,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/cnd-mermaid-instruction.md
         kind: modify
-    done_criteria: >
-      CND ファミリーが、C4 コンテナドキュメントの Markdown と Mermaid の
-      ナラティブと図の要件を整合させて定義していること。
-
+      - path: docs/ja/handbook/templates/cnd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cnd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/cnd-mermaid-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cnd-mermaid-sample.md
+        kind: modify
+    done_criteria: |
+      CND ファミリーが、C4 コンテナドキュメントの Markdown と Mermaid の ナラティブと図の要件を整合させて定義していること。
   - id: WBS-DES-CPD-040
     name: C4 コンポーネント図ドキュメントファミリーの整備
-    description: >
-      C4 コンポーネントレベルドキュメントの CPD Markdown および Mermaid の
-      ルール・指示ファイルを整備する（カタログ §6.1）。
+    description: |
+      C4 コンポーネントレベルドキュメントの CPD Markdown および Mermaid の ルール・指示ファイルを整備する（カタログ §6.1）。
     owner: ARC
     component: c4-component
     deliverables:
@@ -88,15 +109,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/cpd-mermaid-instruction.md
         kind: modify
-    done_criteria: >
-      CPD ファミリーが、C4 コンポーネントドキュメントのナラティブと Mermaid の
-      出力をスコープ・用語・必須要素で整合させて定義していること。
-
+      - path: docs/ja/handbook/templates/cpd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cpd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/cpd-mermaid-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cpd-mermaid-sample.md
+        kind: modify
+    done_criteria: |
+      CPD ファミリーが、C4 コンポーネントドキュメントのナラティブと Mermaid の 出力をスコープ・用語・必須要素で整合させて定義していること。
   - id: WBS-DES-IFD-050
     name: インフラ構成図 Mermaid ペアの整備
-    description: >
-      インフラ構成図の IFD Mermaid ルール・指示ペアを
-      整備する（カタログ §6.2）。
+    description: |
+      インフラ構成図の IFD Mermaid ルール・指示ペアを 整備する（カタログ §6.2）。
     owner: ARC
     component: infrastructure
     deliverables:
@@ -104,15 +130,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/ifd-mermaid-instruction.md
         kind: modify
-    done_criteria: >
-      IFD Mermaid ルール・指示ペアが、図の構文・必須ノード・関係・
-      AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/ifd-mermaid-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ifd-mermaid-sample.md
+        kind: modify
+    done_criteria: |
+      IFD Mermaid ルール・指示ペアが、図の構文・必須ノード・関係・ AIガイダンスを定義していること。
   - id: WBS-DES-TSD-060
     name: 技術スタック定義ペアの整備
-    description: >
-      採用技術・バージョン・選定理由を網羅する技術スタック定義ドキュメントの
-      TSD ルール・指示ペアを整備する（カタログ §6.2）。
+    description: |
+      採用技術・バージョン・選定理由を網羅する技術スタック定義ドキュメントの TSD ルール・指示ペアを整備する（カタログ §6.2）。
     owner: ARC
     component: tech-stack
     deliverables:
@@ -120,15 +147,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/tsd-instruction.md
         kind: modify
-    done_criteria: >
-      TSD ルール・指示ペアが、技術スタックの必須セクション・
-      バージョン制約・AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/tsd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/tsd-sample.md
+        kind: modify
+    done_criteria: |
+      TSD ルール・指示ペアが、技術スタックの必須セクション・ バージョン制約・AIガイダンスを定義していること。
   - id: WBS-DES-SYSD-070
     name: システム設計ドキュメントファミリーの整備
-    description: >
-      システム設計インデックス・クリティカルフロー・横断的ポリシーの
-      ルール・指示ファイルを1つのシステム設計ファミリーとして整備する（カタログ §7）。
+    description: |
+      システム設計インデックス・クリティカルフロー・横断的ポリシーの ルール・指示ファイルを1つのシステム設計ファミリーとして整備する（カタログ §7）。
     owner: ARC
     component: system-design
     deliverables:
@@ -144,6 +172,17 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/sysd-cross-cutting-policy-instruction.md
         kind: modify
-    done_criteria: >
-      SYSD ファミリーが、インデックス・クリティカルフロー・横断的ポリシーの
-      成果物を整合したセクション構造と再利用可能なAIガイダンスで定義していること。
+      - path: docs/ja/handbook/templates/sysd-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/sysd-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/sysd-critical-flows-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/sysd-critical-flows-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/sysd-cross-cutting-policy-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/sysd-cross-cutting-policy-sample.md
+        kind: modify
+    done_criteria: |
+      SYSD ファミリーが、インデックス・クリティカルフロー・横断的ポリシーの 成果物を整合したセクション構造と再利用可能なAIガイダンスで定義していること。

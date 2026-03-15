@@ -3,150 +3,339 @@ project_id: prj-0001
 schedule_level: domain
 domain: quality
 assigned_team: specdojo-handbook
-
 settings:
   finish_milestone_id: M-SDH-QLT-900
-  notes: >
-    品質ドメインスケジュール。
-    TSP と SAC が基盤；テストレベルファミリーがそれに続く。
-    ETC と ATC は追加の派生成果物指示（etd/ets, atd/ats）を含む。
-
+  notes: |
+    品質ドメインスケジュール。 TSP と SAC が基盤；テストレベルファミリーがそれに続く。 ETC と ATC は追加の派生成果物指示（etd/ets, atd/ats）を含む。
 tasks:
-  # --- WBS-QLTY-SAC-010: system acceptance condition (1 pair) ---
   - id: T-SDH-QLT-010
     wbs: WBS-QLTY-SAC-010
     name: システム受入条件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [M-SDH-300]
+    depends_on:
+      - M-SDH-100
     owner: QE
-    tags: [quality, rules-lifecycle, acceptance]
-
-  - id: T-SDH-QLT-011
-    wbs: WBS-QLTY-SAC-010
-    name: システム受入条件派生成果物の起草・レビュー
+    tags:
+      - quality
+      - rules-lifecycle
+      - acceptance
+  - wbs: WBS-QLTY-SAC-010
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - acceptance
+    id: T-SDH-QLT-011-INS
+    name: システム受入条件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-QLT-010]
+    depends_on:
+      - T-SDH-QLT-010
+  - wbs: WBS-QLTY-SAC-010
     owner: QE
-    tags: [quality, derivatives-lifecycle, acceptance]
-
-  # --- WBS-QLTY-TSP-020: test strategy and planning (1 pair) ---
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - acceptance
+    id: T-SDH-QLT-011-TPL
+    name: システム受入条件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-011-INS
+  - wbs: WBS-QLTY-SAC-010
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - acceptance
+    id: T-SDH-QLT-011-SMP
+    name: システム受入条件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-011-TPL
   - id: T-SDH-QLT-020
     wbs: WBS-QLTY-TSP-020
     name: テスト戦略・計画ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [M-SDH-300]
+    depends_on:
+      - M-SDH-100
     owner: QE
-    tags: [quality, rules-lifecycle, test-planning]
-
-  - id: T-SDH-QLT-021
-    wbs: WBS-QLTY-TSP-020
-    name: テスト戦略・計画派生成果物の起草・レビュー
+    tags:
+      - quality
+      - rules-lifecycle
+      - test-planning
+  - wbs: WBS-QLTY-TSP-020
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - test-planning
+    id: T-SDH-QLT-021-INS
+    name: テスト戦略・計画の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-QLT-020]
+    depends_on:
+      - T-SDH-QLT-020
+  - wbs: WBS-QLTY-TSP-020
     owner: QE
-    tags: [quality, derivatives-lifecycle, test-planning]
-
-  # --- WBS-QLTY-UTC-030: unit test family (2 pairs) ---
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - test-planning
+    id: T-SDH-QLT-021-TPL
+    name: テスト戦略・計画の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-021-INS
+  - wbs: WBS-QLTY-TSP-020
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - test-planning
+    id: T-SDH-QLT-021-SMP
+    name: テスト戦略・計画の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-021-TPL
   - id: T-SDH-QLT-030
     wbs: WBS-QLTY-UTC-030
     name: 単体テストドキュメントルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-QLT-021]
+    depends_on:
+      - T-SDH-QLT-021-SMP
     owner: QE
-    tags: [quality, rules-lifecycle, unit-tests]
-    notes: "対象: utc-index, utc（詳細）ルール。"
-
-  - id: T-SDH-QLT-031
-    wbs: WBS-QLTY-UTC-030
-    name: 単体テストドキュメント派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-QLT-030]
+    tags:
+      - quality
+      - rules-lifecycle
+      - unit-tests
+    notes: '対象: utc-index, utc（詳細）ルール。'
+  - wbs: WBS-QLTY-UTC-030
     owner: QE
-    tags: [quality, derivatives-lifecycle, unit-tests]
-
-  # --- WBS-QLTY-ITC-040: integration test family (2 pairs) ---
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - unit-tests
+    id: T-SDH-QLT-031-INS
+    name: 単体テストドキュメントの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-030
+  - wbs: WBS-QLTY-UTC-030
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - unit-tests
+    id: T-SDH-QLT-031-TPL
+    name: 単体テストドキュメントの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-031-INS
+  - wbs: WBS-QLTY-UTC-030
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - unit-tests
+    id: T-SDH-QLT-031-SMP
+    name: 単体テストドキュメントの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-031-TPL
   - id: T-SDH-QLT-040
     wbs: WBS-QLTY-ITC-040
     name: 結合テストドキュメントルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-QLT-021]
+    depends_on:
+      - T-SDH-QLT-021-SMP
     owner: QE
-    tags: [quality, rules-lifecycle, integration-tests]
-    notes: "対象: itc-index, itc（詳細）ルール。"
-
-  - id: T-SDH-QLT-041
-    wbs: WBS-QLTY-ITC-040
-    name: 結合テストドキュメント派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-QLT-040]
+    tags:
+      - quality
+      - rules-lifecycle
+      - integration-tests
+    notes: '対象: itc-index, itc（詳細）ルール。'
+  - wbs: WBS-QLTY-ITC-040
     owner: QE
-    tags: [quality, derivatives-lifecycle, integration-tests]
-
-  # --- WBS-QLTY-ETC-050: external integration test family (2 rules + 6 instructions) ---
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - integration-tests
+    id: T-SDH-QLT-041-INS
+    name: 結合テストドキュメントの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-040
+  - wbs: WBS-QLTY-ITC-040
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - integration-tests
+    id: T-SDH-QLT-041-TPL
+    name: 結合テストドキュメントの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-041-INS
+  - wbs: WBS-QLTY-ITC-040
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - integration-tests
+    id: T-SDH-QLT-041-SMP
+    name: 結合テストドキュメントの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-041-TPL
   - id: T-SDH-QLT-050
     wbs: WBS-QLTY-ETC-050
     name: 外部結合テストルールの起草・レビュー
-    duration_days: 1.0
-    depends_on: [T-SDH-QLT-021]
+    duration_days: 1
+    depends_on:
+      - T-SDH-QLT-021-SMP
     owner: QE
-    tags: [quality, rules-lifecycle, external-tests]
-    notes: "対象: etc-index, etc（詳細）ルール。"
-
-  - id: T-SDH-QLT-051
-    wbs: WBS-QLTY-ETC-050
-    name: 外部結合テスト派生成果物の起草・レビュー
-    duration_days: 0.75
-    depends_on: [T-SDH-QLT-050]
+    tags:
+      - quality
+      - rules-lifecycle
+      - external-tests
+    notes: '対象: etc-index, etc（詳細）ルール。'
+  - wbs: WBS-QLTY-ETC-050
     owner: QE
-    tags: [quality, derivatives-lifecycle, external-tests]
-    notes: "指示: etc-index, etc, etd-index, etd, ets-index, ets。"
-
-  # --- WBS-QLTY-STC-060: system test family (2 pairs) ---
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - external-tests
+    notes: '指示: etc-index, etc, etd-index, etd, ets-index, ets。'
+    id: T-SDH-QLT-051-INS
+    name: 外部結合テストの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-050
+  - wbs: WBS-QLTY-ETC-050
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - external-tests
+    notes: '指示: etc-index, etc, etd-index, etd, ets-index, ets。'
+    id: T-SDH-QLT-051-TPL
+    name: 外部結合テストの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-051-INS
+  - wbs: WBS-QLTY-ETC-050
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - external-tests
+    notes: '指示: etc-index, etc, etd-index, etd, ets-index, ets。'
+    id: T-SDH-QLT-051-SMP
+    name: 外部結合テストの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-051-TPL
   - id: T-SDH-QLT-060
     wbs: WBS-QLTY-STC-060
     name: システムテストドキュメントルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-QLT-021]
+    depends_on:
+      - T-SDH-QLT-021-SMP
     owner: QE
-    tags: [quality, rules-lifecycle, system-tests]
-    notes: "対象: stc-index, stc（詳細）ルール。"
-
-  - id: T-SDH-QLT-061
-    wbs: WBS-QLTY-STC-060
-    name: システムテストドキュメント派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-QLT-060]
+    tags:
+      - quality
+      - rules-lifecycle
+      - system-tests
+    notes: '対象: stc-index, stc（詳細）ルール。'
+  - wbs: WBS-QLTY-STC-060
     owner: QE
-    tags: [quality, derivatives-lifecycle, system-tests]
-
-  # --- WBS-QLTY-ATC-070: acceptance test family (2 rules + 6 instructions) ---
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - system-tests
+    id: T-SDH-QLT-061-INS
+    name: システムテストドキュメントの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-060
+  - wbs: WBS-QLTY-STC-060
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - system-tests
+    id: T-SDH-QLT-061-TPL
+    name: システムテストドキュメントの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-061-INS
+  - wbs: WBS-QLTY-STC-060
+    owner: QE
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - system-tests
+    id: T-SDH-QLT-061-SMP
+    name: システムテストドキュメントの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-061-TPL
   - id: T-SDH-QLT-070
     wbs: WBS-QLTY-ATC-070
     name: 受入テストドキュメントルールの起草・レビュー
-    duration_days: 1.0
-    depends_on: [T-SDH-QLT-021]
+    duration_days: 1
+    depends_on:
+      - T-SDH-QLT-021-SMP
     owner: BA
-    tags: [quality, rules-lifecycle, acceptance-tests]
-    notes: "対象: atc-index, atc（詳細）ルール。"
-
-  - id: T-SDH-QLT-071
-    wbs: WBS-QLTY-ATC-070
-    name: 受入テストドキュメント派生成果物の起草・レビュー
-    duration_days: 0.75
-    depends_on: [T-SDH-QLT-070]
+    tags:
+      - quality
+      - rules-lifecycle
+      - acceptance-tests
+    notes: '対象: atc-index, atc（詳細）ルール。'
+  - wbs: WBS-QLTY-ATC-070
     owner: BA
-    tags: [quality, derivatives-lifecycle, acceptance-tests]
-    notes: "指示: atc-index, atc, atd-index, atd, ats-index, ats。"
-
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - acceptance-tests
+    notes: '指示: atc-index, atc, atd-index, atd, ats-index, ats。'
+    id: T-SDH-QLT-071-INS
+    name: 受入テストドキュメントの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-070
+  - wbs: WBS-QLTY-ATC-070
+    owner: BA
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - acceptance-tests
+    notes: '指示: atc-index, atc, atd-index, atd, ats-index, ats。'
+    id: T-SDH-QLT-071-TPL
+    name: 受入テストドキュメントの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-071-INS
+  - wbs: WBS-QLTY-ATC-070
+    owner: BA
+    tags:
+      - quality
+      - derivatives-lifecycle
+      - acceptance-tests
+    notes: '指示: atc-index, atc, atd-index, atd, ats-index, ats。'
+    id: T-SDH-QLT-071-SMP
+    name: 受入テストドキュメントの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-QLT-071-TPL
 milestones:
   - id: M-SDH-QLT-900
     name: 品質ドメイン完了
     depends_on:
-      - T-SDH-QLT-011
-      - T-SDH-QLT-021
-      - T-SDH-QLT-031
-      - T-SDH-QLT-041
-      - T-SDH-QLT-051
-      - T-SDH-QLT-061
-      - T-SDH-QLT-071
+      - T-SDH-QLT-011-SMP
+      - T-SDH-QLT-021-SMP
+      - T-SDH-QLT-031-SMP
+      - T-SDH-QLT-041-SMP
+      - T-SDH-QLT-051-SMP
+      - T-SDH-QLT-061-SMP
+      - T-SDH-QLT-071-SMP
     owner: QE

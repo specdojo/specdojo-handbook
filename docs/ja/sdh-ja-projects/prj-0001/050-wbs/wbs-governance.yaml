@@ -5,9 +5,8 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-GOV-PRJ-010
     name: プロジェクトドキュメントのルール・指示セットの整備
-    description: >
-      プロジェクト概要、スコープ、課題と解決アプローチのルール・指示ファイルを、
-      ガバナンス配下の1つのドキュメントファミリーとして整備する（カタログ §2.1–§2.3）。
+    description: |
+      プロジェクト概要、スコープ、課題と解決アプローチのルール・指示ファイルを、 ガバナンス配下の1つのドキュメントファミリーとして整備する（カタログ §2.1–§2.3）。
     owner: PO
     component: project-docs
     deliverables:
@@ -23,15 +22,24 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/prj-issues-and-approach-instruction.md
         kind: modify
-    done_criteria: >
-      プロジェクト概要・スコープ・課題と解決アプローチのルール・指示ペアが、
-      必須セクション・禁止事項・AI執筆ガイダンスを用語のブレなく定義していること。
-
+      - path: docs/ja/handbook/templates/prj-overview-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/prj-overview-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/prj-scope-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/prj-scope-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/prj-issues-and-approach-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/prj-issues-and-approach-sample.md
+        kind: modify
+    done_criteria: |
+      プロジェクト概要・スコープ・課題と解決アプローチのルール・指示ペアが、 必須セクション・禁止事項・AI執筆ガイダンスを用語のブレなく定義していること。
   - id: WBS-GOV-MIG-020
     name: 移行ドキュメントファミリーの整備
-    description: >
-      移行計画、移行テスト、データ移行、カットオーバー、運用切替の
-      ルール・指示ファイルを1つの移行ファミリーとして整備する（カタログ §11）。
+    description: |
+      移行計画、移行テスト、データ移行、カットオーバー、運用切替の ルール・指示ファイルを1つの移行ファミリーとして整備する（カタログ §11）。
     owner: PO
     component: migration
     deliverables:
@@ -55,13 +63,31 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/otp-instruction.md
         kind: modify
-    done_criteria: >
-      移行ファミリーのルール・指示ファイルが、インデックス構成・テスト計画・
-      データ移行設計・カットオーバー基準・運用切替手順を一貫した見出しとAIガイダンスで定義していること。
-
+      - path: docs/ja/handbook/templates/mip-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/mip-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/mtp-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/mtp-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/dmd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/dmd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/cop-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cop-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/otp-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/otp-sample.md
+        kind: modify
+    done_criteria: |
+      移行ファミリーのルール・指示ファイルが、インデックス構成・テスト計画・ データ移行設計・カットオーバー基準・運用切替手順を一貫した見出しとAIガイダンスで定義していること。
   - id: WBS-GOV-OPS-030
     name: 運用ドキュメントファミリーの整備
-    description: >
+    description: |
       運用設計・運用手順のルール・指示ファイルを整備する（カタログ §12）。
     owner: PO
     component: operations
@@ -74,15 +100,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/opr-instruction.md
         kind: modify
-    done_criteria: >
-      運用設計・運用手順のルール・指示ペアが、SLA・エスカレーション・
-      定常運用・インシデント対応のガイダンスを一貫して定義していること。
-
+      - path: docs/ja/handbook/templates/opd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/opd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/opr-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/opr-sample.md
+        kind: modify
+    done_criteria: |
+      運用設計・運用手順のルール・指示ペアが、SLA・エスカレーション・ 定常運用・インシデント対応のガイダンスを一貫して定義していること。
   - id: WBS-GOV-META-040
     name: メタルールブックガバナンスセットの整備
-    description: >
-      すべての下流ルールが利用するメタデータ・命名・構造・
-      テストスコープの共有メタルールセットを整備する。
+    description: |
+      すべての下流ルールが利用するメタデータ・命名・構造・ テストスコープの共有メタルールセットを整備する。
     owner: ARC
     component: meta
     deliverables:
@@ -94,6 +125,5 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/rules/meta-test-document-scope-rules.md
         kind: modify
-    done_criteria: >
-      メタルールセットが、下流のルール・指示が矛盾なく再利用できる
-      共有メタデータ・命名・構造・テストスコープの制約を定義していること。
+    done_criteria: |
+      メタルールセットが、下流のルール・指示が矛盾なく再利用できる 共有メタデータ・命名・構造・テストスコープの制約を定義していること。

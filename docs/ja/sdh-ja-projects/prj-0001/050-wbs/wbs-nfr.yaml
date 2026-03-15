@@ -5,9 +5,8 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-NFR-INDEX-010
     name: 非機能要件インデックスペアの整備
-    description: >
-      非機能要件ドキュメントセットの共通構造を定義する
-      NFR インデックスルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      非機能要件ドキュメントセットの共通構造を定義する NFR インデックスルール・指示ペアを整備する（カタログ §8）。
     owner: QE
     component: index
     deliverables:
@@ -15,15 +14,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-index-instruction.md
         kind: modify
-    done_criteria: >
-      NFR インデックスルール・指示ペアが、共通インデックス構造・
-      選定ロジック・AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/nfr-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-index-sample.md
+        kind: modify
+    done_criteria: |
+      NFR インデックスルール・指示ペアが、共通インデックス構造・ 選定ロジック・AIガイダンスを定義していること。
   - id: WBS-NFR-AVAIL-020
     name: 可用性要件ペアの整備
-    description: >
-      可用性に特化した非機能要件ドキュメントの
-      可用性 NFR ルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      可用性に特化した非機能要件ドキュメントの 可用性 NFR ルール・指示ペアを整備する（カタログ §8）。
     owner: QE
     component: availability
     deliverables:
@@ -31,15 +31,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-availability-instruction.md
         kind: modify
-    done_criteria: >
-      可用性 NFR ルール・指示ペアが、必須の可用性基準・エビデンス期待・
-      AIガイダンスを曖昧な閾値なく定義していること。
-
+      - path: docs/ja/handbook/templates/nfr-availability-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-availability-sample.md
+        kind: modify
+    done_criteria: |
+      可用性 NFR ルール・指示ペアが、必須の可用性基準・エビデンス期待・ AIガイダンスを曖昧な閾値なく定義していること。
   - id: WBS-NFR-INTEG-030
     name: 完全性要件ペアの整備
-    description: >
-      完全性に特化した非機能要件ドキュメントの
-      完全性 NFR ルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      完全性に特化した非機能要件ドキュメントの 完全性 NFR ルール・指示ペアを整備する（カタログ §8）。
     owner: QE
     component: integrity
     deliverables:
@@ -47,15 +48,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-integrity-instruction.md
         kind: modify
-    done_criteria: >
-      完全性 NFR ルール・指示ペアが、必須の完全性統制・
-      ドキュメントセクション・AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/nfr-integrity-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-integrity-sample.md
+        kind: modify
+    done_criteria: |
+      完全性 NFR ルール・指示ペアが、必須の完全性統制・ ドキュメントセクション・AIガイダンスを定義していること。
   - id: WBS-NFR-MAINT-040
     name: 保守性要件ペアの整備
-    description: >
-      保守性要件ドキュメントの
-      保守性 NFR ルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      保守性要件ドキュメントの 保守性 NFR ルール・指示ペアを整備する（カタログ §8）。
     owner: QE
     component: maintainability
     deliverables:
@@ -63,15 +65,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-maintainability-instruction.md
         kind: modify
-    done_criteria: >
-      保守性 NFR ルール・指示ペアが、測定可能な保守性期待・
-      必須セクション・AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/nfr-maintainability-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-maintainability-sample.md
+        kind: modify
+    done_criteria: |
+      保守性 NFR ルール・指示ペアが、測定可能な保守性期待・ 必須セクション・AIガイダンスを定義していること。
   - id: WBS-NFR-OPS-050
     name: 運用性要件ペアの整備
-    description: >
-      運用・可観測性に特化した非機能要件の
-      運用性 NFR ルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      運用・可観測性に特化した非機能要件の 運用性 NFR ルール・指示ペアを整備する（カタログ §8）。
     owner: QE
     component: operations
     deliverables:
@@ -79,15 +82,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-operations-instruction.md
         kind: modify
-    done_criteria: >
-      運用性 NFR ルール・指示ペアが、運用制約・可観測性期待・
-      AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/nfr-operations-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-operations-sample.md
+        kind: modify
+    done_criteria: |
+      運用性 NFR ルール・指示ペアが、運用制約・可観測性期待・ AIガイダンスを定義していること。
   - id: WBS-NFR-PERF-060
     name: 性能要件ペアの整備
-    description: >
-      測定可能な性能要件ドキュメントの
-      性能 NFR ルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      測定可能な性能要件ドキュメントの 性能 NFR ルール・指示ペアを整備する（カタログ §8）。
     owner: QE
     component: performance
     deliverables:
@@ -95,15 +99,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-performance-instruction.md
         kind: modify
-    done_criteria: >
-      性能 NFR ルール・指示ペアが、測定可能な性能目標・
-      ワークロード前提・AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/nfr-performance-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-performance-sample.md
+        kind: modify
+    done_criteria: |
+      性能 NFR ルール・指示ペアが、測定可能な性能目標・ ワークロード前提・AIガイダンスを定義していること。
   - id: WBS-NFR-RELY-070
     name: 信頼性要件ペアの整備
-    description: >
-      障害対応・レジリエンス要件ドキュメントの
-      信頼性 NFR ルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      障害対応・レジリエンス要件ドキュメントの 信頼性 NFR ルール・指示ペアを整備する（カタログ §8）。
     owner: QE
     component: reliability
     deliverables:
@@ -111,15 +116,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-reliability-instruction.md
         kind: modify
-    done_criteria: >
-      信頼性 NFR ルール・指示ペアが、障害対応期待・エビデンス要件・
-      AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/nfr-reliability-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-reliability-sample.md
+        kind: modify
+    done_criteria: |
+      信頼性 NFR ルール・指示ペアが、障害対応期待・エビデンス要件・ AIガイダンスを定義していること。
   - id: WBS-NFR-SEC-080
     name: セキュリティ・安全性要件ペアの整備
-    description: >
-      脅威・統制・安全性に特化した要件ドキュメントの
-      セキュリティ・安全性 NFR ルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      脅威・統制・安全性に特化した要件ドキュメントの セキュリティ・安全性 NFR ルール・指示ペアを整備する（カタログ §8）。
     owner: QE
     component: security-safety
     deliverables:
@@ -127,15 +133,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-security-safety-instruction.md
         kind: modify
-    done_criteria: >
-      セキュリティ・安全性 NFR ルール・指示ペアが、必須の脅威・
-      統制・安全性カバレッジを具体的かつ監査可能なAIガイダンスで定義していること。
-
+      - path: docs/ja/handbook/templates/nfr-security-safety-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-security-safety-sample.md
+        kind: modify
+    done_criteria: |
+      セキュリティ・安全性 NFR ルール・指示ペアが、必須の脅威・ 統制・安全性カバレッジを具体的かつ監査可能なAIガイダンスで定義していること。
   - id: WBS-NFR-USAB-090
     name: ユーザビリティ要件ペアの整備
-    description: >
-      ユーザー中心の非機能要件ドキュメントの
-      ユーザビリティ NFR ルール・指示ペアを整備する（カタログ §8）。
+    description: |
+      ユーザー中心の非機能要件ドキュメントの ユーザビリティ NFR ルール・指示ペアを整備する（カタログ §8）。
     owner: BA
     component: usability
     deliverables:
@@ -143,6 +150,9 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-usability-instruction.md
         kind: modify
-    done_criteria: >
-      ユーザビリティ NFR ルール・指示ペアが、ユーザー中心の基準・
-      測定期待・AIガイダンスを定義していること。
+      - path: docs/ja/handbook/templates/nfr-usability-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/nfr-usability-sample.md
+        kind: modify
+    done_criteria: |
+      ユーザビリティ NFR ルール・指示ペアが、ユーザー中心の基準・ 測定期待・AIガイダンスを定義していること。

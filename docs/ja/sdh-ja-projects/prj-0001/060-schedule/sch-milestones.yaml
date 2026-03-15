@@ -2,52 +2,60 @@ version: 1
 project_id: prj-0001
 schedule_level: milestones
 assigned_team: specdojo-handbook
-
 settings:
   finish_milestone_id: M-SDH-999
-  notes: >
-    プロジェクトレベルのマイルストーン計画。
-    ドメイン完了マイルストーン（M-SDH-*-900）は各ドメインスケジュールで定義。
-
+  notes: |
+    プロジェクトレベルのマイルストーン計画。 ドメイン完了マイルストーン（M-SDH-*-900）は各ドメインスケジュールで定義。
 milestones:
   - id: M-SDH-100
     name: スケジュールキックオフ
     depends_on: []
     owner: PO
-    date_hint: "2026-03-16"
-    tags: [kickoff]
-
+    date_hint: '2026-03-16'
+    tags:
+      - kickoff
   - id: M-SDH-200
     name: ガバナンスベースライン確定
-    depends_on: [M-SDH-GOV-900]
+    depends_on:
+      - M-SDH-GOV-900
     owner: PO
-    date_hint: "2026-03-21"
-    tags: [governance]
-
+    date_hint: '2026-03-21'
+    tags:
+      - governance
   - id: M-SDH-300
     name: 業務・非機能要件ベースライン確定
-    depends_on: [M-SDH-BIZ-900, M-SDH-NFR-900]
+    depends_on:
+      - M-SDH-BIZ-900
+      - M-SDH-NFR-900
     owner: PO
-    date_hint: "2026-04-01"
-    tags: [definition]
-
+    date_hint: '2026-04-01'
+    tags:
+      - definition
   - id: M-SDH-350
     name: 設計ベースライン確定
-    depends_on: [M-SDH-DES-900]
+    depends_on:
+      - M-SDH-DES-900
     owner: ARC
-    date_hint: "2026-04-10"
-    tags: [design]
-
+    date_hint: '2026-04-10'
+    tags:
+      - design
   - id: M-SDH-400
     name: 品質ベースライン確定
-    depends_on: [M-SDH-QLT-900]
+    depends_on:
+      - M-SDH-QLT-900
     owner: PO
-    date_hint: "2026-04-18"
-    tags: [quality]
-
+    date_hint: '2026-04-18'
+    tags:
+      - quality
   - id: M-SDH-999
     name: prj-0001 スケジュールスコープ完了
-    depends_on: [M-SDH-400]
+    depends_on:
+      - M-SDH-GOV-900
+      - M-SDH-BIZ-900
+      - M-SDH-NFR-900
+      - M-SDH-DES-900
+      - M-SDH-QLT-900
     owner: PO
-    date_hint: "2026-04-18"
-    tags: [finish]
+    date_hint: '2026-04-18'
+    tags:
+      - finish

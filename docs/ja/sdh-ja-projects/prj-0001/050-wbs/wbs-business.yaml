@@ -5,9 +5,8 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-BIZ-BPS-010
     name: 業務プロセス仕様ペアの整備
-    description: >
-      業務フロー・手順・参加者役割を定義する業務プロセス仕様ドキュメントの
-      BPS ルール・指示ペアを整備する（カタログ §3）。
+    description: |
+      業務フロー・手順・参加者役割を定義する業務プロセス仕様ドキュメントの BPS ルール・指示ペアを整備する（カタログ §3）。
     owner: BA
     component: process
     deliverables:
@@ -15,15 +14,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/bps-instruction.md
         kind: modify
-    done_criteria: >
-      BPS ルール・指示ペアが、プロセス仕様の必須セクション・
-      トレーサビリティのある出力・AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/bps-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/bps-sample.md
+        kind: modify
+    done_criteria: |
+      BPS ルール・指示ペアが、プロセス仕様の必須セクション・ トレーサビリティのある出力・AIガイダンスを定義していること。
   - id: WBS-BIZ-BR-020
     name: ビジネスルールペアの整備
-    description: >
-      ビジネスルールの記述・制約・レビュー方法を定義する
-      BR ルール・指示ペアを整備する（カタログ §3）。
+    description: |
+      ビジネスルールの記述・制約・レビュー方法を定義する BR ルール・指示ペアを整備する（カタログ §3）。
     owner: BA
     component: rules
     deliverables:
@@ -31,15 +31,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/br-instruction.md
         kind: modify
-    done_criteria: >
-      BR ルール・指示ペアが、ビジネスルールの構造・制約・表現を定義し、
-      AI生成コンテンツがテスト可能かつ曖昧さのない状態を維持できること。
-
+      - path: docs/ja/handbook/templates/br-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/br-sample.md
+        kind: modify
+    done_criteria: |
+      BR ルール・指示ペアが、ビジネスルールの構造・制約・表現を定義し、 AI生成コンテンツがテスト可能かつ曖昧さのない状態を維持できること。
   - id: WBS-BIZ-BDD-030
     name: 業務データディクショナリペアの整備
-    description: >
-      業務データ定義ドキュメントとそのフィールドレベルの期待事項を規定する
-      BDD ルール・指示ペアを整備する（カタログ §3）。
+    description: |
+      業務データ定義ドキュメントとそのフィールドレベルの期待事項を規定する BDD ルール・指示ペアを整備する（カタログ §3）。
     owner: BA
     component: data
     deliverables:
@@ -47,15 +48,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/bdd-instruction.md
         kind: modify
-    done_criteria: >
-      BDD ルール・指示ペアが、必須のデータ定義構造・属性説明・
-      AIガイダンスを定義し、業務データドキュメントを一貫して作成できること。
-
+      - path: docs/ja/handbook/templates/bdd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/bdd-sample.md
+        kind: modify
+    done_criteria: |
+      BDD ルール・指示ペアが、必須のデータ定義構造・属性説明・ AIガイダンスを定義し、業務データドキュメントを一貫して作成できること。
   - id: WBS-BIZ-BDS-040
     name: 帳票仕様ペアの整備
-    description: >
-      帳票・帰票仕様の構造と制約を定義する
-      BDS ルール・指示ペアを整備する（カタログ §3）。
+    description: |
+      帳票・帰票仕様の構造と制約を定義する BDS ルール・指示ペアを整備する（カタログ §3）。
     owner: BA
     component: forms
     deliverables:
@@ -63,15 +65,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/bds-instruction.md
         kind: modify
-    done_criteria: >
-      BDS ルール・指示ペアが、帳票仕様の構造・レイアウト期待・
-      禁止ルールを定義し、一貫した帳票仕様ドキュメントを生成できること。
-
+      - path: docs/ja/handbook/templates/bds-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/bds-sample.md
+        kind: modify
+    done_criteria: |
+      BDS ルール・指示ペアが、帳票仕様の構造・レイアウト期待・ 禁止ルールを定義し、一貫した帳票仕様ドキュメントを生成できること。
   - id: WBS-BIZ-UIS-050
     name: 画面仕様ペアの整備
-    description: >
-      画面レイアウト・画面遷移・操作仕様ドキュメントの
-      UIS ルール・指示ペアを整備する（カタログ §3）。
+    description: |
+      画面レイアウト・画面遷移・操作仕様ドキュメントの UIS ルール・指示ペアを整備する（カタログ §3）。
     owner: BA
     component: screen
     deliverables:
@@ -79,15 +82,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/uis-instruction.md
         kind: modify
-    done_criteria: >
-      UIS ルール・指示ペアが、画面仕様の必須セクション・遷移ルール・
-      AI執筆ガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/uis-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/uis-sample.md
+        kind: modify
+    done_criteria: |
+      UIS ルール・指示ペアが、画面仕様の必須セクション・遷移ルール・ AI執筆ガイダンスを定義していること。
   - id: WBS-BIZ-GL-060
     name: 用語集ペアの整備
-    description: >
-      プロジェクト全体の用語と用語集作成構造を規定する
-      GL ルール・指示ペアを整備する（カタログ §3）。
+    description: |
+      プロジェクト全体の用語と用語集作成構造を規定する GL ルール・指示ペアを整備する（カタログ §3）。
     owner: BA
     component: glossary
     deliverables:
@@ -95,15 +99,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/gl-instruction.md
         kind: modify
-    done_criteria: >
-      GL ルール・指示ペアが、必須の用語集構造・用語記述ルール・
-      再利用可能なAIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/gl-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/gl-sample.md
+        kind: modify
+    done_criteria: |
+      GL ルール・指示ペアが、必須の用語集構造・用語記述ルール・ 再利用可能なAIガイダンスを定義していること。
   - id: WBS-BIZ-REFDATA-070
     name: リファレンスデータ定義セットの整備
-    description: >
-      分類リスト（CLD）・ステータスリスト（STSD）・格納場所リスト（SLD）の
-      ルール・指示ファイルを1つのリファレンスデータファミリーとして整備する（カタログ §3）。
+    description: |
+      分類リスト（CLD）・ステータスリスト（STSD）・格納場所リスト（SLD）の ルール・指示ファイルを1つのリファレンスデータファミリーとして整備する（カタログ §3）。
     owner: BA
     component: reference-data
     deliverables:
@@ -119,15 +124,24 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/sld-instruction.md
         kind: modify
-    done_criteria: >
-      リファレンスデータのルール・指示ファイルが、分類・ステータス・格納場所の
-      各ドキュメントに対し一貫した構造とAI執筆ガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/cld-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cld-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/stsd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/stsd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/sld-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/sld-sample.md
+        kind: modify
+    done_criteria: |
+      リファレンスデータのルール・指示ファイルが、分類・ステータス・格納場所の 各ドキュメントに対し一貫した構造とAI執筆ガイダンスを定義していること。
   - id: WBS-BIZ-BES-080
     name: 業務イベント仕様ファミリーの整備
-    description: >
-      業務イベント仕様ドキュメントの BES インデックスおよび
-      詳細ドキュメントのルール・指示ファイルを整備する（カタログ §3.1）。
+    description: |
+      業務イベント仕様ドキュメントの BES インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §3.1）。
     owner: BA
     component: events
     deliverables:
@@ -139,15 +153,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/bes-instruction.md
         kind: modify
-    done_criteria: >
-      BES ファミリーが、インデックスと詳細ドキュメントの両方の要件を定義し、
-      業務イベント仕様を一貫したスコープ配分とセクション構成で作成できること。
-
+      - path: docs/ja/handbook/templates/bes-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/bes-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/bes-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/bes-sample.md
+        kind: modify
+    done_criteria: |
+      BES ファミリーが、インデックスと詳細ドキュメントの両方の要件を定義し、 業務イベント仕様を一貫したスコープ配分とセクション構成で作成できること。
   - id: WBS-BIZ-CDFD-090
     name: 概念データフロードキュメントファミリーの整備
-    description: >
-      概念データフロー図の CDFD テキストおよび Mermaid の
-      ルール・指示ファイルを整備する（カタログ §3.2）。
+    description: |
+      概念データフロー図の CDFD テキストおよび Mermaid の ルール・指示ファイルを整備する（カタログ §3.2）。
     owner: BA
     component: data-flow
     deliverables:
@@ -159,15 +178,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/cdfd-mermaid-instruction.md
         kind: modify
-    done_criteria: >
-      CDFD ファミリーが、概念データフロードキュメントのテキストと
-      Mermaid 表現に対し一貫した構造とAIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/cdfd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cdfd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/cdfd-mermaid-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cdfd-mermaid-sample.md
+        kind: modify
+    done_criteria: |
+      CDFD ファミリーが、概念データフロードキュメントのテキストと Mermaid 表現に対し一貫した構造とAIガイダンスを定義していること。
   - id: WBS-BIZ-CDSD-100
     name: 概念データストア定義ペアの整備
-    description: >
-      概念データストアの構造と属性定義の CDSD ルール・指示ペアを
-      整備する（カタログ §3.2）。
+    description: |
+      概念データストアの構造と属性定義の CDSD ルール・指示ペアを 整備する（カタログ §3.2）。
     owner: BA
     component: data-store
     deliverables:
@@ -175,15 +199,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/cdsd-instruction.md
         kind: modify
-    done_criteria: >
-      CDSD ルール・指示ペアが、データストア構造・属性説明・
-      AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/cdsd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cdsd-sample.md
+        kind: modify
+    done_criteria: |
+      CDSD ルール・指示ペアが、データストア構造・属性説明・ AIガイダンスを定義していること。
   - id: WBS-BIZ-CSTD-110
     name: 概念状態遷移ドキュメントファミリーの整備
-    description: >
-      概念状態遷移図の CSTD Markdown および Mermaid の
-      ルール・指示ファイルを整備する（カタログ §3.2）。
+    description: |
+      概念状態遷移図の CSTD Markdown および Mermaid の ルール・指示ファイルを整備する（カタログ §3.2）。
     owner: BA
     component: state-transition
     deliverables:
@@ -195,15 +220,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/cstd-mermaid-instruction.md
         kind: modify
-    done_criteria: >
-      CSTD ファミリーが、概念状態遷移ドキュメントのナラティブと Mermaid の
-      要件を一貫した見出し・カバレッジ・禁止ルールで定義していること。
-
+      - path: docs/ja/handbook/templates/cstd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cstd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/cstd-mermaid-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/cstd-mermaid-sample.md
+        kind: modify
+    done_criteria: |
+      CSTD ファミリーが、概念状態遷移ドキュメントのナラティブと Mermaid の 要件を一貫した見出し・カバレッジ・禁止ルールで定義していること。
   - id: WBS-BIZ-CCD-120
     name: 概念クラス図 Mermaid ペアの整備
-    description: >
-      概念クラス図ドキュメントの CCD Mermaid ルール・指示ペアを
-      整備する（カタログ §3.2）。
+    description: |
+      概念クラス図ドキュメントの CCD Mermaid ルール・指示ペアを 整備する（カタログ §3.2）。
     owner: BA
     component: class-diagram
     deliverables:
@@ -211,15 +241,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/ccd-mermaid-instruction.md
         kind: modify
-    done_criteria: >
-      CCD Mermaid ルール・指示ペアが、図の構文・必須ノード・関係・
-      AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/ccd-mermaid-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ccd-mermaid-sample.md
+        kind: modify
+    done_criteria: |
+      CCD Mermaid ルール・指示ペアが、図の構文・必須ノード・関係・ AIガイダンスを定義していること。
   - id: WBS-BIZ-SF-130
     name: システム機能一覧ファミリーの整備
-    description: >
-      システム機能一覧ドキュメントの SF インデックスおよび
-      詳細ドキュメントのルール・指示ファイルを整備する（カタログ §3.3）。
+    description: |
+      システム機能一覧ドキュメントの SF インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §3.3）。
     owner: BA
     component: system-functions
     deliverables:
@@ -231,15 +262,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/sf-instruction.md
         kind: modify
-    done_criteria: >
-      SF ファミリーが、インデックスと詳細ドキュメントの両方の要件を定義し、
-      システム機能一覧を一貫したスコープ配分とセクション構成で作成できること。
-
+      - path: docs/ja/handbook/templates/sf-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/sf-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/sf-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/sf-sample.md
+        kind: modify
+    done_criteria: |
+      SF ファミリーが、インデックスと詳細ドキュメントの両方の要件を定義し、 システム機能一覧を一貫したスコープ配分とセクション構成で作成できること。
   - id: WBS-BIZ-BAC-140
     name: 業務受入条件ペアの整備
-    description: >
-      業務受入条件ドキュメントとその必須執筆ガイダンスの
-      BAC ルール・指示ペアを整備する（カタログ §5）。
+    description: |
+      業務受入条件ドキュメントとその必須執筆ガイダンスの BAC ルール・指示ペアを整備する（カタログ §5）。
     owner: BA
     component: acceptance
     deliverables:
@@ -247,8 +283,10 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/bac-instruction.md
         kind: modify
+      - path: docs/ja/handbook/templates/bac-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/bac-sample.md
+        kind: modify
     done_criteria: >
-      BAC ルール・指示ペアが、業務受入条件の必須セクション・
-      判定基準・AIガイダンスを定義していること。
-      The BAC rule and instruction pair defines required business acceptance sections,
-      completion conditions, and AI authoring constraints without ambiguous wording.
+      BAC ルール・指示ペアが、業務受入条件の必須セクション・ 判定基準・AIガイダンスを定義していること。 The BAC rule and instruction pair defines required business
+      acceptance sections, completion conditions, and AI authoring constraints without ambiguous wording.

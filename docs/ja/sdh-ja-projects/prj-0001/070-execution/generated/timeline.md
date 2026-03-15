@@ -9,15 +9,15 @@
 ## 今後のアクション案
 
 1. 進行中タスクを完了させ、開始日までにクリティカルパスの先頭を空けてください。
-2. 次の着手候補 T-SDH-GOV-040 の前提条件を開始日までに確認してください。
+2. 次の着手候補 T-SDH-DES-020 の前提条件を開始日までに確認してください。
 
 - schedule_path: `docs/ja/sdh-ja-projects/prj-0001/060-schedule`
 - project_start_date: `2026-03-16`
-- project_duration_days: `11.5`
+- project_duration_days: `4.75`
 - scope: `full_schedule`
-- critical_path_task_count: `23`
+- critical_path_task_count: `13`
 - progress_percent: `0.0%`
-- done_tasks: `0/81`
-- task_state_counts: `todo=80, doing=1, blocked=0, done=0, cancelled=0`
+- done_tasks: `0/161`
+- task_state_counts: `todo=160, doing=1, blocked=0, done=0, cancelled=0`
 
 ![プロジェクトタイムライン](./timeline.svg)

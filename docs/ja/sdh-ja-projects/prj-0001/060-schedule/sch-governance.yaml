@@ -3,90 +3,164 @@ project_id: prj-0001
 schedule_level: domain
 domain: governance
 assigned_team: specdojo-handbook
-
 settings:
   finish_milestone_id: M-SDH-GOV-900
-  notes: >
-    ガバナンスドメインスケジュール。
-    各 WBS アイテムを Phase 1（ルールライフサイクル）と Phase 2（派生成果物ライフサイクル）に分割。
-    meta-* ルールは Phase 1 のみ（派生成果物なし）。
-
+  notes: |
+    ガバナンスドメインスケジュール。 各 WBS アイテムを Phase 1（ルールライフサイクル）と Phase 2（派生成果物ライフサイクル）に分割。 meta-* ルールは Phase 1 のみ（派生成果物なし）。
 tasks:
-  # --- WBS-GOV-PRJ-010: project documentation (3 rules pairs) ---
   - id: T-SDH-GOV-010
     wbs: WBS-GOV-PRJ-010
     name: プロジェクトドキュメントルールの起草・レビュー
-    duration_days: 1.0
-    depends_on: [M-SDH-100]
+    duration_days: 1
+    depends_on:
+      - M-SDH-100
     owner: PO
-    tags: [governance, rules-lifecycle]
+    tags:
+      - governance
+      - rules-lifecycle
     notes: >
-      Phase 1: エージェント起草 → 人間修正 → エージェントレビュー → 人間承認（status: ready）。
-      対象: prj-overview, prj-scope, prj-issues-and-approach ルール。
-
-  - id: T-SDH-GOV-011
-    wbs: WBS-GOV-PRJ-010
-    name: プロジェクトドキュメント派生成果物の起草・レビュー
-    duration_days: 0.75
-    depends_on: [T-SDH-GOV-010]
+      Phase 1: エージェント起草 → 人間修正 → エージェントレビュー → 人間承認（status: ready）。 対象: prj-overview, prj-scope, prj-issues-and-approach
+      ルール。
+  - wbs: WBS-GOV-PRJ-010
     owner: PO
-    tags: [governance, derivatives-lifecycle]
-    notes: >
+    tags:
+      - governance
+      - derivatives-lifecycle
+    notes: |
       Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認（status: ready）。
-
-  # --- WBS-GOV-MIG-020: migration family (5 rules pairs) ---
+    id: T-SDH-GOV-011-INS
+    name: プロジェクトドキュメントの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-GOV-010
+  - wbs: WBS-GOV-PRJ-010
+    owner: PO
+    tags:
+      - governance
+      - derivatives-lifecycle
+    notes: |
+      Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認（status: ready）。
+    id: T-SDH-GOV-011-TPL
+    name: プロジェクトドキュメントの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-GOV-011-INS
+  - wbs: WBS-GOV-PRJ-010
+    owner: PO
+    tags:
+      - governance
+      - derivatives-lifecycle
+    notes: |
+      Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認（status: ready）。
+    id: T-SDH-GOV-011-SMP
+    name: プロジェクトドキュメントの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-GOV-011-TPL
   - id: T-SDH-GOV-020
     wbs: WBS-GOV-MIG-020
     name: 移行ルールの起草・レビュー
     duration_days: 1.25
-    depends_on: [T-SDH-GOV-010]
+    depends_on:
+      - T-SDH-GOV-010
     owner: PO
-    tags: [governance, rules-lifecycle]
-    notes: >
+    tags:
+      - governance
+      - rules-lifecycle
+    notes: |
       Phase 1: 対象 mip-index, mtp, dmd, cop, otp ルール。
-
-  - id: T-SDH-GOV-021
-    wbs: WBS-GOV-MIG-020
-    name: 移行派生成果物の起草・レビュー
-    duration_days: 1.0
-    depends_on: [T-SDH-GOV-020]
+  - wbs: WBS-GOV-MIG-020
     owner: PO
-    tags: [governance, derivatives-lifecycle]
-
-  # --- WBS-GOV-OPS-030: operations (2 rules pairs) ---
+    tags:
+      - governance
+      - derivatives-lifecycle
+    id: T-SDH-GOV-021-INS
+    name: 移行の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.5
+    depends_on:
+      - T-SDH-GOV-020
+  - wbs: WBS-GOV-MIG-020
+    owner: PO
+    tags:
+      - governance
+      - derivatives-lifecycle
+    id: T-SDH-GOV-021-TPL
+    name: 移行の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-GOV-021-INS
+  - wbs: WBS-GOV-MIG-020
+    owner: PO
+    tags:
+      - governance
+      - derivatives-lifecycle
+    id: T-SDH-GOV-021-SMP
+    name: 移行の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-GOV-021-TPL
   - id: T-SDH-GOV-030
     wbs: WBS-GOV-OPS-030
     name: 運用ルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-GOV-010]
+    depends_on:
+      - T-SDH-GOV-010
     owner: PO
-    tags: [governance, rules-lifecycle]
-    notes: >
+    tags:
+      - governance
+      - rules-lifecycle
+    notes: |
       Phase 1: 対象 opd, opr ルール。
-
-  - id: T-SDH-GOV-031
-    wbs: WBS-GOV-OPS-030
-    name: 運用派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-GOV-030]
+  - wbs: WBS-GOV-OPS-030
     owner: PO
-    tags: [governance, derivatives-lifecycle]
-
-  # --- WBS-GOV-META-040: meta rules (no derivatives) ---
+    tags:
+      - governance
+      - derivatives-lifecycle
+    id: T-SDH-GOV-031-INS
+    name: 運用の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-GOV-030
+  - wbs: WBS-GOV-OPS-030
+    owner: PO
+    tags:
+      - governance
+      - derivatives-lifecycle
+    id: T-SDH-GOV-031-TPL
+    name: 運用の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-GOV-031-INS
+  - wbs: WBS-GOV-OPS-030
+    owner: PO
+    tags:
+      - governance
+      - derivatives-lifecycle
+    id: T-SDH-GOV-031-SMP
+    name: 運用の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-GOV-031-TPL
   - id: T-SDH-GOV-040
     wbs: WBS-GOV-META-040
     name: 共有メタルールブックガバナンスセットの整合
     duration_days: 0.75
-    depends_on: [M-SDH-100]
+    depends_on:
+      - M-SDH-100
     owner: ARC
-    tags: [governance, rules-lifecycle, meta]
+    tags:
+      - governance
+      - rules-lifecycle
+      - meta
     notes: >
-      Phase 1 のみ（メタルールに派生成果物なし）。
-      対象: meta-document-metadata, meta-id-and-file-naming,
-      meta-rulebook-structure, meta-test-document-scope。
-
+      Phase 1 のみ（メタルールに派生成果物なし）。 対象: meta-document-metadata, meta-id-and-file-naming, meta-rulebook-structure,
+      meta-test-document-scope。
 milestones:
   - id: M-SDH-GOV-900
     name: ガバナンスドメイン完了
-    depends_on: [T-SDH-GOV-011, T-SDH-GOV-021, T-SDH-GOV-031, T-SDH-GOV-040]
+    depends_on:
+      - T-SDH-GOV-011-SMP
+      - T-SDH-GOV-021-SMP
+      - T-SDH-GOV-031-SMP
+      - T-SDH-GOV-040
     owner: PO

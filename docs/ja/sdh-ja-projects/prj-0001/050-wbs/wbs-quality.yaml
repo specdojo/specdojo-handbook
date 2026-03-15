@@ -5,9 +5,8 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-QLTY-SAC-010
     name: システム受入条件ペアの整備
-    description: >
-      システム受入条件ドキュメントとその境界定義の
-      SAC ルール・指示ペアを整備する（カタログ §9）。
+    description: |
+      システム受入条件ドキュメントとその境界定義の SAC ルール・指示ペアを整備する（カタログ §9）。
     owner: QE
     component: acceptance
     deliverables:
@@ -15,15 +14,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/sac-instruction.md
         kind: modify
-    done_criteria: >
-      SAC ルール・指示ペアが、システム受入の必須コンテンツ・
-      受入境界・AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/sac-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/sac-sample.md
+        kind: modify
+    done_criteria: |
+      SAC ルール・指示ペアが、システム受入の必須コンテンツ・ 受入境界・AIガイダンスを定義していること。
   - id: WBS-QLTY-TSP-020
     name: テスト戦略・計画ペアの整備
-    description: >
-      テスト戦略・レベル・全体計画構造を定義する
-      TSP インデックスルール・指示ペアを整備する（カタログ §10.1）。
+    description: |
+      テスト戦略・レベル・全体計画構造を定義する TSP インデックスルール・指示ペアを整備する（カタログ §10.1）。
     owner: QE
     component: test-planning
     deliverables:
@@ -31,15 +31,16 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/tsp-index-instruction.md
         kind: modify
-    done_criteria: >
-      TSP インデックスルール・指示ペアが、テスト戦略コンテンツ・
-      レベル定義・AIガイダンスを定義していること。
-
+      - path: docs/ja/handbook/templates/tsp-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/tsp-index-sample.md
+        kind: modify
+    done_criteria: |
+      TSP インデックスルール・指示ペアが、テスト戦略コンテンツ・ レベル定義・AIガイダンスを定義していること。
   - id: WBS-QLTY-UTC-030
     name: 単体テストドキュメントファミリーの整備
-    description: >
-      単体テストカタログドキュメントの UTC インデックスおよび
-      詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.2）。
+    description: |
+      単体テストカタログドキュメントの UTC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.2）。
     owner: QE
     component: unit-tests
     deliverables:
@@ -51,15 +52,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/utc-instruction.md
         kind: modify
-    done_criteria: >
-      UTC ファミリーが、単体テストのインデックスと詳細の要件を固定見出し・
-      テスト期待・AIガイダンスで定義していること。
-
+      - path: docs/ja/handbook/templates/utc-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/utc-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/utc-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/utc-sample.md
+        kind: modify
+    done_criteria: |
+      UTC ファミリーが、単体テストのインデックスと詳細の要件を固定見出し・ テスト期待・AIガイダンスで定義していること。
   - id: WBS-QLTY-ITC-040
     name: 結合テストドキュメントファミリーの整備
-    description: >
-      内部結合テストカタログドキュメントの ITC インデックスおよび
-      詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.3）。
+    description: |
+      内部結合テストカタログドキュメントの ITC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.3）。
     owner: QE
     component: integration-tests
     deliverables:
@@ -71,15 +77,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/itc-instruction.md
         kind: modify
-    done_criteria: >
-      ITC ファミリーが、インデックス・基準・詳細ドキュメントの期待を
-      明示的な必須コンテンツとAI指示で定義していること。
-
+      - path: docs/ja/handbook/templates/itc-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/itc-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/itc-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/itc-sample.md
+        kind: modify
+    done_criteria: |
+      ITC ファミリーが、インデックス・基準・詳細ドキュメントの期待を 明示的な必須コンテンツとAI指示で定義していること。
   - id: WBS-QLTY-ETC-050
     name: 外部結合テストドキュメントファミリーの整備
-    description: >
-      ETC インデックス・詳細ドキュメントのルール・指示ファイル、
-      および派生テスト設計・シナリオ指示を整備する（カタログ §10.4）。
+    description: |
+      ETC インデックス・詳細ドキュメントのルール・指示ファイル、 および派生テスト設計・シナリオ指示を整備する（カタログ §10.4）。
     owner: QE
     component: external-tests
     deliverables:
@@ -99,15 +110,36 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/ets-instruction.md
         kind: modify
-    done_criteria: >
-      ETC ファミリーが、外部テストのルールセットとすべての派生指示テンプレートを
-      整合した構造・スコープ配分・AI執筆ガイダンスで定義していること。
-
+      - path: docs/ja/handbook/templates/etc-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/etc-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/etc-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/etc-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/etd-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/etd-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/etd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/etd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/ets-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ets-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/ets-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ets-sample.md
+        kind: modify
+    done_criteria: |
+      ETC ファミリーが、外部テストのルールセットとすべての派生指示テンプレートを 整合した構造・スコープ配分・AI執筆ガイダンスで定義していること。
   - id: WBS-QLTY-STC-060
     name: システムテストドキュメントファミリーの整備
-    description: >
-      システムテストカタログドキュメントの STC インデックスおよび
-      詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.5）。
+    description: |
+      システムテストカタログドキュメントの STC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.5）。
     owner: QE
     component: system-tests
     deliverables:
@@ -119,15 +151,20 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/stc-instruction.md
         kind: modify
-    done_criteria: >
-      STC ファミリーが、インデックスと詳細ドキュメントの構造を統一用語と
-      AI生成ガイダンスで定義していること。
-
+      - path: docs/ja/handbook/templates/stc-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/stc-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/stc-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/stc-sample.md
+        kind: modify
+    done_criteria: |
+      STC ファミリーが、インデックスと詳細ドキュメントの構造を統一用語と AI生成ガイダンスで定義していること。
   - id: WBS-QLTY-ATC-070
     name: 受入テストドキュメントファミリーの整備
-    description: >
-      ATC インデックス・詳細ドキュメントのルール・指示ファイル、
-      および派生テスト設計・シナリオ指示を整備する（カタログ §10.6）。
+    description: |
+      ATC インデックス・詳細ドキュメントのルール・指示ファイル、 および派生テスト設計・シナリオ指示を整備する（カタログ §10.6）。
     owner: BA
     component: acceptance-tests
     deliverables:
@@ -147,6 +184,29 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/instructions/ats-instruction.md
         kind: modify
-    done_criteria: >
-      ATC ファミリーが、受入テストのルールセットとすべての派生指示テンプレートを
-      一貫したスコープ分割・必須セクション・AIガイダンスで定義していること。
+      - path: docs/ja/handbook/templates/atc-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/atc-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/atc-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/atc-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/atd-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/atd-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/atd-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/atd-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/ats-index-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ats-index-sample.md
+        kind: modify
+      - path: docs/ja/handbook/templates/ats-input-template.md
+        kind: modify
+      - path: docs/ja/handbook/samples/ats-sample.md
+        kind: modify
+    done_criteria: |
+      ATC ファミリーが、受入テストのルールセットとすべての派生指示テンプレートを 一貫したスコープ分割・必須セクション・AIガイダンスで定義していること。

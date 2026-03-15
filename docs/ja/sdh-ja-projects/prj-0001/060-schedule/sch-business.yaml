@@ -3,278 +3,600 @@ project_id: prj-0001
 schedule_level: domain
 domain: business
 assigned_team: specdojo-handbook
-
 settings:
   finish_milestone_id: M-SDH-BIZ-900
   notes: >
-    業務ドメインスケジュール。
-    各 WBS アイテムを Phase 1（ルールライフサイクル）と Phase 2（派生成果物ライフサイクル）に分割。
-    依存グループ: 基盤（BPS→BR→BES）、データ（BDD→BDS）、リファレンス（GL, REFDATA）、
-    モデル（CDFD, CDSD, CSTD, CCD）、システム（UIS, SF）、受入（BAC）。
-
+    業務ドメインスケジュール。 各 WBS アイテムを Phase 1（ルールライフサイクル）と Phase 2（派生成果物ライフサイクル）に分割。 依存グループ:
+    基盤（BPS→BR→BES）、データ（BDD→BDS）、リファレンス（GL, REFDATA）、 モデル（CDFD, CDSD, CSTD, CCD）、システム（UIS, SF）、受入（BAC）。
 tasks:
-  # --- WBS-BIZ-BPS-010: business process specification (1 pair) ---
   - id: T-SDH-BIZ-010
     wbs: WBS-BIZ-BPS-010
     name: 業務プロセス仕様ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [M-SDH-200]
+    depends_on:
+      - M-SDH-100
     owner: BA
-    tags: [business, rules-lifecycle]
-    notes: "Phase 1: エージェント起草 → 人間修正 → エージェントレビュー → 人間承認。"
-
-  - id: T-SDH-BIZ-011
-    wbs: WBS-BIZ-BPS-010
-    name: 業務プロセス仕様派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+    notes: 'Phase 1: エージェント起草 → 人間修正 → エージェントレビュー → 人間承認。'
+  - wbs: WBS-BIZ-BPS-010
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    notes: 'Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認。'
+    id: T-SDH-BIZ-011-INS
+    name: 業務プロセス仕様の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-010]
+    depends_on:
+      - T-SDH-BIZ-010
+  - wbs: WBS-BIZ-BPS-010
     owner: BA
-    tags: [business, derivatives-lifecycle]
-    notes: "Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認。"
-
-  # --- WBS-BIZ-BR-020: business rule (1 pair) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    notes: 'Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認。'
+    id: T-SDH-BIZ-011-TPL
+    name: 業務プロセス仕様の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-011-INS
+  - wbs: WBS-BIZ-BPS-010
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    notes: 'Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認。'
+    id: T-SDH-BIZ-011-SMP
+    name: 業務プロセス仕様の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-011-TPL
   - id: T-SDH-BIZ-020
     wbs: WBS-BIZ-BR-020
     name: ビジネスルールのルール起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-BIZ-010]
+    depends_on:
+      - T-SDH-BIZ-010
     owner: BA
-    tags: [business, rules-lifecycle]
-
-  - id: T-SDH-BIZ-021
-    wbs: WBS-BIZ-BR-020
-    name: ビジネスルール派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+  - wbs: WBS-BIZ-BR-020
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-021-INS
+    name: ビジネスルールの起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-020]
+    depends_on:
+      - T-SDH-BIZ-020
+  - wbs: WBS-BIZ-BR-020
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-BDD-030: business data dictionary (1 pair) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-021-TPL
+    name: ビジネスルールの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-021-INS
+  - wbs: WBS-BIZ-BR-020
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-021-SMP
+    name: ビジネスルールの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-021-TPL
   - id: T-SDH-BIZ-030
     wbs: WBS-BIZ-BDD-030
     name: 業務データディクショナリルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [M-SDH-200]
+    depends_on:
+      - M-SDH-100
     owner: BA
-    tags: [business, rules-lifecycle]
-
-  - id: T-SDH-BIZ-031
-    wbs: WBS-BIZ-BDD-030
-    name: 業務データディクショナリ派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+  - wbs: WBS-BIZ-BDD-030
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-031-INS
+    name: 業務データディクショナリの起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-030]
+    depends_on:
+      - T-SDH-BIZ-030
+  - wbs: WBS-BIZ-BDD-030
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-BDS-040: form specification (1 pair) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-031-TPL
+    name: 業務データディクショナリの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-031-INS
+  - wbs: WBS-BIZ-BDD-030
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-031-SMP
+    name: 業務データディクショナリの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-031-TPL
   - id: T-SDH-BIZ-040
     wbs: WBS-BIZ-BDS-040
     name: 帳票仕様ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-BIZ-030]
+    depends_on:
+      - T-SDH-BIZ-030
     owner: BA
-    tags: [business, rules-lifecycle]
-
-  - id: T-SDH-BIZ-041
-    wbs: WBS-BIZ-BDS-040
-    name: 帳票仕様派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+  - wbs: WBS-BIZ-BDS-040
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-041-INS
+    name: 帳票仕様の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-040]
+    depends_on:
+      - T-SDH-BIZ-040
+  - wbs: WBS-BIZ-BDS-040
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-UIS-050: screen specification (1 pair) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-041-TPL
+    name: 帳票仕様の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-041-INS
+  - wbs: WBS-BIZ-BDS-040
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-041-SMP
+    name: 帳票仕様の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-041-TPL
   - id: T-SDH-BIZ-050
     wbs: WBS-BIZ-UIS-050
     name: 画面仕様ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-BIZ-010]
+    depends_on:
+      - T-SDH-BIZ-010
     owner: BA
-    tags: [business, rules-lifecycle]
-
-  - id: T-SDH-BIZ-051
-    wbs: WBS-BIZ-UIS-050
-    name: 画面仕様派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+  - wbs: WBS-BIZ-UIS-050
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-051-INS
+    name: 画面仕様の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-050]
+    depends_on:
+      - T-SDH-BIZ-050
+  - wbs: WBS-BIZ-UIS-050
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-GL-060: glossary (1 pair) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-051-TPL
+    name: 画面仕様の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-051-INS
+  - wbs: WBS-BIZ-UIS-050
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-051-SMP
+    name: 画面仕様の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-051-TPL
   - id: T-SDH-BIZ-060
     wbs: WBS-BIZ-GL-060
     name: 用語集ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [M-SDH-200]
+    depends_on:
+      - M-SDH-100
     owner: BA
-    tags: [business, rules-lifecycle]
-
-  - id: T-SDH-BIZ-061
-    wbs: WBS-BIZ-GL-060
-    name: 用語集派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+  - wbs: WBS-BIZ-GL-060
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-061-INS
+    name: 用語集の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-060]
+    depends_on:
+      - T-SDH-BIZ-060
+  - wbs: WBS-BIZ-GL-060
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-REFDATA-070: reference data (3 pairs: cld, stsd, sld) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-061-TPL
+    name: 用語集の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-061-INS
+  - wbs: WBS-BIZ-GL-060
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-061-SMP
+    name: 用語集の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-061-TPL
   - id: T-SDH-BIZ-070
     wbs: WBS-BIZ-REFDATA-070
     name: リファレンスデータルールの起草・レビュー
-    duration_days: 1.0
-    depends_on: [M-SDH-200]
+    duration_days: 1
+    depends_on:
+      - M-SDH-100
     owner: BA
-    tags: [business, rules-lifecycle]
-    notes: "対象: cld, stsd, sld ルール。"
-
-  - id: T-SDH-BIZ-071
-    wbs: WBS-BIZ-REFDATA-070
-    name: リファレンスデータ派生成果物の起草・レビュー
-    duration_days: 0.75
-    depends_on: [T-SDH-BIZ-070]
+    tags:
+      - business
+      - rules-lifecycle
+    notes: '対象: cld, stsd, sld ルール。'
+  - wbs: WBS-BIZ-REFDATA-070
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-BES-080: business event specification (index + detail) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-071-INS
+    name: リファレンスデータの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-070
+  - wbs: WBS-BIZ-REFDATA-070
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-071-TPL
+    name: リファレンスデータの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-071-INS
+  - wbs: WBS-BIZ-REFDATA-070
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-071-SMP
+    name: リファレンスデータの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-071-TPL
   - id: T-SDH-BIZ-080
     wbs: WBS-BIZ-BES-080
     name: 業務イベント仕様ルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-BIZ-020]
+    depends_on:
+      - T-SDH-BIZ-020
     owner: BA
-    tags: [business, rules-lifecycle]
-    notes: "対象: bes-index, bes ルール。"
-
-  - id: T-SDH-BIZ-081
-    wbs: WBS-BIZ-BES-080
-    name: 業務イベント仕様派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-BIZ-080]
+    tags:
+      - business
+      - rules-lifecycle
+    notes: '対象: bes-index, bes ルール。'
+  - wbs: WBS-BIZ-BES-080
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-CDFD-090: conceptual data flow (cdfd + cdfd-mermaid) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-081-INS
+    name: 業務イベント仕様の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-080
+  - wbs: WBS-BIZ-BES-080
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-081-TPL
+    name: 業務イベント仕様の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-081-INS
+  - wbs: WBS-BIZ-BES-080
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-081-SMP
+    name: 業務イベント仕様の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-081-TPL
   - id: T-SDH-BIZ-090
     wbs: WBS-BIZ-CDFD-090
     name: 概念データフロールールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-BIZ-080]
+    depends_on:
+      - T-SDH-BIZ-080
     owner: BA
-    tags: [business, rules-lifecycle]
-    notes: "対象: cdfd, cdfd-mermaid ルール。"
-
-  - id: T-SDH-BIZ-091
-    wbs: WBS-BIZ-CDFD-090
-    name: 概念データフロー派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-BIZ-090]
+    tags:
+      - business
+      - rules-lifecycle
+    notes: '対象: cdfd, cdfd-mermaid ルール。'
+  - wbs: WBS-BIZ-CDFD-090
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-CDSD-100: conceptual data store (1 pair) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-091-INS
+    name: 概念データフローの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-090
+  - wbs: WBS-BIZ-CDFD-090
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-091-TPL
+    name: 概念データフローの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-091-INS
+  - wbs: WBS-BIZ-CDFD-090
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-091-SMP
+    name: 概念データフローの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-091-TPL
   - id: T-SDH-BIZ-100
     wbs: WBS-BIZ-CDSD-100
     name: 概念データストアルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-BIZ-030]
+    depends_on:
+      - T-SDH-BIZ-030
     owner: BA
-    tags: [business, rules-lifecycle]
-
-  - id: T-SDH-BIZ-101
-    wbs: WBS-BIZ-CDSD-100
-    name: 概念データストア派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+  - wbs: WBS-BIZ-CDSD-100
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-101-INS
+    name: 概念データストアの起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-100]
+    depends_on:
+      - T-SDH-BIZ-100
+  - wbs: WBS-BIZ-CDSD-100
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-CSTD-110: conceptual state transition (cstd + cstd-mermaid) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-101-TPL
+    name: 概念データストアの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-101-INS
+  - wbs: WBS-BIZ-CDSD-100
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-101-SMP
+    name: 概念データストアの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-101-TPL
   - id: T-SDH-BIZ-110
     wbs: WBS-BIZ-CSTD-110
     name: 概念状態遷移ルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-BIZ-030]
+    depends_on:
+      - T-SDH-BIZ-030
     owner: BA
-    tags: [business, rules-lifecycle]
-    notes: "対象: cstd, cstd-mermaid ルール。"
-
-  - id: T-SDH-BIZ-111
-    wbs: WBS-BIZ-CSTD-110
-    name: 概念状態遷移派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-BIZ-110]
+    tags:
+      - business
+      - rules-lifecycle
+    notes: '対象: cstd, cstd-mermaid ルール。'
+  - wbs: WBS-BIZ-CSTD-110
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-CCD-120: conceptual class diagram mermaid (1 pair) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-111-INS
+    name: 概念状態遷移の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-110
+  - wbs: WBS-BIZ-CSTD-110
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-111-TPL
+    name: 概念状態遷移の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-111-INS
+  - wbs: WBS-BIZ-CSTD-110
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-111-SMP
+    name: 概念状態遷移の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-111-TPL
   - id: T-SDH-BIZ-120
     wbs: WBS-BIZ-CCD-120
     name: 概念クラス図ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-BIZ-030]
+    depends_on:
+      - T-SDH-BIZ-030
     owner: BA
-    tags: [business, rules-lifecycle]
-
-  - id: T-SDH-BIZ-121
-    wbs: WBS-BIZ-CCD-120
-    name: 概念クラス図派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+  - wbs: WBS-BIZ-CCD-120
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-121-INS
+    name: 概念クラス図の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-120]
+    depends_on:
+      - T-SDH-BIZ-120
+  - wbs: WBS-BIZ-CCD-120
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-SF-130: system function list (index + detail, includes create) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-121-TPL
+    name: 概念クラス図の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-121-INS
+  - wbs: WBS-BIZ-CCD-120
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-121-SMP
+    name: 概念クラス図の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-121-TPL
   - id: T-SDH-BIZ-130
     wbs: WBS-BIZ-SF-130
     name: システム機能一覧ルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-BIZ-080]
+    depends_on:
+      - T-SDH-BIZ-080
     owner: BA
-    tags: [business, rules-lifecycle]
-    notes: "対象: sf-index（新規作成）, sf ルール。"
-
-  - id: T-SDH-BIZ-131
-    wbs: WBS-BIZ-SF-130
-    name: システム機能一覧派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-BIZ-130]
+    tags:
+      - business
+      - rules-lifecycle
+    notes: '対象: sf-index（新規作成）, sf ルール。'
+  - wbs: WBS-BIZ-SF-130
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
-  # --- WBS-BIZ-BAC-140: business acceptance criteria (1 pair) ---
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-131-INS
+    name: システム機能一覧の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-130
+  - wbs: WBS-BIZ-SF-130
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-131-TPL
+    name: システム機能一覧の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-131-INS
+  - wbs: WBS-BIZ-SF-130
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-131-SMP
+    name: システム機能一覧の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-131-TPL
   - id: T-SDH-BIZ-140
     wbs: WBS-BIZ-BAC-140
     name: 業務受入条件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-BIZ-081, T-SDH-BIZ-091, T-SDH-BIZ-131]
+    depends_on:
+      - T-SDH-BIZ-081-SMP
+      - T-SDH-BIZ-091-SMP
+      - T-SDH-BIZ-131-SMP
     owner: BA
-    tags: [business, rules-lifecycle]
-    notes: "BES・CDFD・SF の派生成果物完了後に開始。"
-
-  - id: T-SDH-BIZ-141
-    wbs: WBS-BIZ-BAC-140
-    name: 業務受入条件派生成果物の起草・レビュー
+    tags:
+      - business
+      - rules-lifecycle
+    notes: BES・CDFD・SF の派生成果物完了後に開始。
+  - wbs: WBS-BIZ-BAC-140
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-141-INS
+    name: 業務受入条件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-BIZ-140]
+    depends_on:
+      - T-SDH-BIZ-140
+  - wbs: WBS-BIZ-BAC-140
     owner: BA
-    tags: [business, derivatives-lifecycle]
-
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-141-TPL
+    name: 業務受入条件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-141-INS
+  - wbs: WBS-BIZ-BAC-140
+    owner: BA
+    tags:
+      - business
+      - derivatives-lifecycle
+    id: T-SDH-BIZ-141-SMP
+    name: 業務受入条件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-BIZ-141-TPL
 milestones:
   - id: M-SDH-BIZ-900
     name: 業務ドメイン完了
     depends_on:
-      - T-SDH-BIZ-011
-      - T-SDH-BIZ-021
-      - T-SDH-BIZ-031
-      - T-SDH-BIZ-041
-      - T-SDH-BIZ-051
-      - T-SDH-BIZ-061
-      - T-SDH-BIZ-071
-      - T-SDH-BIZ-081
-      - T-SDH-BIZ-091
-      - T-SDH-BIZ-101
-      - T-SDH-BIZ-111
-      - T-SDH-BIZ-121
-      - T-SDH-BIZ-131
-      - T-SDH-BIZ-141
+      - T-SDH-BIZ-011-SMP
+      - T-SDH-BIZ-021-SMP
+      - T-SDH-BIZ-031-SMP
+      - T-SDH-BIZ-041-SMP
+      - T-SDH-BIZ-051-SMP
+      - T-SDH-BIZ-061-SMP
+      - T-SDH-BIZ-071-SMP
+      - T-SDH-BIZ-081-SMP
+      - T-SDH-BIZ-091-SMP
+      - T-SDH-BIZ-101-SMP
+      - T-SDH-BIZ-111-SMP
+      - T-SDH-BIZ-121-SMP
+      - T-SDH-BIZ-131-SMP
+      - T-SDH-BIZ-141-SMP
     owner: BA

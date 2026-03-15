@@ -3,178 +3,386 @@ project_id: prj-0001
 schedule_level: domain
 domain: nfr
 assigned_team: specdojo-handbook
-
 settings:
   finish_milestone_id: M-SDH-NFR-900
-  notes: >
-    非機能要件ドメインスケジュール。
-    NFR インデックスが全個別 NFR ルールの前提。
-
+  notes: |
+    非機能要件ドメインスケジュール。 NFR インデックスが全個別 NFR ルールの前提。
 tasks:
-  # --- WBS-NFR-INDEX-010: nfr index (1 pair) ---
   - id: T-SDH-NFR-010
     wbs: WBS-NFR-INDEX-010
     name: NFR インデックスルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [M-SDH-200]
+    depends_on:
+      - M-SDH-100
     owner: QE
-    tags: [nfr, rules-lifecycle, index]
-
-  - id: T-SDH-NFR-011
-    wbs: WBS-NFR-INDEX-010
-    name: NFR インデックス派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+      - index
+  - wbs: WBS-NFR-INDEX-010
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+      - index
+    id: T-SDH-NFR-011-INS
+    name: NFR インデックスの起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-010]
+    depends_on:
+      - T-SDH-NFR-010
+  - wbs: WBS-NFR-INDEX-010
     owner: QE
-    tags: [nfr, derivatives-lifecycle, index]
-
-  # --- WBS-NFR-AVAIL-020: availability (1 pair) ---
+    tags:
+      - nfr
+      - derivatives-lifecycle
+      - index
+    id: T-SDH-NFR-011-TPL
+    name: NFR インデックスの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-011-INS
+  - wbs: WBS-NFR-INDEX-010
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+      - index
+    id: T-SDH-NFR-011-SMP
+    name: NFR インデックスの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-011-TPL
   - id: T-SDH-NFR-020
     wbs: WBS-NFR-AVAIL-020
     name: 可用性要件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-NFR-010]
+    depends_on:
+      - T-SDH-NFR-010
     owner: QE
-    tags: [nfr, rules-lifecycle]
-
-  - id: T-SDH-NFR-021
-    wbs: WBS-NFR-AVAIL-020
-    name: 可用性要件派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+  - wbs: WBS-NFR-AVAIL-020
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-021-INS
+    name: 可用性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-020]
+    depends_on:
+      - T-SDH-NFR-020
+  - wbs: WBS-NFR-AVAIL-020
     owner: QE
-    tags: [nfr, derivatives-lifecycle]
-
-  # --- WBS-NFR-INTEG-030: integrity (1 pair) ---
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-021-TPL
+    name: 可用性要件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-021-INS
+  - wbs: WBS-NFR-AVAIL-020
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-021-SMP
+    name: 可用性要件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-021-TPL
   - id: T-SDH-NFR-030
     wbs: WBS-NFR-INTEG-030
     name: 完全性要件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-NFR-010]
+    depends_on:
+      - T-SDH-NFR-010
     owner: QE
-    tags: [nfr, rules-lifecycle]
-
-  - id: T-SDH-NFR-031
-    wbs: WBS-NFR-INTEG-030
-    name: 完全性要件派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+  - wbs: WBS-NFR-INTEG-030
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-031-INS
+    name: 完全性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-030]
+    depends_on:
+      - T-SDH-NFR-030
+  - wbs: WBS-NFR-INTEG-030
     owner: QE
-    tags: [nfr, derivatives-lifecycle]
-
-  # --- WBS-NFR-MAINT-040: maintainability (1 pair) ---
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-031-TPL
+    name: 完全性要件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-031-INS
+  - wbs: WBS-NFR-INTEG-030
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-031-SMP
+    name: 完全性要件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-031-TPL
   - id: T-SDH-NFR-040
     wbs: WBS-NFR-MAINT-040
     name: 保守性要件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-NFR-010]
+    depends_on:
+      - T-SDH-NFR-010
     owner: QE
-    tags: [nfr, rules-lifecycle]
-
-  - id: T-SDH-NFR-041
-    wbs: WBS-NFR-MAINT-040
-    name: 保守性要件派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+  - wbs: WBS-NFR-MAINT-040
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-041-INS
+    name: 保守性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-040]
+    depends_on:
+      - T-SDH-NFR-040
+  - wbs: WBS-NFR-MAINT-040
     owner: QE
-    tags: [nfr, derivatives-lifecycle]
-
-  # --- WBS-NFR-OPS-050: operations (1 pair) ---
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-041-TPL
+    name: 保守性要件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-041-INS
+  - wbs: WBS-NFR-MAINT-040
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-041-SMP
+    name: 保守性要件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-041-TPL
   - id: T-SDH-NFR-050
     wbs: WBS-NFR-OPS-050
     name: 運用性要件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-NFR-010]
+    depends_on:
+      - T-SDH-NFR-010
     owner: QE
-    tags: [nfr, rules-lifecycle]
-
-  - id: T-SDH-NFR-051
-    wbs: WBS-NFR-OPS-050
-    name: 運用性要件派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+  - wbs: WBS-NFR-OPS-050
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-051-INS
+    name: 運用性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-050]
+    depends_on:
+      - T-SDH-NFR-050
+  - wbs: WBS-NFR-OPS-050
     owner: QE
-    tags: [nfr, derivatives-lifecycle]
-
-  # --- WBS-NFR-PERF-060: performance (1 pair) ---
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-051-TPL
+    name: 運用性要件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-051-INS
+  - wbs: WBS-NFR-OPS-050
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-051-SMP
+    name: 運用性要件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-051-TPL
   - id: T-SDH-NFR-060
     wbs: WBS-NFR-PERF-060
     name: 性能要件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-NFR-010]
+    depends_on:
+      - T-SDH-NFR-010
     owner: QE
-    tags: [nfr, rules-lifecycle]
-
-  - id: T-SDH-NFR-061
-    wbs: WBS-NFR-PERF-060
-    name: 性能要件派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+  - wbs: WBS-NFR-PERF-060
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-061-INS
+    name: 性能要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-060]
+    depends_on:
+      - T-SDH-NFR-060
+  - wbs: WBS-NFR-PERF-060
     owner: QE
-    tags: [nfr, derivatives-lifecycle]
-
-  # --- WBS-NFR-RELY-070: reliability (1 pair) ---
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-061-TPL
+    name: 性能要件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-061-INS
+  - wbs: WBS-NFR-PERF-060
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-061-SMP
+    name: 性能要件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-061-TPL
   - id: T-SDH-NFR-070
     wbs: WBS-NFR-RELY-070
     name: 信頼性要件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-NFR-060]
+    depends_on:
+      - T-SDH-NFR-060
     owner: QE
-    tags: [nfr, rules-lifecycle]
-
-  - id: T-SDH-NFR-071
-    wbs: WBS-NFR-RELY-070
-    name: 信頼性要件派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+  - wbs: WBS-NFR-RELY-070
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-071-INS
+    name: 信頼性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-070]
+    depends_on:
+      - T-SDH-NFR-070
+  - wbs: WBS-NFR-RELY-070
     owner: QE
-    tags: [nfr, derivatives-lifecycle]
-
-  # --- WBS-NFR-SEC-080: security and safety (1 pair) ---
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-071-TPL
+    name: 信頼性要件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-071-INS
+  - wbs: WBS-NFR-RELY-070
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-071-SMP
+    name: 信頼性要件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-071-TPL
   - id: T-SDH-NFR-080
     wbs: WBS-NFR-SEC-080
     name: セキュリティ・安全性要件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-NFR-030]
+    depends_on:
+      - T-SDH-NFR-030
     owner: QE
-    tags: [nfr, rules-lifecycle]
-
-  - id: T-SDH-NFR-081
-    wbs: WBS-NFR-SEC-080
-    name: セキュリティ・安全性要件派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+  - wbs: WBS-NFR-SEC-080
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-081-INS
+    name: セキュリティ・安全性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-080]
+    depends_on:
+      - T-SDH-NFR-080
+  - wbs: WBS-NFR-SEC-080
     owner: QE
-    tags: [nfr, derivatives-lifecycle]
-
-  # --- WBS-NFR-USAB-090: usability (1 pair) ---
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-081-TPL
+    name: セキュリティ・安全性要件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-081-INS
+  - wbs: WBS-NFR-SEC-080
+    owner: QE
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-081-SMP
+    name: セキュリティ・安全性要件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-081-TPL
   - id: T-SDH-NFR-090
     wbs: WBS-NFR-USAB-090
     name: ユーザビリティ要件ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-NFR-010]
+    depends_on:
+      - T-SDH-NFR-010
     owner: BA
-    tags: [nfr, rules-lifecycle]
-
-  - id: T-SDH-NFR-091
-    wbs: WBS-NFR-USAB-090
-    name: ユーザビリティ要件派生成果物の起草・レビュー
+    tags:
+      - nfr
+      - rules-lifecycle
+  - wbs: WBS-NFR-USAB-090
+    owner: BA
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-091-INS
+    name: ユーザビリティ要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-NFR-090]
+    depends_on:
+      - T-SDH-NFR-090
+  - wbs: WBS-NFR-USAB-090
     owner: BA
-    tags: [nfr, derivatives-lifecycle]
-
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-091-TPL
+    name: ユーザビリティ要件の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-091-INS
+  - wbs: WBS-NFR-USAB-090
+    owner: BA
+    tags:
+      - nfr
+      - derivatives-lifecycle
+    id: T-SDH-NFR-091-SMP
+    name: ユーザビリティ要件の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-NFR-091-TPL
 milestones:
   - id: M-SDH-NFR-900
     name: 非機能要件ドメイン完了
     depends_on:
-      - T-SDH-NFR-011
-      - T-SDH-NFR-021
-      - T-SDH-NFR-031
-      - T-SDH-NFR-041
-      - T-SDH-NFR-051
-      - T-SDH-NFR-061
-      - T-SDH-NFR-071
-      - T-SDH-NFR-081
-      - T-SDH-NFR-091
+      - T-SDH-NFR-011-SMP
+      - T-SDH-NFR-021-SMP
+      - T-SDH-NFR-031-SMP
+      - T-SDH-NFR-041-SMP
+      - T-SDH-NFR-051-SMP
+      - T-SDH-NFR-061-SMP
+      - T-SDH-NFR-071-SMP
+      - T-SDH-NFR-081-SMP
+      - T-SDH-NFR-091-SMP
     owner: QE

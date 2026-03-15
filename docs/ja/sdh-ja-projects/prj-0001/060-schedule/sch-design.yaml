@@ -3,148 +3,320 @@ project_id: prj-0001
 schedule_level: domain
 domain: design
 assigned_team: specdojo-handbook
-
 settings:
   finish_milestone_id: M-SDH-DES-900
-  notes: >
-    設計ドメインスケジュール。
-    各 WBS アイテムを Phase 1（ルールライフサイクル）と Phase 2（派生成果物ライフサイクル）に分割。
-    C4 チェーン: CXD → CND → CPD。SYSD は他の全タスクに依存。
-
+  notes: |
+    設計ドメインスケジュール。 各 WBS アイテムを Phase 1（ルールライフサイクル）と Phase 2（派生成果物ライフサイクル）に分割。 C4 チェーン: CXD → CND → CPD。SYSD は他の全タスクに依存。
 tasks:
-  # --- WBS-DES-IFX-010: external interface family (4 pairs) ---
   - id: T-SDH-DES-010
     wbs: WBS-DES-IFX-010
     name: 外部インターフェースルールの起草・レビュー
     duration_days: 1.25
-    depends_on: [M-SDH-300]
+    depends_on:
+      - M-SDH-100
     owner: ARC
-    tags: [design, rules-lifecycle]
-    notes: "対象: ifx, ifx-api, ifx-file, ifx-msg ルール。"
-
-  - id: T-SDH-DES-011
-    wbs: WBS-DES-IFX-010
-    name: 外部インターフェース派生成果物の起草・レビュー
-    duration_days: 1.0
-    depends_on: [T-SDH-DES-010]
+    tags:
+      - design
+      - rules-lifecycle
+    notes: '対象: ifx, ifx-api, ifx-file, ifx-msg ルール。'
+  - wbs: WBS-DES-IFX-010
     owner: ARC
-    tags: [design, derivatives-lifecycle]
-
-  # --- WBS-DES-CXD-020: C4 context diagram (2 pairs) ---
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-011-INS
+    name: 外部インターフェースの起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.5
+    depends_on:
+      - T-SDH-DES-010
+  - wbs: WBS-DES-IFX-010
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-011-TPL
+    name: 外部インターフェースの起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-011-INS
+  - wbs: WBS-DES-IFX-010
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-011-SMP
+    name: 外部インターフェースの起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-011-TPL
   - id: T-SDH-DES-020
     wbs: WBS-DES-CXD-020
     name: C4 コンテキスト図ルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [M-SDH-300]
+    depends_on:
+      - M-SDH-100
     owner: ARC
-    tags: [design, rules-lifecycle, c4]
-    notes: "対象: cxd, cxd-mermaid ルール。"
-
-  - id: T-SDH-DES-021
-    wbs: WBS-DES-CXD-020
-    name: C4 コンテキスト図派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-DES-020]
+    tags:
+      - design
+      - rules-lifecycle
+      - c4
+    notes: '対象: cxd, cxd-mermaid ルール。'
+  - wbs: WBS-DES-CXD-020
     owner: ARC
-    tags: [design, derivatives-lifecycle, c4]
-
-  # --- WBS-DES-CND-030: C4 container diagram (2 pairs) ---
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-021-INS
+    name: C4 コンテキスト図の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-020
+  - wbs: WBS-DES-CXD-020
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-021-TPL
+    name: C4 コンテキスト図の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-021-INS
+  - wbs: WBS-DES-CXD-020
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-021-SMP
+    name: C4 コンテキスト図の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-021-TPL
   - id: T-SDH-DES-030
     wbs: WBS-DES-CND-030
     name: C4 コンテナ図ルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-DES-020]
+    depends_on:
+      - T-SDH-DES-020
     owner: ARC
-    tags: [design, rules-lifecycle, c4]
-    notes: "対象: cnd, cnd-mermaid ルール。"
-
-  - id: T-SDH-DES-031
-    wbs: WBS-DES-CND-030
-    name: C4 コンテナ図派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-DES-030]
+    tags:
+      - design
+      - rules-lifecycle
+      - c4
+    notes: '対象: cnd, cnd-mermaid ルール。'
+  - wbs: WBS-DES-CND-030
     owner: ARC
-    tags: [design, derivatives-lifecycle, c4]
-
-  # --- WBS-DES-CPD-040: C4 component diagram (2 pairs) ---
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-031-INS
+    name: C4 コンテナ図の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-030
+  - wbs: WBS-DES-CND-030
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-031-TPL
+    name: C4 コンテナ図の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-031-INS
+  - wbs: WBS-DES-CND-030
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-031-SMP
+    name: C4 コンテナ図の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-031-TPL
   - id: T-SDH-DES-040
     wbs: WBS-DES-CPD-040
     name: C4 コンポーネント図ルールの起草・レビュー
     duration_days: 0.75
-    depends_on: [T-SDH-DES-030]
+    depends_on:
+      - T-SDH-DES-030
     owner: ARC
-    tags: [design, rules-lifecycle, c4]
-    notes: "対象: cpd, cpd-mermaid ルール。"
-
-  - id: T-SDH-DES-041
-    wbs: WBS-DES-CPD-040
-    name: C4 コンポーネント図派生成果物の起草・レビュー
-    duration_days: 0.5
-    depends_on: [T-SDH-DES-040]
+    tags:
+      - design
+      - rules-lifecycle
+      - c4
+    notes: '対象: cpd, cpd-mermaid ルール。'
+  - wbs: WBS-DES-CPD-040
     owner: ARC
-    tags: [design, derivatives-lifecycle, c4]
-
-  # --- WBS-DES-IFD-050: infrastructure diagram mermaid (1 pair) ---
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-041-INS
+    name: C4 コンポーネント図の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-040
+  - wbs: WBS-DES-CPD-040
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-041-TPL
+    name: C4 コンポーネント図の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-041-INS
+  - wbs: WBS-DES-CPD-040
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+      - c4
+    id: T-SDH-DES-041-SMP
+    name: C4 コンポーネント図の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-041-TPL
   - id: T-SDH-DES-050
     wbs: WBS-DES-IFD-050
     name: インフラ構成図ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [T-SDH-DES-020]
+    depends_on:
+      - T-SDH-DES-020
     owner: ARC
-    tags: [design, rules-lifecycle]
-
-  - id: T-SDH-DES-051
-    wbs: WBS-DES-IFD-050
-    name: インフラ構成図派生成果物の起草・レビュー
+    tags:
+      - design
+      - rules-lifecycle
+  - wbs: WBS-DES-IFD-050
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-051-INS
+    name: インフラ構成図の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-DES-050]
+    depends_on:
+      - T-SDH-DES-050
+  - wbs: WBS-DES-IFD-050
     owner: ARC
-    tags: [design, derivatives-lifecycle]
-
-  # --- WBS-DES-TSD-060: technology stack definition (1 pair) ---
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-051-TPL
+    name: インフラ構成図の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-051-INS
+  - wbs: WBS-DES-IFD-050
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-051-SMP
+    name: インフラ構成図の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-051-TPL
   - id: T-SDH-DES-060
     wbs: WBS-DES-TSD-060
     name: 技術スタック定義ルールの起草・レビュー
     duration_days: 0.5
-    depends_on: [M-SDH-300]
+    depends_on:
+      - M-SDH-100
     owner: ARC
-    tags: [design, rules-lifecycle]
-
-  - id: T-SDH-DES-061
-    wbs: WBS-DES-TSD-060
-    name: 技術スタック定義派生成果物の起草・レビュー
+    tags:
+      - design
+      - rules-lifecycle
+  - wbs: WBS-DES-TSD-060
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-061-INS
+    name: 技術スタック定義の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
-    depends_on: [T-SDH-DES-060]
+    depends_on:
+      - T-SDH-DES-060
+  - wbs: WBS-DES-TSD-060
     owner: ARC
-    tags: [design, derivatives-lifecycle]
-
-  # --- WBS-DES-SYSD-070: system design family (3 pairs) ---
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-061-TPL
+    name: 技術スタック定義の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-061-INS
+  - wbs: WBS-DES-TSD-060
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-061-SMP
+    name: 技術スタック定義の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-061-TPL
   - id: T-SDH-DES-070
     wbs: WBS-DES-SYSD-070
     name: システム設計ルールの起草・レビュー
-    duration_days: 1.0
-    depends_on: [T-SDH-DES-011, T-SDH-DES-041, T-SDH-DES-051, T-SDH-DES-061]
+    duration_days: 1
+    depends_on:
+      - T-SDH-DES-011-SMP
+      - T-SDH-DES-041-SMP
+      - T-SDH-DES-051-SMP
+      - T-SDH-DES-061-SMP
     owner: ARC
-    tags: [design, rules-lifecycle]
-    notes: "対象: sysd-index, sysd-critical-flows, sysd-cross-cutting-policy ルール。"
-
-  - id: T-SDH-DES-071
-    wbs: WBS-DES-SYSD-070
-    name: システム設計派生成果物の起草・レビュー
-    duration_days: 0.75
-    depends_on: [T-SDH-DES-070]
+    tags:
+      - design
+      - rules-lifecycle
+    notes: '対象: sysd-index, sysd-critical-flows, sysd-cross-cutting-policy ルール。'
+  - wbs: WBS-DES-SYSD-070
     owner: ARC
-    tags: [design, derivatives-lifecycle]
-
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-071-INS
+    name: システム設計の起草・レビュー instruction.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-070
+  - wbs: WBS-DES-SYSD-070
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-071-TPL
+    name: システム設計の起草・レビュー input-template.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-071-INS
+  - wbs: WBS-DES-SYSD-070
+    owner: ARC
+    tags:
+      - design
+      - derivatives-lifecycle
+    id: T-SDH-DES-071-SMP
+    name: システム設計の起草・レビュー sample.md の起草・レビュー
+    duration_days: 0.25
+    depends_on:
+      - T-SDH-DES-071-TPL
 milestones:
   - id: M-SDH-DES-900
     name: 設計ドメイン完了
     depends_on:
-      - T-SDH-DES-011
-      - T-SDH-DES-021
-      - T-SDH-DES-031
-      - T-SDH-DES-041
-      - T-SDH-DES-051
-      - T-SDH-DES-061
-      - T-SDH-DES-071
+      - T-SDH-DES-011-SMP
+      - T-SDH-DES-021-SMP
+      - T-SDH-DES-031-SMP
+      - T-SDH-DES-041-SMP
+      - T-SDH-DES-051-SMP
+      - T-SDH-DES-061-SMP
+      - T-SDH-DES-071-SMP
     owner: ARC
