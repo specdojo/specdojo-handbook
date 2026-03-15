@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. ドキュメントの作成・更新ルールは[ems-rules.md](../../../handbook/rules/ems-rules.md)を参照してください。
-2. 生成AIを活用してドキュメントを作成する場合は[ems-instruction.md](../../../handbook/instructions/ems-instruction.md)をプロンプトのテンプレートとして利用してください。
+1. ドキュメントの作成・更新ルールは[ifx-msg-rules.md](../../../handbook/rules/ifx-msg-rules.md)を参照してください。
+2. 生成AIを活用してドキュメントを作成する場合は[ifx-msg-instruction.md](../../../handbook/instructions/ifx-msg-instruction.md)をプロンプトのテンプレートとして利用してください。

@@ -59,6 +59,9 @@ Document Metadata Rules
 | rulebook     | ドキュメント記述ルール                             |
 | instruction  | 生成AIへの指示テンプレート                         |
 | guide        | ガイドライン                                       |
+| migration    | 移行計画・設計・手順                               |
+| operations   | 運用要件・設計・手順                               |
+| template     | ドキュメントテンプレート                           |
 
 ### 3.3. ドキュメント名（H1見出し）
 

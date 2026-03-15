@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. ドキュメントの作成・更新ルールは[eapis-rules.md](../../../handbook/rules/eapis-rules.md)を参照してください。
-2. 生成AIを活用してドキュメントを作成する場合は[eapis-instruction.md](../../../handbook/instructions/eapis-instruction.md)をプロンプトのテンプレートとして利用してください。
+1. ドキュメントの作成・更新ルールは[ifx-api-rules.md](../../../handbook/rules/ifx-api-rules.md)を参照してください。
+2. 生成AIを活用してドキュメントを作成する場合は[ifx-api-instruction.md](../../../handbook/instructions/ifx-api-instruction.md)をプロンプトのテンプレートとして利用してください。

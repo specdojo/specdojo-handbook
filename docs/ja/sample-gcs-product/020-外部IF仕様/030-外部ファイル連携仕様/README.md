@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. ドキュメントの作成・更新ルールは[efes-rules.md](../../../handbook/rules/efes-rules.md)を参照してください。
-2. 生成AIを活用してドキュメントを作成する場合は[efes-instruction.md](../../../handbook/instructions/efes-instruction.md)をプロンプトのテンプレートとして利用してください。
+1. ドキュメントの作成・更新ルールは[ifx-file-rules.md](../../../handbook/rules/ifx-file-rules.md)を参照してください。
+2. 生成AIを活用してドキュメントを作成する場合は[ifx-file-instruction.md](../../../handbook/instructions/ifx-file-instruction.md)をプロンプトのテンプレートとして利用してください。

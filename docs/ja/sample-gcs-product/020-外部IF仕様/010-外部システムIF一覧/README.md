@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. ドキュメントの作成・更新ルールは[esil-rules.md](../../../handbook/rules/esil-rules.md)を参照してください。
-2. 生成AIを活用してドキュメントを作成する場合は[esil-instruction.md](../../../handbook/instructions/esil-instruction.md)をプロンプトのテンプレートとして利用してください。
+1. ドキュメントの作成・更新ルールは[ifx-rules.md](../../../handbook/rules/ifx-rules.md)を参照してください。
+2. 生成AIを活用してドキュメントを作成する場合は[ifx-instruction.md](../../../handbook/instructions/ifx-instruction.md)をプロンプトのテンプレートとして利用してください。

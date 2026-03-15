@@ -188,7 +188,7 @@ flowchart
 <!-- prettier-ignore -->
 | ドキュメント | 略称 | 目的 | 主な内容 |
 | --- | --- | --- | --- |
-| [システム化機能一覧](../rules/sfl-rules.md) | SFL | システムで実現する機能を一覧で定義する | 機能ID、機能名、概要、関連プロセス、関連仕様ID など |
+| [システム化機能一覧](../rules/sf-rules.md) | SFL | システムで実現する機能を一覧で定義する | 機能ID、機能名、概要、関連プロセス、関連仕様ID など |
 | [用語集](../rules/gl-rules.md) | GL | 用語の意味を統一的に定義する | 用語、定義、別名、分類、関連用語 など |
 
 <details>
@@ -197,7 +197,7 @@ flowchart
 <!-- prettier-ignore -->
 | ドキュメント | サンプル（抜粋イメージ） |
 | --- | --- |
-| [システム化機能一覧](../rules/sfl-rules.md) | 機能名：商品登録／関連プロセス：管理、販売 |
+| [システム化機能一覧](../rules/sf-rules.md) | 機能名：商品登録／関連プロセス：管理、販売 |
 | [用語集](../rules/gl-rules.md) | term: 発注点／definition: 在庫がこの数量を下回ったときに発注候補とみなす基準数量。 |
 
 </details>
@@ -209,10 +209,10 @@ flowchart
 <!-- prettier-ignore -->
 | ドキュメント | 略称 | 目的 | 主な内容 |
 | --- | --- | --- | --- |
-| [外部システムI/F一覧](../rules/esil-rules.md) | ESIL | 外部システムとの連携を一覧(YAML)で定義する | 連携名、連携元、連携先（外部システム）、伝送方式、フォーマット、タイミング |
-| [外部API仕様](../rules/eapis-rules.md) | EAPIS | 外部システムとのAPI連携をOpenAPI形式(YAML)で定義する | エンドポイント、HTTPメソッド、リクエスト／レスポンス、ステータスコード |
-| [外部ファイル連携仕様](../rules/efes-rules.md) | EFES | 外部システムとのファイル連携をYAMLで定義する | ファイル形式、伝送方法、スケジュール、ファイル項目一覧 |
-| [外部メッセージ仕様](../rules/ems-rules.md) | EMS | 他システムとのイベント／キューのメッセージ連携をAsyncAPI + CloudEvents(YAML)で定義する | チャネル名、メッセージ構造、エンドポイント、プロトコル |
+| [外部システムI/F一覧](../rules/ifx-rules.md) | ESIL | 外部システムとの連携を一覧(YAML)で定義する | 連携名、連携元、連携先（外部システム）、伝送方式、フォーマット、タイミング |
+| [外部API仕様](../rules/ifx-api-rules.md) | EAPIS | 外部システムとのAPI連携をOpenAPI形式(YAML)で定義する | エンドポイント、HTTPメソッド、リクエスト／レスポンス、ステータスコード |
+| [外部ファイル連携仕様](../rules/ifx-file-rules.md) | EFES | 外部システムとのファイル連携をYAMLで定義する | ファイル形式、伝送方法、スケジュール、ファイル項目一覧 |
+| [外部メッセージ仕様](../rules/ifx-msg-rules.md) | EMS | 他システムとのイベント／キューのメッセージ連携をAsyncAPI + CloudEvents(YAML)で定義する | チャネル名、メッセージ構造、エンドポイント、プロトコル |
 
 <details>
 <summary>サンプル（抜粋イメージ）</summary>
@@ -220,10 +220,10 @@ flowchart
 <!-- prettier-ignore -->
 | ドキュメント | サンプル（抜粋イメージ） |
 | --- | --- |
-| [外部システムI/F一覧](../rules/esil-rules.md) | name: 発注データ送信／source: 発注管理／target:仕入先システム／direction: source_to_target |
-| [外部API仕様](../rules/eapis-rules.md) | 「paths: /v1/payments／post: summary: 決済を作成する／response: '201' |
-| [外部ファイル連携仕様](../rules/efes-rules.md) | file: name: inventory.json／description: 在庫スナップショット |
-| [外部メッセージ仕様](../rules/ems-rules.md) | 「channels: inventory.stock.changed: description: 在庫が変更された通知 |
+| [外部システムI/F一覧](../rules/ifx-rules.md) | name: 発注データ送信／source: 発注管理／target:仕入先システム／direction: source_to_target |
+| [外部API仕様](../rules/ifx-api-rules.md) | 「paths: /v1/payments／post: summary: 決済を作成する／response: '201' |
+| [外部ファイル連携仕様](../rules/ifx-file-rules.md) | file: name: inventory.json／description: 在庫スナップショット |
+| [外部メッセージ仕様](../rules/ifx-msg-rules.md) | 「channels: inventory.stock.changed: description: 在庫が変更された通知 |
 
 </details>
 
@@ -256,7 +256,7 @@ flowchart
 | ドキュメント |  略称 | 目的 | 主な内容 |
 | --- | --- | --- | --- |
 | [インフラ構成図](../rules/ifd-mermaid-rules.md) | IFD | インフラの論理的な境界（環境 / ネットワーク / ゾーン）と、主要コンポーネント間の通信の流れを定義する | 実行環境、ネットワーク、論理ゾーン、Webアプリ、API Server、 DB など |
-| [技術スタック一覧](../rules/tsl-rules.md) | TSL | システムで採用する技術（言語、フレームワーク、DB、メッセージ基盤、キャッシュ等）を、一覧として定義する | プログラミング言語、フレームワーク、ミドルウェア など |
+| [技術スタック一覧](../rules/tsd-rules.md) | TSL | システムで採用する技術（言語、フレームワーク、DB、メッセージ基盤、キャッシュ等）を、一覧として定義する | プログラミング言語、フレームワーク、ミドルウェア など |
 
 <details>
 <summary>サンプル（抜粋イメージ）</summary>
@@ -265,7 +265,7 @@ flowchart
 | ドキュメント | サンプル（抜粋イメージ） |
 | --- | --- |
 | [インフラ構成図](../rules/ifd-mermaid-rules.md) | 「インターネット --> ロードバランサー --> Web App --> API Server |
-| [技術スタック一覧](../rules/tsl-rules.md) | 「言語: Java 21／Web FW: Spring Boot／DB: PostgreSQL |
+| [技術スタック一覧](../rules/tsd-rules.md) | 「言語: Java 21／Web FW: Spring Boot／DB: PostgreSQL |
 
 </details>
 

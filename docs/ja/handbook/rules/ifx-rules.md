@@ -11,19 +11,19 @@ ESIL は「どの外部システムと」「何を」「どの方向で」「ど
 ## 1. 参照スキーマ
 
 - 参照スキーマ: [docs/handbook/shared/schemas/esil.schema.yaml](../../docs/handbook/shared/schemas/esil.schema.yaml)
-- ESIL は `docs/**/esil-*.yaml` のような YAML ファイルとして作成し、スキーマに従って記述します。
+- ESIL は `docs/**/ifx-*.yaml` のような YAML ファイルとして作成し、スキーマに従って記述します。
 
 ## 2. ファイル規約
 
-- ファイル名: `esil-<短い英小文字ハイフン>.yaml`
-- `id`: `^esil-[a-z0-9-]+$` に合致する一意ID
+- ファイル名: `ifx-<短い英小文字ハイフン>.yaml`
+- `id`: `^ifx-[a-z0-9-]+$` に合致する一意ID
 - `type`: `api` 固定
 
 ## 3. ルート要素
 
 | キー       | 説明                          | 必須 |
 | ---------- | ----------------------------- | ---- |
-| id         | ESIL ID（`esil-...`）         | ○    |
+| id         | ESIL ID（`ifx-...`）         | ○    |
 | type       | `api` 固定                    | ○    |
 | title      | 外部システムIF一覧名          | ○    |
 | status     | `draft`/`ready`/`deprecated`  | ○    |
@@ -46,12 +46,12 @@ ESIL は「どの外部システムと」「何を」「どの方向で」「ど
 | format         | `CSV` / `JSON` / `XML` / `その他` / `TBD`                      | ○    |
 | timing         | 連携タイミング（例: 発注確定時、日次集計後）                   | ○    |
 | error_handling | エラー処理・備考（簡潔に）                                     | 任意 |
-| spec_ref       | 詳細仕様ID（`eapis-...` / `efes-...` / `ems-...`）または `TBD` | 任意 |
+| spec_ref       | 詳細仕様ID（`ifx-api-...` / `ifx-file-...` / `ifx-msg-...`）または `TBD` | 任意 |
 
 ## 5. サンプル（YAML）
 
 ```yaml
-id: esil-main
+id: ifx-main
 type: api
 title: 外部システムIF一覧(main)
 status: draft
@@ -66,7 +66,7 @@ interfaces:
     format: CSV
     timing: 発注確定時
     error_handling: 異常時は再送・管理者通知
-    spec_ref: efes-orders
+    spec_ref: ifx-file-orders
 
   - name: 決済依頼/結果
     source: 決済（コンテナ）
@@ -76,7 +76,7 @@ interfaces:
     format: JSON
     timing: 決済時
     error_handling: 失敗時はリトライ/保留
-    spec_ref: eapis-payment
+    spec_ref: ifx-api-payment
 ```
 
 ## 6. 生成 AI への指示テンプレート
@@ -87,9 +87,9 @@ interfaces:
 > - 出力は **YAMLのみ** とし、Markdown文章は出力しないでください。
 > - 参照スキーマ: `docs/handbook/shared/schemas/esil.schema.yaml`
 > - 禁止: 物理テーブル名・物理カラム名・SQL全文、実装クラス/関数名、APIの内部実装詳細、UI操作の逐語列挙
-> - `id` は `esil-...`、`type` は `api`、`status` は `draft/ready/deprecated` のいずれかにしてください。
+> - `id` は `ifx-...`、`type` は `api`、`status` は `draft/ready/deprecated` のいずれかにしてください。
 > - `interfaces` は 1件以上作成し、各要素は以下の制約に従ってください：
 >   - `direction`: `source_to_target` / `target_to_source` / `bidirectional`
 >   - `kind`: `API` / `ファイル` / `メッセージ`
 >   - `format`: `CSV` / `JSON` / `XML` / `その他` / `TBD`
->   - `spec_ref` は可能なら `eapis-...` / `efes-...` / `ems-...` を設定し、不明なら `TBD` としてください。
+>   - `spec_ref` は可能なら `ifx-api-...` / `ifx-file-...` / `ifx-msg-...` を設定し、不明なら `TBD` としてください。

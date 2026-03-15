@@ -4,9 +4,9 @@
 - 出力は **YAMLのみ** とし、Markdown文章は出力しないでください。
 - 参照スキーマ: `docs/handbook/shared/schemas/esil.schema.yaml`
 - 禁止: 物理テーブル名・物理カラム名・SQL全文、実装クラス/関数名、APIの内部実装詳細、UI操作の逐語列挙
-- `id` は `esil-...`、`type` は `api`、`status` は `draft/ready/deprecated` のいずれかにしてください。
+- `id` は `ifx-...`、`type` は `api`、`status` は `draft/ready/deprecated` のいずれかにしてください。
 - `interfaces` は 1件以上作成し、各要素は以下の制約に従ってください：
   - `direction`: `source_to_target` / `target_to_source` / `bidirectional`
   - `kind`: `API` / `ファイル` / `メッセージ`
   - `format`: `CSV` / `JSON` / `XML` / `その他` / `TBD`
-  - `spec_ref` は可能なら `eapis-...` / `efes-...` / `ems-...` を設定し、不明なら `TBD` としてください。
+  - `spec_ref` は可能なら `ifx-api-...` / `ifx-file-...` / `ifx-msg-...` を設定し、不明なら `TBD` としてください。

@@ -3,12 +3,12 @@
 外部システム（仕入先、会計、物流、決済など）と連携する **1つのREST APIインターフェース**を、**OpenAPI形式**（YAML 1ファイル）で定義します。
 
 EAPIS は ESIL（外部システムIF一覧）から参照される「詳細仕様」です。
-ESIL 側の `spec_ref: eapis-...` は、このEAPISのID（およびファイル名）と対応させます。
+ESIL 側の `spec_ref: ifx-api-...` は、このEAPISのID（およびファイル名）と対応させます。
 
 ## 1. ファイル規約
 
-- ファイル名: `eapis-<短い英小文字ハイフン>.yaml`
-- ESILからの参照: `spec_ref: eapis-...`（例: `eapis-payment`）
+- ファイル名: `ifx-api-<短い英小文字ハイフン>.yaml`
+- ESILからの参照: `spec_ref: ifx-api-...`（例: `ifx-api-payment`）
 - 1ファイル = 1つのAPI（1つの外部連携インターフェース）
 
 ## 2. OpenAPIバージョン
@@ -48,10 +48,10 @@ ESIL 側の `spec_ref: eapis-...` は、このEAPISのID（およびファイル
 
 | キー       | 説明                                               | 必須 |
 | ---------- | -------------------------------------------------- | ---- |
-| id         | API仕様ID（`eapis-...`）、ESILの `spec_ref` と対応 | ○    |
+| id         | API仕様ID（`ifx-api-...`）、ESILの `spec_ref` と対応 | ○    |
 | type       | `api` 固定                                         | ○    |
 | status     | `draft` / `ready` / `deprecated`                   | ○    |
-| based_on   | 根拠となる他仕様のIDリスト（例: `["eapis-auth"]`） | 任意 |
+| based_on   | 根拠となる他仕様のIDリスト（例: `["ifx-api-auth"]`） | 任意 |
 
 ## 5. エラー定義（推奨）
 
@@ -78,7 +78,7 @@ info:
     決済サービスとの連携API仕様。
 
 x-spec-meta:
-  id: eapis-payment
+  id: ifx-api-payment
   type: api
   status: draft
   based_on: []
@@ -179,7 +179,7 @@ components:
 > - 以下のルールに従って、**外部API仕様（EAPIS）**を **OpenAPI（YAML 1ファイル）**として作成してください。
 > - 出力は **YAMLのみ** とし、Markdown文章は出力しないでください。
 > - OpenAPIは **3.0.3** を使用してください。
-> - `x-spec-meta` を必ず含め、`id`（`eapis-...`）、`type`（`api`）、`status`（`draft`/`ready`/`deprecated`）を設定してください。
+> - `x-spec-meta` を必ず含め、`id`（`ifx-api-...`）、`type`（`api`）、`status`（`draft`/`ready`/`deprecated`）を設定してください。
 > - `paths` を1つ以上定義し、各operationに `operationId` を設定してください。
 > - `components/schemas` にリクエスト/レスポンススキーマを定義し、`$ref` で参照してください。
 > - **payloadのプロパティ名は snake_case**（例: `order_id`, `payment_status`）で統一してください。
