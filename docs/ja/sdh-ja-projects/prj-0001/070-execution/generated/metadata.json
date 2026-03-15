@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-15T12:32:15Z",
+  "generated_at_utc": "2026-03-15T13:53:41Z",
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution",
   "generated_dir": "docs/ja/sdh-ja-projects/prj-0001/070-execution/generated",
@@ -19,12 +19,13 @@
     "cpm.md",
     "critical-path.md",
     "exec.jsonl",
-    "gantt.md",
     "metadata.json",
     "ready.json",
     "ready.md",
     "schedule-diff.md",
     "schedule-hash.json",
-    "state.json"
+    "state.json",
+    "timeline.md",
+    "timeline.svg"
   ]
 }
