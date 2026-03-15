@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.md'
+applyTo: 'docs/**/*.md'
 ---
 
 # Markdown 記述ルール
