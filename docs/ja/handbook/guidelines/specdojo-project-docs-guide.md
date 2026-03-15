@@ -42,12 +42,12 @@ docs/
             │   │
             │   └── 030-reporting/
             │       ├── progress-reports/
-            │       │   ├── 2026-03-01-progress-report.md
-            │       │   └── 2026-03-08-progress-report.md
+            │       │   ├── pr-2026-03-01-01.md
+            │       │   └── pr-2026-03-08-01.md
             │       │
             │       └── meeting-minutes/
-            │           ├── 2026-03-01-kickoff.md
-            │           └── 2026-03-08-weekly.md
+            │           ├── mm-2026-03-01-01.md
+            │           └── mm-2026-03-08-01.md
             │
             ├── 050-wbs/
             │   ├── wbs-auth.yaml

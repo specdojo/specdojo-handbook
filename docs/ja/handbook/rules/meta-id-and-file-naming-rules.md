@@ -319,8 +319,8 @@ supersedes:
 | リスク登録簿 | Risk Register | pm- | pm-risk-register |
 | 課題ログ | Issue Log | pm- | pm-issue-log |
 | 変更要求ログ | Change Request Log | pm- | pm-change-request-log |
-| 進捗レポート | Progress Report | pm- | pm-progress-report |
-| 議事録 | Meeting Minutes | pm- | pm-meeting-minutes |
+| 進捗レポート | Progress Report | pr- | pr-2026-03-01-01 |
+| 議事録 | Meeting Minutes | mm- | mm-2026-03-01-01 |
 | 体制・RACI | Organization and RACI | pm- | pm-organization-and-raci |
 | 決定記録 | Decision Log | dec- | dec-0001-auth |
 
