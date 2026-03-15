@@ -65,6 +65,7 @@ export type ScheduleCalendar = {
   timezone: string
   workdays: Set<number>
   holidays: Set<string>
+  work_hours_per_day: number
 }
 
 export type ScheduleIndex = {

@@ -42,6 +42,7 @@ function defaultScheduleCalendar(): ScheduleCalendar {
     timezone: 'UTC',
     workdays: new Set([1, 2, 3, 4, 5]),
     holidays: new Set<string>(),
+    work_hours_per_day: 24,
   }
 }
 
@@ -57,33 +58,6 @@ function parseWorkdayToken(value: string): number | null {
     sat: 6,
   }
   return key in map ? map[key] : null
-}
-
-function weekdayName(day: number): string {
-  const names = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
-  return names[day] ?? 'sunday'
-}
-
-function mermaidGanttCalendarLines(calendar: ScheduleCalendar): string[] {
-  const lines: string[] = []
-  const nonWorkingDays = [0, 1, 2, 3, 4, 5, 6].filter(day => !calendar.workdays.has(day))
-  const excludeTokens: string[] = []
-
-  if (nonWorkingDays.length === 2 && nonWorkingDays[0] === 6 && nonWorkingDays[1] === 0) {
-    excludeTokens.push('weekends')
-  } else if (nonWorkingDays.length === 2 && nonWorkingDays[0] === 5 && nonWorkingDays[1] === 6) {
-    excludeTokens.push('weekends')
-    lines.push('  weekend friday')
-  } else if (nonWorkingDays.length > 0) {
-    excludeTokens.push(...nonWorkingDays.map(weekdayName))
-  }
-
-  const holidays = [...calendar.holidays].sort()
-  excludeTokens.push(...holidays)
-
-  if (excludeTokens.length > 0) lines.push(`  excludes ${excludeTokens.join(', ')}`)
-
-  return lines
 }
 
 function applyScheduleCalendar(base: ScheduleCalendar, calendar: any): ScheduleCalendar | null {
@@ -111,6 +85,15 @@ function applyScheduleCalendar(base: ScheduleCalendar, calendar: any): ScheduleC
     }
   }
 
+  if (
+    typeof calendar.work_hours_per_day === 'number' &&
+    Number.isFinite(calendar.work_hours_per_day) &&
+    calendar.work_hours_per_day > 0 &&
+    calendar.work_hours_per_day <= 24
+  ) {
+    parsed.work_hours_per_day = calendar.work_hours_per_day
+  }
+
   return parsed
 }
 
@@ -119,6 +102,7 @@ function cloneScheduleCalendar(calendar: ScheduleCalendar): ScheduleCalendar {
     timezone: calendar.timezone,
     workdays: new Set(calendar.workdays),
     holidays: new Set(calendar.holidays),
+    work_hours_per_day: calendar.work_hours_per_day,
   }
 }
 
@@ -126,6 +110,7 @@ function mergeScheduleCalendar(base: ScheduleCalendar, extra: ScheduleCalendar):
   const merged = cloneScheduleCalendar(base)
   merged.timezone = extra.timezone
   merged.workdays = new Set(extra.workdays)
+  merged.work_hours_per_day = extra.work_hours_per_day
   for (const holiday of extra.holidays) merged.holidays.add(holiday)
   return merged
 }
@@ -140,8 +125,19 @@ function minDateOnly(a: string | null, b: string | null): string | null {
   return a <= b ? a : b
 }
 
-function ganttAnchorDateUtc(): number {
+function scheduleAnchorDateUtc(): number {
   return Date.UTC(2000, 0, 1, 0, 0, 0, 0)
+}
+
+function workingMinutesPerDay(calendar: ScheduleCalendar): number {
+  return Math.max(1, Math.round(calendar.work_hours_per_day * 60))
+}
+
+function endOfWorkingDayUtc(dt: Date, calendar: ScheduleCalendar): Date {
+  const end = new Date(dt.getTime())
+  end.setUTCHours(0, 0, 0, 0)
+  end.setUTCMinutes(workingMinutesPerDay(calendar))
+  return end
 }
 
 function isWorkingDateUtc(dt: Date, calendar: ScheduleCalendar): boolean {
@@ -150,9 +146,21 @@ function isWorkingDateUtc(dt: Date, calendar: ScheduleCalendar): boolean {
 }
 
 function advanceToNextWorkingInstantUtc(dt: Date, calendar: ScheduleCalendar): void {
-  while (!isWorkingDateUtc(dt, calendar)) {
-    dt.setUTCDate(dt.getUTCDate() + 1)
-    dt.setUTCHours(0, 0, 0, 0)
+  while (true) {
+    if (!isWorkingDateUtc(dt, calendar)) {
+      dt.setUTCDate(dt.getUTCDate() + 1)
+      dt.setUTCHours(0, 0, 0, 0)
+      continue
+    }
+
+    const minutesFromStart = dt.getUTCHours() * 60 + dt.getUTCMinutes()
+    if (minutesFromStart >= workingMinutesPerDay(calendar)) {
+      dt.setUTCDate(dt.getUTCDate() + 1)
+      dt.setUTCHours(0, 0, 0, 0)
+      continue
+    }
+
+    return
   }
 }
 
@@ -166,21 +174,20 @@ function addWorkingDayOffset(
 
   advanceToNextWorkingInstantUtc(dt, calendar)
 
-  let remainingMinutes = Math.round(dayOffset * 24 * 60)
+  let remainingMinutes = Math.round(dayOffset * workingMinutesPerDay(calendar))
   while (remainingMinutes > 0) {
     advanceToNextWorkingInstantUtc(dt, calendar)
 
-    const nextMidnight = new Date(dt.getTime())
-    nextMidnight.setUTCHours(24, 0, 0, 0)
+    const workingDayEnd = endOfWorkingDayUtc(dt, calendar)
 
-    const usableMinutes = Math.round((nextMidnight.getTime() - dt.getTime()) / (60 * 1000))
+    const usableMinutes = Math.round((workingDayEnd.getTime() - dt.getTime()) / (60 * 1000))
     if (remainingMinutes < usableMinutes) {
       dt.setUTCMinutes(dt.getUTCMinutes() + remainingMinutes)
       remainingMinutes = 0
       break
     }
 
-    dt.setTime(nextMidnight.getTime())
+    dt.setTime(workingDayEnd.getTime())
     remainingMinutes -= usableMinutes
   }
 
@@ -188,55 +195,7 @@ function addWorkingDayOffset(
   return dt
 }
 
-function formatGanttDate(
-  dayOffset: number,
-  startDate: string | null,
-  calendar: ScheduleCalendar
-): string {
-  const dt = startDate
-    ? addWorkingDayOffset(startDate, dayOffset, calendar)
-    : new Date(ganttAnchorDateUtc() + Math.round(dayOffset * 24 * 60) * 60 * 1000)
-  const yyyy = dt.getUTCFullYear().toString().padStart(4, '0')
-  const mm = (dt.getUTCMonth() + 1).toString().padStart(2, '0')
-  const dd = dt.getUTCDate().toString().padStart(2, '0')
-  const hh = dt.getUTCHours().toString().padStart(2, '0')
-  const mi = dt.getUTCMinutes().toString().padStart(2, '0')
-  return `${yyyy}-${mm}-${dd} ${hh}:${mi}`
-}
-
-function formatGanttDateTime(dt: Date): string {
-  const yyyy = dt.getUTCFullYear().toString().padStart(4, '0')
-  const mm = (dt.getUTCMonth() + 1).toString().padStart(2, '0')
-  const dd = dt.getUTCDate().toString().padStart(2, '0')
-  const hh = dt.getUTCHours().toString().padStart(2, '0')
-  const mi = dt.getUTCMinutes().toString().padStart(2, '0')
-  return `${yyyy}-${mm}-${dd} ${hh}:${mi}`
-}
-
-function formatGanttDuration(durationDays: number): string {
-  if (durationDays === 0) return '0d'
-
-  const minutes = Math.round(durationDays * 24 * 60)
-  if (minutes % (24 * 60) === 0) return `${minutes / (24 * 60)}d`
-  if (minutes % 60 === 0) return `${minutes / 60}h`
-  return `${minutes}m`
-}
-
-function formatGanttTaskTiming(
-  row: CpmNode,
-  projectStartDate: string | null,
-  calendar: ScheduleCalendar
-): string {
-  const start = formatGanttDate(row.es, projectStartDate, calendar)
-  if (row.kind === 'milestone' || row.duration_days === 0) {
-    return `${start}, ${formatGanttDuration(row.duration_days)}`
-  }
-
-  const end = formatGanttDate(row.ef, projectStartDate, calendar)
-  return `${start}, ${end}`
-}
-
-type GanttTaskSegment = {
+type WorkingTaskSegment = {
   start: Date
   end: Date
 }
@@ -246,18 +205,17 @@ function buildWorkingTaskSegments(
   startOffset: number,
   durationDays: number,
   calendar: ScheduleCalendar
-): GanttTaskSegment[] {
+): WorkingTaskSegment[] {
   const cursor = addWorkingDayOffset(startDate, startOffset, calendar)
-  let remainingMinutes = Math.round(durationDays * 24 * 60)
-  const segments: GanttTaskSegment[] = []
+  let remainingMinutes = Math.round(durationDays * workingMinutesPerDay(calendar))
+  const segments: WorkingTaskSegment[] = []
 
   while (remainingMinutes > 0) {
     advanceToNextWorkingInstantUtc(cursor, calendar)
 
-    const nextMidnight = new Date(cursor.getTime())
-    nextMidnight.setUTCHours(24, 0, 0, 0)
+    const workingDayEnd = endOfWorkingDayUtc(cursor, calendar)
 
-    const usableMinutes = Math.round((nextMidnight.getTime() - cursor.getTime()) / (60 * 1000))
+    const usableMinutes = Math.round((workingDayEnd.getTime() - cursor.getTime()) / (60 * 1000))
     const segmentMinutes = Math.min(remainingMinutes, usableMinutes)
     const segmentStart = new Date(cursor.getTime())
     const segmentEnd = new Date(cursor.getTime())
@@ -271,17 +229,6 @@ function buildWorkingTaskSegments(
 
   return segments
 }
-
-function renderGanttTaskLine(
-  label: string,
-  taskId: string,
-  flags: string[],
-  timing: string
-): string {
-  const attrs = flags.length ? `${flags.join(', ')}, ` : ''
-  return `  ${label} : ${attrs}${taskId}, ${timing}`
-}
-
 function xmlEscape(text: string): string {
   return text
     .replace(/&/g, '&amp;')
@@ -291,7 +238,7 @@ function xmlEscape(text: string): string {
 }
 
 function timelineAnchorDate(startDate: string | null): Date {
-  if (!startDate) return new Date(ganttAnchorDateUtc())
+  if (!startDate) return new Date(scheduleAnchorDateUtc())
   const [year, month, day] = startDate.split('-').map(Number)
   return new Date(Date.UTC(year, month - 1, day, 0, 0, 0, 0))
 }
@@ -303,13 +250,33 @@ function dateForWorkingOffset(
 ): Date {
   return startDate
     ? addWorkingDayOffset(startDate, dayOffset, calendar)
-    : new Date(ganttAnchorDateUtc() + Math.round(dayOffset * 24 * 60) * 60 * 1000)
+    : new Date(
+        scheduleAnchorDateUtc() + Math.round(dayOffset * workingMinutesPerDay(calendar)) * 60 * 1000
+      )
 }
 
 function dayLabelUtc(dt: Date): string {
   const mm = (dt.getUTCMonth() + 1).toString().padStart(2, '0')
   const dd = dt.getUTCDate().toString().padStart(2, '0')
   return `${mm}/${dd}`
+}
+
+function timelineDayIndex(dt: Date, timelineStart: Date): number {
+  const midnight = new Date(dt.getTime())
+  midnight.setUTCHours(0, 0, 0, 0)
+  return Math.floor((midnight.getTime() - timelineStart.getTime()) / 86400000)
+}
+
+function timelinePositionX(
+  dt: Date,
+  timelineStart: Date,
+  calendar: ScheduleCalendar,
+  dayWidth: number
+): number {
+  const dayIndex = timelineDayIndex(dt, timelineStart)
+  const minutesFromMidnight = dt.getUTCHours() * 60 + dt.getUTCMinutes()
+  const relative = Math.max(0, Math.min(1, minutesFromMidnight / workingMinutesPerDay(calendar)))
+  return (dayIndex + relative) * dayWidth
 }
 
 function stateColor(state: ExecState | 'milestone', critical: boolean): string {
@@ -345,7 +312,7 @@ function buildTimelineSvg(
     else rowsByFile.set(row.schedule_file, [row])
   }
 
-  const taskSegments = new Map<string, GanttTaskSegment[]>()
+  const taskSegments = new Map<string, WorkingTaskSegment[]>()
   let timelineEnd = new Date(timelineStart.getTime())
   for (const row of rows) {
     if (row.kind === 'task') {
@@ -398,7 +365,7 @@ function buildTimelineSvg(
 
   const parts: string[] = []
   parts.push(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="Project timeline">`
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="プロジェクトタイムライン">`
   )
   parts.push(`<style>
     text { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #1f2937; }
@@ -418,9 +385,9 @@ function buildTimelineSvg(
   parts.push(
     `<rect x="${leftPad}" y="0" width="${chartWidth + 40}" height="${height}" fill="#ffffff" />`
   )
-  parts.push(`<text class="title" x="16" y="28">Project Timeline</text>`)
+  parts.push(`<text class="title" x="16" y="28">プロジェクトタイムライン</text>`)
   parts.push(
-    `<text class="caption" x="16" y="48">One task per row. Holidays and weekends stay blank; work resumes on the next working day.</text>`
+    `<text class="caption" x="16" y="48">1 タスク 1 行で表示します。1 日の長さは ${schedule.calendar.work_hours_per_day} 時間で、休日と週末は空白のままとし、次の稼働日に作業を再開します。</text>`
   )
   parts.push(`<rect x="0" y="${topPad - 36}" width="${width}" height="28" fill="#fff7ed" />`)
 
@@ -504,9 +471,9 @@ function buildTimelineSvg(
       const segments = taskSegments.get(row.id) ?? []
       for (const segment of segments) {
         const startX =
-          leftPad + ((segment.start.getTime() - timelineStart.getTime()) / 86400000) * dayWidth
+          leftPad + timelinePositionX(segment.start, timelineStart, schedule.calendar, dayWidth)
         const endX =
-          leftPad + ((segment.end.getTime() - timelineStart.getTime()) / 86400000) * dayWidth
+          leftPad + timelinePositionX(segment.end, timelineStart, schedule.calendar, dayWidth)
         const widthPx = Math.max(2, endX - startX)
         const stroke = criticalSet.has(row.id)
           ? '#991b1b'
@@ -521,7 +488,7 @@ function buildTimelineSvg(
       }
     } else {
       const at = dateForWorkingOffset(row.es, cpm.project_start_date, schedule.calendar)
-      const cx = leftPad + ((at.getTime() - timelineStart.getTime()) / 86400000) * dayWidth
+      const cx = leftPad + timelinePositionX(at, timelineStart, schedule.calendar, dayWidth)
       parts.push(
         `<polygon points="${cx},${rowMid - 7} ${cx + 7},${rowMid} ${cx},${rowMid + 7} ${cx - 7},${rowMid}" fill="${fill}" />`
       )
@@ -545,7 +512,7 @@ function buildTimelineMarkdown(
   }
 ): string {
   const lines: string[] = []
-  lines.push(`# Timeline`)
+  lines.push(`# タイムライン`)
   lines.push('')
   lines.push(...summary.progressSummaryLines)
   lines.push(`- schedule_path: \`${cpm.schedule_path}\``)
@@ -557,7 +524,7 @@ function buildTimelineMarkdown(
   lines.push(`- done_tasks: \`${summary.doneTasks}\``)
   lines.push(`- task_state_counts: \`${summary.taskStateCounts}\``)
   lines.push('')
-  lines.push(`![Project timeline](./timeline.svg)`)
+  lines.push(`![プロジェクトタイムライン](./timeline.svg)`)
   lines.push('')
   return lines.join('\n')
 }
@@ -684,17 +651,6 @@ function buildProgressSummaryLines(input: {
   actions.forEach((action, index) => lines.push(`${index + 1}. ${action}`))
   lines.push('')
   return lines
-}
-
-function escapeMermaidText(text: string): string {
-  return text
-    .replace(/[\r\n]+/g, ' ')
-    .replace(/:/g, ' -')
-    .trim()
-}
-
-function toMermaidTaskId(id: string): string {
-  return `task_${id.replace(/[^A-Za-z0-9._-]/g, '_')}`
 }
 
 function nonEmptyString(value: unknown): string | null {
@@ -1239,114 +1195,6 @@ export function writeCpmFiles(
     criticalDoingCount,
   })
 
-  const ganttLines: string[] = []
-  ganttLines.push(`# Gantt Chart`)
-  ganttLines.push('')
-  ganttLines.push(...progressSummaryLines)
-  ganttLines.push(`推奨ビュー: [Timeline](./timeline.md)`)
-  ganttLines.push('')
-  ganttLines.push(
-    `この Mermaid gantt はコンパクトな副表示です。休日をまたぐタスクを 1 タスク 1 行で正確に確認する場合は [timeline.md](./timeline.md) を参照してください。`
-  )
-  ganttLines.push('')
-  ganttLines.push(`- schedule_path: \`${cpm.schedule_path}\``)
-  if (cpm.project_start_date) ganttLines.push(`- project_start_date: \`${cpm.project_start_date}\``)
-  ganttLines.push(`- project_duration_days: \`${cpm.project_duration_days}\``)
-  ganttLines.push(`- scope: \`full_schedule\``)
-  ganttLines.push(`- critical_path_task_count: \`${criticalSet.size}\``)
-  ganttLines.push(`- progress_percent: \`${progressPercent}%\``)
-  ganttLines.push(`- done_tasks: \`${doneCount}/${totalTaskCount}\``)
-  ganttLines.push(
-    `- task_state_counts: \`todo=${stateCounts.todo}, doing=${stateCounts.doing}, blocked=${stateCounts.blocked}, done=${stateCounts.done}, cancelled=${stateCounts.cancelled}\``
-  )
-  ganttLines.push('')
-  ganttLines.push('```mermaid')
-  ganttLines.push(
-    "%%{init: {'gantt': {'leftPadding': 180, 'sectionFontSize': 11, 'fontSize': 12, 'displayMode': 'compact'}}}%%"
-  )
-  ganttLines.push('gantt')
-  ganttLines.push('  title Project Schedule')
-  ganttLines.push('  dateFormat YYYY-MM-DD HH:mm')
-  ganttLines.push('  axisFormat %m/%d')
-  ganttLines.push(...mermaidGanttCalendarLines(schedule.calendar))
-
-  const rowsByFile = new Map<string, CpmNode[]>()
-  for (const row of rows) {
-    const group = rowsByFile.get(row.schedule_file)
-    if (group) group.push(row)
-    else rowsByFile.set(row.schedule_file, [row])
-  }
-
-  for (const [scheduleFile, fileRows] of rowsByFile.entries()) {
-    const sectionLabel = schedule.section_labels[scheduleFile] ?? scheduleFile
-    ganttLines.push(`  section ${escapeMermaidText(sectionLabel)}`)
-    for (const row of fileRows) {
-      const flags: string[] = []
-      if (criticalSet.has(row.id)) flags.push('crit')
-      if (row.kind === 'milestone') flags.push('milestone')
-
-      const taskState = row.kind === 'task' ? (stateSnapshot?.tasks[row.id]?.state ?? 'todo') : null
-      if (taskState === 'done' || taskState === 'cancelled') flags.push('done')
-      if (taskState === 'doing') flags.push('active')
-
-      const stateSuffix =
-        taskState === 'blocked' ? ' [blocked]' : taskState === 'cancelled' ? ' [cancelled]' : ''
-      const label = row.name ? `${row.id} ${row.name}${stateSuffix}` : `${row.id}${stateSuffix}`
-
-      if (row.kind === 'task' && cpm.project_start_date) {
-        const segments = buildWorkingTaskSegments(
-          cpm.project_start_date,
-          row.es,
-          row.duration_days,
-          schedule.calendar
-        )
-
-        if (segments.length > 1) {
-          for (const [index, segment] of segments.entries()) {
-            const segmentLabel =
-              index === 0
-                ? `${label} [1/${segments.length}]`
-                : `${row.id}${stateSuffix} [${index + 1}/${segments.length}]`
-            ganttLines.push(
-              renderGanttTaskLine(
-                escapeMermaidText(segmentLabel),
-                toMermaidTaskId(`${row.id}_seg_${index + 1}`),
-                flags,
-                `${formatGanttDateTime(segment.start)}, ${formatGanttDateTime(segment.end)}`
-              )
-            )
-          }
-          continue
-        }
-
-        if (segments.length === 1) {
-          ganttLines.push(
-            renderGanttTaskLine(
-              escapeMermaidText(label),
-              toMermaidTaskId(row.id),
-              flags,
-              `${formatGanttDateTime(segments[0].start)}, ${formatGanttDateTime(segments[0].end)}`
-            )
-          )
-          continue
-        }
-      }
-
-      ganttLines.push(
-        renderGanttTaskLine(
-          escapeMermaidText(label),
-          toMermaidTaskId(row.id),
-          flags,
-          formatGanttTaskTiming(row, cpm.project_start_date, schedule.calendar)
-        )
-      )
-    }
-  }
-
-  ganttLines.push('```')
-  ganttLines.push('')
-  writeFileSync(join(genDir, 'gantt.md'), ganttLines.join('\n'), 'utf8')
-
   writeFileSync(
     join(genDir, 'timeline.svg'),
     buildTimelineSvg(cpm, schedule, stateSnapshot),
@@ -1488,7 +1336,6 @@ export function writeGeneratedCore(
       'cpm.md',
       'critical-path.md',
       'exec.jsonl',
-      'gantt.md',
       'metadata.json',
       'ready.json',
       'ready.md',

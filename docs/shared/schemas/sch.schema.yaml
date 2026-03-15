@@ -113,6 +113,11 @@ $defs:
         type: string
         minLength: 1
         description: "IANA timezone name (e.g., Asia/Tokyo)."
+      work_hours_per_day:
+        type: number
+        exclusiveMinimum: 0
+        maximum: 24
+        description: "Working hours represented by one schedule day."
       workdays:
         type: array
         minItems: 1
@@ -134,6 +139,11 @@ $defs:
         type: string
         minLength: 1
         description: "Optional timezone override."
+      work_hours_per_day:
+        type: number
+        exclusiveMinimum: 0
+        maximum: 24
+        description: "Optional working-hours-per-day override."
       workdays:
         type: array
         minItems: 1

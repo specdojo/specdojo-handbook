@@ -18,11 +18,16 @@ properties:
     additionalProperties: false
     required:
       - timezone
+      - work_hours_per_day
       - workdays
     properties:
       timezone:
         type: string
         minLength: 1
+      work_hours_per_day:
+        type: number
+        exclusiveMinimum: 0
+        maximum: 24
       workdays:
         type: array
         minItems: 1

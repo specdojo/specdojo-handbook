@@ -2,6 +2,7 @@ version: 1
 
 calendar:
   timezone: Asia/Tokyo
+  work_hours_per_day: 8
   workdays: [Mon, Tue, Wed, Thu, Fri]
   holidays:
     - 2026-03-20
