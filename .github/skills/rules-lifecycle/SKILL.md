@@ -14,6 +14,25 @@
 - すべての入力/出力パスは `docs/ja/handbook/` 配下を基準とする
 - `meta-*-rules.md` は本ワークフローの対象外
 
+## 役割ラベルと担当主体
+
+この Skill では、プロジェクト標準の `PO / BA / ARC / QE` をそのまま使い、
+各ラベルに対して「誰が実行するか（人 / Agent）」を固定する。
+
+| ラベル | 主な責務                                           | 担当主体  |
+| ------ | -------------------------------------------------- | --------- |
+| `PO`   | フェーズゲート判断、最終承認、進行可否の決定       | **人**    |
+| `BA`   | 内容妥当性の修正、業務観点の追記・調整             | **人**    |
+| `ARC`  | rules/derivatives の下書き作成、構造・整合レビュー | **Agent** |
+| `QE`   | lint・禁止事項・責務境界の品質確認                 | **Agent** |
+
+### 運用ルール
+
+- `PO` と `BA` は必ず人が担当する（承認と意思決定は人のみ）。
+- `ARC` と `QE` は Agent が担当する（同一 Agent が兼務してよい）。
+- 本 Skill のデフォルト実行では、`ARC=Agent` が作成・レビューを実行し、`QE=Agent` が品質観点を補強する。
+- 役割を入れ替える場合も、`PO/BA=人`、`ARC/QE=Agent` の制約は維持する。
+
 ### 参照リソース
 
 | 種別           | パス / 参照                                          |
@@ -39,6 +58,21 @@ Phase 1 (rules)                Phase 2 (derivatives)
 
 - Phase 1 と Phase 2 は **直列** で実行する（Phase 1 完了が Phase 2 の前提）
 - 各ステップの完了は **人間の明示的な承認** で確定する
+
+### ステップ別担当（役割ラベル × 人/Agent）
+
+| ステップ | 作業                        | 主担当ラベル | 実担当 |
+| -------- | --------------------------- | ------------ | ------ |
+| ①        | agent draft (rules)         | `ARC`        | Agent  |
+| ②        | human modify (rules)        | `BA`         | 人     |
+| ③        | agent review (rules)        | `QE`         | Agent  |
+| ④        | human approve (rules)       | `PO`         | 人     |
+| ⑤        | agent draft (derivatives)   | `ARC`        | Agent  |
+| ⑥        | agent review (derivatives)  | `QE`         | Agent  |
+| ⑦        | human approve (derivatives) | `PO`         | 人     |
+
+- `BA` は ② で主担当、④/⑦ では `PO` の相談先（Consulted）として参加する。
+- `PO` は ①/③/⑤/⑥ のレビュー結果を確認し、次フェーズ進行可否を最終決定する。
 
 ## Phase 1: Rules ライフサイクル
 
