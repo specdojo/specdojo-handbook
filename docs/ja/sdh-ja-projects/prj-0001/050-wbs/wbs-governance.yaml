@@ -5,8 +5,9 @@ assigned_team: specdojo-handbook
 wbs:
   - id: WBS-GOV-PRJ-010
     name: プロジェクトドキュメントのルール・指示セットの整備
-    description: |
+    description: |-
       プロジェクト概要、スコープ、課題と解決アプローチのルール・指示ファイルを、 ガバナンス配下の1つのドキュメントファミリーとして整備する（カタログ §2.1–§2.3）。
+      Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/input-template/sample を一括で ready 化する。
     owner: PO
     component: project-docs
     deliverables:
@@ -34,12 +35,13 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/samples/prj-issues-and-approach-sample.md
         kind: modify
-    done_criteria: |
-      プロジェクト概要・スコープ・課題と解決アプローチのルール・指示ペアが、 必須セクション・禁止事項・AI執筆ガイダンスを用語のブレなく定義していること。
+    done_criteria: |-
+      プロジェクト概要・スコープ・課題と解決アプローチのルール・指示ペアが、 必須セクション・禁止事項・AI執筆ガイダンスを用語のブレなく定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/input-template/sample を一括で ready 化する。
   - id: WBS-GOV-MIG-020
     name: 移行ドキュメントファミリーの整備
-    description: |
+    description: |-
       移行計画、移行テスト、データ移行、カットオーバー、運用切替の ルール・指示ファイルを1つの移行ファミリーとして整備する（カタログ §11）。
+      Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/input-template/sample を一括で ready 化する。
     owner: PO
     component: migration
     deliverables:
@@ -83,12 +85,13 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/samples/otp-sample.md
         kind: modify
-    done_criteria: |
-      移行ファミリーのルール・指示ファイルが、インデックス構成・テスト計画・ データ移行設計・カットオーバー基準・運用切替手順を一貫した見出しとAIガイダンスで定義していること。
+    done_criteria: |-
+      移行ファミリーのルール・指示ファイルが、インデックス構成・テスト計画・ データ移行設計・カットオーバー基準・運用切替手順を一貫した見出しとAIガイダンスで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/input-template/sample を一括で ready 化する。
   - id: WBS-GOV-OPS-030
     name: 運用ドキュメントファミリーの整備
-    description: |
+    description: |-
       運用設計・運用手順のルール・指示ファイルを整備する（カタログ §12）。
+      Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/input-template/sample を一括で ready 化する。
     owner: PO
     component: operations
     deliverables:
@@ -108,12 +111,13 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/samples/opr-sample.md
         kind: modify
-    done_criteria: |
-      運用設計・運用手順のルール・指示ペアが、SLA・エスカレーション・ 定常運用・インシデント対応のガイダンスを一貫して定義していること。
+    done_criteria: |-
+      運用設計・運用手順のルール・指示ペアが、SLA・エスカレーション・ 定常運用・インシデント対応のガイダンスを一貫して定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/input-template/sample を一括で ready 化する。
   - id: WBS-GOV-META-040
     name: メタルールブックガバナンスセットの整備
-    description: |
+    description: |-
       すべての下流ルールが利用するメタデータ・命名・構造・ テストスコープの共有メタルールセットを整備する。
+      Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/input-template/sample を一括で ready 化する。
     owner: ARC
     component: meta
     deliverables:
@@ -125,5 +129,5 @@ wbs:
         kind: modify
       - path: docs/ja/handbook/rules/meta-test-document-scope-rules.md
         kind: modify
-    done_criteria: |
-      メタルールセットが、下流のルール・指示が矛盾なく再利用できる 共有メタデータ・命名・構造・テストスコープの制約を定義していること。
+    done_criteria: |-
+      メタルールセットが、下流のルール・指示が矛盾なく再利用できる 共有メタデータ・命名・構造・テストスコープの制約を定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/input-template/sample を一括で ready 化する。

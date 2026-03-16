@@ -5,8 +5,8 @@ domain: governance
 assigned_team: specdojo-handbook
 settings:
   finish_milestone_id: M-SDH-GOV-900
-  notes: |
-    ガバナンスドメインスケジュール。 各 WBS アイテムを Phase 1（ルールライフサイクル）と Phase 2（派生成果物ライフサイクル）に分割。 meta-* ルールは Phase 1 のみ（派生成果物なし）。
+  notes: |-
+    ガバナンスドメインスケジュール。 各 WBS アイテムを Phase 1（ルールライフサイクル）と Phase 2（派生成果物ライフサイクル）に分割。 meta-* ルールは Phase 1 のみ（派生成果物なし）。 Agent-Ultra前提で中間承認を省略可能とし、最終承認で一括確定する。
 tasks:
   - id: T-SDH-GOV-010
     wbs: WBS-GOV-PRJ-010
@@ -18,16 +18,17 @@ tasks:
     tags:
       - governance
       - rules-lifecycle
-    notes: >
-      Phase 1: エージェント起草 → 人間修正 → エージェントレビュー → 人間承認（status: ready）。 対象: prj-overview, prj-scope, prj-issues-and-approach
-      ルール。
+      - agent-ultra
+    notes: >-
+      Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
   - wbs: WBS-GOV-PRJ-010
     owner: PO
     tags:
       - governance
       - derivatives-lifecycle
-    notes: |
-      Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認（status: ready）。
+      - agent-ultra
+    notes: |-
+      Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。
     id: T-SDH-GOV-011-INS
     name: プロジェクトドキュメントの起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
@@ -38,8 +39,9 @@ tasks:
     tags:
       - governance
       - derivatives-lifecycle
-    notes: |
-      Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認（status: ready）。
+      - agent-ultra
+    notes: |-
+      Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。
     id: T-SDH-GOV-011-TPL
     name: プロジェクトドキュメントの起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
@@ -50,8 +52,9 @@ tasks:
     tags:
       - governance
       - derivatives-lifecycle
-    notes: |
-      Phase 2: エージェントが instruction + input-template を起草 → レビュー → 人間承認（status: ready）。
+      - agent-ultra
+    notes: |-
+      Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。
     id: T-SDH-GOV-011-SMP
     name: プロジェクトドキュメントの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
@@ -67,38 +70,45 @@ tasks:
     tags:
       - governance
       - rules-lifecycle
-    notes: |
-      Phase 1: 対象 mip-index, mtp, dmd, cop, otp ルール。
+      - agent-ultra
+    notes: |-
+      Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
   - wbs: WBS-GOV-MIG-020
     owner: PO
     tags:
       - governance
       - derivatives-lifecycle
+      - agent-ultra
     id: T-SDH-GOV-021-INS
     name: 移行の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.5
     depends_on:
       - T-SDH-GOV-020
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-GOV-MIG-020
     owner: PO
     tags:
       - governance
       - derivatives-lifecycle
+      - agent-ultra
     id: T-SDH-GOV-021-TPL
     name: 移行の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-GOV-021-INS
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-GOV-MIG-020
     owner: PO
     tags:
       - governance
       - derivatives-lifecycle
+      - agent-ultra
     id: T-SDH-GOV-021-SMP
     name: 移行の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-GOV-021-TPL
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-GOV-030
     wbs: WBS-GOV-OPS-030
     name: 運用ルールの起草・レビュー
@@ -109,38 +119,45 @@ tasks:
     tags:
       - governance
       - rules-lifecycle
-    notes: |
-      Phase 1: 対象 opd, opr ルール。
+      - agent-ultra
+    notes: |-
+      Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
   - wbs: WBS-GOV-OPS-030
     owner: PO
     tags:
       - governance
       - derivatives-lifecycle
+      - agent-ultra
     id: T-SDH-GOV-031-INS
     name: 運用の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-GOV-030
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-GOV-OPS-030
     owner: PO
     tags:
       - governance
       - derivatives-lifecycle
+      - agent-ultra
     id: T-SDH-GOV-031-TPL
     name: 運用の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-GOV-031-INS
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-GOV-OPS-030
     owner: PO
     tags:
       - governance
       - derivatives-lifecycle
+      - agent-ultra
     id: T-SDH-GOV-031-SMP
     name: 運用の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-GOV-031-TPL
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-GOV-040
     wbs: WBS-GOV-META-040
     name: 共有メタルールブックガバナンスセットの整合
@@ -152,9 +169,9 @@ tasks:
       - governance
       - rules-lifecycle
       - meta
-    notes: >
-      Phase 1 のみ（メタルールに派生成果物なし）。 対象: meta-document-metadata, meta-id-and-file-naming, meta-rulebook-structure,
-      meta-test-document-scope。
+      - agent-ultra
+    notes: >-
+      Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
 milestones:
   - id: M-SDH-GOV-900
     name: ガバナンスドメイン完了

@@ -3,10 +3,11 @@ version: 1
 calendar:
   timezone: Asia/Tokyo
   work_hours_per_day: 8
-  workdays: [Mon, Tue, Wed, Thu, Fri]
+  workdays: [ Mon, Tue, Wed, Thu, Fri ]
   holidays:
     - 2026-03-20
 
 settings:
   start_date: 2026-03-16
   notes: Shared schedule defaults for prj-0001 schedule files.
+    Agent-Ultra前提で中間承認を省略可能とし、最終承認で一括確定する。

@@ -4,8 +4,8 @@ schedule_level: milestones
 assigned_team: specdojo-handbook
 settings:
   finish_milestone_id: M-SDH-999
-  notes: |
-    プロジェクトレベルのマイルストーン計画。 ドメイン完了マイルストーン（M-SDH-*-900）は各ドメインスケジュールで定義。
+  notes: |-
+    プロジェクトレベルのマイルストーン計画。 ドメイン完了マイルストーン（M-SDH-*-900）は各ドメインスケジュールで定義。 Agent-Ultra前提で中間承認を省略可能とし、最終承認で一括確定する。
 milestones:
   - id: M-SDH-100
     name: スケジュールキックオフ
@@ -14,6 +14,7 @@ milestones:
     date_hint: '2026-03-16'
     tags:
       - kickoff
+      - agent-ultra
   - id: M-SDH-200
     name: ガバナンスベースライン確定
     depends_on:
@@ -22,6 +23,7 @@ milestones:
     date_hint: '2026-03-21'
     tags:
       - governance
+      - agent-ultra
   - id: M-SDH-300
     name: 業務・非機能要件ベースライン確定
     depends_on:
@@ -31,6 +33,7 @@ milestones:
     date_hint: '2026-04-01'
     tags:
       - definition
+      - agent-ultra
   - id: M-SDH-350
     name: 設計ベースライン確定
     depends_on:
@@ -39,6 +42,7 @@ milestones:
     date_hint: '2026-04-10'
     tags:
       - design
+      - agent-ultra
   - id: M-SDH-400
     name: 品質ベースライン確定
     depends_on:
@@ -47,6 +51,7 @@ milestones:
     date_hint: '2026-04-18'
     tags:
       - quality
+      - agent-ultra
   - id: M-SDH-999
     name: prj-0001 スケジュールスコープ完了
     depends_on:
@@ -59,3 +64,4 @@ milestones:
     date_hint: '2026-04-18'
     tags:
       - finish
+      - agent-ultra
