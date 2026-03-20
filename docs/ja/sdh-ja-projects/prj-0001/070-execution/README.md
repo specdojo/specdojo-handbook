@@ -20,14 +20,15 @@
 
 `dojo exec build --project shj-0001` 実行後、`generated/` に以下が出力される。
 
-- `state.json`: task state snapshot
-- `ready.md`: 人間向け ready 一覧
+- `state.json`: task state snapshot（全 task の現在状態: todo/doing/blocked/done/cancelled）
+- `ready.md`: 人間向け ready 一覧（strategy 別に整形済み）
 - `ready.json`: strategy ごとの順序付き ready キュー
 - `claim-next.json`: strategy ごとの次の claim 対象
-- `cpm.json` / `cpm.md`: CPM 結果
-- `critical-path.md`: クリティカルパス
-- `schedule-hash.json` / `schedule-diff.md`: スケジュール差分
-- `metadata.json`: 生成メタデータ
+- `cpm.json` / `cpm.md`: CPM 計算結果
+- `critical-path.md`: クリティカルパスと slack 分析
+- `timeline.md` / `timeline.svg`: プロジェクトタイムライン（Gantt-like 表示）
+- `schedule-diff.md`: スケジュールスキーマ差分（前回ビルドからの追加/削除/変更）
+- `metadata.json`: 生成メタデータ（タイムスタンプ、schedule ファイル数、派生ファイル一覧）
 
 ## 3. Ready と Claim の見方
 
