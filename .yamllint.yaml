@@ -13,7 +13,7 @@ rules:
   trailing-spaces: enable
   key-duplicates: enable
   truthy:
-    allowed-values: ['true', 'false', 'on', 'off', 'yes', 'no']
+    allowed-values: ["true", "false", "on", "off", "yes", "no"]
   empty-lines:
     max: 2
   comments:
