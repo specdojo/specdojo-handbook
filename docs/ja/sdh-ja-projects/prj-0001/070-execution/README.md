@@ -43,7 +43,23 @@
 2. ES が小さい task
 3. ID が昇順の task
 
-## 4. 基本コマンド
+## 4. CPM 指標の見方
+
+`cpm.json` / `cpm.md` / `critical-path.md` に出てくる主な指標は以下。
+
+- `ES`（Early Start）: 依存関係を満たした上で、最も早く開始できる時刻
+- `EF`（Early Finish）: 最も早く完了できる時刻（`EF = ES + duration`）
+- `LS`（Late Start）: プロジェクト完了時刻を遅らせずに開始できる最も遅い時刻
+- `LF`（Late Finish）: プロジェクト完了時刻を遅らせずに完了できる最も遅い時刻
+- `slack`（total float）: 遅延許容量（`slack = LS - ES = LF - EF`）
+
+解釈の目安:
+
+- `slack = 0` の task はクリティカルパス上にあり、遅れると完了日が遅れる
+- `slack > 0` の task は、その値の範囲で開始/完了を後ろ倒しできる
+- `critical-first` 戦略は slack が小さい task を優先して claim する
+
+## 5. 基本コマンド
 
 ```bash
 dojo exec validate --project shj-0001
