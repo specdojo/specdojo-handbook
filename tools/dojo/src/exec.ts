@@ -1,4 +1,8 @@
 import { Command } from 'commander'
+import { spawnSync } from 'node:child_process'
+import { copyFileSync, existsSync, mkdirSync } from 'node:fs'
+import { dirname, join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import {
   acquireSchedulerLock,
   buildEvent,
@@ -34,7 +38,7 @@ import {
   writeScheduleHashAndDiff,
 } from './exec-schedule.js'
 import { ExecEventType, ExecEventV1, SchedulerStrategy } from './exec-types.js'
-import { nowUtcIsoSeconds, requireNonEmpty } from './exec-shared.js'
+import { nowUtcIsoSeconds, requireNonEmpty, safeSlug, tsForFilenameUtc } from './exec-shared.js'
 
 const KNOWN_OWNER_LABELS = ['PO', 'BA', 'ARC', 'QE'] as const
 const KNOWN_OWNER_LABELS_TEXT = KNOWN_OWNER_LABELS.join('|')
@@ -120,6 +124,80 @@ function printCommandError(error: unknown, fail = true): void {
   else process.exitCode = 1
 }
 
+function runTaskCatalogBuild(schedulePath: string, executionPath: string): void {
+  const currentFileDir = dirname(fileURLToPath(import.meta.url))
+  const scriptPath = resolve(currentFileDir, '../../docs/src/gen-task-catalog.ts')
+  const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx'
+
+  const result = spawnSync(
+    npxCmd,
+    ['tsx', scriptPath, '--schedule-path', schedulePath, '--execution-path', executionPath],
+    {
+      encoding: 'utf8',
+      env: process.env,
+    }
+  )
+
+  if (result.status !== 0) {
+    const stderr = (result.stderr ?? '').trim()
+    const stdout = (result.stdout ?? '').trim()
+    const details = [stdout, stderr].filter(Boolean).join('\n')
+    throw new Error(
+      `task-catalog generation failed: ${scriptPath}` + (details ? `\n${details}` : '')
+    )
+  }
+}
+
+function runAgentBriefBuild(schedulePath: string, executionPath: string, cliProject = ''): void {
+  const currentFileDir = dirname(fileURLToPath(import.meta.url))
+  const scriptPath = resolve(currentFileDir, '../../docs/src/gen-agent-briefs.ts')
+  const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx'
+
+  const result = spawnSync(
+    npxCmd,
+    [
+      'tsx',
+      scriptPath,
+      '--schedule-path',
+      schedulePath,
+      '--execution-path',
+      executionPath,
+      '--cli-project',
+      cliProject,
+    ],
+    {
+      encoding: 'utf8',
+      env: process.env,
+    }
+  )
+
+  if (result.status !== 0) {
+    const stderr = (result.stderr ?? '').trim()
+    const stdout = (result.stdout ?? '').trim()
+    const details = [stdout, stderr].filter(Boolean).join('\n')
+    throw new Error(
+      `agent-brief generation failed: ${scriptPath}` + (details ? `\n${details}` : '')
+    )
+  }
+}
+
+function saveClaimBriefSnapshot(
+  executionPath: string,
+  taskId: string,
+  actor: string,
+  eventTs: string
+): void {
+  const sourcePath = join(executionPath, 'generated', 'agent-briefs', `${taskId}.md`)
+  if (!existsSync(sourcePath)) {
+    throw new Error(`agent brief source not found for snapshot: ${sourcePath}`)
+  }
+
+  const snapshotDir = join(executionPath, 'exec', 'agent-briefs', 'claims', taskId)
+  mkdirSync(snapshotDir, { recursive: true })
+  const fileName = `${tsForFilenameUtc(eventTs)}--${safeSlug(actor)}.md`
+  copyFileSync(sourcePath, join(snapshotDir, fileName))
+}
+
 function loadValidatedExecState(projectPath: string): LoadedExecState | null {
   const res = validateAll(projectPath)
   if (!res.ok) {
@@ -166,7 +244,7 @@ function runLockedEventCommand(opts: any, action: LockedEventAction): void {
   let lockDir = ''
 
   try {
-    const { schedulePath } = resolveProjectContext(opts)
+    const { schedulePath, executionPath } = resolveProjectContext(opts)
     const actor = requireNonEmpty('by', opts.by)
     const taskId = requireNonEmpty('task', opts.task)
     const allowMultipleDoing = !!opts.allowMultipleDoing
@@ -196,6 +274,17 @@ function runLockedEventCommand(opts: any, action: LockedEventAction): void {
     if (action.type === 'claim') {
       const plannedOwner = state.schedule.nodes.get(taskId)?.owner
       const claimOwner = resolveClaimOwner(opts, actor)
+      const cpm = computeCpm(state.schedule, schedulePath)
+      writeGeneratedCore(schedulePath, state.events, state.schedule, cpm)
+      writeScheduleHashAndDiff(schedulePath, state.schedule)
+      writeCpmFiles(schedulePath, cpm, state.snapshot)
+      runTaskCatalogBuild(schedulePath, executionPath)
+      runAgentBriefBuild(
+        schedulePath,
+        executionPath,
+        opts.project ?? process.env.DOJO_PROJECT ?? ''
+      )
+      saveClaimBriefSnapshot(executionPath, taskId, actor, event.ts)
       event.meta = {
         ...(event.meta ?? {}),
         claim_owner: claimOwner,
@@ -297,7 +386,7 @@ export function registerExecCommands(program: Command): void {
   addProjectOptions(bcmd)
   bcmd.action(opts => {
     try {
-      const { schedulePath } = resolveProjectContext(opts)
+      const { schedulePath, executionPath } = resolveProjectContext(opts)
 
       const res = validateAll(schedulePath)
       printValidateResult(res)
@@ -313,6 +402,12 @@ export function registerExecCommands(program: Command): void {
       const snapshot = writeGeneratedCore(schedulePath, events, schedule, cpm)
       writeScheduleHashAndDiff(schedulePath, schedule)
       writeCpmFiles(schedulePath, cpm, snapshot)
+      runTaskCatalogBuild(schedulePath, executionPath)
+      runAgentBriefBuild(
+        schedulePath,
+        executionPath,
+        opts.project ?? process.env.DOJO_PROJECT ?? ''
+      )
 
       process.stdout.write(`\nGenerated: ${generatedDirForProject(schedulePath)}\n`)
       exitWithCode(true)

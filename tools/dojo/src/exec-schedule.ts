@@ -244,6 +244,7 @@ export function writeGeneratedCore(
     event_files_count: events.length,
     default_scheduler_strategy: 'critical-first',
     derived_files: [
+      'agent-briefs/index.md',
       'claim-next.json',
       'cpm.json',
       'cpm.md',
@@ -255,6 +256,7 @@ export function writeGeneratedCore(
       'schedule-diff.md',
       'schedule-hash.json',
       'state.json',
+      'task-catalog.md',
       'timeline.md',
       'timeline.svg',
     ],

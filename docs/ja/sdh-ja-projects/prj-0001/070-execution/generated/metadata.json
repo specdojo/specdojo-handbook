@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-16T15:07:10Z",
+  "generated_at_utc": "2026-03-21T23:08:45Z",
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution",
   "generated_dir": "docs/ja/sdh-ja-projects/prj-0001/070-execution/generated",
@@ -14,6 +14,7 @@
   "event_files_count": 1,
   "default_scheduler_strategy": "critical-first",
   "derived_files": [
+    "agent-briefs/index.md",
     "claim-next.json",
     "cpm.json",
     "cpm.md",
@@ -25,6 +26,7 @@
     "schedule-diff.md",
     "schedule-hash.json",
     "state.json",
+    "task-catalog.md",
     "timeline.md",
     "timeline.svg"
   ]
