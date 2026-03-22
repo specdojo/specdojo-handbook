@@ -254,6 +254,7 @@ function loadTaskDetails(schedulePath: string): {
     } catch {
       continue
     }
+    if (safeString((doc as any)?.kind) !== 'schedule') continue
 
     if (!projectId) projectId = safeString(doc?.project_id)
     const scheduleFile = relativeScheduleFile(schedulePath, filePath)

@@ -127,7 +127,7 @@ function scheduleSectionLabelForDoc(doc: any, fallback: string): string {
 export function buildScheduleIndex(projectPath: string): ScheduleIndex {
   const all = listFilesRecursive(projectPath)
   const files = all.filter(p => isSchYamlFilename(p))
-  const defaultsPath = join(projectPath, 'schedule-defaults.yaml')
+  const defaultsPath = join(projectPath, 'sch-defaults.yaml')
 
   const nodes = new Map<string, ScheduleNode>()
   const sectionLabels: Record<string, string> = {}
@@ -162,6 +162,14 @@ export function buildScheduleIndex(projectPath: string): ScheduleIndex {
       continue
     }
     if (!doc || typeof doc !== 'object') continue
+
+    const docKind = nonEmptyString(doc?.kind)
+    if (docKind === 'defaults') {
+      continue
+    }
+    if (docKind !== 'schedule') {
+      throw new Error(`${f}: kind must be 'schedule'`)
+    }
 
     const scheduleFile = toScheduleFilePath(projectPath, f)
     sectionLabels[scheduleFile] = scheduleSectionLabelForDoc(doc, scheduleFile)

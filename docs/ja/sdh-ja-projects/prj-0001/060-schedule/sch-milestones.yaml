@@ -1,3 +1,4 @@
+kind: schedule
 version: 1
 project_id: prj-0001
 schedule_level: milestones
@@ -11,7 +12,7 @@ milestones:
     name: スケジュールキックオフ
     depends_on: []
     owner: PO
-    date_hint: '2026-03-16'
+    date_hint: "2026-03-16"
     tags:
       - kickoff
       - agent-ultra
@@ -20,7 +21,7 @@ milestones:
     depends_on:
       - M-SDH-GOV-900
     owner: PO
-    date_hint: '2026-03-21'
+    date_hint: "2026-03-21"
     tags:
       - governance
       - agent-ultra
@@ -30,7 +31,7 @@ milestones:
       - M-SDH-BIZ-900
       - M-SDH-NFR-900
     owner: PO
-    date_hint: '2026-04-01'
+    date_hint: "2026-04-01"
     tags:
       - definition
       - agent-ultra
@@ -39,7 +40,7 @@ milestones:
     depends_on:
       - M-SDH-DES-900
     owner: ARC
-    date_hint: '2026-04-10'
+    date_hint: "2026-04-10"
     tags:
       - design
       - agent-ultra
@@ -48,7 +49,7 @@ milestones:
     depends_on:
       - M-SDH-QLT-900
     owner: PO
-    date_hint: '2026-04-18'
+    date_hint: "2026-04-18"
     tags:
       - quality
       - agent-ultra
@@ -61,7 +62,7 @@ milestones:
       - M-SDH-DES-900
       - M-SDH-QLT-900
     owner: PO
-    date_hint: '2026-04-18'
+    date_hint: "2026-04-18"
     tags:
       - finish
       - agent-ultra

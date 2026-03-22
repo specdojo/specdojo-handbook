@@ -227,6 +227,7 @@ function buildRows(schedulePath: string, generatedDir: string): CatalogRow[] {
     }
     const tasks = Array.isArray(doc?.tasks) ? doc.tasks : []
     const milestones = Array.isArray(doc?.milestones) ? doc.milestones : []
+    if (safeString(doc?.kind) !== 'schedule') continue
 
     for (const t of tasks) {
       const id = safeString(t?.id)

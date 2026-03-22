@@ -1,3 +1,4 @@
+kind: schedule
 version: 1
 project_id: prj-sdh-ja-0001
 schedule_level: container

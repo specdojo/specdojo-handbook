@@ -1,3 +1,4 @@
+kind: schedule
 version: 1
 project_id: prj-0001
 schedule_level: domain
@@ -19,7 +20,7 @@ tasks:
       - design
       - rules-lifecycle
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-IFX-010
     owner: ARC
     tags:
@@ -68,7 +69,7 @@ tasks:
       - rules-lifecycle
       - c4
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-CXD-020
     owner: ARC
     tags:
@@ -120,7 +121,7 @@ tasks:
       - rules-lifecycle
       - c4
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-CND-030
     owner: ARC
     tags:
@@ -172,7 +173,7 @@ tasks:
       - rules-lifecycle
       - c4
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-CPD-040
     owner: ARC
     tags:
@@ -322,7 +323,7 @@ tasks:
       - design
       - rules-lifecycle
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-SYSD-070
     owner: ARC
     tags:

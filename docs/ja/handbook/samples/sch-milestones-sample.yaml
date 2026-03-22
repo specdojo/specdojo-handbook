@@ -1,4 +1,5 @@
 # TEMPLATE - copy to create a real schedule file
+kind: schedule
 version: 1
 project_id: prj-sdh-ja-0001
 schedule_level: milestones

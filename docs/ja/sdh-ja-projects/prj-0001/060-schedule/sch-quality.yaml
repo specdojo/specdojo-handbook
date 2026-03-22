@@ -1,3 +1,4 @@
+kind: schedule
 version: 1
 project_id: prj-0001
 schedule_level: domain
@@ -124,7 +125,7 @@ tasks:
       - rules-lifecycle
       - unit-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-UTC-030
     owner: QE
     tags:
@@ -176,7 +177,7 @@ tasks:
       - rules-lifecycle
       - integration-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-ITC-040
     owner: QE
     tags:
@@ -228,7 +229,7 @@ tasks:
       - rules-lifecycle
       - external-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-ETC-050
     owner: QE
     tags:
@@ -236,7 +237,7 @@ tasks:
       - derivatives-lifecycle
       - external-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。'
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
     id: T-SDH-QLT-051-INS
     name: 外部結合テストの起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
@@ -249,7 +250,7 @@ tasks:
       - derivatives-lifecycle
       - external-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。'
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
     id: T-SDH-QLT-051-TPL
     name: 外部結合テストの起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
@@ -262,7 +263,7 @@ tasks:
       - derivatives-lifecycle
       - external-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。'
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
     id: T-SDH-QLT-051-SMP
     name: 外部結合テストの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
@@ -280,7 +281,7 @@ tasks:
       - rules-lifecycle
       - system-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-STC-060
     owner: QE
     tags:
@@ -332,7 +333,7 @@ tasks:
       - rules-lifecycle
       - acceptance-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。'
+    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-ATC-070
     owner: BA
     tags:
@@ -340,7 +341,7 @@ tasks:
       - derivatives-lifecycle
       - acceptance-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。'
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
     id: T-SDH-QLT-071-INS
     name: 受入テストドキュメントの起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
@@ -353,7 +354,7 @@ tasks:
       - derivatives-lifecycle
       - acceptance-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。'
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
     id: T-SDH-QLT-071-TPL
     name: 受入テストドキュメントの起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
@@ -366,7 +367,7 @@ tasks:
       - derivatives-lifecycle
       - acceptance-tests
       - agent-ultra
-    notes: 'Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。'
+    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
     id: T-SDH-QLT-071-SMP
     name: 受入テストドキュメントの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25

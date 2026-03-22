@@ -13,12 +13,16 @@ $comment: >
 additionalProperties: false
 
 required:
-  - version
-  - project_id
-  - schedule_level
+  - kind
   - settings
 
 properties:
+  kind:
+    type: string
+    description: "Document kind. schedule for schedule SSOT, defaults for schedule defaults file."
+    enum: ["schedule", "defaults"]
+    default: "schedule"
+
   version:
     type: integer
     minimum: 1
@@ -72,10 +76,28 @@ properties:
     items:
       $ref: "#/$defs/Milestone"
 
-oneOf:
-  - $ref: "#/$defs/MilestonesLevel"
-  - $ref: "#/$defs/DomainLevel"
-  - $ref: "#/$defs/ContainerLevel"
+allOf:
+  - if:
+      properties:
+        kind:
+          const: schedule
+      required: [kind]
+    then:
+      required:
+        - version
+        - project_id
+        - schedule_level
+      oneOf:
+        - $ref: "#/$defs/MilestonesLevel"
+        - $ref: "#/$defs/DomainLevel"
+        - $ref: "#/$defs/ContainerLevel"
+  - if:
+      properties:
+        kind:
+          const: defaults
+      required: [kind]
+    then:
+      $ref: "#/$defs/DefaultsKind"
 
 $defs:
   Owner:
@@ -156,6 +178,73 @@ $defs:
         description: "Optional additional holiday dates."
         items:
           $ref: "#/$defs/Date"
+
+  DefaultsCalendar:
+    type: object
+    additionalProperties: false
+    required:
+      - timezone
+      - work_hours_per_day
+      - workdays
+    properties:
+      timezone:
+        type: string
+        minLength: 1
+      work_hours_per_day:
+        type: number
+        exclusiveMinimum: 0
+        maximum: 24
+      workdays:
+        type: array
+        minItems: 1
+        uniqueItems: true
+        items:
+          $ref: "#/$defs/Weekday"
+      holidays:
+        type: array
+        items:
+          $ref: "#/$defs/Date"
+
+  DefaultsSettings:
+    type: object
+    additionalProperties: false
+    required:
+      - start_date
+    properties:
+      start_date:
+        $ref: "#/$defs/Date"
+      notes:
+        type: string
+
+  DefaultsKind:
+    type: object
+    required:
+      - kind
+      - version
+      - calendar
+      - settings
+    properties:
+      kind:
+        const: defaults
+      calendar:
+        $ref: "#/$defs/DefaultsCalendar"
+      settings:
+        $ref: "#/$defs/DefaultsSettings"
+    allOf:
+      - not:
+          required: [project_id]
+      - not:
+          required: [schedule_level]
+      - not:
+          required: [domain]
+      - not:
+          required: [container]
+      - not:
+          required: [assigned_team]
+      - not:
+          required: [tasks]
+      - not:
+          required: [milestones]
 
   Settings:
     type: object

@@ -1,6 +1,6 @@
 {
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
-  "project_start_date": null,
+  "project_start_date": "2026-03-16",
   "project_duration_days": 4.75,
   "nodes": {
     "M-SDH-100": {
