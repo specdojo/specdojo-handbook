@@ -24,13 +24,22 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
 - docs/ja/handbook/rules/gl-rules.md
 
-- family_scope:
-  - docs/ja/handbook/rules/gl-rules.md
-  - docs/ja/handbook/instructions/gl-instruction.md
-  - docs/ja/handbook/templates/gl-input-template.md
-  - docs/ja/handbook/samples/gl-sample.md
+secondary_paths:
+
+- docs/ja/handbook/instructions/gl-instruction.md
+- docs/ja/handbook/templates/gl-input-template.md
+- docs/ja/handbook/samples/gl-sample.md
+
+family_scope:
+
+- docs/ja/handbook/rules/gl-rules.md
+- docs/ja/handbook/instructions/gl-instruction.md
+- docs/ja/handbook/templates/gl-input-template.md
+- docs/ja/handbook/samples/gl-sample.md
 
 ## 4. 依存と優先度
 

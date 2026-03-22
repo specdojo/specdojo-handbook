@@ -24,13 +24,22 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
 - docs/ja/handbook/rules/bdd-rules.md
 
-- family_scope:
-  - docs/ja/handbook/rules/bdd-rules.md
-  - docs/ja/handbook/instructions/bdd-instruction.md
-  - docs/ja/handbook/templates/bdd-input-template.md
-  - docs/ja/handbook/samples/bdd-sample.md
+secondary_paths:
+
+- docs/ja/handbook/instructions/bdd-instruction.md
+- docs/ja/handbook/templates/bdd-input-template.md
+- docs/ja/handbook/samples/bdd-sample.md
+
+family_scope:
+
+- docs/ja/handbook/rules/bdd-rules.md
+- docs/ja/handbook/instructions/bdd-instruction.md
+- docs/ja/handbook/templates/bdd-input-template.md
+- docs/ja/handbook/samples/bdd-sample.md
 
 ## 4. 依存と優先度
 

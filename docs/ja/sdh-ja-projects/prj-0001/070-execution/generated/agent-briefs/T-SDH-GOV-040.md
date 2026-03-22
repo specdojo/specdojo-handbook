@@ -24,6 +24,19 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
+- docs/ja/handbook/rules/meta-document-metadata-rules.md
+- docs/ja/handbook/rules/meta-id-and-file-naming-rules.md
+- docs/ja/handbook/rules/meta-rulebook-structure-rules.md
+- docs/ja/handbook/rules/meta-test-document-scope-rules.md
+
+secondary_paths:
+
+- なし
+
+family_scope:
+
 - docs/ja/handbook/rules/meta-document-metadata-rules.md
 - docs/ja/handbook/rules/meta-id-and-file-naming-rules.md
 - docs/ja/handbook/rules/meta-rulebook-structure-rules.md

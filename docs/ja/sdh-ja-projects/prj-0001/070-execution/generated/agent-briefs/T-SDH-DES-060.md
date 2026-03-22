@@ -24,13 +24,22 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
 - docs/ja/handbook/rules/tsd-rules.md
 
-- family_scope:
-  - docs/ja/handbook/rules/tsd-rules.md
-  - docs/ja/handbook/instructions/tsd-instruction.md
-  - docs/ja/handbook/templates/tsd-input-template.md
-  - docs/ja/handbook/samples/tsd-sample.md
+secondary_paths:
+
+- docs/ja/handbook/instructions/tsd-instruction.md
+- docs/ja/handbook/templates/tsd-input-template.md
+- docs/ja/handbook/samples/tsd-sample.md
+
+family_scope:
+
+- docs/ja/handbook/rules/tsd-rules.md
+- docs/ja/handbook/instructions/tsd-instruction.md
+- docs/ja/handbook/templates/tsd-input-template.md
+- docs/ja/handbook/samples/tsd-sample.md
 
 ## 4. 依存と優先度
 

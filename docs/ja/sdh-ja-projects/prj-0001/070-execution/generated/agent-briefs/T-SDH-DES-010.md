@@ -24,28 +24,46 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
 - docs/ja/handbook/rules/ifx-rules.md
 - docs/ja/handbook/rules/ifx-api-rules.md
 - docs/ja/handbook/rules/ifx-file-rules.md
 - docs/ja/handbook/rules/ifx-msg-rules.md
 
-- family_scope:
-  - docs/ja/handbook/rules/ifx-rules.md
-  - docs/ja/handbook/instructions/ifx-instruction.md
-  - docs/ja/handbook/rules/ifx-api-rules.md
-  - docs/ja/handbook/instructions/ifx-api-instruction.md
-  - docs/ja/handbook/rules/ifx-file-rules.md
-  - docs/ja/handbook/instructions/ifx-file-instruction.md
-  - docs/ja/handbook/rules/ifx-msg-rules.md
-  - docs/ja/handbook/instructions/ifx-msg-instruction.md
-  - docs/ja/handbook/templates/ifx-input-template.md
-  - docs/ja/handbook/samples/ifx-sample.md
-  - docs/ja/handbook/templates/ifx-api-input-template.md
-  - docs/ja/handbook/samples/ifx-api-sample.md
-  - docs/ja/handbook/templates/ifx-file-input-template.md
-  - docs/ja/handbook/samples/ifx-file-sample.md
-  - docs/ja/handbook/templates/ifx-msg-input-template.md
-  - docs/ja/handbook/samples/ifx-msg-sample.md
+secondary_paths:
+
+- docs/ja/handbook/instructions/ifx-instruction.md
+- docs/ja/handbook/instructions/ifx-api-instruction.md
+- docs/ja/handbook/instructions/ifx-file-instruction.md
+- docs/ja/handbook/instructions/ifx-msg-instruction.md
+- docs/ja/handbook/templates/ifx-input-template.md
+- docs/ja/handbook/samples/ifx-sample.md
+- docs/ja/handbook/templates/ifx-api-input-template.md
+- docs/ja/handbook/samples/ifx-api-sample.md
+- docs/ja/handbook/templates/ifx-file-input-template.md
+- docs/ja/handbook/samples/ifx-file-sample.md
+- docs/ja/handbook/templates/ifx-msg-input-template.md
+- docs/ja/handbook/samples/ifx-msg-sample.md
+
+family_scope:
+
+- docs/ja/handbook/rules/ifx-rules.md
+- docs/ja/handbook/instructions/ifx-instruction.md
+- docs/ja/handbook/rules/ifx-api-rules.md
+- docs/ja/handbook/instructions/ifx-api-instruction.md
+- docs/ja/handbook/rules/ifx-file-rules.md
+- docs/ja/handbook/instructions/ifx-file-instruction.md
+- docs/ja/handbook/rules/ifx-msg-rules.md
+- docs/ja/handbook/instructions/ifx-msg-instruction.md
+- docs/ja/handbook/templates/ifx-input-template.md
+- docs/ja/handbook/samples/ifx-sample.md
+- docs/ja/handbook/templates/ifx-api-input-template.md
+- docs/ja/handbook/samples/ifx-api-sample.md
+- docs/ja/handbook/templates/ifx-file-input-template.md
+- docs/ja/handbook/samples/ifx-file-sample.md
+- docs/ja/handbook/templates/ifx-msg-input-template.md
+- docs/ja/handbook/samples/ifx-msg-sample.md
 
 ## 4. 依存と優先度
 

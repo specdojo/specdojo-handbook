@@ -24,13 +24,22 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
 - docs/ja/handbook/rules/nfr-index-rules.md
 
-- family_scope:
-  - docs/ja/handbook/rules/nfr-index-rules.md
-  - docs/ja/handbook/instructions/nfr-index-instruction.md
-  - docs/ja/handbook/templates/nfr-index-input-template.md
-  - docs/ja/handbook/samples/nfr-index-sample.md
+secondary_paths:
+
+- docs/ja/handbook/instructions/nfr-index-instruction.md
+- docs/ja/handbook/templates/nfr-index-input-template.md
+- docs/ja/handbook/samples/nfr-index-sample.md
+
+family_scope:
+
+- docs/ja/handbook/rules/nfr-index-rules.md
+- docs/ja/handbook/instructions/nfr-index-instruction.md
+- docs/ja/handbook/templates/nfr-index-input-template.md
+- docs/ja/handbook/samples/nfr-index-sample.md
 
 ## 4. 依存と優先度
 

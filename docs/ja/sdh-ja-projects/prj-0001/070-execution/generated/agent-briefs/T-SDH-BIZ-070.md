@@ -24,23 +24,38 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
 - docs/ja/handbook/rules/cld-rules.md
 - docs/ja/handbook/rules/stsd-rules.md
 - docs/ja/handbook/rules/sld-rules.md
 
-- family_scope:
-  - docs/ja/handbook/rules/cld-rules.md
-  - docs/ja/handbook/instructions/cld-instruction.md
-  - docs/ja/handbook/rules/stsd-rules.md
-  - docs/ja/handbook/instructions/stsd-instruction.md
-  - docs/ja/handbook/rules/sld-rules.md
-  - docs/ja/handbook/instructions/sld-instruction.md
-  - docs/ja/handbook/templates/cld-input-template.md
-  - docs/ja/handbook/samples/cld-sample.md
-  - docs/ja/handbook/templates/stsd-input-template.md
-  - docs/ja/handbook/samples/stsd-sample.md
-  - docs/ja/handbook/templates/sld-input-template.md
-  - docs/ja/handbook/samples/sld-sample.md
+secondary_paths:
+
+- docs/ja/handbook/instructions/cld-instruction.md
+- docs/ja/handbook/instructions/stsd-instruction.md
+- docs/ja/handbook/instructions/sld-instruction.md
+- docs/ja/handbook/templates/cld-input-template.md
+- docs/ja/handbook/samples/cld-sample.md
+- docs/ja/handbook/templates/stsd-input-template.md
+- docs/ja/handbook/samples/stsd-sample.md
+- docs/ja/handbook/templates/sld-input-template.md
+- docs/ja/handbook/samples/sld-sample.md
+
+family_scope:
+
+- docs/ja/handbook/rules/cld-rules.md
+- docs/ja/handbook/instructions/cld-instruction.md
+- docs/ja/handbook/rules/stsd-rules.md
+- docs/ja/handbook/instructions/stsd-instruction.md
+- docs/ja/handbook/rules/sld-rules.md
+- docs/ja/handbook/instructions/sld-instruction.md
+- docs/ja/handbook/templates/cld-input-template.md
+- docs/ja/handbook/samples/cld-sample.md
+- docs/ja/handbook/templates/stsd-input-template.md
+- docs/ja/handbook/samples/stsd-sample.md
+- docs/ja/handbook/templates/sld-input-template.md
+- docs/ja/handbook/samples/sld-sample.md
 
 ## 4. 依存と優先度
 

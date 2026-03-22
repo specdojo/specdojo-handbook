@@ -24,18 +24,30 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
 - docs/ja/handbook/rules/cxd-rules.md
 - docs/ja/handbook/rules/cxd-mermaid-rules.md
 
-- family_scope:
-  - docs/ja/handbook/rules/cxd-rules.md
-  - docs/ja/handbook/instructions/cxd-instruction.md
-  - docs/ja/handbook/rules/cxd-mermaid-rules.md
-  - docs/ja/handbook/instructions/cxd-mermaid-instruction.md
-  - docs/ja/handbook/templates/cxd-input-template.md
-  - docs/ja/handbook/samples/cxd-sample.md
-  - docs/ja/handbook/templates/cxd-mermaid-input-template.md
-  - docs/ja/handbook/samples/cxd-mermaid-sample.md
+secondary_paths:
+
+- docs/ja/handbook/instructions/cxd-instruction.md
+- docs/ja/handbook/instructions/cxd-mermaid-instruction.md
+- docs/ja/handbook/templates/cxd-input-template.md
+- docs/ja/handbook/samples/cxd-sample.md
+- docs/ja/handbook/templates/cxd-mermaid-input-template.md
+- docs/ja/handbook/samples/cxd-mermaid-sample.md
+
+family_scope:
+
+- docs/ja/handbook/rules/cxd-rules.md
+- docs/ja/handbook/instructions/cxd-instruction.md
+- docs/ja/handbook/rules/cxd-mermaid-rules.md
+- docs/ja/handbook/instructions/cxd-mermaid-instruction.md
+- docs/ja/handbook/templates/cxd-input-template.md
+- docs/ja/handbook/samples/cxd-sample.md
+- docs/ja/handbook/templates/cxd-mermaid-input-template.md
+- docs/ja/handbook/samples/cxd-mermaid-sample.md
 
 ## 4. 依存と優先度
 

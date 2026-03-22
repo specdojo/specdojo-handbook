@@ -214,13 +214,16 @@ function selectArtifactCandidates(detail: TaskDetail): string[] {
   if (deliverables.length === 0) return []
 
   if (detail.id.endsWith('-INS')) {
-    return deliverables.filter(path => path.includes('/instructions/'))
+    const instructionPaths = deliverables.filter(path => path.includes('/instructions/'))
+    return instructionPaths.length > 0 ? instructionPaths : deliverables
   }
   if (detail.id.endsWith('-TPL')) {
-    return deliverables.filter(path => path.includes('/templates/'))
+    const templatePaths = deliverables.filter(path => path.includes('/templates/'))
+    return templatePaths.length > 0 ? templatePaths : deliverables
   }
   if (detail.id.endsWith('-SMP')) {
-    return deliverables.filter(path => path.includes('/samples/'))
+    const samplePaths = deliverables.filter(path => path.includes('/samples/'))
+    return samplePaths.length > 0 ? samplePaths : deliverables
   }
   if (detail.tags.includes('rules-lifecycle')) {
     const rulePaths = deliverables.filter(path => path.includes('/rules/'))
@@ -228,6 +231,12 @@ function selectArtifactCandidates(detail: TaskDetail): string[] {
   }
 
   return deliverables
+}
+
+function selectSecondaryArtifactCandidates(detail: TaskDetail, primaryPaths: string[]): string[] {
+  if (detail.deliverables.length === 0) return []
+  const primarySet = new Set(primaryPaths)
+  return detail.deliverables.filter(path => !primarySet.has(path))
 }
 
 function loadTaskDetails(schedulePath: string): {
@@ -299,7 +308,11 @@ function buildBriefMarkdown(
   const cpm = readyTask.cpm
   const artifactKind = inferArtifactKind(readyTask.id, detail.tags)
   const commandProject = cliProject || projectId || '<project-id>'
-  const artifactCandidates = selectArtifactCandidates(detail)
+  const primaryArtifactCandidates = selectArtifactCandidates(detail)
+  const secondaryArtifactCandidates = selectSecondaryArtifactCandidates(
+    detail,
+    primaryArtifactCandidates
+  )
 
   lines.push(`# Agent Brief: ${readyTask.id}`)
   lines.push('')
@@ -329,18 +342,28 @@ function buildBriefMarkdown(
   lines.push('')
   lines.push('## 3. 対象成果物候補')
   lines.push('')
-  if (artifactCandidates.length > 0) {
-    for (const path of artifactCandidates) {
+  lines.push('primary_paths:')
+  if (primaryArtifactCandidates.length > 0) {
+    for (const path of primaryArtifactCandidates) {
       lines.push(`- ${path}`)
     }
   } else {
     lines.push('- deliverables 未定義。WBS または schedule から対象を確認する。')
   }
-  if (detail.deliverables.length > artifactCandidates.length) {
+  lines.push('')
+  lines.push('secondary_paths:')
+  if (secondaryArtifactCandidates.length > 0) {
+    for (const path of secondaryArtifactCandidates) {
+      lines.push(`- ${path}`)
+    }
+  } else {
+    lines.push('- なし')
+  }
+  if (detail.deliverables.length > 0) {
     lines.push('')
-    lines.push('- family_scope:')
+    lines.push('family_scope:')
     for (const path of detail.deliverables) {
-      lines.push(`  - ${path}`)
+      lines.push(`- ${path}`)
     }
   }
   lines.push('')
@@ -436,6 +459,37 @@ function buildIndexMarkdown(ready: ReadyJson, details: Map<string, TaskDetail>):
   return lines.join('\n')
 }
 
+function buildClaimSnapshotIndexMarkdown(briefsDir: string): string {
+  const lines: string[] = []
+  const taskDirs = existsSync(briefsDir)
+    ? readdirSync(briefsDir)
+        .map(name => ({ name, path: join(briefsDir, name) }))
+        .filter(entry => statSync(entry.path).isDirectory())
+        .sort((a, b) => a.name.localeCompare(b.name))
+    : []
+
+  lines.push('# Claim Brief Snapshot Index')
+  lines.push('')
+  lines.push('claim 時点で固定保存した Agent ブリーフの一覧。')
+  lines.push('')
+  lines.push('| task_id | snapshots | latest | latest_file |')
+  lines.push('|---|---:|---|---|')
+
+  for (const taskDir of taskDirs) {
+    const files = readdirSync(taskDir.path)
+      .filter(name => name.endsWith('.md'))
+      .sort((a, b) => a.localeCompare(b))
+    const latest = files.at(-1)
+    if (!latest) continue
+    lines.push(
+      `| \`${taskDir.name}\` | ${files.length} | \`${latest.replace(/\.md$/, '')}\` | [${latest}](./${taskDir.name}/${latest}) |`
+    )
+  }
+
+  lines.push('')
+  return lines.join('\n')
+}
+
 function main(): void {
   const { schedulePath, executionPath, cliProject } = parseArgs(process.argv)
   const generatedDir = join(executionPath, 'generated')
@@ -443,9 +497,11 @@ function main(): void {
   const ready = readJsonFile<ReadyJson>(join(generatedDir, 'ready.json'))
   const { projectId, byId } = loadTaskDetails(schedulePath)
   const tasks = Array.isArray(ready.tasks) ? ready.tasks : []
+  const claimsDir = join(executionPath, 'exec', 'agent-briefs', 'claims')
 
   rmSync(briefsDir, { recursive: true, force: true })
   mkdirSync(briefsDir, { recursive: true })
+  mkdirSync(claimsDir, { recursive: true })
 
   for (const readyTask of tasks) {
     const detail = byId.get(readyTask.id)
@@ -455,6 +511,7 @@ function main(): void {
   }
 
   writeFileSync(join(briefsDir, 'index.md'), buildIndexMarkdown(ready, byId), 'utf8')
+  writeFileSync(join(claimsDir, 'index.md'), buildClaimSnapshotIndexMarkdown(claimsDir), 'utf8')
   process.stdout.write(`Generated: ${briefsDir}\n`)
 }
 

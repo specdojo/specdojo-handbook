@@ -10,12 +10,15 @@
 │  ├─ events/
 │  ├─ agent-briefs/
 │  │  └─ claims/
+│  │     ├─ index.md
+│  │     └─ T-.../
 │  └─ .locks/
 └─ generated/
 ```
 
 - `exec/events/`: append-only の実行イベント JSON
 - `exec/agent-briefs/claims/`: claim 時点で固定保存する Agent ブリーフのスナップショット
+- `exec/agent-briefs/claims/index.md`: task ごとの snapshot 件数と最新ファイルへのリンク
 - `exec/.locks/`: scheduler の排他ロック
 - `generated/`: `dojo exec build` が生成する派生ファイル
 
@@ -29,7 +32,7 @@
 - `claim-next.json`: strategy ごとの次の claim 対象
 - `cpm.json` / `cpm.md`: CPM 計算結果
 - `critical-path.md`: クリティカルパスと slack 分析
-- `agent-briefs/*.md`: ready になった task ごとの Agent 向け実行ブリーフ（進捗は持たず、対象成果物候補と block テンプレートを含む）
+- `agent-briefs/*.md`: ready になった task ごとの Agent 向け実行ブリーフ（進捗は持たず、primary_paths / secondary_paths と block テンプレートを含む）
 - `timeline.md` / `timeline.svg`: プロジェクトタイムライン（Gantt-like 表示）
 - `task-catalog.md`: task/milestone の人間向けカタログ（目的・依存・状態・CPM 指標）
 - `schedule-diff.md`: スケジュールスキーマ差分（前回ビルドからの追加/削除/変更）
@@ -41,6 +44,7 @@
 - `ready.md` は人が読むための一覧
 - `ready.json` は自動化が読むための順序付きキュー
 - `claim-next.json` はその時点の claim 候補を strategy 別に固定して出す
+- `generated/agent-briefs/*.md` は ready task の着手ガイド、`exec/agent-briefs/claims/index.md` は claim 済み snapshot の索引
 
 `critical-first` は以下の順に選ぶ。
 

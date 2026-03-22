@@ -24,13 +24,22 @@
 
 ## 3. 対象成果物候補
 
+primary_paths:
+
 - docs/ja/handbook/rules/tsp-index-rules.md
 
-- family_scope:
-  - docs/ja/handbook/rules/tsp-index-rules.md
-  - docs/ja/handbook/instructions/tsp-index-instruction.md
-  - docs/ja/handbook/templates/tsp-index-input-template.md
-  - docs/ja/handbook/samples/tsp-index-sample.md
+secondary_paths:
+
+- docs/ja/handbook/instructions/tsp-index-instruction.md
+- docs/ja/handbook/templates/tsp-index-input-template.md
+- docs/ja/handbook/samples/tsp-index-sample.md
+
+family_scope:
+
+- docs/ja/handbook/rules/tsp-index-rules.md
+- docs/ja/handbook/instructions/tsp-index-instruction.md
+- docs/ja/handbook/templates/tsp-index-input-template.md
+- docs/ja/handbook/samples/tsp-index-sample.md
 
 ## 4. 依存と優先度
 

@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 import { spawnSync } from 'node:child_process'
-import { copyFileSync, existsSync, mkdirSync } from 'node:fs'
+import { copyFileSync, existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
@@ -196,6 +196,39 @@ function saveClaimBriefSnapshot(
   mkdirSync(snapshotDir, { recursive: true })
   const fileName = `${tsForFilenameUtc(eventTs)}--${safeSlug(actor)}.md`
   copyFileSync(sourcePath, join(snapshotDir, fileName))
+  writeClaimBriefSnapshotIndex(executionPath)
+}
+
+function writeClaimBriefSnapshotIndex(executionPath: string): void {
+  const claimsDir = join(executionPath, 'exec', 'agent-briefs', 'claims')
+  mkdirSync(claimsDir, { recursive: true })
+
+  const taskDirs = readdirSync(claimsDir)
+    .map(name => ({ name, path: join(claimsDir, name) }))
+    .filter(entry => statSync(entry.path).isDirectory())
+    .sort((a, b) => a.name.localeCompare(b.name))
+
+  const lines: string[] = []
+  lines.push('# Claim Brief Snapshot Index')
+  lines.push('')
+  lines.push('claim 時点で固定保存した Agent ブリーフの一覧。')
+  lines.push('')
+  lines.push('| task_id | snapshots | latest | latest_file |')
+  lines.push('|---|---:|---|---|')
+
+  for (const taskDir of taskDirs) {
+    const files = readdirSync(taskDir.path)
+      .filter(name => name.endsWith('.md'))
+      .sort((a, b) => a.localeCompare(b))
+    const latest = files.at(-1)
+    if (!latest) continue
+    lines.push(
+      `| ${taskDir.name} | ${files.length} | ${latest.replace(/\.md$/, '')} | [${latest}](./${taskDir.name}/${latest}) |`
+    )
+  }
+
+  lines.push('')
+  writeFileSync(join(claimsDir, 'index.md'), `${lines.join('\n')}\n`, 'utf8')
 }
 
 function loadValidatedExecState(projectPath: string): LoadedExecState | null {
