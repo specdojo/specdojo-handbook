@@ -114,7 +114,7 @@
     "./docs/shared/schemas/spec-frontmatter.schema.yaml": ["docs/**/*.md"],
     "./docs/shared/schemas/bdd.schema.yaml": ["docs/**/bdd-*.yaml"],
     "./docs/shared/schemas/esil.schema.yaml": ["docs/**/esil-*.yaml"],
-    "./docs/shared/schemas/schedule-defaults.schema.yaml": ["docs/**/schedule-defaults.yaml"],
+    "./docs/shared/schemas/defaults-sch.schema.yaml": ["docs/**/defaults-sch.yaml"],
     "./docs/shared/schemas/sch.schema.yaml": ["docs/**/sch-*.yaml"],
     "./docs/shared/schemas/wbs.schema.yaml": ["docs/**/wbs-*.yaml"]
   },
