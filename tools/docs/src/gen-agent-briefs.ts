@@ -343,6 +343,7 @@ function buildBriefMarkdown(
   lines.push('## 3. 対象成果物候補')
   lines.push('')
   lines.push('primary_paths:')
+  lines.push('')
   if (primaryArtifactCandidates.length > 0) {
     for (const path of primaryArtifactCandidates) {
       lines.push(`- ${path}`)
@@ -352,19 +353,13 @@ function buildBriefMarkdown(
   }
   lines.push('')
   lines.push('secondary_paths:')
+  lines.push('')
   if (secondaryArtifactCandidates.length > 0) {
     for (const path of secondaryArtifactCandidates) {
       lines.push(`- ${path}`)
     }
   } else {
     lines.push('- なし')
-  }
-  if (detail.deliverables.length > 0) {
-    lines.push('')
-    lines.push('family_scope:')
-    for (const path of detail.deliverables) {
-      lines.push(`- ${path}`)
-    }
   }
   lines.push('')
   lines.push('## 4. 依存と優先度')

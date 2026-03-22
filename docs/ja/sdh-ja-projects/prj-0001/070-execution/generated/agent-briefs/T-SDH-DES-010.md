@@ -46,30 +46,11 @@ secondary_paths:
 - docs/ja/handbook/templates/ifx-msg-input-template.md
 - docs/ja/handbook/samples/ifx-msg-sample.md
 
-family_scope:
-
-- docs/ja/handbook/rules/ifx-rules.md
-- docs/ja/handbook/instructions/ifx-instruction.md
-- docs/ja/handbook/rules/ifx-api-rules.md
-- docs/ja/handbook/instructions/ifx-api-instruction.md
-- docs/ja/handbook/rules/ifx-file-rules.md
-- docs/ja/handbook/instructions/ifx-file-instruction.md
-- docs/ja/handbook/rules/ifx-msg-rules.md
-- docs/ja/handbook/instructions/ifx-msg-instruction.md
-- docs/ja/handbook/templates/ifx-input-template.md
-- docs/ja/handbook/samples/ifx-sample.md
-- docs/ja/handbook/templates/ifx-api-input-template.md
-- docs/ja/handbook/samples/ifx-api-sample.md
-- docs/ja/handbook/templates/ifx-file-input-template.md
-- docs/ja/handbook/samples/ifx-file-sample.md
-- docs/ja/handbook/templates/ifx-msg-input-template.md
-- docs/ja/handbook/samples/ifx-msg-sample.md
-
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `3`
-- fifo_rank: `5`
+- critical_first_rank: `2`
+- fifo_rank: `4`
 - urgency: 遅延余裕あり（slack=0.75）。
 - CPM: `ES=0, EF=1.25, LS=0.75, LF=2, slack=0.75`
 

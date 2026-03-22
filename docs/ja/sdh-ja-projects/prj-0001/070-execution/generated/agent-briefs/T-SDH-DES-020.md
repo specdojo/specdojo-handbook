@@ -38,22 +38,11 @@ secondary_paths:
 - docs/ja/handbook/templates/cxd-mermaid-input-template.md
 - docs/ja/handbook/samples/cxd-mermaid-sample.md
 
-family_scope:
-
-- docs/ja/handbook/rules/cxd-rules.md
-- docs/ja/handbook/instructions/cxd-instruction.md
-- docs/ja/handbook/rules/cxd-mermaid-rules.md
-- docs/ja/handbook/instructions/cxd-mermaid-instruction.md
-- docs/ja/handbook/templates/cxd-input-template.md
-- docs/ja/handbook/samples/cxd-sample.md
-- docs/ja/handbook/templates/cxd-mermaid-input-template.md
-- docs/ja/handbook/samples/cxd-mermaid-sample.md
-
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
 - critical_first_rank: `1`
-- fifo_rank: `6`
+- fifo_rank: `5`
 - urgency: クリティカルパス上。遅延余裕なし。
 - CPM: `ES=0, EF=0.75, LS=0, LF=0.75, slack=0`
 

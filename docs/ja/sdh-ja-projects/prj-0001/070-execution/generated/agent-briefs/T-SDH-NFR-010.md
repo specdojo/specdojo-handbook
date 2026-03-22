@@ -34,18 +34,11 @@ secondary_paths:
 - docs/ja/handbook/templates/nfr-index-input-template.md
 - docs/ja/handbook/samples/nfr-index-sample.md
 
-family_scope:
-
-- docs/ja/handbook/rules/nfr-index-rules.md
-- docs/ja/handbook/instructions/nfr-index-instruction.md
-- docs/ja/handbook/templates/nfr-index-input-template.md
-- docs/ja/handbook/samples/nfr-index-sample.md
-
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `6`
-- fifo_rank: `9`
+- critical_first_rank: `5`
+- fifo_rank: `8`
 - urgency: 遅延余裕あり（slack=2.5）。
 - CPM: `ES=0, EF=0.5, LS=2.5, LF=3, slack=2.5`
 

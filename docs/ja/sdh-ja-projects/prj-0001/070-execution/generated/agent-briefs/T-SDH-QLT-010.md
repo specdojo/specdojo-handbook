@@ -34,18 +34,11 @@ secondary_paths:
 - docs/ja/handbook/templates/sac-input-template.md
 - docs/ja/handbook/samples/sac-sample.md
 
-family_scope:
-
-- docs/ja/handbook/rules/sac-rules.md
-- docs/ja/handbook/instructions/sac-instruction.md
-- docs/ja/handbook/templates/sac-input-template.md
-- docs/ja/handbook/samples/sac-sample.md
-
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `10`
-- fifo_rank: `10`
+- critical_first_rank: `9`
+- fifo_rank: `9`
 - urgency: 遅延余裕あり（slack=3.5）。
 - CPM: `ES=0, EF=0.5, LS=3.5, LF=4, slack=3.5`
 

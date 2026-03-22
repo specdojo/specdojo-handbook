@@ -13,7 +13,15 @@
       }
     },
     "T-SDH-BIZ-010": {
-      "state": "todo"
+      "state": "doing",
+      "last_ts": "2026-03-22T00:36:53Z",
+      "last_by": "agent-test",
+      "last_type": "claim",
+      "last_msg": "test claim",
+      "meta": {
+        "claim_owner": "BA",
+        "planned_owner": "BA"
+      }
     },
     "T-SDH-BIZ-011-INS": {
       "state": "todo"

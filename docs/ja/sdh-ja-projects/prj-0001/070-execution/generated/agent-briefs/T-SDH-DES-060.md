@@ -34,18 +34,11 @@ secondary_paths:
 - docs/ja/handbook/templates/tsd-input-template.md
 - docs/ja/handbook/samples/tsd-sample.md
 
-family_scope:
-
-- docs/ja/handbook/rules/tsd-rules.md
-- docs/ja/handbook/instructions/tsd-instruction.md
-- docs/ja/handbook/templates/tsd-input-template.md
-- docs/ja/handbook/samples/tsd-sample.md
-
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `4`
-- fifo_rank: `7`
+- critical_first_rank: `3`
+- fifo_rank: `6`
 - urgency: 遅延余裕あり（slack=1.75）。
 - CPM: `ES=0, EF=0.5, LS=1.75, LF=2.25, slack=1.75`
 

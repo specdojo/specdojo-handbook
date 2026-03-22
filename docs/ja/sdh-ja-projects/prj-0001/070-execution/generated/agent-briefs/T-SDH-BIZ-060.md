@@ -34,18 +34,11 @@ secondary_paths:
 - docs/ja/handbook/templates/gl-input-template.md
 - docs/ja/handbook/samples/gl-sample.md
 
-family_scope:
-
-- docs/ja/handbook/rules/gl-rules.md
-- docs/ja/handbook/instructions/gl-instruction.md
-- docs/ja/handbook/templates/gl-input-template.md
-- docs/ja/handbook/samples/gl-sample.md
-
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `9`
-- fifo_rank: `3`
+- critical_first_rank: `8`
+- fifo_rank: `2`
 - urgency: 遅延余裕あり（slack=3.5）。
 - CPM: `ES=0, EF=0.5, LS=3.5, LF=4, slack=3.5`
 

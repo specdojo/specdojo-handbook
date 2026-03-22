@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
-import { extname, join } from 'node:path'
+import { dirname, extname, join } from 'node:path'
 import { load } from 'js-yaml'
 
 type CpmNode = {
@@ -26,6 +26,8 @@ type CatalogRow = {
   kind: 'task' | 'milestone'
   owner: string
   what: string
+  primaryPaths: string[]
+  secondaryPaths: string[]
   dependsOn: string[]
   durationDays: number
   scheduleFile: string
@@ -35,6 +37,15 @@ type CatalogRow = {
   lf: string
   slack: string
   state: string
+}
+
+type WbsDoc = {
+  wbs?: Array<{
+    id?: string
+    deliverables?: Array<{
+      path?: string
+    }>
+  }>
 }
 
 function parseArgs(argv: string[]): { schedulePath: string; executionPath: string } {
@@ -80,6 +91,13 @@ function isScheduleYaml(filePath: string): boolean {
   return /^sch-.+\.ya?ml$/i.test(base)
 }
 
+function isWbsYaml(filePath: string): boolean {
+  const base = filePath.split('/').pop() ?? filePath
+  const ext = extname(base).toLowerCase()
+  if (ext !== '.yaml' && ext !== '.yml') return false
+  return /^wbs-.+\.ya?ml$/i.test(base)
+}
+
 function safeString(value: unknown): string {
   if (typeof value !== 'string') return ''
   return value.trim()
@@ -114,9 +132,83 @@ function readJsonFile<T>(filePath: string, fallback: T): T {
   }
 }
 
+function wbsPathForSchedule(schedulePath: string): string {
+  return join(dirname(schedulePath), '050-wbs')
+}
+
+function loadWbsDeliverables(schedulePath: string): Map<string, string[]> {
+  const out = new Map<string, string[]>()
+  const wbsPath = wbsPathForSchedule(schedulePath)
+
+  try {
+    const files = listFilesRecursive(wbsPath)
+      .filter(isWbsYaml)
+      .sort((a, b) => a.localeCompare(b))
+
+    for (const filePath of files) {
+      let doc: WbsDoc
+      try {
+        doc = load(readFileSync(filePath, 'utf8')) as WbsDoc
+      } catch {
+        continue
+      }
+
+      for (const item of Array.isArray(doc?.wbs) ? doc.wbs : []) {
+        const id = safeString(item?.id)
+        if (!id) continue
+        const deliverables = Array.isArray(item?.deliverables)
+          ? item.deliverables.map(entry => safeString(entry?.path)).filter(Boolean)
+          : []
+        out.set(id, deliverables)
+      }
+    }
+  } catch {
+    return out
+  }
+
+  return out
+}
+
+function selectPrimaryArtifactCandidates(
+  taskId: string,
+  tags: string[],
+  deliverables: string[]
+): string[] {
+  if (deliverables.length === 0) return []
+
+  if (taskId.endsWith('-INS')) {
+    const instructionPaths = deliverables.filter(path => path.includes('/instructions/'))
+    return instructionPaths.length > 0 ? instructionPaths : deliverables
+  }
+  if (taskId.endsWith('-TPL')) {
+    const templatePaths = deliverables.filter(path => path.includes('/templates/'))
+    return templatePaths.length > 0 ? templatePaths : deliverables
+  }
+  if (taskId.endsWith('-SMP')) {
+    const samplePaths = deliverables.filter(path => path.includes('/samples/'))
+    return samplePaths.length > 0 ? samplePaths : deliverables
+  }
+  if (tags.includes('rules-lifecycle')) {
+    const rulePaths = deliverables.filter(path => path.includes('/rules/'))
+    return rulePaths.length > 0 ? rulePaths : deliverables
+  }
+
+  return deliverables
+}
+
+function selectSecondaryArtifactCandidates(
+  deliverables: string[],
+  primaryPaths: string[]
+): string[] {
+  if (deliverables.length === 0) return []
+  const primarySet = new Set(primaryPaths)
+  return deliverables.filter(path => !primarySet.has(path))
+}
+
 function buildRows(schedulePath: string, generatedDir: string): CatalogRow[] {
   const cpm = readJsonFile<CpmJson>(join(generatedDir, 'cpm.json'), {})
   const state = readJsonFile<StateJson>(join(generatedDir, 'state.json'), {})
+  const wbsDeliverables = loadWbsDeliverables(schedulePath)
 
   const cpmById = cpm.nodes ?? {}
   const stateById = state.tasks ?? {}
@@ -140,11 +232,18 @@ function buildRows(schedulePath: string, generatedDir: string): CatalogRow[] {
       const id = safeString(t?.id)
       if (!id) continue
       const cpmNode = cpmById[id]
+      const wbsId = safeString(t?.wbs)
+      const deliverables = wbsDeliverables.get(wbsId) ?? []
+      const tags = toArrayOfStrings(t?.tags)
+      const primaryPaths = selectPrimaryArtifactCandidates(id, tags, deliverables)
+      const secondaryPaths = selectSecondaryArtifactCandidates(deliverables, primaryPaths)
       rows.push({
         id,
         kind: 'task',
         owner: safeString(t?.owner) || '-',
         what: pickWhat(t),
+        primaryPaths,
+        secondaryPaths,
         dependsOn: toArrayOfStrings(t?.depends_on),
         durationDays: typeof t?.duration_days === 'number' ? t.duration_days : 0,
         scheduleFile: toScheduleFile(schedulePath, filePath),
@@ -166,6 +265,8 @@ function buildRows(schedulePath: string, generatedDir: string): CatalogRow[] {
         kind: 'milestone',
         owner: safeString(m?.owner) || '-',
         what: pickWhat(m),
+        primaryPaths: [],
+        secondaryPaths: [],
         dependsOn: toArrayOfStrings(m?.depends_on),
         durationDays: 0,
         scheduleFile: toScheduleFile(schedulePath, filePath),
@@ -196,13 +297,13 @@ function buildMarkdown(rows: CatalogRow[]): string {
   lines.push(`- total_items: \`${rows.length}\``)
   lines.push('')
   lines.push(
-    '| id | kind | owner | what | depends_on | dur | ES | EF | LS | LF | slack | state | schedule_file |'
+    '| id | kind | owner | what | primary_paths | secondary_paths | depends_on | dur | ES | EF | LS | LF | slack | state | schedule_file |'
   )
-  lines.push('|---|---|---|---|---|---:|---:|---:|---:|---:|---:|---|---|')
+  lines.push('|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|---:|---|---|')
 
   for (const r of rows) {
     lines.push(
-      `| \`${cleanupCell(r.id)}\` | ${r.kind} | ${cleanupCell(r.owner)} | ${cleanupCell(r.what)} | ${cleanupCell(r.dependsOn.join(', ')) || '-'} | ${r.durationDays} | ${r.es} | ${r.ef} | ${r.ls} | ${r.lf} | ${r.slack} | ${cleanupCell(r.state)} | ${cleanupCell(r.scheduleFile)} |`
+      `| \`${cleanupCell(r.id)}\` | ${r.kind} | ${cleanupCell(r.owner)} | ${cleanupCell(r.what)} | ${cleanupCell(r.primaryPaths.join(', ')) || '-'} | ${cleanupCell(r.secondaryPaths.join(', ')) || '-'} | ${cleanupCell(r.dependsOn.join(', ')) || '-'} | ${r.durationDays} | ${r.es} | ${r.ef} | ${r.ls} | ${r.lf} | ${r.slack} | ${cleanupCell(r.state)} | ${cleanupCell(r.scheduleFile)} |`
     )
   }
 

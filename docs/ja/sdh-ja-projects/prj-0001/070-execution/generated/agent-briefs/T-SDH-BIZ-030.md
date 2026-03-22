@@ -34,18 +34,11 @@ secondary_paths:
 - docs/ja/handbook/templates/bdd-input-template.md
 - docs/ja/handbook/samples/bdd-sample.md
 
-family_scope:
-
-- docs/ja/handbook/rules/bdd-rules.md
-- docs/ja/handbook/instructions/bdd-instruction.md
-- docs/ja/handbook/templates/bdd-input-template.md
-- docs/ja/handbook/samples/bdd-sample.md
-
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `7`
-- fifo_rank: `2`
+- critical_first_rank: `6`
+- fifo_rank: `1`
 - urgency: 遅延余裕あり（slack=2.75）。
 - CPM: `ES=0, EF=0.5, LS=2.75, LF=3.25, slack=2.75`
 

@@ -35,18 +35,11 @@ secondary_paths:
 
 - なし
 
-family_scope:
-
-- docs/ja/handbook/rules/meta-document-metadata-rules.md
-- docs/ja/handbook/rules/meta-id-and-file-naming-rules.md
-- docs/ja/handbook/rules/meta-rulebook-structure-rules.md
-- docs/ja/handbook/rules/meta-test-document-scope-rules.md
-
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `11`
-- fifo_rank: `8`
+- critical_first_rank: `10`
+- fifo_rank: `7`
 - urgency: 遅延余裕あり（slack=4）。
 - CPM: `ES=0, EF=0.75, LS=4, LF=4.75, slack=4`
 
