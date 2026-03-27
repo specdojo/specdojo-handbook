@@ -164,7 +164,7 @@ export function buildScheduleIndex(projectPath: string): ScheduleIndex {
     if (!doc || typeof doc !== 'object') continue
 
     const docKind = nonEmptyString(doc?.kind)
-    if (docKind === 'defaults') {
+    if (docKind === 'defaults' || docKind === 'agent_overrides') {
       continue
     }
     if (docKind !== 'schedule') {

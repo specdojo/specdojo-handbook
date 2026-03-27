@@ -1,0 +1,12 @@
+kind: agent_overrides
+version: 1
+project_id: prj-0001
+default_agent_mode: agent-ultra
+notes: Runtime overrides for dynamic agent execution mode changes by task progress.
+task_overrides:
+  - id: T-SDH-NFR-010
+    agent_mode: human-in-loop
+    notes: Enable manual checkpoint for initial domain index kickoff.
+  - id: T-SDH-NFR-061-SMP
+    agent_mode: agent-ultra
+    notes: Keep derivative sample generation fully automated.

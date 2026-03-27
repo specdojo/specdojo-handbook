@@ -2,6 +2,7 @@
   "schema_version": 1,
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "schedule_files": [
+    "sch-agent-overrides.yaml",
     "sch-business.yaml",
     "sch-design.yaml",
     "sch-governance.yaml",

@@ -4,10 +4,11 @@ project_id: prj-0001
 schedule_level: domain
 domain: nfr
 assigned_team: specdojo-handbook
+default_agent_mode: agent-ultra
 settings:
   finish_milestone_id: M-SDH-NFR-900
   notes: |-
-    非機能要件ドメインスケジュール。 NFR インデックスが全個別 NFR ルールの前提。 Agent-Ultra前提で中間承認を省略可能とし、最終承認で一括確定する。
+    非機能要件ドメインスケジュール。 NFR インデックスが全個別 NFR ルールの前提。
 tasks:
   - id: T-SDH-NFR-010
     wbs: WBS-NFR-INDEX-010
@@ -20,47 +21,43 @@ tasks:
       - nfr
       - rules-lifecycle
       - index
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-INDEX-010
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
       - index
-      - agent-ultra
     id: T-SDH-NFR-011-INS
     name: NFR インデックスの起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-010
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-INDEX-010
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
       - index
-      - agent-ultra
     id: T-SDH-NFR-011-TPL
     name: NFR インデックスの起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-011-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-INDEX-010
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
       - index
-      - agent-ultra
     id: T-SDH-NFR-011-SMP
     name: NFR インデックスの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-011-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-020
     wbs: WBS-NFR-AVAIL-020
     name: 可用性要件ルールの起草・レビュー
@@ -71,44 +68,40 @@ tasks:
     tags:
       - nfr
       - rules-lifecycle
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-AVAIL-020
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-021-INS
     name: 可用性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-020
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-AVAIL-020
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-021-TPL
     name: 可用性要件の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-021-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-AVAIL-020
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-021-SMP
     name: 可用性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-021-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-030
     wbs: WBS-NFR-INTEG-030
     name: 完全性要件ルールの起草・レビュー
@@ -119,44 +112,40 @@ tasks:
     tags:
       - nfr
       - rules-lifecycle
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-INTEG-030
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-031-INS
     name: 完全性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-030
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-INTEG-030
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-031-TPL
     name: 完全性要件の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-031-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-INTEG-030
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-031-SMP
     name: 完全性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-031-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-040
     wbs: WBS-NFR-MAINT-040
     name: 保守性要件ルールの起草・レビュー
@@ -167,44 +156,40 @@ tasks:
     tags:
       - nfr
       - rules-lifecycle
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-MAINT-040
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-041-INS
     name: 保守性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-040
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-MAINT-040
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-041-TPL
     name: 保守性要件の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-041-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-MAINT-040
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-041-SMP
     name: 保守性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-041-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-050
     wbs: WBS-NFR-OPS-050
     name: 運用性要件ルールの起草・レビュー
@@ -215,44 +200,40 @@ tasks:
     tags:
       - nfr
       - rules-lifecycle
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-OPS-050
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-051-INS
     name: 運用性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-050
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-OPS-050
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-051-TPL
     name: 運用性要件の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-051-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-OPS-050
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-051-SMP
     name: 運用性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-051-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-060
     wbs: WBS-NFR-PERF-060
     name: 性能要件ルールの起草・レビュー
@@ -263,44 +244,40 @@ tasks:
     tags:
       - nfr
       - rules-lifecycle
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-PERF-060
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-061-INS
     name: 性能要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-060
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-PERF-060
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-061-TPL
     name: 性能要件の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-061-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-PERF-060
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-061-SMP
     name: 性能要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-061-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-070
     wbs: WBS-NFR-RELY-070
     name: 信頼性要件ルールの起草・レビュー
@@ -311,44 +288,40 @@ tasks:
     tags:
       - nfr
       - rules-lifecycle
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-RELY-070
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-071-INS
     name: 信頼性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-070
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-RELY-070
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-071-TPL
     name: 信頼性要件の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-071-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-RELY-070
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-071-SMP
     name: 信頼性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-071-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-080
     wbs: WBS-NFR-SEC-080
     name: セキュリティ・安全性要件ルールの起草・レビュー
@@ -359,44 +332,40 @@ tasks:
     tags:
       - nfr
       - rules-lifecycle
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-SEC-080
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-081-INS
     name: セキュリティ・安全性要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-080
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-SEC-080
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-081-TPL
     name: セキュリティ・安全性要件の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-081-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-SEC-080
     owner: QE
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-081-SMP
     name: セキュリティ・安全性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-081-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-090
     wbs: WBS-NFR-USAB-090
     name: ユーザビリティ要件ルールの起草・レビュー
@@ -407,44 +376,40 @@ tasks:
     tags:
       - nfr
       - rules-lifecycle
-      - agent-ultra
-    notes: "Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
+    notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-USAB-090
     owner: BA
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-091-INS
     name: ユーザビリティ要件の起草・レビュー instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-090
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-USAB-090
     owner: BA
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-091-TPL
     name: ユーザビリティ要件の起草・レビュー input-template.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-091-INS
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - wbs: WBS-NFR-USAB-090
     owner: BA
     tags:
       - nfr
       - derivatives-lifecycle
-      - agent-ultra
     id: T-SDH-NFR-091-SMP
     name: ユーザビリティ要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
       - T-SDH-NFR-091-TPL
-    notes: "Agent-Ultra: Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
+    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
 milestones:
   - id: M-SDH-NFR-900
     name: 非機能要件ドメイン完了

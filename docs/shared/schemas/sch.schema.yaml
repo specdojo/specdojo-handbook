@@ -14,13 +14,12 @@ additionalProperties: false
 
 required:
   - kind
-  - settings
 
 properties:
   kind:
     type: string
-    description: "Document kind. schedule for schedule SSOT, defaults for schedule defaults file."
-    enum: ["schedule", "defaults"]
+    description: "Document kind. schedule for schedule SSOT, defaults for schedule defaults file, agent_overrides for runtime agent mode overrides."
+    enum: ["schedule", "defaults", "agent_overrides"]
     default: "schedule"
 
   version:
@@ -64,6 +63,18 @@ properties:
   settings:
     $ref: "#/$defs/SettingsOverride"
 
+  default_agent_mode:
+    $ref: "#/$defs/AgentMode"
+
+  task_overrides:
+    type: array
+    items:
+      $ref: "#/$defs/AgentTaskOverride"
+
+  notes:
+    type: string
+    description: "Optional file-level notes."
+
   tasks:
     type: array
     description: "Scheduled tasks (duration-based)."
@@ -86,6 +97,7 @@ allOf:
       required:
         - version
         - project_id
+        - settings
         - schedule_level
       oneOf:
         - $ref: "#/$defs/MilestonesLevel"
@@ -98,6 +110,13 @@ allOf:
       required: [kind]
     then:
       $ref: "#/$defs/DefaultsKind"
+  - if:
+      properties:
+        kind:
+          const: agent_overrides
+      required: [kind]
+    then:
+      $ref: "#/$defs/AgentOverridesKind"
 
 $defs:
   Owner:
@@ -245,6 +264,75 @@ $defs:
           required: [tasks]
       - not:
           required: [milestones]
+      - not:
+          required: [default_agent_mode]
+      - not:
+          required: [task_overrides]
+
+  AgentMode:
+    type: string
+    minLength: 1
+    description: "Agent execution mode (e.g., agent-ultra, human-in-loop)."
+
+  AgentTaskOverride:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - agent_mode
+    properties:
+      id:
+        $ref: "#/$defs/Id"
+      agent_mode:
+        $ref: "#/$defs/AgentMode"
+      notes:
+        type: string
+        description: "Optional rationale for the override."
+
+  AgentOverridesKind:
+    type: object
+    additionalProperties: false
+    required:
+      - kind
+      - version
+      - project_id
+      - task_overrides
+    properties:
+      kind:
+        const: agent_overrides
+      version:
+        type: integer
+        minimum: 1
+      project_id:
+        type: string
+        minLength: 1
+      default_agent_mode:
+        $ref: "#/$defs/AgentMode"
+      task_overrides:
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/AgentTaskOverride"
+      notes:
+        type: string
+        description: "Optional file-level notes."
+    allOf:
+      - not:
+          required: [schedule_level]
+      - not:
+          required: [domain]
+      - not:
+          required: [container]
+      - not:
+          required: [assigned_team]
+      - not:
+          required: [calendar]
+      - not:
+          required: [settings]
+      - not:
+          required: [tasks]
+      - not:
+          required: [milestones]
 
   Settings:
     type: object
@@ -373,6 +461,10 @@ $defs:
           required: ["domain"]
       - not:
           required: ["container"]
+      - not:
+          required: ["default_agent_mode"]
+      - not:
+          required: ["task_overrides"]
     $comment: >
       Milestones plan: require milestones.
       Tasks are optional; if used, keep them coarse and treat as summary tasks.
@@ -395,6 +487,8 @@ $defs:
     allOf:
       - not:
           required: ["container"]
+      - not:
+          required: ["task_overrides"]
     $comment: >
       Domain summary plan: require domain + tasks.
       container must be omitted here.
@@ -414,5 +508,8 @@ $defs:
         minItems: 1
         items:
           $ref: "#/$defs/Task"
+    allOf:
+      - not:
+          required: ["task_overrides"]
     $comment: >
       Container-level detailed plan: require domain + container + tasks.

@@ -19,8 +19,8 @@
 ## 2. 実施内容
 
 - primary_goal: テスト戦略・計画ルールの起草・レビュー
-- schedule_notes: Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
-- tags: `quality`, `rules-lifecycle`, `test-planning`, `agent-ultra`
+- schedule_notes: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
+- tags: `quality`, `rules-lifecycle`, `test-planning`
 
 ## 3. 対象成果物候補
 

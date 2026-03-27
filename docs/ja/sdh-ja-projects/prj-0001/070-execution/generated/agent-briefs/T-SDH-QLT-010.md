@@ -19,8 +19,8 @@
 ## 2. 実施内容
 
 - primary_goal: システム受入条件ルールの起草・レビュー
-- schedule_notes: Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
-- tags: `quality`, `rules-lifecycle`, `acceptance`, `agent-ultra`
+- schedule_notes: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
+- tags: `quality`, `rules-lifecycle`, `acceptance`
 
 ## 3. 対象成果物候補
 

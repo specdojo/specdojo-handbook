@@ -1,3 +1,8 @@
+---
+name: rules-to-input
+description: `docs/ja/handbook/rules` の更新内容を、`docs/ja/handbook/templates` の `*-input-template.md` へ反映するための Skill です。
+---
+
 # SKILL: rules-to-input
 
 `docs/ja/handbook/rules` の更新内容を、

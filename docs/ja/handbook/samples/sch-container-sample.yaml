@@ -19,7 +19,7 @@ tasks:
     name: "認証：設計（要約）"
     duration_days: 5
     depends_on: [M-100] # 大日程ゲートを参照してOK（クロスファイル参照）
-    owner: EN
+    owner: ARC
     tags: ["summary"]
     notes: "詳細は container スケジュールを参照"
 
@@ -28,7 +28,7 @@ tasks:
     name: "認証：実装（要約）"
     duration_days: 10
     depends_on: [T-AUTH-100]
-    owner: EN
+    owner: ARC
     tags: ["summary"]
 
   - id: T-AUTH-300
@@ -36,7 +36,7 @@ tasks:
     name: "認証：テスト（要約）"
     duration_days: 5
     depends_on: [T-AUTH-200]
-    owner: EN
+    owner: ARC
     tags: ["summary"]
 
 milestones:

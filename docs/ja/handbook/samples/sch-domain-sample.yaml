@@ -18,28 +18,28 @@ tasks:
     name: "API：設計"
     duration_days: 3
     depends_on: [M-100] # 例：要件確定後に開始
-    owner: EN
+    owner: ARC
 
   - id: T-AUTH-API-020
     wbs: WBS-AUTH-010
     name: "API：実装"
     duration_days: 7
     depends_on: [T-AUTH-API-010]
-    owner: EN
+    owner: ARC
 
   - id: T-AUTH-API-030
     wbs: WBS-AUTH-010
     name: "API：単体テスト"
     duration_days: 3
     depends_on: [T-AUTH-API-020]
-    owner: EN
+    owner: ARC
 
   - id: T-AUTH-API-040
     wbs: WBS-AUTH-010
     name: "API：結合テスト（認証）"
     duration_days: 2
     depends_on: [T-AUTH-API-030, T-AUTH-WEB-020] # 例：別containerに依存
-    owner: EN
+    owner: ARC
     notes: "クロスcontainer依存の例"
 
 milestones:

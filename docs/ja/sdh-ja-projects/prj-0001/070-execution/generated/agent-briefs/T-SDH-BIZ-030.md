@@ -19,8 +19,8 @@
 ## 2. 実施内容
 
 - primary_goal: 業務データディクショナリルールの起草・レビュー
-- schedule_notes: Agent-Ultra: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
-- tags: `business`, `rules-lifecycle`, `agent-ultra`
+- schedule_notes: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
+- tags: `business`, `rules-lifecycle`
 
 ## 3. 対象成果物候補
 

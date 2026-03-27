@@ -1,3 +1,8 @@
+---
+name: rules-lifecycle
+description: `*-rules.md` の作成からその派生成果物（instruction / input-template）の作成までを、エージェントと人間のレビューサイクルで進めるワークフロー Skill です。
+---
+
 # SKILL: rules-lifecycle
 
 `*-rules.md` の作成からその派生成果物（instruction / input-template）の作成までを、
