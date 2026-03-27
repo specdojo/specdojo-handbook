@@ -5,7 +5,7 @@ default_agent_mode: agent-ultra
 notes: Runtime overrides for dynamic agent execution mode changes by task progress.
 task_overrides:
   - id: T-SDH-NFR-010
-    agent_mode: human-in-loop
+    agent_mode: manual
     notes: Enable manual checkpoint for initial domain index kickoff.
   - id: T-SDH-NFR-061-SMP
     agent_mode: agent-ultra

@@ -36,27 +36,35 @@ dojo exec build --project <project-id>
 この Skill では、プロジェクト標準の `PO / BA / ARC / QE` をそのまま使い、
 実行モードに応じて「誰が実行するか（人 / Agent）」を切り替える。
 
-| ラベル | 主な責務                                           | Standard モード | Agent-Max モード                  |
-| ------ | -------------------------------------------------- | --------------- | --------------------------------- |
-| `PO`   | フェーズゲート判断、最終承認、進行可否の決定       | **人**          | **人**                            |
-| `BA`   | 内容妥当性の修正、業務観点の追記・調整             | **人**          | **Agent（必要時のみ人レビュー）** |
-| `ARC`  | rules/derivatives の下書き作成、構造・整合レビュー | **Agent**       | **Agent**                         |
-| `QE`   | lint・禁止事項・責務境界の品質確認                 | **Agent**       | **Agent**                         |
+| ラベル | 主な責務                                           | Manual モード | Standard モード | Agent-Max モード                  |
+| ------ | -------------------------------------------------- | ------------- | --------------- | --------------------------------- |
+| `PO`   | フェーズゲート判断、最終承認、進行可否の決定       | **人**        | **人**          | **人**                            |
+| `BA`   | 内容妥当性の修正、業務観点の追記・調整             | **人**        | **人**          | **Agent（必要時のみ人レビュー）** |
+| `ARC`  | rules/derivatives の下書き作成、構造・整合レビュー | **Agent**     | **Agent**       | **Agent**                         |
+| `QE`   | lint・禁止事項・責務境界の品質確認                 | **Agent**     | **Agent**       | **Agent**                         |
 
 ### 運用ルール
 
 - `PO` は常に人が担当する（承認と意思決定は人のみ）。
 - `ARC` と `QE` は Agent が担当する（同一 Agent が兼務してよい）。
-- `BA` は Standard では人、Agent-Max では Agent へ委譲できる。
+- `BA` は Manual / Standard では人、Agent-Max では Agent へ委譲できる。
+- Manual では Agent 実行ステップ（①③⑤⑥）ごとに人が完了確認する。
 - Agent-Max でも、Phase 終了判定と `status: ready` 反映は `PO` の承認後に行う。
 
 ### 実行モード
 
-| モード        | 意図                          | 人が介在するポイント                     |
-| ------------- | ----------------------------- | ---------------------------------------- |
-| `Standard`    | バランス重視                  | ②修正、④承認、⑦承認                      |
-| `Agent-Max`   | 可能な限り Agent に委譲       | ④承認、⑦承認（必要時のみ ②で人レビュー） |
-| `Agent-Ultra` | 人の介在を最終承認1回まで圧縮 | 最終承認のみ（⑦で一括）                  |
+| モード名      | スキーマ値    | 意図                                | 人が介在するポイント                     |
+| ------------- | ------------- | ----------------------------------- | ---------------------------------------- |
+| `Manual`      | `manual`      | Agent 実行を1ステップごとに確認する | ①③⑤⑥の完了確認 + ②修正 + ④承認 + ⑦承認   |
+| `Standard`    | `standard`    | バランス重視                        | ②修正、④承認、⑦承認                      |
+| `Agent-Max`   | `agent-max`   | 可能な限り Agent に委譲             | ④承認、⑦承認（必要時のみ ②で人レビュー） |
+| `Agent-Ultra` | `agent-ultra` | 人の介在を最終承認1回まで圧縮       | 最終承認のみ（⑦で一括）                  |
+
+### Manual のゲート運用
+
+- ①③⑤⑥の各ステップで、Agent 出力を人がその都度確認してから次へ進む。
+- ②④⑦は Standard と同様に人が実施する。
+- 進捗ログには `manual-step-check` を含むメッセージを推奨する。
 
 ### Agent-Ultra のゲート運用
 
@@ -93,15 +101,15 @@ Phase 1 (rules)                Phase 2 (derivatives)
 
 ### ステップ別担当（役割ラベル × 人/Agent）
 
-| ステップ | 作業                        | 主担当ラベル | Standard | Agent-Max             | Agent-Ultra         |
-| -------- | --------------------------- | ------------ | -------- | --------------------- | ------------------- |
-| ①        | agent draft (rules)         | `ARC`        | Agent    | Agent                 | Agent               |
-| ②        | modify (rules)              | `BA`         | 人       | Agent（必要時のみ人） | Agent               |
-| ③        | agent review (rules)        | `QE`         | Agent    | Agent                 | Agent               |
-| ④        | human approve (rules)       | `PO`         | 人       | 人                    | スキップ            |
-| ⑤        | agent draft (derivatives)   | `ARC`        | Agent    | Agent                 | Agent               |
-| ⑥        | agent review (derivatives)  | `QE`         | Agent    | Agent                 | Agent               |
-| ⑦        | human approve (derivatives) | `PO`         | 人       | 人                    | 人（rules含め一括） |
+| ステップ | 作業                        | 主担当ラベル | Manual              | Standard | Agent-Max             | Agent-Ultra         |
+| -------- | --------------------------- | ------------ | ------------------- | -------- | --------------------- | ------------------- |
+| ①        | agent draft (rules)         | `ARC`        | Agent（都度人確認） | Agent    | Agent                 | Agent               |
+| ②        | modify (rules)              | `BA`         | 人                  | 人       | Agent（必要時のみ人） | Agent               |
+| ③        | agent review (rules)        | `QE`         | Agent（都度人確認） | Agent    | Agent                 | Agent               |
+| ④        | human approve (rules)       | `PO`         | 人                  | 人       | 人                    | スキップ            |
+| ⑤        | agent draft (derivatives)   | `ARC`        | Agent（都度人確認） | Agent    | Agent                 | Agent               |
+| ⑥        | agent review (derivatives)  | `QE`         | Agent（都度人確認） | Agent    | Agent                 | Agent               |
+| ⑦        | human approve (derivatives) | `PO`         | 人                  | 人       | 人                    | 人（rules含め一括） |
 
 - `BA` は ② で主担当、④/⑦ では `PO` の相談先（Consulted）として参加する。
 - `PO` は ①/③/⑤/⑥ のレビュー結果を確認し、次フェーズ進行可否を最終決定する。
@@ -120,7 +128,7 @@ Phase 1 (rules)                Phase 2 (derivatives)
 ### ② modify — ドラフト修正（人 / Agent）
 
 1. エージェントがドラフトの要約と改善ポイントを提示する
-2. Standard では人間が、Agent-Max では Agent が修正を実行する
+2. Manual / Standard では人間が、Agent-Max では Agent が修正を実行する
 3. 修正が完了したら、エージェントレビュー（③）に進む
 
 **完了条件**: 修正差分が反映され、③へ進める状態であること

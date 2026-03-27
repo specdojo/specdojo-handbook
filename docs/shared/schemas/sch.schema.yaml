@@ -271,8 +271,8 @@ $defs:
 
   AgentMode:
     type: string
-    minLength: 1
-    description: "Agent execution mode (e.g., agent-ultra, human-in-loop)."
+    description: "Agent execution mode. manual requires step-by-step human confirmation."
+    enum: ["manual", "standard", "agent-max", "agent-ultra"]
 
   AgentTaskOverride:
     type: object
