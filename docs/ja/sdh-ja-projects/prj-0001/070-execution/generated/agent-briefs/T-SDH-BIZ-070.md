@@ -35,11 +35,8 @@ secondary_paths:
 - docs/ja/handbook/instructions/cld-instruction.md
 - docs/ja/handbook/instructions/stsd-instruction.md
 - docs/ja/handbook/instructions/sld-instruction.md
-- docs/ja/handbook/templates/cld-input-template.md
 - docs/ja/handbook/samples/cld-sample.md
-- docs/ja/handbook/templates/stsd-input-template.md
 - docs/ja/handbook/samples/stsd-sample.md
-- docs/ja/handbook/templates/sld-input-template.md
 - docs/ja/handbook/samples/sld-sample.md
 
 ## 4. 依存と優先度
@@ -47,13 +44,13 @@ secondary_paths:
 - depends_on: `M-SDH-100`
 - critical_first_rank: `7`
 - fifo_rank: `3`
-- urgency: 遅延余裕あり（slack=3）。
-- CPM: `ES=0, EF=1, LS=3, LF=4, slack=3`
+- urgency: 遅延余裕あり（slack=2.75）。
+- CPM: `ES=0, EF=1, LS=2.75, LF=3.75, slack=2.75`
 
 ## 5. 実行ガイド
 
 1. 対象 task を claim する。
-2. 対応する rules / instruction / input-template / sample の対象を特定する。
+2. 対応する rules / instruction / sample の対象を特定する。
 3. task 名と notes に沿って成果物を更新する。
 4. 必要な検証と lint を実行する。
 5. 完了時のみ complete、問題があれば block を記録する。

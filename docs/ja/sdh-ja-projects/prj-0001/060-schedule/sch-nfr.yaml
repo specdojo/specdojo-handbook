@@ -40,23 +40,11 @@ tasks:
       - nfr
       - derivatives-lifecycle
       - index
-    id: T-SDH-NFR-011-TPL
-    name: NFR インデックスの起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-011-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-INDEX-010
-    owner: QE
-    tags:
-      - nfr
-      - derivatives-lifecycle
-      - index
     id: T-SDH-NFR-011-SMP
     name: NFR インデックスの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-011-TPL
+      - T-SDH-NFR-011-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-020
     wbs: WBS-NFR-AVAIL-020
@@ -85,22 +73,11 @@ tasks:
     tags:
       - nfr
       - derivatives-lifecycle
-    id: T-SDH-NFR-021-TPL
-    name: 可用性要件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-021-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-AVAIL-020
-    owner: QE
-    tags:
-      - nfr
-      - derivatives-lifecycle
     id: T-SDH-NFR-021-SMP
     name: 可用性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-021-TPL
+      - T-SDH-NFR-021-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-030
     wbs: WBS-NFR-INTEG-030
@@ -129,22 +106,11 @@ tasks:
     tags:
       - nfr
       - derivatives-lifecycle
-    id: T-SDH-NFR-031-TPL
-    name: 完全性要件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-031-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-INTEG-030
-    owner: QE
-    tags:
-      - nfr
-      - derivatives-lifecycle
     id: T-SDH-NFR-031-SMP
     name: 完全性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-031-TPL
+      - T-SDH-NFR-031-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-040
     wbs: WBS-NFR-MAINT-040
@@ -173,22 +139,11 @@ tasks:
     tags:
       - nfr
       - derivatives-lifecycle
-    id: T-SDH-NFR-041-TPL
-    name: 保守性要件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-041-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-MAINT-040
-    owner: QE
-    tags:
-      - nfr
-      - derivatives-lifecycle
     id: T-SDH-NFR-041-SMP
     name: 保守性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-041-TPL
+      - T-SDH-NFR-041-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-050
     wbs: WBS-NFR-OPS-050
@@ -217,22 +172,11 @@ tasks:
     tags:
       - nfr
       - derivatives-lifecycle
-    id: T-SDH-NFR-051-TPL
-    name: 運用性要件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-051-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-OPS-050
-    owner: QE
-    tags:
-      - nfr
-      - derivatives-lifecycle
     id: T-SDH-NFR-051-SMP
     name: 運用性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-051-TPL
+      - T-SDH-NFR-051-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-060
     wbs: WBS-NFR-PERF-060
@@ -261,22 +205,11 @@ tasks:
     tags:
       - nfr
       - derivatives-lifecycle
-    id: T-SDH-NFR-061-TPL
-    name: 性能要件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-061-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-PERF-060
-    owner: QE
-    tags:
-      - nfr
-      - derivatives-lifecycle
     id: T-SDH-NFR-061-SMP
     name: 性能要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-061-TPL
+      - T-SDH-NFR-061-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-070
     wbs: WBS-NFR-RELY-070
@@ -305,22 +238,11 @@ tasks:
     tags:
       - nfr
       - derivatives-lifecycle
-    id: T-SDH-NFR-071-TPL
-    name: 信頼性要件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-071-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-RELY-070
-    owner: QE
-    tags:
-      - nfr
-      - derivatives-lifecycle
     id: T-SDH-NFR-071-SMP
     name: 信頼性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-071-TPL
+      - T-SDH-NFR-071-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-080
     wbs: WBS-NFR-SEC-080
@@ -349,22 +271,11 @@ tasks:
     tags:
       - nfr
       - derivatives-lifecycle
-    id: T-SDH-NFR-081-TPL
-    name: セキュリティ・安全性要件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-081-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-SEC-080
-    owner: QE
-    tags:
-      - nfr
-      - derivatives-lifecycle
     id: T-SDH-NFR-081-SMP
     name: セキュリティ・安全性要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-081-TPL
+      - T-SDH-NFR-081-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-NFR-090
     wbs: WBS-NFR-USAB-090
@@ -393,22 +304,11 @@ tasks:
     tags:
       - nfr
       - derivatives-lifecycle
-    id: T-SDH-NFR-091-TPL
-    name: ユーザビリティ要件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-NFR-091-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-NFR-USAB-090
-    owner: BA
-    tags:
-      - nfr
-      - derivatives-lifecycle
     id: T-SDH-NFR-091-SMP
     name: ユーザビリティ要件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-NFR-091-TPL
+      - T-SDH-NFR-091-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
 milestones:
   - id: M-SDH-NFR-900

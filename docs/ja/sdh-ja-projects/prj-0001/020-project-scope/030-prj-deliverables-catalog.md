@@ -14,7 +14,7 @@ Project Deliverables Catalog
 
 ### 1.1. 成果物種別
 
-本プロジェクトの成果物は以下の 4 種別で構成されます。
+本プロジェクトの成果物は以下の 3 種別で構成されます。
 
 <!-- prettier-ignore -->
 | 成果物種別 | 生成元 | 配置先 | 説明 |
@@ -22,18 +22,16 @@ Project Deliverables Catalog
 | rules | 手動作成 | `docs/ja/handbook/rules/` | 各ドキュメントの作成ルール本体（SSOT） |
 | instruction | rules から派生 | `docs/ja/handbook/instructions/` | rules を生成 AI 向けの実行指示として再構成したテンプレート |
 | sample | rules から派生 | `docs/ja/handbook/samples/` | rules に準拠した最小の記述例 |
-| input template | rules から派生 | `docs/ja/handbook/templates/` | 清書前に人間が情報を整理するための入力シート |
 
 ### 1.2. 派生関係と命名規則
 
-1 つの rules から 3 つの派生成果物が生成されます。`meta-*-rules.md` は派生対象外です。
+1 つの rules から 2 つの派生成果物が生成されます。`meta-*-rules.md` は派生対象外です。
 
 <!-- prettier-ignore -->
 | rules 側ファイル | 派生成果物 |
 | --- | --- |
 | `<name>-rules.md` | `<name>-instruction.md` |
 | `<name>-rules.md` | `<name>-sample.md` |
-| `<name>-rules.md` | `<name>-input-template.md` |
 
 ## 2. プロジェクト関連
 

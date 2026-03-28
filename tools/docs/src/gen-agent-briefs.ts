@@ -166,7 +166,6 @@ function relativeScheduleFile(schedulePath: string, filePath: string): string {
 
 function inferArtifactKind(taskId: string, tags: string[]): string {
   if (taskId.endsWith('-INS')) return 'instruction の起草・レビュー'
-  if (taskId.endsWith('-TPL')) return 'input-template の起草・レビュー'
   if (taskId.endsWith('-SMP')) return 'sample の起草・レビュー'
   if (tags.includes('rules-lifecycle')) return 'rules の起草・レビュー'
   if (tags.includes('derivatives-lifecycle')) return '派生成果物の起草・レビュー'
@@ -216,10 +215,6 @@ function selectArtifactCandidates(detail: TaskDetail): string[] {
   if (detail.id.endsWith('-INS')) {
     const instructionPaths = deliverables.filter(path => path.includes('/instructions/'))
     return instructionPaths.length > 0 ? instructionPaths : deliverables
-  }
-  if (detail.id.endsWith('-TPL')) {
-    const templatePaths = deliverables.filter(path => path.includes('/templates/'))
-    return templatePaths.length > 0 ? templatePaths : deliverables
   }
   if (detail.id.endsWith('-SMP')) {
     const samplePaths = deliverables.filter(path => path.includes('/samples/'))
@@ -380,7 +375,7 @@ function buildBriefMarkdown(
   lines.push('## 5. 実行ガイド')
   lines.push('')
   lines.push('1. 対象 task を claim する。')
-  lines.push('2. 対応する rules / instruction / input-template / sample の対象を特定する。')
+  lines.push('2. 対応する rules / instruction / sample の対象を特定する。')
   lines.push('3. task 名と notes に沿って成果物を更新する。')
   lines.push('4. 必要な検証と lint を実行する。')
   lines.push('5. 完了時のみ complete、問題があれば block を記録する。')

@@ -37,13 +37,9 @@ secondary_paths:
 - docs/ja/handbook/instructions/ifx-api-instruction.md
 - docs/ja/handbook/instructions/ifx-file-instruction.md
 - docs/ja/handbook/instructions/ifx-msg-instruction.md
-- docs/ja/handbook/templates/ifx-input-template.md
 - docs/ja/handbook/samples/ifx-sample.md
-- docs/ja/handbook/templates/ifx-api-input-template.md
 - docs/ja/handbook/samples/ifx-api-sample.md
-- docs/ja/handbook/templates/ifx-file-input-template.md
 - docs/ja/handbook/samples/ifx-file-sample.md
-- docs/ja/handbook/templates/ifx-msg-input-template.md
 - docs/ja/handbook/samples/ifx-msg-sample.md
 
 ## 4. 依存と優先度
@@ -57,7 +53,7 @@ secondary_paths:
 ## 5. 実行ガイド
 
 1. 対象 task を claim する。
-2. 対応する rules / instruction / input-template / sample の対象を特定する。
+2. 対応する rules / instruction / sample の対象を特定する。
 3. task 名と notes に沿って成果物を更新する。
 4. 必要な検証と lint を実行する。
 5. 完了時のみ complete、問題があれば block を記録する。

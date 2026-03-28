@@ -8,7 +8,7 @@
 ## 対象の決定
 
 - 開いているファイルが `sample-gcs-product/` 配下、またはプロジェクト成果物の場合 → 成果物からの逆生成フローを適用する
-- 開いているファイルが `*-rules.md` / `*-instruction.md` / `*-sample.md` / `*-input-template.md` の場合 → `upsert-rules` プロンプトの対象のため、処理を中止し誘導する
+- 開いているファイルが `*-rules.md` / `*-instruction.md` / `*-sample.md` の場合 → `upsert-rules` プロンプトの対象のため、処理を中止し誘導する
 - 開いているファイルが `meta-*-rules.md` の場合 → 対象外として処理を中止する
 
 ## 対象ファイル → rules の特定

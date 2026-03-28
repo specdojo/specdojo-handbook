@@ -1,7 +1,7 @@
 {
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "project_start_date": "2026-03-16",
-  "project_duration_days": 4.75,
+  "project_duration_days": 4.25,
   "nodes": {
     "M-SDH-100": {
       "id": "M-SDH-100",
@@ -41,27 +41,11 @@
       "duration_days": 0.25,
       "es": 0.5,
       "ef": 0.75,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3.5,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 3.25,
       "depends_on": [
         "T-SDH-BIZ-010"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-011-TPL": {
-      "id": "T-SDH-BIZ-011-TPL",
-      "name": "業務プロセス仕様の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 0.75,
-      "ef": 1,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3.5,
-      "depends_on": [
-        "T-SDH-BIZ-011-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -71,13 +55,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1,
-      "ef": 1.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3.5,
+      "es": 0.75,
+      "ef": 1,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 3.25,
       "depends_on": [
-        "T-SDH-BIZ-011-TPL"
+        "T-SDH-BIZ-011-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -105,27 +89,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-020"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-021-TPL": {
-      "id": "T-SDH-BIZ-021-TPL",
-      "name": "ビジネスルールの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-BIZ-021-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -135,13 +103,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-BIZ-021-TPL"
+        "T-SDH-BIZ-021-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -153,9 +121,9 @@
       "duration_days": 0.5,
       "es": 0,
       "ef": 0.5,
-      "ls": 2.75,
-      "lf": 3.25,
-      "slack": 2.75,
+      "ls": 2.5,
+      "lf": 3,
+      "slack": 2.5,
       "depends_on": [
         "M-SDH-100"
       ],
@@ -169,27 +137,11 @@
       "duration_days": 0.25,
       "es": 0.5,
       "ef": 0.75,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3.5,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 3.25,
       "depends_on": [
         "T-SDH-BIZ-030"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-031-TPL": {
-      "id": "T-SDH-BIZ-031-TPL",
-      "name": "業務データディクショナリの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 0.75,
-      "ef": 1,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3.5,
-      "depends_on": [
-        "T-SDH-BIZ-031-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -199,13 +151,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1,
-      "ef": 1.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3.5,
+      "es": 0.75,
+      "ef": 1,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 3.25,
       "depends_on": [
-        "T-SDH-BIZ-031-TPL"
+        "T-SDH-BIZ-031-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -217,9 +169,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-030"
       ],
@@ -233,27 +185,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-040"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-041-TPL": {
-      "id": "T-SDH-BIZ-041-TPL",
-      "name": "帳票仕様の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-BIZ-041-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -263,13 +199,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-BIZ-041-TPL"
+        "T-SDH-BIZ-041-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -281,9 +217,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-010"
       ],
@@ -297,27 +233,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-050"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-051-TPL": {
-      "id": "T-SDH-BIZ-051-TPL",
-      "name": "画面仕様の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-BIZ-051-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -327,13 +247,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-BIZ-051-TPL"
+        "T-SDH-BIZ-051-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -345,9 +265,9 @@
       "duration_days": 0.5,
       "es": 0,
       "ef": 0.5,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3.5,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 3.25,
       "depends_on": [
         "M-SDH-100"
       ],
@@ -361,27 +281,11 @@
       "duration_days": 0.25,
       "es": 0.5,
       "ef": 0.75,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3.5,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 3.25,
       "depends_on": [
         "T-SDH-BIZ-060"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-061-TPL": {
-      "id": "T-SDH-BIZ-061-TPL",
-      "name": "用語集の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 0.75,
-      "ef": 1,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3.5,
-      "depends_on": [
-        "T-SDH-BIZ-061-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -391,13 +295,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1,
-      "ef": 1.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3.5,
+      "es": 0.75,
+      "ef": 1,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 3.25,
       "depends_on": [
-        "T-SDH-BIZ-061-TPL"
+        "T-SDH-BIZ-061-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -409,9 +313,9 @@
       "duration_days": 1,
       "es": 0,
       "ef": 1,
-      "ls": 3,
-      "lf": 4,
-      "slack": 3,
+      "ls": 2.75,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "M-SDH-100"
       ],
@@ -425,27 +329,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-070"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-071-TPL": {
-      "id": "T-SDH-BIZ-071-TPL",
-      "name": "リファレンスデータの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-BIZ-071-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -455,13 +343,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-BIZ-071-TPL"
+        "T-SDH-BIZ-071-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -497,9 +385,9 @@
       ],
       "schedule_file": "sch-business.yaml"
     },
-    "T-SDH-BIZ-081-TPL": {
-      "id": "T-SDH-BIZ-081-TPL",
-      "name": "業務イベント仕様の起草・レビュー input-template.md の起草・レビュー",
+    "T-SDH-BIZ-081-SMP": {
+      "id": "T-SDH-BIZ-081-SMP",
+      "name": "業務イベント仕様の起草・レビュー sample.md の起草・レビュー",
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
@@ -510,22 +398,6 @@
       "slack": 1,
       "depends_on": [
         "T-SDH-BIZ-081-INS"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-081-SMP": {
-      "id": "T-SDH-BIZ-081-SMP",
-      "name": "業務イベント仕様の起草・レビュー sample.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2.25,
-      "ef": 2.5,
-      "ls": 3.25,
-      "lf": 3.5,
-      "slack": 1,
-      "depends_on": [
-        "T-SDH-BIZ-081-TPL"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -561,9 +433,9 @@
       ],
       "schedule_file": "sch-business.yaml"
     },
-    "T-SDH-BIZ-091-TPL": {
-      "id": "T-SDH-BIZ-091-TPL",
-      "name": "概念データフローの起草・レビュー input-template.md の起草・レビュー",
+    "T-SDH-BIZ-091-SMP": {
+      "id": "T-SDH-BIZ-091-SMP",
+      "name": "概念データフローの起草・レビュー sample.md の起草・レビュー",
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
@@ -577,22 +449,6 @@
       ],
       "schedule_file": "sch-business.yaml"
     },
-    "T-SDH-BIZ-091-SMP": {
-      "id": "T-SDH-BIZ-091-SMP",
-      "name": "概念データフローの起草・レビュー sample.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 3,
-      "ef": 3.25,
-      "ls": 3.25,
-      "lf": 3.5,
-      "slack": 0.25,
-      "depends_on": [
-        "T-SDH-BIZ-091-TPL"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
     "T-SDH-BIZ-100": {
       "id": "T-SDH-BIZ-100",
       "name": "概念データストアルールの起草・レビュー",
@@ -601,9 +457,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-030"
       ],
@@ -617,27 +473,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-100"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-101-TPL": {
-      "id": "T-SDH-BIZ-101-TPL",
-      "name": "概念データストアの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-BIZ-101-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -647,13 +487,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-BIZ-101-TPL"
+        "T-SDH-BIZ-101-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -665,9 +505,9 @@
       "duration_days": 0.75,
       "es": 0.5,
       "ef": 1.25,
-      "ls": 3.25,
-      "lf": 4,
-      "slack": 2.75,
+      "ls": 3,
+      "lf": 3.75,
+      "slack": 2.5,
       "depends_on": [
         "T-SDH-BIZ-030"
       ],
@@ -681,27 +521,11 @@
       "duration_days": 0.25,
       "es": 1.25,
       "ef": 1.5,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 2.75,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.5,
       "depends_on": [
         "T-SDH-BIZ-110"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-111-TPL": {
-      "id": "T-SDH-BIZ-111-TPL",
-      "name": "概念状態遷移の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 2.75,
-      "depends_on": [
-        "T-SDH-BIZ-111-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -711,13 +535,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.75,
-      "ef": 2,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 2.75,
+      "es": 1.5,
+      "ef": 1.75,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.5,
       "depends_on": [
-        "T-SDH-BIZ-111-TPL"
+        "T-SDH-BIZ-111-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -729,9 +553,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-030"
       ],
@@ -745,27 +569,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-BIZ-120"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-121-TPL": {
-      "id": "T-SDH-BIZ-121-TPL",
-      "name": "概念クラス図の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-BIZ-121-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -775,13 +583,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-BIZ-121-TPL"
+        "T-SDH-BIZ-121-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -817,9 +625,9 @@
       ],
       "schedule_file": "sch-business.yaml"
     },
-    "T-SDH-BIZ-131-TPL": {
-      "id": "T-SDH-BIZ-131-TPL",
-      "name": "システム機能一覧の起草・レビュー input-template.md の起草・レビュー",
+    "T-SDH-BIZ-131-SMP": {
+      "id": "T-SDH-BIZ-131-SMP",
+      "name": "システム機能一覧の起草・レビュー sample.md の起草・レビュー",
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
@@ -833,32 +641,16 @@
       ],
       "schedule_file": "sch-business.yaml"
     },
-    "T-SDH-BIZ-131-SMP": {
-      "id": "T-SDH-BIZ-131-SMP",
-      "name": "システム機能一覧の起草・レビュー sample.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 3,
-      "ef": 3.25,
-      "ls": 3.25,
-      "lf": 3.5,
-      "slack": 0.25,
-      "depends_on": [
-        "T-SDH-BIZ-131-TPL"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
     "T-SDH-BIZ-140": {
       "id": "T-SDH-BIZ-140",
       "name": "業務受入条件ルールの起草・レビュー",
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.5,
-      "es": 3.25,
-      "ef": 3.75,
-      "ls": 3.5,
-      "lf": 4,
+      "es": 3,
+      "ef": 3.5,
+      "ls": 3.25,
+      "lf": 3.75,
       "slack": 0.25,
       "depends_on": [
         "T-SDH-BIZ-081-SMP",
@@ -873,29 +665,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 3.75,
-      "ef": 4,
-      "ls": 4,
-      "lf": 4.25,
+      "es": 3.5,
+      "ef": 3.75,
+      "ls": 3.75,
+      "lf": 4,
       "slack": 0.25,
       "depends_on": [
         "T-SDH-BIZ-140"
-      ],
-      "schedule_file": "sch-business.yaml"
-    },
-    "T-SDH-BIZ-141-TPL": {
-      "id": "T-SDH-BIZ-141-TPL",
-      "name": "業務受入条件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 4,
-      "ef": 4.25,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 0.25,
-      "depends_on": [
-        "T-SDH-BIZ-141-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -905,13 +681,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 4.25,
-      "ef": 4.5,
-      "ls": 4.5,
-      "lf": 4.75,
+      "es": 3.75,
+      "ef": 4,
+      "ls": 4,
+      "lf": 4.25,
       "slack": 0.25,
       "depends_on": [
-        "T-SDH-BIZ-141-TPL"
+        "T-SDH-BIZ-141-INS"
       ],
       "schedule_file": "sch-business.yaml"
     },
@@ -921,10 +697,10 @@
       "owner": "BA",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 4.5,
-      "ef": 4.5,
-      "ls": 4.75,
-      "lf": 4.75,
+      "es": 4,
+      "ef": 4,
+      "ls": 4.25,
+      "lf": 4.25,
       "slack": 0.25,
       "depends_on": [
         "T-SDH-BIZ-011-SMP",
@@ -976,9 +752,9 @@
       ],
       "schedule_file": "sch-design.yaml"
     },
-    "T-SDH-DES-011-TPL": {
-      "id": "T-SDH-DES-011-TPL",
-      "name": "外部インターフェースの起草・レビュー input-template.md の起草・レビュー",
+    "T-SDH-DES-011-SMP": {
+      "id": "T-SDH-DES-011-SMP",
+      "name": "外部インターフェースの起草・レビュー sample.md の起草・レビュー",
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.25,
@@ -989,22 +765,6 @@
       "slack": 0.75,
       "depends_on": [
         "T-SDH-DES-011-INS"
-      ],
-      "schedule_file": "sch-design.yaml"
-    },
-    "T-SDH-DES-011-SMP": {
-      "id": "T-SDH-DES-011-SMP",
-      "name": "外部インターフェースの起草・レビュー sample.md の起草・レビュー",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2,
-      "ef": 2.25,
-      "ls": 2.75,
-      "lf": 3,
-      "slack": 0.75,
-      "depends_on": [
-        "T-SDH-DES-011-TPL"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1032,27 +792,11 @@
       "duration_days": 0.25,
       "es": 0.75,
       "ef": 1,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3.25,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 3,
       "depends_on": [
         "T-SDH-DES-020"
-      ],
-      "schedule_file": "sch-design.yaml"
-    },
-    "T-SDH-DES-021-TPL": {
-      "id": "T-SDH-DES-021-TPL",
-      "name": "C4 コンテキスト図の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1,
-      "ef": 1.25,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3.25,
-      "depends_on": [
-        "T-SDH-DES-021-INS"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1062,13 +806,13 @@
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3.25,
+      "es": 1,
+      "ef": 1.25,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 3,
       "depends_on": [
-        "T-SDH-DES-021-TPL"
+        "T-SDH-DES-021-INS"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1096,27 +840,11 @@
       "duration_days": 0.25,
       "es": 1.5,
       "ef": 1.75,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 2.5,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.25,
       "depends_on": [
         "T-SDH-DES-030"
-      ],
-      "schedule_file": "sch-design.yaml"
-    },
-    "T-SDH-DES-031-TPL": {
-      "id": "T-SDH-DES-031-TPL",
-      "name": "C4 コンテナ図の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.75,
-      "ef": 2,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 2.5,
-      "depends_on": [
-        "T-SDH-DES-031-INS"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1126,13 +854,13 @@
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2,
-      "ef": 2.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 2.5,
+      "es": 1.75,
+      "ef": 2,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.25,
       "depends_on": [
-        "T-SDH-DES-031-TPL"
+        "T-SDH-DES-031-INS"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1168,9 +896,9 @@
       ],
       "schedule_file": "sch-design.yaml"
     },
-    "T-SDH-DES-041-TPL": {
-      "id": "T-SDH-DES-041-TPL",
-      "name": "C4 コンポーネント図の起草・レビュー input-template.md の起草・レビュー",
+    "T-SDH-DES-041-SMP": {
+      "id": "T-SDH-DES-041-SMP",
+      "name": "C4 コンポーネント図の起草・レビュー sample.md の起草・レビュー",
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.25,
@@ -1181,22 +909,6 @@
       "slack": 0,
       "depends_on": [
         "T-SDH-DES-041-INS"
-      ],
-      "schedule_file": "sch-design.yaml"
-    },
-    "T-SDH-DES-041-SMP": {
-      "id": "T-SDH-DES-041-SMP",
-      "name": "C4 コンポーネント図の起草・レビュー sample.md の起草・レビュー",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2.75,
-      "ef": 3,
-      "ls": 2.75,
-      "lf": 3,
-      "slack": 0,
-      "depends_on": [
-        "T-SDH-DES-041-TPL"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1232,9 +944,9 @@
       ],
       "schedule_file": "sch-design.yaml"
     },
-    "T-SDH-DES-051-TPL": {
-      "id": "T-SDH-DES-051-TPL",
-      "name": "インフラ構成図の起草・レビュー input-template.md の起草・レビュー",
+    "T-SDH-DES-051-SMP": {
+      "id": "T-SDH-DES-051-SMP",
+      "name": "インフラ構成図の起草・レビュー sample.md の起草・レビュー",
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.25,
@@ -1245,22 +957,6 @@
       "slack": 1,
       "depends_on": [
         "T-SDH-DES-051-INS"
-      ],
-      "schedule_file": "sch-design.yaml"
-    },
-    "T-SDH-DES-051-SMP": {
-      "id": "T-SDH-DES-051-SMP",
-      "name": "インフラ構成図の起草・レビュー sample.md の起草・レビュー",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.75,
-      "ef": 2,
-      "ls": 2.75,
-      "lf": 3,
-      "slack": 1,
-      "depends_on": [
-        "T-SDH-DES-051-TPL"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1296,9 +992,9 @@
       ],
       "schedule_file": "sch-design.yaml"
     },
-    "T-SDH-DES-061-TPL": {
-      "id": "T-SDH-DES-061-TPL",
-      "name": "技術スタック定義の起草・レビュー input-template.md の起草・レビュー",
+    "T-SDH-DES-061-SMP": {
+      "id": "T-SDH-DES-061-SMP",
+      "name": "技術スタック定義の起草・レビュー sample.md の起草・レビュー",
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.25,
@@ -1312,32 +1008,16 @@
       ],
       "schedule_file": "sch-design.yaml"
     },
-    "T-SDH-DES-061-SMP": {
-      "id": "T-SDH-DES-061-SMP",
-      "name": "技術スタック定義の起草・レビュー sample.md の起草・レビュー",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1,
-      "ef": 1.25,
-      "ls": 2.75,
-      "lf": 3,
-      "slack": 1.75,
-      "depends_on": [
-        "T-SDH-DES-061-TPL"
-      ],
-      "schedule_file": "sch-design.yaml"
-    },
     "T-SDH-DES-070": {
       "id": "T-SDH-DES-070",
       "name": "システム設計ルールの起草・レビュー",
       "owner": "ARC",
       "kind": "task",
       "duration_days": 1,
-      "es": 3,
-      "ef": 4,
-      "ls": 3,
-      "lf": 4,
+      "es": 2.75,
+      "ef": 3.75,
+      "ls": 2.75,
+      "lf": 3.75,
       "slack": 0,
       "depends_on": [
         "T-SDH-DES-011-SMP",
@@ -1353,29 +1033,13 @@
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 4,
-      "ef": 4.25,
-      "ls": 4,
-      "lf": 4.25,
+      "es": 3.75,
+      "ef": 4,
+      "ls": 3.75,
+      "lf": 4,
       "slack": 0,
       "depends_on": [
         "T-SDH-DES-070"
-      ],
-      "schedule_file": "sch-design.yaml"
-    },
-    "T-SDH-DES-071-TPL": {
-      "id": "T-SDH-DES-071-TPL",
-      "name": "システム設計の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "ARC",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 4.25,
-      "ef": 4.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 0,
-      "depends_on": [
-        "T-SDH-DES-071-INS"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1385,13 +1049,13 @@
       "owner": "ARC",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 4.5,
-      "ef": 4.75,
-      "ls": 4.5,
-      "lf": 4.75,
+      "es": 4,
+      "ef": 4.25,
+      "ls": 4,
+      "lf": 4.25,
       "slack": 0,
       "depends_on": [
-        "T-SDH-DES-071-TPL"
+        "T-SDH-DES-071-INS"
       ],
       "schedule_file": "sch-design.yaml"
     },
@@ -1401,10 +1065,10 @@
       "owner": "ARC",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 4.75,
-      "ef": 4.75,
-      "ls": 4.75,
-      "lf": 4.75,
+      "es": 4.25,
+      "ef": 4.25,
+      "ls": 4.25,
+      "lf": 4.25,
       "slack": 0,
       "depends_on": [
         "T-SDH-DES-011-SMP",
@@ -1423,10 +1087,10 @@
       "owner": "ARC",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 4.75,
-      "ef": 4.75,
-      "ls": 4.75,
-      "lf": 4.75,
+      "es": 4.25,
+      "ef": 4.25,
+      "ls": 4.25,
+      "lf": 4.25,
       "slack": 0,
       "depends_on": [
         "M-SDH-DES-900"
@@ -1441,9 +1105,9 @@
       "duration_days": 1,
       "es": 0,
       "ef": 1,
-      "ls": 1.5,
-      "lf": 2.5,
-      "slack": 1.5,
+      "ls": 1.25,
+      "lf": 2.25,
+      "slack": 1.25,
       "depends_on": [
         "M-SDH-100"
       ],
@@ -1457,27 +1121,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-GOV-010"
-      ],
-      "schedule_file": "sch-governance.yaml"
-    },
-    "T-SDH-GOV-011-TPL": {
-      "id": "T-SDH-GOV-011-TPL",
-      "name": "プロジェクトドキュメントの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "PO",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-GOV-011-INS"
       ],
       "schedule_file": "sch-governance.yaml"
     },
@@ -1487,13 +1135,13 @@
       "owner": "PO",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-GOV-011-TPL"
+        "T-SDH-GOV-011-INS"
       ],
       "schedule_file": "sch-governance.yaml"
     },
@@ -1505,9 +1153,9 @@
       "duration_days": 1.25,
       "es": 1,
       "ef": 2.25,
-      "ls": 2.5,
-      "lf": 3.75,
-      "slack": 1.5,
+      "ls": 2.25,
+      "lf": 3.5,
+      "slack": 1.25,
       "depends_on": [
         "T-SDH-GOV-010"
       ],
@@ -1521,27 +1169,11 @@
       "duration_days": 0.5,
       "es": 2.25,
       "ef": 2.75,
-      "ls": 3.75,
-      "lf": 4.25,
-      "slack": 1.5,
+      "ls": 3.5,
+      "lf": 4,
+      "slack": 1.25,
       "depends_on": [
         "T-SDH-GOV-020"
-      ],
-      "schedule_file": "sch-governance.yaml"
-    },
-    "T-SDH-GOV-021-TPL": {
-      "id": "T-SDH-GOV-021-TPL",
-      "name": "移行の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "PO",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2.75,
-      "ef": 3,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 1.5,
-      "depends_on": [
-        "T-SDH-GOV-021-INS"
       ],
       "schedule_file": "sch-governance.yaml"
     },
@@ -1551,13 +1183,13 @@
       "owner": "PO",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 3,
-      "ef": 3.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 1.5,
+      "es": 2.75,
+      "ef": 3,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 1.25,
       "depends_on": [
-        "T-SDH-GOV-021-TPL"
+        "T-SDH-GOV-021-INS"
       ],
       "schedule_file": "sch-governance.yaml"
     },
@@ -1569,9 +1201,9 @@
       "duration_days": 0.75,
       "es": 1,
       "ef": 1.75,
-      "ls": 3.25,
-      "lf": 4,
-      "slack": 2.25,
+      "ls": 3,
+      "lf": 3.75,
+      "slack": 2,
       "depends_on": [
         "T-SDH-GOV-010"
       ],
@@ -1585,27 +1217,11 @@
       "duration_days": 0.25,
       "es": 1.75,
       "ef": 2,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 2.25,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2,
       "depends_on": [
         "T-SDH-GOV-030"
-      ],
-      "schedule_file": "sch-governance.yaml"
-    },
-    "T-SDH-GOV-031-TPL": {
-      "id": "T-SDH-GOV-031-TPL",
-      "name": "運用の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "PO",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2,
-      "ef": 2.25,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 2.25,
-      "depends_on": [
-        "T-SDH-GOV-031-INS"
       ],
       "schedule_file": "sch-governance.yaml"
     },
@@ -1615,13 +1231,13 @@
       "owner": "PO",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2.25,
-      "ef": 2.5,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 2.25,
+      "es": 2,
+      "ef": 2.25,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2,
       "depends_on": [
-        "T-SDH-GOV-031-TPL"
+        "T-SDH-GOV-031-INS"
       ],
       "schedule_file": "sch-governance.yaml"
     },
@@ -1633,9 +1249,9 @@
       "duration_days": 0.75,
       "es": 0,
       "ef": 0.75,
-      "ls": 4,
-      "lf": 4.75,
-      "slack": 4,
+      "ls": 3.5,
+      "lf": 4.25,
+      "slack": 3.5,
       "depends_on": [
         "M-SDH-100"
       ],
@@ -1647,11 +1263,11 @@
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 3.25,
-      "ef": 3.25,
-      "ls": 4.75,
-      "lf": 4.75,
-      "slack": 1.5,
+      "es": 3,
+      "ef": 3,
+      "ls": 4.25,
+      "lf": 4.25,
+      "slack": 1.25,
       "depends_on": [
         "T-SDH-GOV-011-SMP",
         "T-SDH-GOV-021-SMP",
@@ -1666,11 +1282,11 @@
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 3.25,
-      "ef": 3.25,
-      "ls": 4.75,
-      "lf": 4.75,
-      "slack": 1.5,
+      "es": 3,
+      "ef": 3,
+      "ls": 4.25,
+      "lf": 4.25,
+      "slack": 1.25,
       "depends_on": [
         "M-SDH-GOV-900"
       ],
@@ -1684,9 +1300,9 @@
       "duration_days": 0.5,
       "es": 0,
       "ef": 0.5,
-      "ls": 2.5,
-      "lf": 3,
-      "slack": 2.5,
+      "ls": 2.25,
+      "lf": 2.75,
+      "slack": 2.25,
       "depends_on": [
         "M-SDH-100"
       ],
@@ -1700,27 +1316,11 @@
       "duration_days": 0.25,
       "es": 0.5,
       "ef": 0.75,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3.5,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 3.25,
       "depends_on": [
         "T-SDH-NFR-010"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-011-TPL": {
-      "id": "T-SDH-NFR-011-TPL",
-      "name": "NFR インデックスの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 0.75,
-      "ef": 1,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3.5,
-      "depends_on": [
-        "T-SDH-NFR-011-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1730,13 +1330,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1,
-      "ef": 1.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3.5,
+      "es": 0.75,
+      "ef": 1,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 3.25,
       "depends_on": [
-        "T-SDH-NFR-011-TPL"
+        "T-SDH-NFR-011-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1748,9 +1348,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-010"
       ],
@@ -1764,27 +1364,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-020"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-021-TPL": {
-      "id": "T-SDH-NFR-021-TPL",
-      "name": "可用性要件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-NFR-021-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1794,13 +1378,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-NFR-021-TPL"
+        "T-SDH-NFR-021-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1812,9 +1396,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3,
-      "lf": 3.5,
-      "slack": 2.5,
+      "ls": 2.75,
+      "lf": 3.25,
+      "slack": 2.25,
       "depends_on": [
         "T-SDH-NFR-010"
       ],
@@ -1828,27 +1412,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-030"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-031-TPL": {
-      "id": "T-SDH-NFR-031-TPL",
-      "name": "完全性要件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-NFR-031-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1858,13 +1426,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-NFR-031-TPL"
+        "T-SDH-NFR-031-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1876,9 +1444,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-010"
       ],
@@ -1892,27 +1460,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-040"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-041-TPL": {
-      "id": "T-SDH-NFR-041-TPL",
-      "name": "保守性要件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-NFR-041-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1922,13 +1474,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-NFR-041-TPL"
+        "T-SDH-NFR-041-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1940,9 +1492,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-010"
       ],
@@ -1956,27 +1508,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-050"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-051-TPL": {
-      "id": "T-SDH-NFR-051-TPL",
-      "name": "運用性要件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-NFR-051-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -1986,13 +1522,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-NFR-051-TPL"
+        "T-SDH-NFR-051-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2004,9 +1540,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3,
-      "lf": 3.5,
-      "slack": 2.5,
+      "ls": 2.75,
+      "lf": 3.25,
+      "slack": 2.25,
       "depends_on": [
         "T-SDH-NFR-010"
       ],
@@ -2020,27 +1556,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-060"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-061-TPL": {
-      "id": "T-SDH-NFR-061-TPL",
-      "name": "性能要件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-NFR-061-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2050,13 +1570,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-NFR-061-TPL"
+        "T-SDH-NFR-061-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2068,9 +1588,9 @@
       "duration_days": 0.5,
       "es": 1,
       "ef": 1.5,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 2.5,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.25,
       "depends_on": [
         "T-SDH-NFR-060"
       ],
@@ -2084,27 +1604,11 @@
       "duration_days": 0.25,
       "es": 1.5,
       "ef": 1.75,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 2.5,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.25,
       "depends_on": [
         "T-SDH-NFR-070"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-071-TPL": {
-      "id": "T-SDH-NFR-071-TPL",
-      "name": "信頼性要件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.75,
-      "ef": 2,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 2.5,
-      "depends_on": [
-        "T-SDH-NFR-071-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2114,13 +1618,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2,
-      "ef": 2.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 2.5,
+      "es": 1.75,
+      "ef": 2,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.25,
       "depends_on": [
-        "T-SDH-NFR-071-TPL"
+        "T-SDH-NFR-071-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2132,9 +1636,9 @@
       "duration_days": 0.5,
       "es": 1,
       "ef": 1.5,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 2.5,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.25,
       "depends_on": [
         "T-SDH-NFR-030"
       ],
@@ -2148,27 +1652,11 @@
       "duration_days": 0.25,
       "es": 1.5,
       "ef": 1.75,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 2.5,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.25,
       "depends_on": [
         "T-SDH-NFR-080"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-081-TPL": {
-      "id": "T-SDH-NFR-081-TPL",
-      "name": "セキュリティ・安全性要件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.75,
-      "ef": 2,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 2.5,
-      "depends_on": [
-        "T-SDH-NFR-081-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2178,13 +1666,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2,
-      "ef": 2.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 2.5,
+      "es": 1.75,
+      "ef": 2,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.25,
       "depends_on": [
-        "T-SDH-NFR-081-TPL"
+        "T-SDH-NFR-081-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2196,9 +1684,9 @@
       "duration_days": 0.5,
       "es": 0.5,
       "ef": 1,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-010"
       ],
@@ -2212,27 +1700,11 @@
       "duration_days": 0.25,
       "es": 1,
       "ef": 1.25,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 2.75,
       "depends_on": [
         "T-SDH-NFR-090"
-      ],
-      "schedule_file": "sch-nfr.yaml"
-    },
-    "T-SDH-NFR-091-TPL": {
-      "id": "T-SDH-NFR-091-TPL",
-      "name": "ユーザビリティ要件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1.25,
-      "ef": 1.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3,
-      "depends_on": [
-        "T-SDH-NFR-091-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2242,13 +1714,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1.5,
-      "ef": 1.75,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3,
+      "es": 1.25,
+      "ef": 1.5,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.75,
       "depends_on": [
-        "T-SDH-NFR-091-TPL"
+        "T-SDH-NFR-091-INS"
       ],
       "schedule_file": "sch-nfr.yaml"
     },
@@ -2258,11 +1730,11 @@
       "owner": "QE",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 2.25,
-      "ef": 2.25,
-      "ls": 4.75,
-      "lf": 4.75,
-      "slack": 2.5,
+      "es": 2,
+      "ef": 2,
+      "ls": 4.25,
+      "lf": 4.25,
+      "slack": 2.25,
       "depends_on": [
         "T-SDH-NFR-011-SMP",
         "T-SDH-NFR-021-SMP",
@@ -2282,10 +1754,10 @@
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 4.5,
-      "ef": 4.5,
-      "ls": 4.75,
-      "lf": 4.75,
+      "es": 4,
+      "ef": 4,
+      "ls": 4.25,
+      "lf": 4.25,
       "slack": 0.25,
       "depends_on": [
         "M-SDH-BIZ-900",
@@ -2301,9 +1773,9 @@
       "duration_days": 0.5,
       "es": 0,
       "ef": 0.5,
-      "ls": 3.5,
-      "lf": 4,
-      "slack": 3.5,
+      "ls": 3.25,
+      "lf": 3.75,
+      "slack": 3.25,
       "depends_on": [
         "M-SDH-100"
       ],
@@ -2317,27 +1789,11 @@
       "duration_days": 0.25,
       "es": 0.5,
       "ef": 0.75,
-      "ls": 4,
-      "lf": 4.25,
-      "slack": 3.5,
+      "ls": 3.75,
+      "lf": 4,
+      "slack": 3.25,
       "depends_on": [
         "T-SDH-QLT-010"
-      ],
-      "schedule_file": "sch-quality.yaml"
-    },
-    "T-SDH-QLT-011-TPL": {
-      "id": "T-SDH-QLT-011-TPL",
-      "name": "システム受入条件の起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 0.75,
-      "ef": 1,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 3.5,
-      "depends_on": [
-        "T-SDH-QLT-011-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2347,13 +1803,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 1,
-      "ef": 1.25,
-      "ls": 4.5,
-      "lf": 4.75,
-      "slack": 3.5,
+      "es": 0.75,
+      "ef": 1,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 3.25,
       "depends_on": [
-        "T-SDH-QLT-011-TPL"
+        "T-SDH-QLT-011-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2389,9 +1845,9 @@
       ],
       "schedule_file": "sch-quality.yaml"
     },
-    "T-SDH-QLT-021-TPL": {
-      "id": "T-SDH-QLT-021-TPL",
-      "name": "テスト戦略・計画の起草・レビュー input-template.md の起草・レビュー",
+    "T-SDH-QLT-021-SMP": {
+      "id": "T-SDH-QLT-021-SMP",
+      "name": "テスト戦略・計画の起草・レビュー sample.md の起草・レビュー",
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
@@ -2405,32 +1861,16 @@
       ],
       "schedule_file": "sch-quality.yaml"
     },
-    "T-SDH-QLT-021-SMP": {
-      "id": "T-SDH-QLT-021-SMP",
-      "name": "テスト戦略・計画の起草・レビュー sample.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 1,
-      "ef": 1.25,
-      "ls": 2.75,
-      "lf": 3,
-      "slack": 1.75,
-      "depends_on": [
-        "T-SDH-QLT-021-TPL"
-      ],
-      "schedule_file": "sch-quality.yaml"
-    },
     "T-SDH-QLT-030": {
       "id": "T-SDH-QLT-030",
       "name": "単体テストドキュメントルールの起草・レビュー",
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.75,
-      "es": 1.25,
-      "ef": 2,
-      "ls": 3.25,
-      "lf": 4,
+      "es": 1,
+      "ef": 1.75,
+      "ls": 3,
+      "lf": 3.75,
       "slack": 2,
       "depends_on": [
         "T-SDH-QLT-021-SMP"
@@ -2443,29 +1883,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2,
-      "ef": 2.25,
-      "ls": 4,
-      "lf": 4.25,
+      "es": 1.75,
+      "ef": 2,
+      "ls": 3.75,
+      "lf": 4,
       "slack": 2,
       "depends_on": [
         "T-SDH-QLT-030"
-      ],
-      "schedule_file": "sch-quality.yaml"
-    },
-    "T-SDH-QLT-031-TPL": {
-      "id": "T-SDH-QLT-031-TPL",
-      "name": "単体テストドキュメントの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2.25,
-      "ef": 2.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 2,
-      "depends_on": [
-        "T-SDH-QLT-031-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2475,13 +1899,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2.5,
-      "ef": 2.75,
-      "ls": 4.5,
-      "lf": 4.75,
+      "es": 2,
+      "ef": 2.25,
+      "ls": 4,
+      "lf": 4.25,
       "slack": 2,
       "depends_on": [
-        "T-SDH-QLT-031-TPL"
+        "T-SDH-QLT-031-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2491,10 +1915,10 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.75,
-      "es": 1.25,
-      "ef": 2,
-      "ls": 3.25,
-      "lf": 4,
+      "es": 1,
+      "ef": 1.75,
+      "ls": 3,
+      "lf": 3.75,
       "slack": 2,
       "depends_on": [
         "T-SDH-QLT-021-SMP"
@@ -2507,29 +1931,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2,
-      "ef": 2.25,
-      "ls": 4,
-      "lf": 4.25,
+      "es": 1.75,
+      "ef": 2,
+      "ls": 3.75,
+      "lf": 4,
       "slack": 2,
       "depends_on": [
         "T-SDH-QLT-040"
-      ],
-      "schedule_file": "sch-quality.yaml"
-    },
-    "T-SDH-QLT-041-TPL": {
-      "id": "T-SDH-QLT-041-TPL",
-      "name": "結合テストドキュメントの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2.25,
-      "ef": 2.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 2,
-      "depends_on": [
-        "T-SDH-QLT-041-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2539,13 +1947,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2.5,
-      "ef": 2.75,
-      "ls": 4.5,
-      "lf": 4.75,
+      "es": 2,
+      "ef": 2.25,
+      "ls": 4,
+      "lf": 4.25,
       "slack": 2,
       "depends_on": [
-        "T-SDH-QLT-041-TPL"
+        "T-SDH-QLT-041-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2555,10 +1963,10 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 1,
-      "es": 1.25,
-      "ef": 2.25,
-      "ls": 3,
-      "lf": 4,
+      "es": 1,
+      "ef": 2,
+      "ls": 2.75,
+      "lf": 3.75,
       "slack": 1.75,
       "depends_on": [
         "T-SDH-QLT-021-SMP"
@@ -2571,29 +1979,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2.25,
-      "ef": 2.5,
-      "ls": 4,
-      "lf": 4.25,
+      "es": 2,
+      "ef": 2.25,
+      "ls": 3.75,
+      "lf": 4,
       "slack": 1.75,
       "depends_on": [
         "T-SDH-QLT-050"
-      ],
-      "schedule_file": "sch-quality.yaml"
-    },
-    "T-SDH-QLT-051-TPL": {
-      "id": "T-SDH-QLT-051-TPL",
-      "name": "外部結合テストの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2.5,
-      "ef": 2.75,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 1.75,
-      "depends_on": [
-        "T-SDH-QLT-051-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2603,13 +1995,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2.75,
-      "ef": 3,
-      "ls": 4.5,
-      "lf": 4.75,
+      "es": 2.25,
+      "ef": 2.5,
+      "ls": 4,
+      "lf": 4.25,
       "slack": 1.75,
       "depends_on": [
-        "T-SDH-QLT-051-TPL"
+        "T-SDH-QLT-051-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2619,10 +2011,10 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.75,
-      "es": 1.25,
-      "ef": 2,
-      "ls": 3.25,
-      "lf": 4,
+      "es": 1,
+      "ef": 1.75,
+      "ls": 3,
+      "lf": 3.75,
       "slack": 2,
       "depends_on": [
         "T-SDH-QLT-021-SMP"
@@ -2635,29 +2027,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2,
-      "ef": 2.25,
-      "ls": 4,
-      "lf": 4.25,
+      "es": 1.75,
+      "ef": 2,
+      "ls": 3.75,
+      "lf": 4,
       "slack": 2,
       "depends_on": [
         "T-SDH-QLT-060"
-      ],
-      "schedule_file": "sch-quality.yaml"
-    },
-    "T-SDH-QLT-061-TPL": {
-      "id": "T-SDH-QLT-061-TPL",
-      "name": "システムテストドキュメントの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "QE",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2.25,
-      "ef": 2.5,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 2,
-      "depends_on": [
-        "T-SDH-QLT-061-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2667,13 +2043,13 @@
       "owner": "QE",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2.5,
-      "ef": 2.75,
-      "ls": 4.5,
-      "lf": 4.75,
+      "es": 2,
+      "ef": 2.25,
+      "ls": 4,
+      "lf": 4.25,
       "slack": 2,
       "depends_on": [
-        "T-SDH-QLT-061-TPL"
+        "T-SDH-QLT-061-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2683,10 +2059,10 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 1,
-      "es": 1.25,
-      "ef": 2.25,
-      "ls": 3,
-      "lf": 4,
+      "es": 1,
+      "ef": 2,
+      "ls": 2.75,
+      "lf": 3.75,
       "slack": 1.75,
       "depends_on": [
         "T-SDH-QLT-021-SMP"
@@ -2699,29 +2075,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2.25,
-      "ef": 2.5,
-      "ls": 4,
-      "lf": 4.25,
+      "es": 2,
+      "ef": 2.25,
+      "ls": 3.75,
+      "lf": 4,
       "slack": 1.75,
       "depends_on": [
         "T-SDH-QLT-070"
-      ],
-      "schedule_file": "sch-quality.yaml"
-    },
-    "T-SDH-QLT-071-TPL": {
-      "id": "T-SDH-QLT-071-TPL",
-      "name": "受入テストドキュメントの起草・レビュー input-template.md の起草・レビュー",
-      "owner": "BA",
-      "kind": "task",
-      "duration_days": 0.25,
-      "es": 2.5,
-      "ef": 2.75,
-      "ls": 4.25,
-      "lf": 4.5,
-      "slack": 1.75,
-      "depends_on": [
-        "T-SDH-QLT-071-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2731,13 +2091,13 @@
       "owner": "BA",
       "kind": "task",
       "duration_days": 0.25,
-      "es": 2.75,
-      "ef": 3,
-      "ls": 4.5,
-      "lf": 4.75,
+      "es": 2.25,
+      "ef": 2.5,
+      "ls": 4,
+      "lf": 4.25,
       "slack": 1.75,
       "depends_on": [
-        "T-SDH-QLT-071-TPL"
+        "T-SDH-QLT-071-INS"
       ],
       "schedule_file": "sch-quality.yaml"
     },
@@ -2747,10 +2107,10 @@
       "owner": "QE",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 3,
-      "ef": 3,
-      "ls": 4.75,
-      "lf": 4.75,
+      "es": 2.5,
+      "ef": 2.5,
+      "ls": 4.25,
+      "lf": 4.25,
       "slack": 1.75,
       "depends_on": [
         "T-SDH-QLT-011-SMP",
@@ -2769,10 +2129,10 @@
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 3,
-      "ef": 3,
-      "ls": 4.75,
-      "lf": 4.75,
+      "es": 2.5,
+      "ef": 2.5,
+      "ls": 4.25,
+      "lf": 4.25,
       "slack": 1.75,
       "depends_on": [
         "M-SDH-QLT-900"
@@ -2785,10 +2145,10 @@
       "owner": "PO",
       "kind": "milestone",
       "duration_days": 0,
-      "es": 4.75,
-      "ef": 4.75,
-      "ls": 4.75,
-      "lf": 4.75,
+      "es": 4.25,
+      "ef": 4.25,
+      "ls": 4.25,
+      "lf": 4.25,
       "slack": 0,
       "depends_on": [
         "M-SDH-GOV-900",
@@ -2806,11 +2166,9 @@
     "T-SDH-DES-030",
     "T-SDH-DES-040",
     "T-SDH-DES-041-INS",
-    "T-SDH-DES-041-TPL",
     "T-SDH-DES-041-SMP",
     "T-SDH-DES-070",
     "T-SDH-DES-071-INS",
-    "T-SDH-DES-071-TPL",
     "T-SDH-DES-071-SMP",
     "M-SDH-DES-900",
     "M-SDH-350"

@@ -180,10 +180,6 @@ function selectPrimaryArtifactCandidates(
     const instructionPaths = deliverables.filter(path => path.includes('/instructions/'))
     return instructionPaths.length > 0 ? instructionPaths : deliverables
   }
-  if (taskId.endsWith('-TPL')) {
-    const templatePaths = deliverables.filter(path => path.includes('/templates/'))
-    return templatePaths.length > 0 ? templatePaths : deliverables
-  }
   if (taskId.endsWith('-SMP')) {
     const samplePaths = deliverables.filter(path => path.includes('/samples/'))
     return samplePaths.length > 0 ? samplePaths : deliverables

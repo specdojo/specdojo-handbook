@@ -26,9 +26,6 @@
     "T-SDH-BIZ-011-INS": {
       "state": "todo"
     },
-    "T-SDH-BIZ-011-TPL": {
-      "state": "todo"
-    },
     "T-SDH-BIZ-011-SMP": {
       "state": "todo"
     },
@@ -36,9 +33,6 @@
       "state": "todo"
     },
     "T-SDH-BIZ-021-INS": {
-      "state": "todo"
-    },
-    "T-SDH-BIZ-021-TPL": {
       "state": "todo"
     },
     "T-SDH-BIZ-021-SMP": {
@@ -50,9 +44,6 @@
     "T-SDH-BIZ-031-INS": {
       "state": "todo"
     },
-    "T-SDH-BIZ-031-TPL": {
-      "state": "todo"
-    },
     "T-SDH-BIZ-031-SMP": {
       "state": "todo"
     },
@@ -60,9 +51,6 @@
       "state": "todo"
     },
     "T-SDH-BIZ-041-INS": {
-      "state": "todo"
-    },
-    "T-SDH-BIZ-041-TPL": {
       "state": "todo"
     },
     "T-SDH-BIZ-041-SMP": {
@@ -74,9 +62,6 @@
     "T-SDH-BIZ-051-INS": {
       "state": "todo"
     },
-    "T-SDH-BIZ-051-TPL": {
-      "state": "todo"
-    },
     "T-SDH-BIZ-051-SMP": {
       "state": "todo"
     },
@@ -84,9 +69,6 @@
       "state": "todo"
     },
     "T-SDH-BIZ-061-INS": {
-      "state": "todo"
-    },
-    "T-SDH-BIZ-061-TPL": {
       "state": "todo"
     },
     "T-SDH-BIZ-061-SMP": {
@@ -98,9 +80,6 @@
     "T-SDH-BIZ-071-INS": {
       "state": "todo"
     },
-    "T-SDH-BIZ-071-TPL": {
-      "state": "todo"
-    },
     "T-SDH-BIZ-071-SMP": {
       "state": "todo"
     },
@@ -108,9 +87,6 @@
       "state": "todo"
     },
     "T-SDH-BIZ-081-INS": {
-      "state": "todo"
-    },
-    "T-SDH-BIZ-081-TPL": {
       "state": "todo"
     },
     "T-SDH-BIZ-081-SMP": {
@@ -122,9 +98,6 @@
     "T-SDH-BIZ-091-INS": {
       "state": "todo"
     },
-    "T-SDH-BIZ-091-TPL": {
-      "state": "todo"
-    },
     "T-SDH-BIZ-091-SMP": {
       "state": "todo"
     },
@@ -132,9 +105,6 @@
       "state": "todo"
     },
     "T-SDH-BIZ-101-INS": {
-      "state": "todo"
-    },
-    "T-SDH-BIZ-101-TPL": {
       "state": "todo"
     },
     "T-SDH-BIZ-101-SMP": {
@@ -146,9 +116,6 @@
     "T-SDH-BIZ-111-INS": {
       "state": "todo"
     },
-    "T-SDH-BIZ-111-TPL": {
-      "state": "todo"
-    },
     "T-SDH-BIZ-111-SMP": {
       "state": "todo"
     },
@@ -156,9 +123,6 @@
       "state": "todo"
     },
     "T-SDH-BIZ-121-INS": {
-      "state": "todo"
-    },
-    "T-SDH-BIZ-121-TPL": {
       "state": "todo"
     },
     "T-SDH-BIZ-121-SMP": {
@@ -170,9 +134,6 @@
     "T-SDH-BIZ-131-INS": {
       "state": "todo"
     },
-    "T-SDH-BIZ-131-TPL": {
-      "state": "todo"
-    },
     "T-SDH-BIZ-131-SMP": {
       "state": "todo"
     },
@@ -180,9 +141,6 @@
       "state": "todo"
     },
     "T-SDH-BIZ-141-INS": {
-      "state": "todo"
-    },
-    "T-SDH-BIZ-141-TPL": {
       "state": "todo"
     },
     "T-SDH-BIZ-141-SMP": {
@@ -197,9 +155,6 @@
     "T-SDH-DES-011-INS": {
       "state": "todo"
     },
-    "T-SDH-DES-011-TPL": {
-      "state": "todo"
-    },
     "T-SDH-DES-011-SMP": {
       "state": "todo"
     },
@@ -207,9 +162,6 @@
       "state": "todo"
     },
     "T-SDH-DES-021-INS": {
-      "state": "todo"
-    },
-    "T-SDH-DES-021-TPL": {
       "state": "todo"
     },
     "T-SDH-DES-021-SMP": {
@@ -221,9 +173,6 @@
     "T-SDH-DES-031-INS": {
       "state": "todo"
     },
-    "T-SDH-DES-031-TPL": {
-      "state": "todo"
-    },
     "T-SDH-DES-031-SMP": {
       "state": "todo"
     },
@@ -231,9 +180,6 @@
       "state": "todo"
     },
     "T-SDH-DES-041-INS": {
-      "state": "todo"
-    },
-    "T-SDH-DES-041-TPL": {
       "state": "todo"
     },
     "T-SDH-DES-041-SMP": {
@@ -245,9 +191,6 @@
     "T-SDH-DES-051-INS": {
       "state": "todo"
     },
-    "T-SDH-DES-051-TPL": {
-      "state": "todo"
-    },
     "T-SDH-DES-051-SMP": {
       "state": "todo"
     },
@@ -255,9 +198,6 @@
       "state": "todo"
     },
     "T-SDH-DES-061-INS": {
-      "state": "todo"
-    },
-    "T-SDH-DES-061-TPL": {
       "state": "todo"
     },
     "T-SDH-DES-061-SMP": {
@@ -269,9 +209,6 @@
     "T-SDH-DES-071-INS": {
       "state": "todo"
     },
-    "T-SDH-DES-071-TPL": {
-      "state": "todo"
-    },
     "T-SDH-DES-071-SMP": {
       "state": "todo"
     },
@@ -279,9 +216,6 @@
       "state": "todo"
     },
     "T-SDH-GOV-011-INS": {
-      "state": "todo"
-    },
-    "T-SDH-GOV-011-TPL": {
       "state": "todo"
     },
     "T-SDH-GOV-011-SMP": {
@@ -293,9 +227,6 @@
     "T-SDH-GOV-021-INS": {
       "state": "todo"
     },
-    "T-SDH-GOV-021-TPL": {
-      "state": "todo"
-    },
     "T-SDH-GOV-021-SMP": {
       "state": "todo"
     },
@@ -303,9 +234,6 @@
       "state": "todo"
     },
     "T-SDH-GOV-031-INS": {
-      "state": "todo"
-    },
-    "T-SDH-GOV-031-TPL": {
       "state": "todo"
     },
     "T-SDH-GOV-031-SMP": {
@@ -341,9 +269,6 @@
     "T-SDH-NFR-011-INS": {
       "state": "todo"
     },
-    "T-SDH-NFR-011-TPL": {
-      "state": "todo"
-    },
     "T-SDH-NFR-011-SMP": {
       "state": "todo"
     },
@@ -351,9 +276,6 @@
       "state": "todo"
     },
     "T-SDH-NFR-021-INS": {
-      "state": "todo"
-    },
-    "T-SDH-NFR-021-TPL": {
       "state": "todo"
     },
     "T-SDH-NFR-021-SMP": {
@@ -365,9 +287,6 @@
     "T-SDH-NFR-031-INS": {
       "state": "todo"
     },
-    "T-SDH-NFR-031-TPL": {
-      "state": "todo"
-    },
     "T-SDH-NFR-031-SMP": {
       "state": "todo"
     },
@@ -375,9 +294,6 @@
       "state": "todo"
     },
     "T-SDH-NFR-041-INS": {
-      "state": "todo"
-    },
-    "T-SDH-NFR-041-TPL": {
       "state": "todo"
     },
     "T-SDH-NFR-041-SMP": {
@@ -389,9 +305,6 @@
     "T-SDH-NFR-051-INS": {
       "state": "todo"
     },
-    "T-SDH-NFR-051-TPL": {
-      "state": "todo"
-    },
     "T-SDH-NFR-051-SMP": {
       "state": "todo"
     },
@@ -399,9 +312,6 @@
       "state": "todo"
     },
     "T-SDH-NFR-061-INS": {
-      "state": "todo"
-    },
-    "T-SDH-NFR-061-TPL": {
       "state": "todo"
     },
     "T-SDH-NFR-061-SMP": {
@@ -413,9 +323,6 @@
     "T-SDH-NFR-071-INS": {
       "state": "todo"
     },
-    "T-SDH-NFR-071-TPL": {
-      "state": "todo"
-    },
     "T-SDH-NFR-071-SMP": {
       "state": "todo"
     },
@@ -425,9 +332,6 @@
     "T-SDH-NFR-081-INS": {
       "state": "todo"
     },
-    "T-SDH-NFR-081-TPL": {
-      "state": "todo"
-    },
     "T-SDH-NFR-081-SMP": {
       "state": "todo"
     },
@@ -435,9 +339,6 @@
       "state": "todo"
     },
     "T-SDH-NFR-091-INS": {
-      "state": "todo"
-    },
-    "T-SDH-NFR-091-TPL": {
       "state": "todo"
     },
     "T-SDH-NFR-091-SMP": {
@@ -452,9 +353,6 @@
     "T-SDH-QLT-011-INS": {
       "state": "todo"
     },
-    "T-SDH-QLT-011-TPL": {
-      "state": "todo"
-    },
     "T-SDH-QLT-011-SMP": {
       "state": "todo"
     },
@@ -462,9 +360,6 @@
       "state": "todo"
     },
     "T-SDH-QLT-021-INS": {
-      "state": "todo"
-    },
-    "T-SDH-QLT-021-TPL": {
       "state": "todo"
     },
     "T-SDH-QLT-021-SMP": {
@@ -476,9 +371,6 @@
     "T-SDH-QLT-031-INS": {
       "state": "todo"
     },
-    "T-SDH-QLT-031-TPL": {
-      "state": "todo"
-    },
     "T-SDH-QLT-031-SMP": {
       "state": "todo"
     },
@@ -486,9 +378,6 @@
       "state": "todo"
     },
     "T-SDH-QLT-041-INS": {
-      "state": "todo"
-    },
-    "T-SDH-QLT-041-TPL": {
       "state": "todo"
     },
     "T-SDH-QLT-041-SMP": {
@@ -500,9 +389,6 @@
     "T-SDH-QLT-051-INS": {
       "state": "todo"
     },
-    "T-SDH-QLT-051-TPL": {
-      "state": "todo"
-    },
     "T-SDH-QLT-051-SMP": {
       "state": "todo"
     },
@@ -512,9 +398,6 @@
     "T-SDH-QLT-061-INS": {
       "state": "todo"
     },
-    "T-SDH-QLT-061-TPL": {
-      "state": "todo"
-    },
     "T-SDH-QLT-061-SMP": {
       "state": "todo"
     },
@@ -522,9 +405,6 @@
       "state": "todo"
     },
     "T-SDH-QLT-071-INS": {
-      "state": "todo"
-    },
-    "T-SDH-QLT-071-TPL": {
       "state": "todo"
     },
     "T-SDH-QLT-071-SMP": {

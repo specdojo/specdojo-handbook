@@ -8,7 +8,7 @@
 ## 対象の決定
 
 - 開いているファイルが `*-rules.md` の場合 → そのファイルを直接更新する
-- 開いているファイルが `*-instruction.md` / `*-sample.md` / `*-input-template.md` の場合 → 対応する `*-rules.md` を特定して更新する
+- 開いているファイルが `*-instruction.md` / `*-sample.md` の場合 → 対応する `*-rules.md` を特定して更新する
 - 開いているファイルが `meta-*-rules.md` の場合 → 対象外として処理を中止する
 
 ## 対応ルール

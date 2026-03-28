@@ -37,22 +37,11 @@ tasks:
     tags:
       - design
       - derivatives-lifecycle
-    id: T-SDH-DES-011-TPL
-    name: 外部インターフェースの起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-DES-011-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-DES-IFX-010
-    owner: ARC
-    tags:
-      - design
-      - derivatives-lifecycle
     id: T-SDH-DES-011-SMP
     name: 外部インターフェースの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-DES-011-TPL
+      - T-SDH-DES-011-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-DES-020
     wbs: WBS-DES-CXD-020
@@ -84,23 +73,11 @@ tasks:
       - design
       - derivatives-lifecycle
       - c4
-    id: T-SDH-DES-021-TPL
-    name: C4 コンテキスト図の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-DES-021-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-DES-CXD-020
-    owner: ARC
-    tags:
-      - design
-      - derivatives-lifecycle
-      - c4
     id: T-SDH-DES-021-SMP
     name: C4 コンテキスト図の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-DES-021-TPL
+      - T-SDH-DES-021-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-DES-030
     wbs: WBS-DES-CND-030
@@ -132,23 +109,11 @@ tasks:
       - design
       - derivatives-lifecycle
       - c4
-    id: T-SDH-DES-031-TPL
-    name: C4 コンテナ図の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-DES-031-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-DES-CND-030
-    owner: ARC
-    tags:
-      - design
-      - derivatives-lifecycle
-      - c4
     id: T-SDH-DES-031-SMP
     name: C4 コンテナ図の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-DES-031-TPL
+      - T-SDH-DES-031-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-DES-040
     wbs: WBS-DES-CPD-040
@@ -180,23 +145,11 @@ tasks:
       - design
       - derivatives-lifecycle
       - c4
-    id: T-SDH-DES-041-TPL
-    name: C4 コンポーネント図の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-DES-041-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-DES-CPD-040
-    owner: ARC
-    tags:
-      - design
-      - derivatives-lifecycle
-      - c4
     id: T-SDH-DES-041-SMP
     name: C4 コンポーネント図の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-DES-041-TPL
+      - T-SDH-DES-041-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-DES-050
     wbs: WBS-DES-IFD-050
@@ -225,22 +178,11 @@ tasks:
     tags:
       - design
       - derivatives-lifecycle
-    id: T-SDH-DES-051-TPL
-    name: インフラ構成図の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-DES-051-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-DES-IFD-050
-    owner: ARC
-    tags:
-      - design
-      - derivatives-lifecycle
     id: T-SDH-DES-051-SMP
     name: インフラ構成図の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-DES-051-TPL
+      - T-SDH-DES-051-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-DES-060
     wbs: WBS-DES-TSD-060
@@ -269,22 +211,11 @@ tasks:
     tags:
       - design
       - derivatives-lifecycle
-    id: T-SDH-DES-061-TPL
-    name: 技術スタック定義の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-DES-061-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-DES-TSD-060
-    owner: ARC
-    tags:
-      - design
-      - derivatives-lifecycle
     id: T-SDH-DES-061-SMP
     name: 技術スタック定義の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-DES-061-TPL
+      - T-SDH-DES-061-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-DES-070
     wbs: WBS-DES-SYSD-070
@@ -316,22 +247,11 @@ tasks:
     tags:
       - design
       - derivatives-lifecycle
-    id: T-SDH-DES-071-TPL
-    name: システム設計の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-DES-071-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-DES-SYSD-070
-    owner: ARC
-    tags:
-      - design
-      - derivatives-lifecycle
     id: T-SDH-DES-071-SMP
     name: システム設計の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-DES-071-TPL
+      - T-SDH-DES-071-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
 milestones:
   - id: M-SDH-DES-900

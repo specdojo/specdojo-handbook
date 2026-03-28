@@ -3,7 +3,7 @@
 ## 進捗サマリー
 
 - 判定: 遅れ気味
-- 概況: 2026-03-27 時点の実績進捗は 0.6% 相当で、計画進捗 100.0% を下回っています。
+- 概況: 2026-03-28 時点の実績進捗は 0.8% 相当で、計画進捗 100.0% を下回っています。
 - 主な要因: 完了・進行中件数が計画消化ペースに対して不足しています。
 
 ## 今後のアクション案
@@ -13,11 +13,11 @@
 
 - schedule_path: `docs/ja/sdh-ja-projects/prj-0001/060-schedule`
 - project_start_date: `2026-03-16`
-- project_duration_days: `4.75`
+- project_duration_days: `4.25`
 - scope: `full_schedule`
-- critical_path_task_count: `13`
+- critical_path_task_count: `11`
 - progress_percent: `0.0%`
-- done_tasks: `0/161`
-- task_state_counts: `todo=159, doing=2, blocked=0, done=0, cancelled=0`
+- done_tasks: `0/121`
+- task_state_counts: `todo=119, doing=2, blocked=0, done=0, cancelled=0`
 
 ![プロジェクトタイムライン](./timeline.svg)

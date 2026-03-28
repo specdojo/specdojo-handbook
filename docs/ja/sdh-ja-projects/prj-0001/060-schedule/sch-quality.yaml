@@ -40,23 +40,11 @@ tasks:
       - quality
       - derivatives-lifecycle
       - acceptance
-    id: T-SDH-QLT-011-TPL
-    name: システム受入条件の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-QLT-011-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-QLTY-SAC-010
-    owner: QE
-    tags:
-      - quality
-      - derivatives-lifecycle
-      - acceptance
     id: T-SDH-QLT-011-SMP
     name: システム受入条件の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-QLT-011-TPL
+      - T-SDH-QLT-011-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-QLT-020
     wbs: WBS-QLTY-TSP-020
@@ -88,23 +76,11 @@ tasks:
       - quality
       - derivatives-lifecycle
       - test-planning
-    id: T-SDH-QLT-021-TPL
-    name: テスト戦略・計画の起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-QLT-021-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-QLTY-TSP-020
-    owner: QE
-    tags:
-      - quality
-      - derivatives-lifecycle
-      - test-planning
     id: T-SDH-QLT-021-SMP
     name: テスト戦略・計画の起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-QLT-021-TPL
+      - T-SDH-QLT-021-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-QLT-030
     wbs: WBS-QLTY-UTC-030
@@ -136,23 +112,11 @@ tasks:
       - quality
       - derivatives-lifecycle
       - unit-tests
-    id: T-SDH-QLT-031-TPL
-    name: 単体テストドキュメントの起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-QLT-031-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-QLTY-UTC-030
-    owner: QE
-    tags:
-      - quality
-      - derivatives-lifecycle
-      - unit-tests
     id: T-SDH-QLT-031-SMP
     name: 単体テストドキュメントの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-QLT-031-TPL
+      - T-SDH-QLT-031-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-QLT-040
     wbs: WBS-QLTY-ITC-040
@@ -184,23 +148,11 @@ tasks:
       - quality
       - derivatives-lifecycle
       - integration-tests
-    id: T-SDH-QLT-041-TPL
-    name: 結合テストドキュメントの起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-QLT-041-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-QLTY-ITC-040
-    owner: QE
-    tags:
-      - quality
-      - derivatives-lifecycle
-      - integration-tests
     id: T-SDH-QLT-041-SMP
     name: 結合テストドキュメントの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-QLT-041-TPL
+      - T-SDH-QLT-041-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-QLT-050
     wbs: WBS-QLTY-ETC-050
@@ -233,23 +185,11 @@ tasks:
       - derivatives-lifecycle
       - external-tests
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-    id: T-SDH-QLT-051-TPL
-    name: 外部結合テストの起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-QLT-051-INS
-  - wbs: WBS-QLTY-ETC-050
-    owner: QE
-    tags:
-      - quality
-      - derivatives-lifecycle
-      - external-tests
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
     id: T-SDH-QLT-051-SMP
     name: 外部結合テストの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-QLT-051-TPL
+      - T-SDH-QLT-051-INS
   - id: T-SDH-QLT-060
     wbs: WBS-QLTY-STC-060
     name: システムテストドキュメントルールの起草・レビュー
@@ -280,23 +220,11 @@ tasks:
       - quality
       - derivatives-lifecycle
       - system-tests
-    id: T-SDH-QLT-061-TPL
-    name: システムテストドキュメントの起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-QLT-061-INS
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-  - wbs: WBS-QLTY-STC-060
-    owner: QE
-    tags:
-      - quality
-      - derivatives-lifecycle
-      - system-tests
     id: T-SDH-QLT-061-SMP
     name: システムテストドキュメントの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-QLT-061-TPL
+      - T-SDH-QLT-061-INS
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
   - id: T-SDH-QLT-070
     wbs: WBS-QLTY-ATC-070
@@ -329,23 +257,11 @@ tasks:
       - derivatives-lifecycle
       - acceptance-tests
     notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
-    id: T-SDH-QLT-071-TPL
-    name: 受入テストドキュメントの起草・レビュー input-template.md の起草・レビュー
-    duration_days: 0.25
-    depends_on:
-      - T-SDH-QLT-071-INS
-  - wbs: WBS-QLTY-ATC-070
-    owner: BA
-    tags:
-      - quality
-      - derivatives-lifecycle
-      - acceptance-tests
-    notes: "Phase 2 は派生成果物をエージェントで連続作成・レビューし、rules を含む最終承認で一括 ready 化する。"
     id: T-SDH-QLT-071-SMP
     name: 受入テストドキュメントの起草・レビュー sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-QLT-071-TPL
+      - T-SDH-QLT-071-INS
 milestones:
   - id: M-SDH-QLT-900
     name: 品質ドメイン完了

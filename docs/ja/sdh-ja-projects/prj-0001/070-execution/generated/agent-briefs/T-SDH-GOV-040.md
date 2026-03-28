@@ -40,13 +40,13 @@ secondary_paths:
 - depends_on: `M-SDH-100`
 - critical_first_rank: `10`
 - fifo_rank: `7`
-- urgency: 遅延余裕あり（slack=4）。
-- CPM: `ES=0, EF=0.75, LS=4, LF=4.75, slack=4`
+- urgency: 遅延余裕あり（slack=3.5）。
+- CPM: `ES=0, EF=0.75, LS=3.5, LF=4.25, slack=3.5`
 
 ## 5. 実行ガイド
 
 1. 対象 task を claim する。
-2. 対応する rules / instruction / input-template / sample の対象を特定する。
+2. 対応する rules / instruction / sample の対象を特定する。
 3. task 名と notes に沿って成果物を更新する。
 4. 必要な検証と lint を実行する。
 5. 完了時のみ complete、問題があれば block を記録する。
