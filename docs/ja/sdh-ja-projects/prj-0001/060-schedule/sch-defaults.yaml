@@ -9,6 +9,5 @@ calendar:
     - 2026-03-20
 
 settings:
-  start_date: 2026-03-16
+  start_date: 2026-03-28
   notes: Shared schedule defaults for prj-0001 schedule files.
-    
