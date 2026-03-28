@@ -6,10 +6,18 @@
   },
   "remoteUser": "root",
   "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false,
+      "upgradePackages": false
+    },
     "ghcr.io/devcontainers-extra/features/yamllint:2": {},
-    "ghcr.io/devcontainers/features/copilot-cli:1": {}
+    "ghcr.io/devcontainers/features/copilot-cli:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages": "ripgrep,fd-find,gh,fzf,yq,shellcheck,shfmt",
+      "upgradePackages": false
+    }
   },
-  "postCreateCommand": "npm install -g @fission-ai/openspec@latest",
+  "postCreateCommand": "npm install -g @fission-ai/openspec@latest && if command -v fdfind >/dev/null 2>&1; then ln -sf $(command -v fdfind) /usr/local/bin/fd; fi",
 
   "customizations": {
     "vscode": {
