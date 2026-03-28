@@ -21,7 +21,10 @@
     "validate:schema:bdd": "ajv validate -s docs/shared/schemas/bdd.schema.yaml -d \"docs/**/bdd-*.yaml\"",
     "validate:schema:esil": "ajv validate -s docs/shared/schemas/esil.schema.yaml -d \"docs/**/esil-*.yaml\"",
     "validate:schema": "npm run validate:schema:bdd && npm run validate:schema:esil",
-    "check": "npm run lint:md && npm run validate:schema"
+    "check": "npm run lint:md && npm run validate:schema",
+    "dc:ps": "docker ps --format \"table {{.Names}}\\t{{.Image}}\\t{{.Status}}\"",
+    "dc:name": "bash -lc 'docker ps --format \"{{.Names}}\\t{{.Image}}\" | awk \"\\$2 ~ /^vsc-specdojo-handbook/ {print \\$1; exit}\"'",
+    "dc:bash": "bash -lc 'name=$(docker ps --format \"{{.Names}}\\t{{.Image}}\" | awk \"\\$2 ~ /^vsc-specdojo-handbook/ {print \\$1; exit}\"); [ -n \"$name\" ] && docker exec -it \"$name\" bash -lc \"cd /workspaces/specdojo-handbook && exec bash\" || echo \"matching container not found\"'"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",

@@ -1,0 +1,109 @@
+# CONTRIBUTING
+
+このリポジトリでは、**devcontainer の起動は VS Code で行い**、日常的なターミナル作業は **`docker exec -it` で起動済みコンテナに入る**運用を前提にします。
+
+## 1. この運用にする理由
+
+- VS Code では **`Dev Containers: Reopen in Container`** を使うことで、`.devcontainer/devcontainer.json` に沿った正しい開発環境で開けます。
+- GitHub Copilot Chat も、**実行中のコンテナにアタッチ**するより、**Reopen in Container** のほうが安定しやすいです。
+- 日常のシェル作業は `docker exec -it` で十分です。
+- `devcontainer CLI` は便利ですが、このリポジトリの日常運用では必須ではありません。
+
+## 2. 前提
+
+以下がインストールされていることを前提とします。
+
+- Docker
+- Visual Studio Code
+- Dev Containers 拡張機能
+- GitHub Copilot / GitHub Copilot Chat（必要な場合）
+
+## 3. Quick Start
+
+### 3.1. 起動
+
+- VS Code でリポジトリを開く
+- **`Dev Containers: Reopen in Container`** を実行する
+
+### 3.2. 日常のシェル作業
+
+- ローカル端末から **`npm run dc:bash`** でコンテナに入る
+
+### 3.3. Copilot Chat
+
+- VS Code 上の Copilot Chat を使う
+- **`Attach to Running Container` は基本的に使わない**
+
+## 4. いつもの使い方
+
+### 4.1. VS Code で devcontainer を起動する
+
+1. このリポジトリを VS Code で開く
+2. コマンドパレットを開く
+3. **`Dev Containers: Reopen in Container`** を実行する
+
+初回は build に少し時間がかかることがあります。
+
+### 4.2. 起動中のコンテナ名を確認する
+
+ローカル端末で以下を実行します。
+
+```bash
+npm run dc:ps
+```
+
+もしくは、以下を使っても同様の情報が得られます。
+
+```bash
+docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+```
+
+例:
+
+```bash
+awesome_app_devcontainer   vsc-awesome-app-123456   Up 2 hours
+```
+
+この例では、コンテナ名は `awesome_app_devcontainer` です。
+
+なお、`npm run dc:name` を使うと、**このリポジトリの devcontainer に該当するコンテナ名だけ**が得られます。
+
+### 4.3. コンテナの中に入る
+
+```bash
+npm run dc:bash
+```
+
+もしくは、 以下を使っても同様の操作ができます。
+
+```bash
+docker exec -it <container_name> bash
+```
+
+例:
+
+```bash
+docker exec -it awesome_app_devcontainer bash
+```
+
+## 7. 推奨しない使い方
+
+### 7.1. 実行中のコンテナに VS Code で直接アタッチする
+
+**`Dev Containers: Attach to Running Container...`** は、このリポジトリの日常運用では推奨しません。
+
+理由:
+
+- `devcontainer.json` ベースの起動と挙動がずれることがある
+- Copilot Chat の警告や互換性問題が出やすい
+- 拡張機能の実行場所が変わり、挙動が不安定になることがある
+
+### 7.2. VS Code を2つ開いて同じディレクトリを同時に編集する
+
+同じコンテナを使う場合でも、**同じディレクトリを2つの VS Code ウィンドウで同時に開く**運用は避けてください。
+
+必要なら:
+
+- 片方は VS Code 本体
+- 片方は Chat 専用ウィンドウ
+- または別サブディレクトリを開く
