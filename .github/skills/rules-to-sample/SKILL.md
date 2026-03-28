@@ -1,6 +1,6 @@
 ---
 name: rules-to-sample
-description: `docs/ja/handbook/rules` の更新内容を、`docs/ja/handbook/samples` の `*-sample.md` へ反映するための Skill です。
+description: '`docs/ja/handbook/rules` の更新内容を、`docs/ja/handbook/samples` の `*-sample.md` へ反映するための Skill です。'
 ---
 
 # SKILL: rules-to-sample

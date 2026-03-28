@@ -1,6 +1,6 @@
 ---
 name: rules-lifecycle
-description: `*-rules.md` の作成からその派生成果物（instruction / sample）の作成までを、エージェントと人間のレビューサイクルで進めるワークフロー Skill です。
+description: '*-rules.md の作成からその派生成果物（instruction / sample）の作成までを、エージェントと人間のレビューサイクルで進めるワークフロー Skill です。'
 ---
 
 # SKILL: rules-lifecycle

@@ -1,6 +1,6 @@
 ---
 name: rules-to-instruction
-description: `docs/ja/handbook/rules` の更新内容を、`docs/ja/handbook/instructions` の `*-instruction.md` へ反映するための Skill です。
+description: '`docs/ja/handbook/rules` の更新内容を、`docs/ja/handbook/instructions` の `*-instruction.md` へ反映するための Skill です。'
 ---
 
 # SKILL: rules-to-instruction

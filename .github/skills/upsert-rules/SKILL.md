@@ -1,6 +1,6 @@
 ---
 name: upsert-rules
-description: `docs/ja/handbook/rules` 配下の `*-rules.md` を新規作成または更新するための Skill です。
+description: 'docs/ja/handbook/rules` 配下の `*-rules.md` を新規作成または更新するための Skill です。'
 ---
 
 # SKILL: upsert-rules
