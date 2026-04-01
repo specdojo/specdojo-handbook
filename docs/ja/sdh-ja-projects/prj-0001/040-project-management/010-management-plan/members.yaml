@@ -1,0 +1,37 @@
+# プロジェクトメンバー名簿
+# `dojo exec --by <nickname>` に指定するニックネームと担当者情報を管理します。
+# nickname は一度イベントログに記録されると変更不可です（履歴の一貫性）。
+# yaml-language-server: $schema=../../../../../shared/schemas/members.schema.yaml
+version: 1
+project_id: prj-0001
+
+members:
+  - nickname: po
+    display_name: （未定）
+    email: null
+    owner: PO
+    type: human
+
+  - nickname: ba
+    display_name: （未定）
+    email: null
+    owner: BA
+    type: human
+
+  - nickname: arc
+    display_name: （未定）
+    email: null
+    owner: ARC
+    type: human
+
+  - nickname: qe
+    display_name: （未定）
+    email: null
+    owner: QE
+    type: human
+
+  - nickname: copilot
+    display_name: GitHub Copilot
+    email: null
+    owner: null # エージェントは --owner で実行時に役割を指定
+    type: agent

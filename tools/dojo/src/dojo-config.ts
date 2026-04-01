@@ -2,10 +2,27 @@ import { Command } from 'commander'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import dotenv from 'dotenv'
+import yaml from 'js-yaml'
 
 export type DojoProjectConfig = {
   schedule_path: string
   execution_path: string
+  members_path?: string
+}
+
+export type ProjectMember = {
+  nickname: string
+  display_name: string
+  email: string | null
+  owner: string | null
+  type: 'human' | 'agent'
+  note?: string
+}
+
+export type MemberRoster = {
+  version: number
+  project_id: string
+  members: ProjectMember[]
 }
 
 export type DojoConfig = {
@@ -57,6 +74,39 @@ export function getProjectSchedulePath(project: DojoProjectConfig): string {
 
 export function getProjectExecutionPath(project: DojoProjectConfig): string {
   return project.execution_path
+}
+
+export function getProjectMembersPath(project: DojoProjectConfig): string | undefined {
+  return project.members_path
+}
+
+export function loadMemberRoster(baseDir: string, project: DojoProjectConfig): MemberRoster | null {
+  const membersPath = project.members_path
+  if (!membersPath || !membersPath.trim()) return null
+
+  const fullPath = resolve(baseDir, membersPath.trim())
+  if (!existsSync(fullPath)) {
+    throw new Error(`members_path not found: ${fullPath}`)
+  }
+
+  const raw = readFileSync(fullPath, 'utf8')
+  const parsed = yaml.load(raw) as MemberRoster
+  if (!parsed || !Array.isArray(parsed.members)) {
+    throw new Error(`Invalid members file: ${fullPath} (expected { members: [...] })`)
+  }
+
+  return parsed
+}
+
+export function assertValidActor(actor: string, roster: MemberRoster | null): void {
+  if (!roster) return
+  const known = roster.members.map(m => m.nickname)
+  if (!known.includes(actor)) {
+    throw new Error(
+      `Unknown actor: "${actor}". Must be one of: ${known.join(', ')}\n` +
+        `Register the nickname in members_path file before use.`
+    )
+  }
 }
 
 function isValidProjectConfig(project: unknown): project is DojoProjectConfig {

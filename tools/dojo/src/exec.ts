@@ -26,6 +26,7 @@ import {
   generatedDirForProject,
   resolveProjectPaths,
 } from './exec-project.js'
+import { assertValidActor, defaultConfigPath, loadConfig, loadMemberRoster } from './dojo-config.js'
 import {
   buildScheduleIndex,
   computeCpm,
@@ -98,6 +99,22 @@ function resolveProjectContext(opts: { project?: string }): {
   const resolvedPaths = resolveProjectPaths({ project: opts.project })
   activateResolvedProjectPaths(resolvedPaths)
   return resolvedPaths
+}
+
+function loadRosterForOpts(opts: { project?: string }) {
+  const { config, configPath } = loadConfig()
+  if (!config) return null
+
+  const projectId =
+    opts.project?.trim() ||
+    process.env.DOJO_PROJECT?.trim() ||
+    Object.keys(config.projects)[0] ||
+    ''
+  const project = config.projects[projectId]
+  if (!project) return null
+
+  const baseDir = dirname(configPath)
+  return loadMemberRoster(baseDir, project)
 }
 
 function resolveClaimOwner(opts: { owner?: string }, actor: string): string {
@@ -264,6 +281,8 @@ function ensureActorCanClaimNext(
 function runSimpleEventCommand(opts: any, type: ExecEventType): void {
   try {
     const { schedulePath } = resolveProjectContext(opts)
+    const actor = requireNonEmpty('by', opts.by)
+    assertValidActor(actor, loadRosterForOpts(opts))
     const event = buildEvent(type, opts)
     const out = writeEventFile(schedulePath, event)
     process.stdout.write(out + '\n')
@@ -279,6 +298,7 @@ function runLockedEventCommand(opts: any, action: LockedEventAction): void {
   try {
     const { schedulePath, executionPath } = resolveProjectContext(opts)
     const actor = requireNonEmpty('by', opts.by)
+    assertValidActor(actor, loadRosterForOpts(opts))
     const taskId = requireNonEmpty('task', opts.task)
     const allowMultipleDoing = !!opts.allowMultipleDoing
     const lockTimeoutMs = Number(opts.lockTimeoutMs)
@@ -466,6 +486,7 @@ export function registerExecCommands(program: Command): void {
     try {
       const { schedulePath } = resolveProjectContext(opts)
       const actor = requireNonEmpty('by', opts.by)
+      assertValidActor(actor, loadRosterForOpts(opts))
       const strategy = String(opts.strategy) as SchedulerStrategy
       const dryRun = !!opts.dryRun
       const msg = String(opts.msg ?? 'auto-claim')

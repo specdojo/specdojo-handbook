@@ -1,0 +1,85 @@
+# members.schema.yaml
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "SpecDojo Project Member Roster schema"
+$type: object
+$comment: >
+  Schema for project member roster files:
+  docs/ja/sdh-ja-projects/<project_id>/040-project-management/010-management-plan/members.yaml
+  Manages the mapping from --by <nickname> (used in dojo exec events) to
+  display name, contact info, owner role, and actor type.
+  nickname is immutable once recorded in the event log.
+
+additionalProperties: false
+
+required:
+  - version
+  - project_id
+  - members
+
+properties:
+  version:
+    type: integer
+    minimum: 1
+    description: "Schema/data version."
+
+  project_id:
+    type: string
+    minLength: 1
+    description: "Project identifier (e.g., prj-0001)."
+
+  members:
+    type: array
+    minItems: 1
+    description: "List of project members (human or agent)."
+    items:
+      $ref: "#/$defs/Member"
+    uniqueItems: true
+
+$defs:
+  OwnerLabel:
+    type: string
+    description: "Owner role label. PO=Project Owner, BA=Business Analyst, ARC=Architect, QE=Quality Engineer."
+    enum: ["PO", "BA", "ARC", "QE"]
+
+  Member:
+    type: object
+    additionalProperties: false
+    required:
+      - nickname
+      - display_name
+      - type
+    properties:
+      nickname:
+        type: string
+        description: >
+          Immutable identifier used in `dojo exec --by <nickname>`.
+          Once recorded in the event log, this value must not change.
+        pattern: "^[a-z0-9][a-z0-9_-]{0,62}$"
+        minLength: 1
+
+      display_name:
+        type: string
+        description: "Human-readable name (person's name or agent display name)."
+        minLength: 1
+
+      email:
+        description: "Contact email address. Use null for agents or when not applicable."
+        oneOf:
+          - type: string
+            format: email
+          - type: "null"
+
+      owner:
+        description: "Default owner role label for this member. Use null for agents (role specified at runtime via --owner)."
+        oneOf:
+          - $ref: "#/$defs/OwnerLabel"
+          - type: "null"
+
+      type:
+        type: string
+        description: "Actor type: human for a person, agent for an automated agent (e.g., GitHub Copilot)."
+        enum: ["human", "agent"]
+
+      note:
+        type: string
+        description: "Optional free-text note (e.g., availability, timezone, responsibilities)."
