@@ -6,7 +6,7 @@ wbs:
   - id: WBS-QLTY-SAC-010
     name: システム受入条件ペアの整備
     description: |-
-      システム受入条件ドキュメントとその境界定義の SAC ルール・指示ペアを整備する（カタログ §9）。
+      システム受入条件ドキュメントとその境界定義の SAC ルール・指示ペアを整備する（成果物カタログ「システム受入条件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: acceptance
@@ -22,7 +22,7 @@ wbs:
   - id: WBS-QLTY-TSP-020
     name: テスト戦略・計画ペアの整備
     description: |-
-      テスト戦略・レベル・全体計画構造を定義する TSP インデックスルール・指示ペアを整備する（カタログ §10.1）。
+      テスト戦略・レベル・全体計画構造を定義する TSP インデックスルール・指示ペアを整備する（成果物カタログ「テスト / テスト戦略・方針」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: test-planning
@@ -38,7 +38,7 @@ wbs:
   - id: WBS-QLTY-UTC-030
     name: 単体テストドキュメントファミリーの整備
     description: |-
-      単体テストカタログドキュメントの UTC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.2）。
+      単体テストカタログドキュメントの UTC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（成果物カタログ「テスト / 単体テスト」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: unit-tests
@@ -60,7 +60,7 @@ wbs:
   - id: WBS-QLTY-ITC-040
     name: 結合テストドキュメントファミリーの整備
     description: |-
-      内部結合テストカタログドキュメントの ITC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.3）。
+      内部結合テストカタログドキュメントの ITC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（成果物カタログ「テスト / 内部結合テスト」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: integration-tests
@@ -82,7 +82,7 @@ wbs:
   - id: WBS-QLTY-ETC-050
     name: 外部結合テストドキュメントファミリーの整備
     description: |-
-      ETC インデックス・詳細ドキュメントのルール・指示ファイル、 および派生テスト設計・シナリオ指示を整備する（カタログ §10.4）。
+      ETC インデックス・詳細ドキュメントのルール・指示ファイル、 および派生テスト設計・シナリオ指示を整備する（成果物カタログ「テスト / 外部結合テスト」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: external-tests
@@ -120,7 +120,7 @@ wbs:
   - id: WBS-QLTY-STC-060
     name: システムテストドキュメントファミリーの整備
     description: |-
-      システムテストカタログドキュメントの STC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §10.5）。
+      システムテストカタログドキュメントの STC インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（成果物カタログ「テスト / 総合テスト」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: system-tests
@@ -142,7 +142,7 @@ wbs:
   - id: WBS-QLTY-ATC-070
     name: 受入テストドキュメントファミリーの整備
     description: |-
-      ATC インデックス・詳細ドキュメントのルール・指示ファイル、 および派生テスト設計・シナリオ指示を整備する（カタログ §10.6）。
+      ATC インデックス・詳細ドキュメントのルール・指示ファイル、 および派生テスト設計・シナリオ指示を整備する（成果物カタログ「テスト / 受入テスト」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: acceptance-tests

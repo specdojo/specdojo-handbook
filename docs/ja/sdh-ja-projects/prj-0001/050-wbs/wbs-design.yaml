@@ -6,7 +6,7 @@ wbs:
   - id: WBS-DES-IFX-010
     name: 外部インターフェースドキュメントファミリーの整備
     description: |-
-      外部システムIF一覧・API・ファイル・メッセージ仕様の ルール・指示ファイルを1つのインターフェースファミリーとして整備する（カタログ §4）。
+      外部システムIF一覧・API・ファイル・メッセージ仕様の ルール・指示ファイルを1つのインターフェースファミリーとして整備する（成果物カタログ「外部 IF 仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: ARC
     component: external-if
@@ -40,7 +40,7 @@ wbs:
   - id: WBS-DES-CXD-020
     name: C4 コンテキスト図ドキュメントファミリーの整備
     description: |-
-      C4 コンテキストレベルドキュメントの CXD Markdown および Mermaid の ルール・指示ファイルを整備する（カタログ §6.1）。
+      C4 コンテキストレベルドキュメントの CXD Markdown および Mermaid の ルール・指示ファイルを整備する（成果物カタログ「アーキテクチャ / C4 モデル」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: ARC
     component: c4-context
@@ -62,7 +62,7 @@ wbs:
   - id: WBS-DES-CND-030
     name: C4 コンテナ図ドキュメントファミリーの整備
     description: |-
-      C4 コンテナレベルドキュメントの CND Markdown および Mermaid の ルール・指示ファイルを整備する（カタログ §6.1）。
+      C4 コンテナレベルドキュメントの CND Markdown および Mermaid の ルール・指示ファイルを整備する（成果物カタログ「アーキテクチャ / C4 モデル」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: ARC
     component: c4-container
@@ -84,7 +84,7 @@ wbs:
   - id: WBS-DES-CPD-040
     name: C4 コンポーネント図ドキュメントファミリーの整備
     description: |-
-      C4 コンポーネントレベルドキュメントの CPD Markdown および Mermaid の ルール・指示ファイルを整備する（カタログ §6.1）。
+      C4 コンポーネントレベルドキュメントの CPD Markdown および Mermaid の ルール・指示ファイルを整備する（成果物カタログ「アーキテクチャ / C4 モデル」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: ARC
     component: c4-component
@@ -106,7 +106,7 @@ wbs:
   - id: WBS-DES-IFD-050
     name: インフラ構成図 Mermaid ペアの整備
     description: |-
-      インフラ構成図の IFD Mermaid ルール・指示ペアを 整備する（カタログ §6.2）。
+      インフラ構成図の IFD Mermaid ルール・指示ペアを 整備する（成果物カタログ「アーキテクチャ / インフラ・技術スタック」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: ARC
     component: infrastructure
@@ -122,7 +122,7 @@ wbs:
   - id: WBS-DES-TSD-060
     name: 技術スタック定義ペアの整備
     description: |-
-      採用技術・バージョン・選定理由を網羅する技術スタック定義ドキュメントの TSD ルール・指示ペアを整備する（カタログ §6.2）。
+      採用技術・バージョン・選定理由を網羅する技術スタック定義ドキュメントの TSD ルール・指示ペアを整備する（成果物カタログ「アーキテクチャ / インフラ・技術スタック」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: ARC
     component: tech-stack
@@ -138,7 +138,7 @@ wbs:
   - id: WBS-DES-SYSD-070
     name: システム設計ドキュメントファミリーの整備
     description: |-
-      システム設計インデックス・クリティカルフロー・横断的ポリシーの ルール・指示ファイルを1つのシステム設計ファミリーとして整備する（カタログ §7）。
+      システム設計インデックス・クリティカルフロー・横断的ポリシーの ルール・指示ファイルを1つのシステム設計ファミリーとして整備する（成果物カタログ「システム設計」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: ARC
     component: system-design

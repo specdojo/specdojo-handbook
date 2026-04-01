@@ -1,0 +1,96 @@
+version: 1
+project_id: prj-0001
+domain: agent-customization
+assigned_team: specdojo-handbook
+wbs:
+  - id: WBS-AGT-INS-010
+    name: Instructions セットの整備
+    description: |-
+      .github/instructions 配下の instructions ファイルを、
+      成果物カタログ「エージェントカスタマイズ（.github/）/ Instructions」と整合する形で整備する。
+    owner: ARC
+    component: instructions
+    deliverables:
+      - path: .github/instructions/markdown.instructions.md
+        kind: modify
+      - path: .github/instructions/rules.instructions.md
+        kind: modify
+      - path: .github/instructions/rules-to-instruction.instructions.md
+        kind: modify
+      - path: .github/instructions/rules-to-sample.instructions.md
+        kind: modify
+    done_criteria: |-
+      Instructions セットが、適用範囲（applyTo）・運用ルール・責務境界を矛盾なく定義し、
+      成果物カタログの Instructions 一覧と実体が一致していること。
+
+  - id: WBS-AGT-SKL-020
+    name: Skills セットの整備
+    description: |-
+      .github/skills 配下の SKILL ファイルを、
+      成果物カタログ「エージェントカスタマイズ（.github/）/ SKILL」と整合する形で整備する。
+    owner: ARC
+    component: skills
+    deliverables:
+      - path: .github/skills/upsert-rules/SKILL.md
+        kind: modify
+      - path: .github/skills/rules-to-instruction/SKILL.md
+        kind: modify
+      - path: .github/skills/rules-to-sample/SKILL.md
+        kind: modify
+      - path: .github/skills/rules-lifecycle/SKILL.md
+        kind: modify
+      - path: .github/skills/rules-lifecycle-all/SKILL.md
+        kind: modify
+    done_criteria: |-
+      Skills セットが、単体実行と全体実行のワークフロー境界を明確に定義し、
+      参照先 instructions / prompts との整合が取れていること。
+
+  - id: WBS-AGT-PRM-030
+    name: Prompts セットの整備
+    description: |-
+      .github/prompts 配下の prompt ファイルを、
+      成果物カタログ「エージェントカスタマイズ（.github/）/ Prompts」と整合する形で整備する。
+    owner: BA
+    component: prompts
+    deliverables:
+      - path: .github/prompts/upsert-rules.md
+        kind: modify
+      - path: .github/prompts/upsert-instruction.md
+        kind: modify
+      - path: .github/prompts/upsert-all-instructions.md
+        kind: modify
+      - path: .github/prompts/upsert-changed-instructions.md
+        kind: modify
+      - path: .github/prompts/upsert-last-commit-instructions.md
+        kind: modify
+      - path: .github/prompts/upsert-test-instructions.md
+        kind: modify
+      - path: .github/prompts/upsert-nfr-instructions.md
+        kind: modify
+      - path: .github/prompts/upsert-migration-instructions.md
+        kind: modify
+      - path: .github/prompts/rules-lifecycle.md
+        kind: modify
+      - path: .github/prompts/rules-lifecycle-all.md
+        kind: modify
+      - path: .github/prompts/reverse-rules.md
+        kind: modify
+    done_criteria: |-
+      Prompts セットが、起動対象 Skill・想定入力・出力形式を一貫して定義し、
+      カタログ上の Prompt 一覧と実体が一致していること。
+
+  - id: WBS-AGT-INT-040
+    name: カタログ整合性の確認
+    description: |-
+      プロジェクト成果物カタログと .github 配下成果物の対応を確認し、
+      追加・名称変更・廃止がある場合に差分を反映する。
+    owner: PO
+    component: governance
+    deliverables:
+      - path: docs/ja/sdh-ja-projects/prj-0001/020-project-scope/030-prj-deliverables-catalog.md
+        kind: modify
+      - path: docs/ja/sdh-ja-projects/prj-0001/050-wbs/wbs-agent-customization.yaml
+        kind: modify
+    done_criteria: |-
+      成果物カタログと WBS の対応が保たれ、
+      エージェントカスタマイズ成果物の一覧に不足・重複・命名不整合がないこと。

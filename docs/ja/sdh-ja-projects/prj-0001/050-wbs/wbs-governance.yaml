@@ -6,7 +6,7 @@ wbs:
   - id: WBS-GOV-PRJ-010
     name: プロジェクトドキュメントのルール・指示セットの整備
     description: |-
-      プロジェクト概要、スコープ、課題と解決アプローチのルール・指示ファイルを、 ガバナンス配下の1つのドキュメントファミリーとして整備する（カタログ §2.1–§2.3）。
+      プロジェクト概要、スコープ、課題と解決アプローチのルール・指示ファイルを、 ガバナンス配下の1つのドキュメントファミリーとして整備する（成果物カタログ「プロジェクト関連」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: PO
     component: project-docs
@@ -34,7 +34,7 @@ wbs:
   - id: WBS-GOV-MIG-020
     name: 移行ドキュメントファミリーの整備
     description: |-
-      移行計画、移行テスト、データ移行、カットオーバー、運用切替の ルール・指示ファイルを1つの移行ファミリーとして整備する（カタログ §11）。
+      移行計画、移行テスト、データ移行、カットオーバー、運用切替の ルール・指示ファイルを1つの移行ファミリーとして整備する（成果物カタログ「移行」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: PO
     component: migration
@@ -74,7 +74,7 @@ wbs:
   - id: WBS-GOV-OPS-030
     name: 運用ドキュメントファミリーの整備
     description: |-
-      運用設計・運用手順のルール・指示ファイルを整備する（カタログ §12）。
+      運用設計・運用手順のルール・指示ファイルを整備する（成果物カタログ「運用設計」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: PO
     component: operations

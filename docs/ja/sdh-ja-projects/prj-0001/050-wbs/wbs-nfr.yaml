@@ -6,7 +6,7 @@ wbs:
   - id: WBS-NFR-INDEX-010
     name: 非機能要件インデックスペアの整備
     description: |-
-      非機能要件ドキュメントセットの共通構造を定義する NFR インデックスルール・指示ペアを整備する（カタログ §8）。
+      非機能要件ドキュメントセットの共通構造を定義する NFR インデックスルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: index
@@ -22,7 +22,7 @@ wbs:
   - id: WBS-NFR-AVAIL-020
     name: 可用性要件ペアの整備
     description: |-
-      可用性に特化した非機能要件ドキュメントの 可用性 NFR ルール・指示ペアを整備する（カタログ §8）。
+      可用性に特化した非機能要件ドキュメントの 可用性 NFR ルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: availability
@@ -38,7 +38,7 @@ wbs:
   - id: WBS-NFR-INTEG-030
     name: 完全性要件ペアの整備
     description: |-
-      完全性に特化した非機能要件ドキュメントの 完全性 NFR ルール・指示ペアを整備する（カタログ §8）。
+      完全性に特化した非機能要件ドキュメントの 完全性 NFR ルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: integrity
@@ -54,7 +54,7 @@ wbs:
   - id: WBS-NFR-MAINT-040
     name: 保守性要件ペアの整備
     description: |-
-      保守性要件ドキュメントの 保守性 NFR ルール・指示ペアを整備する（カタログ §8）。
+      保守性要件ドキュメントの 保守性 NFR ルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: maintainability
@@ -70,7 +70,7 @@ wbs:
   - id: WBS-NFR-OPS-050
     name: 運用性要件ペアの整備
     description: |-
-      運用・可観測性に特化した非機能要件の 運用性 NFR ルール・指示ペアを整備する（カタログ §8）。
+      運用・可観測性に特化した非機能要件の 運用性 NFR ルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: operations
@@ -86,7 +86,7 @@ wbs:
   - id: WBS-NFR-PERF-060
     name: 性能要件ペアの整備
     description: |-
-      測定可能な性能要件ドキュメントの 性能 NFR ルール・指示ペアを整備する（カタログ §8）。
+      測定可能な性能要件ドキュメントの 性能 NFR ルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: performance
@@ -102,7 +102,7 @@ wbs:
   - id: WBS-NFR-RELY-070
     name: 信頼性要件ペアの整備
     description: |-
-      障害対応・レジリエンス要件ドキュメントの 信頼性 NFR ルール・指示ペアを整備する（カタログ §8）。
+      障害対応・レジリエンス要件ドキュメントの 信頼性 NFR ルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: reliability
@@ -118,7 +118,7 @@ wbs:
   - id: WBS-NFR-SEC-080
     name: セキュリティ・安全性要件ペアの整備
     description: |-
-      脅威・統制・安全性に特化した要件ドキュメントの セキュリティ・安全性 NFR ルール・指示ペアを整備する（カタログ §8）。
+      脅威・統制・安全性に特化した要件ドキュメントの セキュリティ・安全性 NFR ルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: QE
     component: security-safety
@@ -134,7 +134,7 @@ wbs:
   - id: WBS-NFR-USAB-090
     name: ユーザビリティ要件ペアの整備
     description: |-
-      ユーザー中心の非機能要件ドキュメントの ユーザビリティ NFR ルール・指示ペアを整備する（カタログ §8）。
+      ユーザー中心の非機能要件ドキュメントの ユーザビリティ NFR ルール・指示ペアを整備する（成果物カタログ「非機能要件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: usability

@@ -6,7 +6,7 @@ wbs:
   - id: WBS-BIZ-BPS-010
     name: 業務プロセス仕様ペアの整備
     description: |-
-      業務フロー・手順・参加者役割を定義する業務プロセス仕様ドキュメントの BPS ルール・指示ペアを整備する（カタログ §3）。
+      業務フロー・手順・参加者役割を定義する業務プロセス仕様ドキュメントの BPS ルール・指示ペアを整備する（成果物カタログ「業務仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: process
@@ -22,7 +22,7 @@ wbs:
   - id: WBS-BIZ-BR-020
     name: ビジネスルールペアの整備
     description: |-
-      ビジネスルールの記述・制約・レビュー方法を定義する BR ルール・指示ペアを整備する（カタログ §3）。
+      ビジネスルールの記述・制約・レビュー方法を定義する BR ルール・指示ペアを整備する（成果物カタログ「業務仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: rules
@@ -38,7 +38,7 @@ wbs:
   - id: WBS-BIZ-BDD-030
     name: 業務データディクショナリペアの整備
     description: |-
-      業務データ定義ドキュメントとそのフィールドレベルの期待事項を規定する BDD ルール・指示ペアを整備する（カタログ §3）。
+      業務データ定義ドキュメントとそのフィールドレベルの期待事項を規定する BDD ルール・指示ペアを整備する（成果物カタログ「業務仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: data
@@ -54,7 +54,7 @@ wbs:
   - id: WBS-BIZ-BDS-040
     name: 帳票仕様ペアの整備
     description: |-
-      帳票・帰票仕様の構造と制約を定義する BDS ルール・指示ペアを整備する（カタログ §3）。
+      帳票・帰票仕様の構造と制約を定義する BDS ルール・指示ペアを整備する（成果物カタログ「業務仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: forms
@@ -70,7 +70,7 @@ wbs:
   - id: WBS-BIZ-UIS-050
     name: 画面仕様ペアの整備
     description: |-
-      画面レイアウト・画面遷移・操作仕様ドキュメントの UIS ルール・指示ペアを整備する（カタログ §3）。
+      画面レイアウト・画面遷移・操作仕様ドキュメントの UIS ルール・指示ペアを整備する（成果物カタログ「業務仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: screen
@@ -86,7 +86,7 @@ wbs:
   - id: WBS-BIZ-GL-060
     name: 用語集ペアの整備
     description: |-
-      プロジェクト全体の用語と用語集作成構造を規定する GL ルール・指示ペアを整備する（カタログ §3）。
+      プロジェクト全体の用語と用語集作成構造を規定する GL ルール・指示ペアを整備する（成果物カタログ「業務仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: glossary
@@ -102,7 +102,7 @@ wbs:
   - id: WBS-BIZ-REFDATA-070
     name: リファレンスデータ定義セットの整備
     description: |-
-      分類リスト（CLD）・ステータスリスト（STSD）・格納場所リスト（SLD）の ルール・指示ファイルを1つのリファレンスデータファミリーとして整備する（カタログ §3）。
+      分類リスト（CLD）・ステータスリスト（STSD）・格納場所リスト（SLD）の ルール・指示ファイルを1つのリファレンスデータファミリーとして整備する（成果物カタログ「業務仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: reference-data
@@ -130,7 +130,7 @@ wbs:
   - id: WBS-BIZ-BES-080
     name: 業務イベント仕様ファミリーの整備
     description: |-
-      業務イベント仕様ドキュメントの BES インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §3.1）。
+      業務イベント仕様ドキュメントの BES インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（成果物カタログ「業務仕様 / 業務イベント仕様」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: events
@@ -152,7 +152,7 @@ wbs:
   - id: WBS-BIZ-CDFD-090
     name: 概念データフロードキュメントファミリーの整備
     description: |-
-      概念データフロー図の CDFD テキストおよび Mermaid の ルール・指示ファイルを整備する（カタログ §3.2）。
+      概念データフロー図の CDFD テキストおよび Mermaid の ルール・指示ファイルを整備する（成果物カタログ「業務仕様 / 概念モデル図」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: data-flow
@@ -174,7 +174,7 @@ wbs:
   - id: WBS-BIZ-CDSD-100
     name: 概念データストア定義ペアの整備
     description: |-
-      概念データストアの構造と属性定義の CDSD ルール・指示ペアを 整備する（カタログ §3.2）。
+      概念データストアの構造と属性定義の CDSD ルール・指示ペアを 整備する（成果物カタログ「業務仕様 / 概念モデル図」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: data-store
@@ -190,7 +190,7 @@ wbs:
   - id: WBS-BIZ-CSTD-110
     name: 概念状態遷移ドキュメントファミリーの整備
     description: |-
-      概念状態遷移図の CSTD Markdown および Mermaid の ルール・指示ファイルを整備する（カタログ §3.2）。
+      概念状態遷移図の CSTD Markdown および Mermaid の ルール・指示ファイルを整備する（成果物カタログ「業務仕様 / 概念モデル図」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: state-transition
@@ -212,7 +212,7 @@ wbs:
   - id: WBS-BIZ-CCD-120
     name: 概念クラス図 Mermaid ペアの整備
     description: |-
-      概念クラス図ドキュメントの CCD Mermaid ルール・指示ペアを 整備する（カタログ §3.2）。
+      概念クラス図ドキュメントの CCD Mermaid ルール・指示ペアを 整備する（成果物カタログ「業務仕様 / 概念モデル図」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: class-diagram
@@ -228,7 +228,7 @@ wbs:
   - id: WBS-BIZ-SF-130
     name: システム機能一覧ファミリーの整備
     description: |-
-      システム機能一覧ドキュメントの SF インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（カタログ §3.3）。
+      システム機能一覧ドキュメントの SF インデックスおよび 詳細ドキュメントのルール・指示ファイルを整備する（成果物カタログ「業務仕様 / システム化機能一覧」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: system-functions
@@ -250,7 +250,7 @@ wbs:
   - id: WBS-BIZ-BAC-140
     name: 業務受入条件ペアの整備
     description: |-
-      業務受入条件ドキュメントとその必須執筆ガイダンスの BAC ルール・指示ペアを整備する（カタログ §5）。
+      業務受入条件ドキュメントとその必須執筆ガイダンスの BAC ルール・指示ペアを整備する（成果物カタログ「業務受入条件」）。
       Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
     owner: BA
     component: acceptance
