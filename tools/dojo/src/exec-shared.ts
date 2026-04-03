@@ -2,7 +2,7 @@ import { randomBytes } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
 import { basename, join, relative } from 'node:path'
 import yaml from 'js-yaml'
-import { specdojoRootDir } from './dojo-config.js'
+import { specdojoRootDir } from './specdojo-config.js'
 
 export function nowUtcIsoSeconds(): string {
   return new Date().toISOString().replace(/\.\d{3}Z$/, 'Z')

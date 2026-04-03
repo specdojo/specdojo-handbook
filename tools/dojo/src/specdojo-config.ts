@@ -4,7 +4,7 @@ import { dirname, resolve } from 'node:path'
 import dotenv from 'dotenv'
 import yaml from 'js-yaml'
 
-export type DojoProjectConfig = {
+export type SpecDojoProjectConfig = {
   schedule_path: string
   execution_path: string
   members_path?: string
@@ -25,14 +25,14 @@ export type MemberRoster = {
   members: ProjectMember[]
 }
 
-export type DojoConfig = {
+export type SpecDojoConfig = {
   version: 1
-  projects: Record<string, DojoProjectConfig>
+  projects: Record<string, SpecDojoProjectConfig>
 }
 
 export type ConfigLoadResult = {
   configPath: string
-  config: DojoConfig | null
+  config: SpecDojoConfig | null
 }
 
 function findUpward(startDir: string, name: string): string | null {
@@ -68,19 +68,22 @@ export function defaultConfigPath(): string {
   return resolve(specdojoRootDir(), 'specdojo.config.json')
 }
 
-export function getProjectSchedulePath(project: DojoProjectConfig): string {
+export function getProjectSchedulePath(project: SpecDojoProjectConfig): string {
   return project.schedule_path
 }
 
-export function getProjectExecutionPath(project: DojoProjectConfig): string {
+export function getProjectExecutionPath(project: SpecDojoProjectConfig): string {
   return project.execution_path
 }
 
-export function getProjectMembersPath(project: DojoProjectConfig): string | undefined {
+export function getProjectMembersPath(project: SpecDojoProjectConfig): string | undefined {
   return project.members_path
 }
 
-export function loadMemberRoster(baseDir: string, project: DojoProjectConfig): MemberRoster | null {
+export function loadMemberRoster(
+  baseDir: string,
+  project: SpecDojoProjectConfig
+): MemberRoster | null {
   const membersPath = project.members_path
   if (!membersPath || !membersPath.trim()) return null
 
@@ -109,7 +112,7 @@ export function assertValidActor(actor: string, roster: MemberRoster | null): vo
   }
 }
 
-function isValidProjectConfig(project: unknown): project is DojoProjectConfig {
+function isValidProjectConfig(project: unknown): project is SpecDojoProjectConfig {
   if (!project || typeof project !== 'object' || Array.isArray(project)) return false
 
   const candidate = project as { schedule_path?: unknown; execution_path?: unknown }
@@ -134,7 +137,7 @@ export function loadConfig(): ConfigLoadResult {
   }
 
   const raw = readFileSync(configPath, 'utf8')
-  const parsed = JSON.parse(raw) as DojoConfig
+  const parsed = JSON.parse(raw) as SpecDojoConfig
 
   if (!parsed || parsed.version !== 1 || typeof parsed.projects !== 'object') {
     throw new Error(`Invalid specdojo.config.json: expected { version: 1, projects: { ... } }`)
@@ -151,7 +154,7 @@ export function loadConfig(): ConfigLoadResult {
   return { configPath, config: parsed }
 }
 
-export function writeConfig(config: DojoConfig): void {
+export function writeConfig(config: SpecDojoConfig): void {
   const configPath = defaultConfigPath()
   writeFileSync(configPath, JSON.stringify(config, null, 2) + '\n', 'utf8')
 }
@@ -168,7 +171,7 @@ export function registerConfigCommands(program: Command): void {
         process.stdout.write(`Already exists: ${configPath}\n`)
         return
       }
-      const template: DojoConfig = {
+      const template: SpecDojoConfig = {
         version: 1,
         projects: {
           'shj-0001': {

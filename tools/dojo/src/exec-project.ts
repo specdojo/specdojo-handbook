@@ -5,7 +5,7 @@ import {
   getProjectSchedulePath,
   loadConfig,
   loadEnv,
-} from './dojo-config.js'
+} from './specdojo-config.js'
 import { ResolvedProjectPaths } from './exec-types.js'
 
 function projectBaseDir(): string {

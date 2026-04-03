@@ -26,7 +26,12 @@ import {
   generatedDirForProject,
   resolveProjectPaths,
 } from './exec-project.js'
-import { assertValidActor, defaultConfigPath, loadConfig, loadMemberRoster } from './dojo-config.js'
+import {
+  assertValidActor,
+  defaultConfigPath,
+  loadConfig,
+  loadMemberRoster,
+} from './specdojo-config.js'
 import {
   buildScheduleIndex,
   computeCpm,

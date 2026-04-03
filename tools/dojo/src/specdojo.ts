@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
-import { registerConfigCommands, registerProjectCommands } from './dojo-config.js'
+import { registerConfigCommands, registerProjectCommands } from './specdojo-config.js'
 import { registerExecCommands } from './exec.js'
 
 function main(): void {
