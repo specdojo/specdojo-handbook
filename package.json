@@ -6,11 +6,11 @@
   "author": "naoji3x",
   "private": true,
   "workspaces": [
-    "tools/dojo"
+    "tools/specdojo"
   ],
   "scripts": {
     "prepare": "lefthook install",
-    "specdojo:build": "npm --workspace tools/dojo run build",
+    "specdojo:build": "npm --workspace tools/specdojo run build",
     "lint:md": "markdownlint '**/*.md'",
     "lint:md:fix": "markdownlint --fix '**/*.md'",
     "docs:dev": "vitepress dev docs --host 0.0.0.0 --port 5173",

@@ -170,7 +170,7 @@ generated/
 
 `npm link` は使いません。
 
-このリポジトリでは `npm install` 後に `tools/dojo` がビルドされ、VS Code 統合ターミナルでは `node_modules/.bin` が `PATH` に追加されます。新しいターミナルを開けば、以降は `npx` なしで `specdojo` を直接実行できます。
+このリポジトリでは `npm install` 後に `tools/specdojo` がビルドされ、VS Code 統合ターミナルでは `node_modules/.bin` が `PATH` に追加されます。新しいターミナルを開けば、以降は `npx` なしで `specdojo` を直接実行できます。
 
 ```bash
 npm install
