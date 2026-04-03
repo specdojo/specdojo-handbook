@@ -20,11 +20,11 @@
 - `exec/agent-briefs/claims/`: claim 時点で固定保存する Agent ブリーフのスナップショット
 - `exec/agent-briefs/claims/index.md`: task ごとの snapshot 件数と最新ファイルへのリンク
 - `exec/.locks/`: scheduler の排他ロック
-- `generated/`: `dojo exec build` が生成する派生ファイル
+- `generated/`: `specdojo exec build` が生成する派生ファイル
 
 ## 2. 主な generated ファイル
 
-`dojo exec build --project shj-0001` 実行後、`generated/` に以下が出力される。
+`specdojo exec build --project shj-0001` 実行後、`generated/` に以下が出力される。
 
 - `state.json`: task state snapshot（全 task の現在状態: todo/doing/blocked/done/cancelled）
 - `ready.md`: 人間向け ready 一覧（strategy 別に整形済み）
@@ -71,9 +71,9 @@
 ## 5. 基本コマンド
 
 ```bash
-dojo exec validate --project shj-0001
-dojo exec build --project shj-0001
-dojo exec scheduler --project shj-0001 --by agent-1
+specdojo exec validate --project shj-0001
+specdojo exec build --project shj-0001
+specdojo exec scheduler --project shj-0001 --by agent-1
 ```
 
-`dojo exec where --project shj-0001` を使うと、schedule と execution の実パスを確認できる。
+`specdojo exec where --project shj-0001` を使うと、schedule と execution の実パスを確認できる。

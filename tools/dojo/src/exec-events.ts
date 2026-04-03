@@ -221,7 +221,7 @@ export function canClaimTask(
       ok: false,
       reason:
         `task assigned to owner ${node.owner}; acting owner is ${actorOwner ?? '(unspecified)'}. ` +
-        `Use --owner ${node.owner}, DOJO_OWNER=${node.owner}, or --allow-owner-mismatch.`,
+        `Use --owner ${node.owner}, SPECDOJO_OWNER=${node.owner}, or --allow-owner-mismatch.`,
     }
   }
 

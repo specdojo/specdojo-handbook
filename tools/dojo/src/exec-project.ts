@@ -18,16 +18,16 @@ function resolveProjectRelative(baseDir: string, pathValue: string): string {
 }
 
 export function activateResolvedProjectPaths(paths: ResolvedProjectPaths): void {
-  process.env.DOJO_SCHEDULE_PATH = paths.schedulePath
-  process.env.DOJO_EXECUTION_PATH = paths.executionPath
+  process.env.SPECDOJO_SCHEDULE_PATH = paths.schedulePath
+  process.env.SPECDOJO_EXECUTION_PATH = paths.executionPath
 }
 
 export function executionRootForProject(projectPath: string): string {
   loadEnv()
   const baseDir = projectBaseDir()
 
-  const envSchedulePath = process.env.DOJO_SCHEDULE_PATH
-  const envExecutionPath = process.env.DOJO_EXECUTION_PATH
+  const envSchedulePath = process.env.SPECDOJO_SCHEDULE_PATH
+  const envExecutionPath = process.env.SPECDOJO_EXECUTION_PATH
   if (
     envSchedulePath &&
     envSchedulePath.trim() &&
@@ -50,7 +50,7 @@ export function executionRootForProject(projectPath: string): string {
 
   throw new Error(
     `Execution path not specified for schedule path: ${projectPath}\n` +
-      `Provide --project <id>, or DOJO_PROJECT, or DOJO_SCHEDULE_PATH together with DOJO_EXECUTION_PATH.`
+      `Provide --project <id>, or SPECDOJO_PROJECT, or SPECDOJO_SCHEDULE_PATH together with SPECDOJO_EXECUTION_PATH.`
   )
 }
 
@@ -67,18 +67,18 @@ export function resolveProjectPaths(opts: { project?: string }): ResolvedProject
   const { config, configPath } = loadConfig()
   const baseDir = dirname(configPath)
 
-  const envSchedulePath = process.env.DOJO_SCHEDULE_PATH
-  const envExecutionPath = process.env.DOJO_EXECUTION_PATH
-  const envProject = process.env.DOJO_PROJECT
+  const envSchedulePath = process.env.SPECDOJO_SCHEDULE_PATH
+  const envExecutionPath = process.env.SPECDOJO_EXECUTION_PATH
+  const envProject = process.env.SPECDOJO_PROJECT
 
   function fromProjectId(
     projectId: string,
-    source: '--project' | 'DOJO_PROJECT'
+    source: '--project' | 'SPECDOJO_PROJECT'
   ): ResolvedProjectPaths {
     if (!config) {
       throw new Error(
-        `${source} requires dojo.config.json: ${configPath}\n` +
-          `Define the project id there, or use DOJO_SCHEDULE_PATH/DOJO_EXECUTION_PATH.`
+        `${source} requires specdojo.config.json: ${configPath}\n` +
+          `Define the project id there, or use SPECDOJO_SCHEDULE_PATH/SPECDOJO_EXECUTION_PATH.`
       )
     }
     const project = config.projects[projectId]
@@ -106,7 +106,7 @@ export function resolveProjectPaths(opts: { project?: string }): ResolvedProject
       !envExecutionPath.trim()
     ) {
       throw new Error(
-        `DOJO_SCHEDULE_PATH and DOJO_EXECUTION_PATH must be specified together when using direct environment path overrides.`
+        `SPECDOJO_SCHEDULE_PATH and SPECDOJO_EXECUTION_PATH must be specified together when using direct environment path overrides.`
       )
     }
     return {
@@ -116,12 +116,12 @@ export function resolveProjectPaths(opts: { project?: string }): ResolvedProject
   }
 
   if (envProject && envProject.trim()) {
-    return fromProjectId(envProject.trim(), 'DOJO_PROJECT')
+    return fromProjectId(envProject.trim(), 'SPECDOJO_PROJECT')
   }
 
   throw new Error(
     `Project path not specified.\n` +
-      `Provide --project <id>, or DOJO_PROJECT, or DOJO_SCHEDULE_PATH together with DOJO_EXECUTION_PATH.\n` +
-      `DOJO_PROJECT must match a project id in ${configPath}.`
+      `Provide --project <id>, or SPECDOJO_PROJECT, or SPECDOJO_SCHEDULE_PATH together with SPECDOJO_EXECUTION_PATH.\n` +
+      `SPECDOJO_PROJECT must match a project id in ${configPath}.`
   )
 }

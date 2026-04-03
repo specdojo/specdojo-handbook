@@ -470,17 +470,17 @@ exec/.locks/
 ## 17. 典型的ワークフロー
 
 ```text
-dojo exec validate
-dojo exec build
+specdojo exec validate
+specdojo exec build
 
-dojo exec scheduler --by agent-backend
-dojo exec claim ...
+specdojo exec scheduler --by agent-backend
+specdojo exec claim ...
 
 work
 
-dojo exec complete ...
+specdojo exec complete ...
 
-dojo exec build
+specdojo exec build
 ```
 
 ---

@@ -1,16 +1,42 @@
 {
-  "name": "@specdojo/dojo",
+  "name": "specdojo",
   "version": "0.4.0",
-  "private": true,
+  "description": "CLI for SpecDojo specification-driven execution workflows.",
+  "license": "MIT",
+  "author": "naoji3x",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/specdojo/specdojo-handbook.git",
+    "directory": "tools/dojo"
+  },
+  "homepage": "https://github.com/specdojo/specdojo-handbook/tree/main/tools/dojo",
+  "bugs": {
+    "url": "https://github.com/specdojo/specdojo-handbook/issues"
+  },
+  "keywords": [
+    "specdojo",
+    "cli",
+    "specification",
+    "project-management",
+    "workflow"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "private": false,
   "type": "module",
   "bin": {
-    "dojo": "./dist/dojo.js"
+    "specdojo": "dist/specdojo.js"
   },
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc -p tsconfig.json",
-    "dev": "tsx src/dojo.ts",
-    "start": "node dist/dojo.js"
+    "dev": "tsx src/specdojo.ts",
+    "start": "node dist/specdojo.js"
   },
   "dependencies": {
     "commander": "^12.1.0",

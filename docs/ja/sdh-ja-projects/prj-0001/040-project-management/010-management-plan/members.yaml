@@ -1,5 +1,5 @@
 # プロジェクトメンバー名簿
-# `dojo exec --by <nickname>` に指定するニックネームと担当者情報を管理します。
+# `specdojo exec --by <nickname>` に指定するニックネームと担当者情報を管理します。
 # nickname は一度イベントログに記録されると変更不可です（履歴の一貫性）。
 # yaml-language-server: $schema=../../../../../shared/schemas/members.schema.yaml
 version: 1

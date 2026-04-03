@@ -1,51 +1,47 @@
-# Agent Brief: T-SDH-BIZ-070
+# Agent Brief: T-SDH-AGT-010
 
 このブリーフは ready 時点の実行ビューであり、進捗の正本ではない。
 進捗・監査・状態判定は exec/events のイベントログを参照する。
 
 ## 1. タスク概要
 
-- task_id: `T-SDH-BIZ-070`
+- task_id: `T-SDH-AGT-010`
 - project_id: `prj-0001`
 - specdojo_cli_project: `shj-0001`
-- name: リファレンスデータルールの起草・レビュー
-- owner: BA
+- name: Instructions セットの整備
+- owner: ARC
 - kind: task
-- artifact_kind: rules の起草・レビュー
-- schedule_file: `sch-business.yaml`
-- wbs: `WBS-BIZ-REFDATA-070`
-- duration_days: `1`
+- artifact_kind: タスク定義に従う作業
+- schedule_file: `sch-agent-customization.yaml`
+- wbs: `WBS-AGT-INS-010`
+- duration_days: `0.5`
 
 ## 2. 実施内容
 
-- primary_goal: リファレンスデータルールの起草・レビュー
-- schedule_notes: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
-- tags: `business`, `rules-lifecycle`
+- primary_goal: Instructions セットの整備
+- schedule_notes: .github/instructions 配下の運用ルールを整備し、applyTo と運用境界の整合を確認する。
+- tags: `agent-customization`, `instructions`
 
 ## 3. 対象成果物候補
 
 primary_paths:
 
-- docs/ja/handbook/rules/cld-rules.md
-- docs/ja/handbook/rules/stsd-rules.md
-- docs/ja/handbook/rules/sld-rules.md
+- .github/instructions/markdown.instructions.md
+- .github/instructions/rules.instructions.md
+- .github/instructions/rules-to-instruction.instructions.md
+- .github/instructions/rules-to-sample.instructions.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/cld-instruction.md
-- docs/ja/handbook/instructions/stsd-instruction.md
-- docs/ja/handbook/instructions/sld-instruction.md
-- docs/ja/handbook/samples/cld-sample.md
-- docs/ja/handbook/samples/stsd-sample.md
-- docs/ja/handbook/samples/sld-sample.md
+- なし
 
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `8`
-- fifo_rank: `4`
-- urgency: 遅延余裕あり（slack=2.75）。
-- CPM: `ES=0, EF=1, LS=2.75, LF=3.75, slack=2.75`
+- critical_first_rank: `6`
+- fifo_rank: `1`
+- urgency: 遅延余裕あり（slack=2.5）。
+- CPM: `ES=0, EF=0.5, LS=2.5, LF=3, slack=2.5`
 
 ## 5. 実行ガイド
 
@@ -56,9 +52,9 @@ secondary_paths:
 5. 完了時のみ complete、問題があれば block を記録する。
 
 ```bash
-specdojo exec claim --project shj-0001 --task T-SDH-BIZ-070 --by <agent> --msg "start"
+specdojo exec claim --project shj-0001 --task T-SDH-AGT-010 --by <agent> --msg "start"
 # edit / validate / lint
-specdojo exec complete --project shj-0001 --task T-SDH-BIZ-070 --by <agent> --msg "done"
+specdojo exec complete --project shj-0001 --task T-SDH-AGT-010 --by <agent> --msg "done"
 ```
 
 ## 6. block 時の記録テンプレート
@@ -71,7 +67,7 @@ blocked: <reason>; need=<next action>; ref=<path or issue>
 ```
 
 ```bash
-specdojo exec block --project shj-0001 --task T-SDH-BIZ-070 --by <agent> --msg "blocked: <reason>; need=<next action>; ref=<path or issue>"
+specdojo exec block --project shj-0001 --task T-SDH-AGT-010 --by <agent> --msg "blocked: <reason>; need=<next action>; ref=<path or issue>"
 ```
 
 ## 7. 注意事項

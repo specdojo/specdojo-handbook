@@ -1,14 +1,14 @@
 ---
-id: dojo-command-usage-guide
+id: specdojo-command-usage-guide
 type: guide
 status: draft
 ---
 
-# dojoコマンド利用ガイド
+# specdojoコマンド利用ガイド
 
-本ドキュメントでは、SpecDojo における **Gitベースのプロジェクト実行管理ツール `dojo` CLI** の利用方法を説明します。
+本ドキュメントでは、SpecDojo における **Gitベースのプロジェクト実行管理ツール `specdojo` CLI** の利用方法を説明します。
 
-`dojo` は以下を Git リポジトリ内で管理することを目的としています。
+`specdojo` は以下を Git リポジトリ内で管理することを目的としています。
 
 - スケジュール定義（`sch-*.yaml`）
 - 実行イベント（`exec/events/*.json`）
@@ -16,7 +16,7 @@ status: draft
 
 ## 1. 概要
 
-`dojo` は以下の機能を提供します。
+`specdojo` は以下の機能を提供します。
 
 - スケジュール定義の検証
 - 実行イベントの記録
@@ -33,7 +33,7 @@ status: draft
 
 ```text
 repo-root/
-├─ dojo.config.json
+├─ specdojo.config.json
 ├─ .env
 ├─ docs/
 │  └─ ja/
@@ -44,21 +44,18 @@ repo-root/
 │           │  ├─ sch-governance.yaml
 │           │  ├─ sch-design.yaml
 │           │  └─ sch-design-structure.yaml
-│           │
 │           └─ 070-execution/
 │              ├─ exec/
 │              │  ├─ events/
 │              │  └─ .locks/
-│              │
 │              └─ generated/
-│
 └─ tools/
    └─ dojo/
 ```
 
 ## 3. 設定
 
-### 3.1. dojo.config.json
+### 3.1. `specdojo.config.json`
 
 複数プロジェクトを扱うための **プロジェクトレジストリ**です。
 
@@ -70,56 +67,45 @@ repo-root/
   "projects": {
     "shj-0001": {
       "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
-      "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution"
+      "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution",
+      "members_path": "docs/ja/sdh-ja-projects/prj-0001/040-project-management/010-management-plan/members.yaml"
     }
   }
 }
 ```
 
-`projects.<id>` には `schedule_path` と `execution_path` を必ず指定する。
+`projects.<id>` には `schedule_path`、`execution_path`、必要に応じて `members_path` を指定します。
 
-`execution_path` は必須であり、`exec/events` / `generated` / `exec/.locks` の出力先を表す。
+### 3.2. `.env`（任意）
 
----
-
-### 3.2. .env（任意）
-
-ローカル開発者用の簡易設定。
+ローカル開発者用の簡易設定です。
 
 ```bash
-DOJO_PROJECT=shj-0001
+SPECDOJO_PROJECT=shj-0001
 ```
 
 または
 
 ```bash
-DOJO_SCHEDULE_PATH=docs/ja/sdh-ja-projects/prj-0001/060-schedule
-DOJO_EXECUTION_PATH=docs/ja/sdh-ja-projects/prj-0001/070-execution
+SPECDOJO_SCHEDULE_PATH=docs/ja/sdh-ja-projects/prj-0001/060-schedule
+SPECDOJO_EXECUTION_PATH=docs/ja/sdh-ja-projects/prj-0001/070-execution
 ```
-
----
 
 ### 3.3. プロジェクトパス解決順序
 
-`dojo` は schedule path と execution path を同じ入力元から解決します。
+`specdojo` は schedule path と execution path を同じ入力元から解決します。
 
-1. `--project` で指定したプロジェクト ID を `dojo.config.json` から解決
-2. `DOJO_SCHEDULE_PATH` と `DOJO_EXECUTION_PATH` をセットで解決
-3. `DOJO_PROJECT` で指定したプロジェクト ID を `dojo.config.json` から解決
+1. `--project` で指定したプロジェクト ID を `specdojo.config.json` から解決
+2. `SPECDOJO_SCHEDULE_PATH` と `SPECDOJO_EXECUTION_PATH` をセットで解決
+3. `SPECDOJO_PROJECT` で指定したプロジェクト ID を `specdojo.config.json` から解決
 
-- `--project` を使う場合は、`dojo.config.json` の `projects.<id>.schedule_path` と `projects.<id>.execution_path` を使う。
-- `DOJO_PROJECT` を使う場合も、`dojo.config.json` に定義済みのプロジェクト ID から両方を解決する。
-- 直接環境変数で指定する場合は、`DOJO_SCHEDULE_PATH` と `DOJO_EXECUTION_PATH` を両方指定する。
-
-片方だけでは解決しない。
-
----
+- `--project` を使う場合は、`specdojo.config.json` の `projects.<id>.schedule_path` と `projects.<id>.execution_path` を使います。
+- `SPECDOJO_PROJECT` を使う場合も、`specdojo.config.json` に定義済みのプロジェクト ID から両方を解決します。
+- 直接環境変数で指定する場合は、`SPECDOJO_SCHEDULE_PATH` と `SPECDOJO_EXECUTION_PATH` を両方指定します。
 
 ## 4. スケジュールファイル
 
 スケジュールは YAML で管理します。
-
-例:
 
 ```bash
 sch-milestones.yaml
@@ -137,8 +123,6 @@ tasks:
     depends_on:
       - T-AUTH-API-010
 ```
-
----
 
 ## 5. 実行イベント
 
@@ -165,7 +149,7 @@ exec/events/
 
 ## 6. 生成ファイル
 
-`dojo exec build` により以下が生成されます。
+`specdojo exec build` により以下が生成されます。
 
 ```bash
 generated/
@@ -186,43 +170,35 @@ generated/
 
 `npm link` は使いません。
 
-このリポジトリでは `npm install` 後に `tools/dojo` がビルドされ、VS Code 統合ターミナルでは `node_modules/.bin` が `PATH` に追加されます。新しいターミナルを開けば、以降は `npx` なしで `dojo` を直接実行できます。
+このリポジトリでは `npm install` 後に `tools/dojo` がビルドされ、VS Code 統合ターミナルでは `node_modules/.bin` が `PATH` に追加されます。新しいターミナルを開けば、以降は `npx` なしで `specdojo` を直接実行できます。
 
 ```bash
 npm install
-dojo config init
+specdojo config init
 ```
 
 VS Code 統合ターミナル以外では `PATH` が通らないため、必要に応じて以下を使ってください。
 
 ```bash
-./node_modules/.bin/dojo config init
+./node_modules/.bin/specdojo config init
 ```
 
-### config作成
+### 7.1. config作成
 
 ```bash
-dojo config init
+specdojo config init
 ```
 
-### プロジェクト一覧
+### 7.2. プロジェクト一覧
 
 ```bash
-dojo project list
+specdojo project list
 ```
-
-例:
-
-```bash
-shj-0001    docs/ja/sdh-ja-projects/prj-0001/060-schedule    docs/ja/sdh-ja-projects/prj-0001/070-execution
-```
-
----
 
 ## 8. パス確認
 
 ```bash
-dojo exec where --project shj-0001
+specdojo exec where --project shj-0001
 ```
 
 出力例:
@@ -235,12 +211,10 @@ generated   : .../070-execution/generated
 scheduler-lock: .../070-execution/exec/.locks/scheduler.lock
 ```
 
----
-
 ## 9. 検証
 
 ```bash
-dojo exec validate --project shj-0001
+specdojo exec validate --project shj-0001
 ```
 
 検証内容:
@@ -253,7 +227,7 @@ dojo exec validate --project shj-0001
 ## 10. 生成
 
 ```bash
-dojo exec build --project shj-0001
+specdojo exec build --project shj-0001
 ```
 
 生成:
@@ -265,68 +239,58 @@ dojo exec build --project shj-0001
 - CPM
 - schedule diff
 
-`ready.md` は人間向けの ready 一覧で、`critical-first` の順序と `fifo` の順序を併記する。
+`ready.md` は人間向けの ready 一覧で、`critical-first` の順序と `fifo` の順序を併記します。
 
-`ready.json` は機械向けの ready キューで、strategy ごとの順序付き task ID と CPM 情報を持つ。
+`ready.json` は機械向けの ready キューで、strategy ごとの順序付き task ID と CPM 情報を持ちます。
 
-`claim-next.json` は strategy ごとの次の claim 対象を持つ。
+`claim-next.json` は strategy ごとの次の claim 対象を持ちます。
 
 ## 11. 実行イベントコマンド
 
-### claim
-
-タスク開始
+### 11.1. claim
 
 ```bash
-dojo exec claim \
+specdojo exec claim \
   --project shj-0001 \
   --task T-AUTH-API-020 \
   --by agent-1 \
   --msg "start implementation"
 ```
 
-### complete
-
-タスク完了
+### 11.2. complete
 
 ```bash
-dojo exec complete \
+specdojo exec complete \
   --project shj-0001 \
   --task T-AUTH-API-020 \
   --by agent-1 \
   --msg "done"
 ```
 
-### block
-
-タスク停止
+### 11.3. block
 
 ```bash
-dojo exec block \
+specdojo exec block \
   --project shj-0001 \
   --task T-AUTH-API-020 \
   --by agent-1 \
   --msg "waiting for spec"
 ```
 
-### unblock
-
-停止解除
+### 11.4. unblock
 
 ```bash
-dojo exec unblock \
+specdojo exec unblock \
   --project shj-0001 \
   --task T-AUTH-API-020 \
   --by agent-2 \
   --msg "spec clarified"
 ```
 
-### cancel
-
-タスク取消
+### 11.5. cancel
 
 ```bash
-dojo exec cancel \
+specdojo exec cancel \
   --project shj-0001 \
   --task T-AUTH-API-020 \
   --by agent-1 \
@@ -335,30 +299,30 @@ dojo exec cancel \
 
 ## 12. scheduler
 
-自動タスク取得。
+自動タスク取得:
 
 ```bash
-dojo exec scheduler --project shj-0001 --by agent-1
+specdojo exec scheduler --project shj-0001 --by agent-1
 ```
 
-`dojo exec scheduler` は `critical-first` または `fifo` の戦略で `ready.json` / `claim-next.json` と同じ順序規則を使って claim 対象を選ぶ。
+`specdojo exec scheduler` は `critical-first` または `fifo` の戦略で `ready.json` / `claim-next.json` と同じ順序規則を使って claim 対象を選びます。
 
 Dry-run:
 
 ```bash
-dojo exec scheduler --dry-run
+specdojo exec scheduler --dry-run
 ```
 
 ## 13. ロック
 
 以下コマンドは **プロジェクトロック**を使用します。
 
-- claim
-- complete
-- block
-- unblock
-- cancel
-- scheduler
+- `claim`
+- `complete`
+- `block`
+- `unblock`
+- `cancel`
+- `scheduler`
 
 ロック位置:
 
@@ -378,7 +342,7 @@ done
 cancelled
 ```
 
-## 状態遷移表
+### 14.1. 状態遷移表
 
 | current | command  | next      | guard       |
 | ------- | -------- | --------- | ----------- |
@@ -390,7 +354,7 @@ cancelled
 | doing   | cancel   | cancelled | 同一actor   |
 | blocked | cancel   | cancelled | 可          |
 
-## 遷移図
+### 14.2. 遷移図
 
 ```mermaid
 stateDiagram-v2
@@ -407,11 +371,11 @@ blocked --> cancelled : cancel
 ## 15. 推奨ワークフロー
 
 ```bash
-dojo exec validate
-dojo exec build
-dojo exec scheduler --by agent-1
-dojo exec complete ...
-dojo exec build
+specdojo exec validate
+specdojo exec build
+specdojo exec scheduler --by agent-1
+specdojo exec complete ...
+specdojo exec build
 ```
 
 ## 16. lefthook例
@@ -420,12 +384,12 @@ dojo exec build
 pre-commit:
   commands:
     validate:
-      run: ./node_modules/.bin/dojo exec validate --project shj-0001
+      run: ./node_modules/.bin/specdojo exec validate --project shj-0001
 
 pre-push:
   commands:
     build:
-      run: ./node_modules/.bin/dojo exec build --project shj-0001
+      run: ./node_modules/.bin/specdojo exec build --project shj-0001
 ```
 
 ## 17. Agent利用ガイド
@@ -447,7 +411,7 @@ agent-test
 
 ## 18. まとめ
 
-`dojo` は以下を実現します。
+`specdojo` は以下を実現します。
 
 - Gitネイティブなプロジェクト管理
 - append-only実行ログ

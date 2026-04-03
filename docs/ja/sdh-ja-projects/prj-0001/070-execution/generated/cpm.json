@@ -17,6 +17,86 @@
       "depends_on": [],
       "schedule_file": "sch-milestones.yaml"
     },
+    "T-SDH-AGT-010": {
+      "id": "T-SDH-AGT-010",
+      "name": "Instructions セットの整備",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 0,
+      "ef": 0.5,
+      "ls": 2.5,
+      "lf": 3,
+      "slack": 2.5,
+      "depends_on": [
+        "M-SDH-100"
+      ],
+      "schedule_file": "sch-agent-customization.yaml"
+    },
+    "T-SDH-AGT-020": {
+      "id": "T-SDH-AGT-020",
+      "name": "Skills セットの整備",
+      "owner": "ARC",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 0.5,
+      "ef": 1,
+      "ls": 3,
+      "lf": 3.5,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-AGT-010"
+      ],
+      "schedule_file": "sch-agent-customization.yaml"
+    },
+    "T-SDH-AGT-030": {
+      "id": "T-SDH-AGT-030",
+      "name": "Prompts セットの整備",
+      "owner": "BA",
+      "kind": "task",
+      "duration_days": 0.5,
+      "es": 1,
+      "ef": 1.5,
+      "ls": 3.5,
+      "lf": 4,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-AGT-020"
+      ],
+      "schedule_file": "sch-agent-customization.yaml"
+    },
+    "T-SDH-AGT-040": {
+      "id": "T-SDH-AGT-040",
+      "name": "カタログ整合性の確認",
+      "owner": "PO",
+      "kind": "task",
+      "duration_days": 0.25,
+      "es": 1.5,
+      "ef": 1.75,
+      "ls": 4,
+      "lf": 4.25,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-AGT-030"
+      ],
+      "schedule_file": "sch-agent-customization.yaml"
+    },
+    "M-SDH-AGT-900": {
+      "id": "M-SDH-AGT-900",
+      "name": "エージェントカスタマイズドメイン完了",
+      "owner": "PO",
+      "kind": "milestone",
+      "duration_days": 0,
+      "es": 1.75,
+      "ef": 1.75,
+      "ls": 4.25,
+      "lf": 4.25,
+      "slack": 2.5,
+      "depends_on": [
+        "T-SDH-AGT-040"
+      ],
+      "schedule_file": "sch-agent-customization.yaml"
+    },
     "T-SDH-BIZ-010": {
       "id": "T-SDH-BIZ-010",
       "name": "業務プロセス仕様ルールの起草・レビュー",
@@ -1288,6 +1368,7 @@
       "lf": 4.25,
       "slack": 1.25,
       "depends_on": [
+        "M-SDH-AGT-900",
         "M-SDH-GOV-900"
       ],
       "schedule_file": "sch-milestones.yaml"
@@ -2151,6 +2232,7 @@
       "lf": 4.25,
       "slack": 0,
       "depends_on": [
+        "M-SDH-AGT-900",
         "M-SDH-GOV-900",
         "M-SDH-BIZ-900",
         "M-SDH-NFR-900",

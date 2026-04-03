@@ -7,7 +7,7 @@
 
 - task_id: `T-SDH-GOV-040`
 - project_id: `prj-0001`
-- dojo_cli_project: `shj-0001`
+- specdojo_cli_project: `shj-0001`
 - name: 共有メタルールブックガバナンスセットの整合
 - owner: ARC
 - kind: task
@@ -38,8 +38,8 @@ secondary_paths:
 ## 4. 依存と優先度
 
 - depends_on: `M-SDH-100`
-- critical_first_rank: `10`
-- fifo_rank: `7`
+- critical_first_rank: `11`
+- fifo_rank: `8`
 - urgency: 遅延余裕あり（slack=3.5）。
 - CPM: `ES=0, EF=0.75, LS=3.5, LF=4.25, slack=3.5`
 
@@ -52,9 +52,9 @@ secondary_paths:
 5. 完了時のみ complete、問題があれば block を記録する。
 
 ```bash
-dojo exec claim --project shj-0001 --task T-SDH-GOV-040 --by <agent> --msg "start"
+specdojo exec claim --project shj-0001 --task T-SDH-GOV-040 --by <agent> --msg "start"
 # edit / validate / lint
-dojo exec complete --project shj-0001 --task T-SDH-GOV-040 --by <agent> --msg "done"
+specdojo exec complete --project shj-0001 --task T-SDH-GOV-040 --by <agent> --msg "done"
 ```
 
 ## 6. block 時の記録テンプレート
@@ -67,7 +67,7 @@ blocked: <reason>; need=<next action>; ref=<path or issue>
 ```
 
 ```bash
-dojo exec block --project shj-0001 --task T-SDH-GOV-040 --by <agent> --msg "blocked: <reason>; need=<next action>; ref=<path or issue>"
+specdojo exec block --project shj-0001 --task T-SDH-GOV-040 --by <agent> --msg "blocked: <reason>; need=<next action>; ref=<path or issue>"
 ```
 
 ## 7. 注意事項

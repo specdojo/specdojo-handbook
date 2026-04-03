@@ -62,7 +62,7 @@ type LockedEventAction = {
 }
 
 function addProjectOptions(cmd: Command): Command {
-  return cmd.option('--project <projectId>', 'Project id in dojo.config.json (e.g. shj-0001)')
+  return cmd.option('--project <projectId>', 'Project id in specdojo.config.json (e.g. shj-0001)')
 }
 
 function addLockOptions(cmd: Command): Command {
@@ -76,7 +76,7 @@ function addOwnerOptions(cmd: Command): Command {
   return cmd
     .option(
       '--owner <owner>',
-      `Planned owner label for assignment checks (${KNOWN_OWNER_LABELS_TEXT}; defaults to DOJO_OWNER or actor)`
+      `Planned owner label for assignment checks (${KNOWN_OWNER_LABELS_TEXT}; defaults to SPECDOJO_OWNER or actor)`
     )
     .option('--allow-owner-mismatch', 'Allow claiming a task assigned to a different owner', false)
 }
@@ -107,7 +107,7 @@ function loadRosterForOpts(opts: { project?: string }) {
 
   const projectId =
     opts.project?.trim() ||
-    process.env.DOJO_PROJECT?.trim() ||
+    process.env.SPECDOJO_PROJECT?.trim() ||
     Object.keys(config.projects)[0] ||
     ''
   const project = config.projects[projectId]
@@ -120,14 +120,16 @@ function loadRosterForOpts(opts: { project?: string }) {
 function resolveClaimOwner(opts: { owner?: string }, actor: string): string {
   const cliOwner = typeof opts.owner === 'string' ? opts.owner.trim().toUpperCase() : ''
   const envOwner =
-    typeof process.env.DOJO_OWNER === 'string' ? process.env.DOJO_OWNER.trim().toUpperCase() : ''
+    typeof process.env.SPECDOJO_OWNER === 'string'
+      ? process.env.SPECDOJO_OWNER.trim().toUpperCase()
+      : ''
 
   if (cliOwner && !KNOWN_OWNER_LABELS.includes(cliOwner as (typeof KNOWN_OWNER_LABELS)[number])) {
     throw new Error(`Invalid --owner value: ${cliOwner}. Use one of: ${KNOWN_OWNER_LABELS_TEXT}.`)
   }
   if (envOwner && !KNOWN_OWNER_LABELS.includes(envOwner as (typeof KNOWN_OWNER_LABELS)[number])) {
     throw new Error(
-      `Invalid DOJO_OWNER value: ${envOwner}. Use one of: ${KNOWN_OWNER_LABELS_TEXT}.`
+      `Invalid SPECDOJO_OWNER value: ${envOwner}. Use one of: ${KNOWN_OWNER_LABELS_TEXT}.`
     )
   }
 
@@ -335,7 +337,7 @@ function runLockedEventCommand(opts: any, action: LockedEventAction): void {
       runAgentBriefBuild(
         schedulePath,
         executionPath,
-        opts.project ?? process.env.DOJO_PROJECT ?? ''
+        opts.project ?? process.env.SPECDOJO_PROJECT ?? ''
       )
       saveClaimBriefSnapshot(executionPath, taskId, actor, event.ts)
       event.meta = {
@@ -459,7 +461,7 @@ export function registerExecCommands(program: Command): void {
       runAgentBriefBuild(
         schedulePath,
         executionPath,
-        opts.project ?? process.env.DOJO_PROJECT ?? ''
+        opts.project ?? process.env.SPECDOJO_PROJECT ?? ''
       )
 
       process.stdout.write(`\nGenerated: ${generatedDirForProject(schedulePath)}\n`)
@@ -526,7 +528,7 @@ export function registerExecCommands(program: Command): void {
       if (!next) {
         if (ready.length > 0 && !allowOwnerMismatch) {
           process.stdout.write(
-            `No ready task assigned to owner ${claimOwner}. Use --owner <${KNOWN_OWNER_LABELS_TEXT}>, DOJO_OWNER, or --allow-owner-mismatch.\n`
+            `No ready task assigned to owner ${claimOwner}. Use --owner <${KNOWN_OWNER_LABELS_TEXT}>, SPECDOJO_OWNER, or --allow-owner-mismatch.\n`
           )
         } else {
           process.stdout.write('No ready task to claim.\n')

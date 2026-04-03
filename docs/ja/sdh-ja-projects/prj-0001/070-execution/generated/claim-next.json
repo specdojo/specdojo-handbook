@@ -12,6 +12,7 @@
         "T-SDH-DES-060",
         "T-SDH-QLT-020",
         "T-SDH-NFR-010",
+        "T-SDH-AGT-010",
         "T-SDH-BIZ-030",
         "T-SDH-BIZ-070",
         "T-SDH-BIZ-060",
@@ -20,8 +21,9 @@
       ]
     },
     "fifo": {
-      "next_task_id": "T-SDH-BIZ-030",
+      "next_task_id": "T-SDH-AGT-010",
       "ordered_task_ids": [
+        "T-SDH-AGT-010",
         "T-SDH-BIZ-030",
         "T-SDH-BIZ-060",
         "T-SDH-BIZ-070",

@@ -2,7 +2,7 @@
   "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
   "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution",
   "generated_dir": "docs/ja/sdh-ja-projects/prj-0001/070-execution/generated",
-  "ready_count": 10,
+  "ready_count": 11,
   "default_strategy": "critical-first",
   "strategies": {
     "critical-first": {
@@ -13,6 +13,7 @@
         "T-SDH-DES-060",
         "T-SDH-QLT-020",
         "T-SDH-NFR-010",
+        "T-SDH-AGT-010",
         "T-SDH-BIZ-030",
         "T-SDH-BIZ-070",
         "T-SDH-BIZ-060",
@@ -21,8 +22,9 @@
       ]
     },
     "fifo": {
-      "next_task_id": "T-SDH-BIZ-030",
+      "next_task_id": "T-SDH-AGT-010",
       "ordered_task_ids": [
+        "T-SDH-AGT-010",
         "T-SDH-BIZ-030",
         "T-SDH-BIZ-060",
         "T-SDH-BIZ-070",
@@ -42,7 +44,7 @@
       "name": "C4 コンテキスト図ルールの起草・レビュー",
       "owner": "ARC",
       "schedule_file": "sch-design.yaml",
-      "fifo_rank": 5,
+      "fifo_rank": 6,
       "critical_first_rank": 1,
       "cpm": {
         "es": 0,
@@ -57,7 +59,7 @@
       "name": "外部インターフェースルールの起草・レビュー",
       "owner": "ARC",
       "schedule_file": "sch-design.yaml",
-      "fifo_rank": 4,
+      "fifo_rank": 5,
       "critical_first_rank": 2,
       "cpm": {
         "es": 0,
@@ -72,7 +74,7 @@
       "name": "技術スタック定義ルールの起草・レビュー",
       "owner": "ARC",
       "schedule_file": "sch-design.yaml",
-      "fifo_rank": 6,
+      "fifo_rank": 7,
       "critical_first_rank": 3,
       "cpm": {
         "es": 0,
@@ -87,7 +89,7 @@
       "name": "テスト戦略・計画ルールの起草・レビュー",
       "owner": "QE",
       "schedule_file": "sch-quality.yaml",
-      "fifo_rank": 10,
+      "fifo_rank": 11,
       "critical_first_rank": 4,
       "cpm": {
         "es": 0,
@@ -102,7 +104,7 @@
       "name": "NFR インデックスルールの起草・レビュー",
       "owner": "QE",
       "schedule_file": "sch-nfr.yaml",
-      "fifo_rank": 8,
+      "fifo_rank": 9,
       "critical_first_rank": 5,
       "cpm": {
         "es": 0,
@@ -113,12 +115,27 @@
       }
     },
     {
+      "id": "T-SDH-AGT-010",
+      "name": "Instructions セットの整備",
+      "owner": "ARC",
+      "schedule_file": "sch-agent-customization.yaml",
+      "fifo_rank": 1,
+      "critical_first_rank": 6,
+      "cpm": {
+        "es": 0,
+        "ef": 0.5,
+        "ls": 2.5,
+        "lf": 3,
+        "slack": 2.5
+      }
+    },
+    {
       "id": "T-SDH-BIZ-030",
       "name": "業務データディクショナリルールの起草・レビュー",
       "owner": "BA",
       "schedule_file": "sch-business.yaml",
-      "fifo_rank": 1,
-      "critical_first_rank": 6,
+      "fifo_rank": 2,
+      "critical_first_rank": 7,
       "cpm": {
         "es": 0,
         "ef": 0.5,
@@ -132,8 +149,8 @@
       "name": "リファレンスデータルールの起草・レビュー",
       "owner": "BA",
       "schedule_file": "sch-business.yaml",
-      "fifo_rank": 3,
-      "critical_first_rank": 7,
+      "fifo_rank": 4,
+      "critical_first_rank": 8,
       "cpm": {
         "es": 0,
         "ef": 1,
@@ -147,8 +164,8 @@
       "name": "用語集ルールの起草・レビュー",
       "owner": "BA",
       "schedule_file": "sch-business.yaml",
-      "fifo_rank": 2,
-      "critical_first_rank": 8,
+      "fifo_rank": 3,
+      "critical_first_rank": 9,
       "cpm": {
         "es": 0,
         "ef": 0.5,
@@ -162,8 +179,8 @@
       "name": "システム受入条件ルールの起草・レビュー",
       "owner": "QE",
       "schedule_file": "sch-quality.yaml",
-      "fifo_rank": 9,
-      "critical_first_rank": 9,
+      "fifo_rank": 10,
+      "critical_first_rank": 10,
       "cpm": {
         "es": 0,
         "ef": 0.5,
@@ -177,8 +194,8 @@
       "name": "共有メタルールブックガバナンスセットの整合",
       "owner": "ARC",
       "schedule_file": "sch-governance.yaml",
-      "fifo_rank": 7,
-      "critical_first_rank": 10,
+      "fifo_rank": 8,
+      "critical_first_rank": 11,
       "cpm": {
         "es": 0,
         "ef": 0.75,

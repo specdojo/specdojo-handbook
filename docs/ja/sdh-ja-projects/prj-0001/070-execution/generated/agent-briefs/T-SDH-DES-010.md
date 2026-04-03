@@ -7,7 +7,7 @@
 
 - task_id: `T-SDH-DES-010`
 - project_id: `prj-0001`
-- dojo_cli_project: `shj-0001`
+- specdojo_cli_project: `shj-0001`
 - name: 外部インターフェースルールの起草・レビュー
 - owner: ARC
 - kind: task
@@ -46,7 +46,7 @@ secondary_paths:
 
 - depends_on: `M-SDH-100`
 - critical_first_rank: `2`
-- fifo_rank: `4`
+- fifo_rank: `5`
 - urgency: 遅延余裕あり（slack=0.75）。
 - CPM: `ES=0, EF=1.25, LS=0.75, LF=2, slack=0.75`
 
@@ -59,9 +59,9 @@ secondary_paths:
 5. 完了時のみ complete、問題があれば block を記録する。
 
 ```bash
-dojo exec claim --project shj-0001 --task T-SDH-DES-010 --by <agent> --msg "start"
+specdojo exec claim --project shj-0001 --task T-SDH-DES-010 --by <agent> --msg "start"
 # edit / validate / lint
-dojo exec complete --project shj-0001 --task T-SDH-DES-010 --by <agent> --msg "done"
+specdojo exec complete --project shj-0001 --task T-SDH-DES-010 --by <agent> --msg "done"
 ```
 
 ## 6. block 時の記録テンプレート
@@ -74,7 +74,7 @@ blocked: <reason>; need=<next action>; ref=<path or issue>
 ```
 
 ```bash
-dojo exec block --project shj-0001 --task T-SDH-DES-010 --by <agent> --msg "blocked: <reason>; need=<next action>; ref=<path or issue>"
+specdojo exec block --project shj-0001 --task T-SDH-DES-010 --by <agent> --msg "blocked: <reason>; need=<next action>; ref=<path or issue>"
 ```
 
 ## 7. 注意事項

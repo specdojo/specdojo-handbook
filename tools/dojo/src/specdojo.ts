@@ -6,7 +6,7 @@ import { registerExecCommands } from './exec.js'
 function main(): void {
   const program = new Command()
 
-  program.name('dojo').description('SpecDojo helper CLI').version('0.4.0')
+  program.name('specdojo').description('SpecDojo helper CLI').version('0.4.0')
 
   registerConfigCommands(program)
   registerProjectCommands(program)

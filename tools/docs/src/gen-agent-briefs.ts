@@ -319,7 +319,7 @@ function buildBriefMarkdown(
   lines.push('')
   lines.push(`- task_id: \`${readyTask.id}\``)
   lines.push(`- project_id: \`${projectId || '-'}\``)
-  lines.push(`- dojo_cli_project: \`${commandProject}\``)
+  lines.push(`- specdojo_cli_project: \`${commandProject}\``)
   lines.push(`- name: ${detail.name}`)
   lines.push(`- owner: ${detail.owner}`)
   lines.push(`- kind: ${detail.kind}`)
@@ -382,11 +382,11 @@ function buildBriefMarkdown(
   lines.push('')
   lines.push('```bash')
   lines.push(
-    `dojo exec claim --project ${commandProject} --task ${readyTask.id} --by <agent> --msg "start"`
+    `specdojo exec claim --project ${commandProject} --task ${readyTask.id} --by <agent> --msg "start"`
   )
   lines.push(`# edit / validate / lint`)
   lines.push(
-    `dojo exec complete --project ${commandProject} --task ${readyTask.id} --by <agent> --msg "done"`
+    `specdojo exec complete --project ${commandProject} --task ${readyTask.id} --by <agent> --msg "done"`
   )
   lines.push('```')
   lines.push('')
@@ -401,7 +401,7 @@ function buildBriefMarkdown(
   lines.push('')
   lines.push('```bash')
   lines.push(
-    `dojo exec block --project ${commandProject} --task ${readyTask.id} --by <agent> --msg "blocked: <reason>; need=<next action>; ref=<path or issue>"`
+    `specdojo exec block --project ${commandProject} --task ${readyTask.id} --by <agent> --msg "blocked: <reason>; need=<next action>; ref=<path or issue>"`
   )
   lines.push('```')
   lines.push('')
