@@ -1,7 +1,7 @@
 # members.schema.yaml
 $schema: "https://json-schema.org/draft/2020-12/schema"
 title: "SpecDojo Project Member Roster schema"
-$type: object
+type: object
 $comment: >
   Schema for project member roster files:
   docs/ja/sdh-ja-projects/<project_id>/040-project-management/010-management-plan/members.yaml
@@ -70,7 +70,7 @@ $defs:
           - type: "null"
 
       owner:
-        description: "Default owner role label for this member. Use null for agents (role specified at runtime via --owner)."
+        description: "Default owner role label for this member. Use null for cross-role members; role-specific agents may set PO/BA/ARC/QE."
         oneOf:
           - $ref: "#/$defs/OwnerLabel"
           - type: "null"
@@ -79,6 +79,24 @@ $defs:
         type: string
         description: "Actor type: human for a person, agent for an automated agent (e.g., GitHub Copilot)."
         enum: ["human", "agent"]
+
+      persona:
+        type: string
+        minLength: 1
+        description: "Optional working persona label used to describe the member's style (e.g., value-first, analysis-first, risk-averse)."
+
+      focus:
+        type: array
+        description: "Optional list of emphasis areas used to steer the member's execution or review perspective."
+        items:
+          type: string
+          minLength: 1
+        uniqueItems: true
+
+      scheduler_strategy:
+        type: string
+        description: "Optional default scheduler strategy used when this member runs `specdojo exec scheduler` without `--strategy`."
+        enum: ["critical-first", "fifo"]
 
       note:
         type: string

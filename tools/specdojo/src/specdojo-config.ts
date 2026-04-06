@@ -3,6 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import dotenv from 'dotenv'
 import yaml from 'js-yaml'
+import type { SchedulerStrategy } from './exec-types.js'
 
 export type SpecDojoProjectConfig = {
   schedule_path: string
@@ -16,6 +17,9 @@ export type ProjectMember = {
   email: string | null
   owner: string | null
   type: 'human' | 'agent'
+  persona?: string
+  focus?: string[]
+  scheduler_strategy?: SchedulerStrategy
   note?: string
 }
 

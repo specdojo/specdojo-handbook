@@ -81,7 +81,7 @@ function addOwnerOptions(cmd: Command): Command {
   return cmd
     .option(
       '--owner <owner>',
-      `Planned owner label for assignment checks (${KNOWN_OWNER_LABELS_TEXT}; defaults to SPECDOJO_OWNER or actor)`
+      `Planned owner label for assignment checks (${KNOWN_OWNER_LABELS_TEXT}; defaults to SPECDOJO_OWNER, roster owner, or actor)`
     )
     .option('--allow-owner-mismatch', 'Allow claiming a task assigned to a different owner', false)
 }
@@ -122,11 +122,23 @@ function loadRosterForOpts(opts: { project?: string }) {
   return loadMemberRoster(baseDir, project)
 }
 
-function resolveClaimOwner(opts: { owner?: string }, actor: string): string {
+function findRosterMember(roster: ReturnType<typeof loadRosterForOpts>, actor: string) {
+  return roster?.members.find(member => member.nickname === actor) ?? null
+}
+
+function resolveClaimOwner(
+  opts: { owner?: string },
+  actor: string,
+  roster: ReturnType<typeof loadRosterForOpts> = null
+): string {
   const cliOwner = typeof opts.owner === 'string' ? opts.owner.trim().toUpperCase() : ''
   const envOwner =
     typeof process.env.SPECDOJO_OWNER === 'string'
       ? process.env.SPECDOJO_OWNER.trim().toUpperCase()
+      : ''
+  const rosterOwner =
+    typeof findRosterMember(roster, actor)?.owner === 'string'
+      ? findRosterMember(roster, actor)!.owner!.trim().toUpperCase()
       : ''
 
   if (cliOwner && !KNOWN_OWNER_LABELS.includes(cliOwner as (typeof KNOWN_OWNER_LABELS)[number])) {
@@ -137,8 +149,32 @@ function resolveClaimOwner(opts: { owner?: string }, actor: string): string {
       `Invalid SPECDOJO_OWNER value: ${envOwner}. Use one of: ${KNOWN_OWNER_LABELS_TEXT}.`
     )
   }
+  if (
+    rosterOwner &&
+    !KNOWN_OWNER_LABELS.includes(rosterOwner as (typeof KNOWN_OWNER_LABELS)[number])
+  ) {
+    throw new Error(
+      `Invalid roster owner for actor ${actor}: ${rosterOwner}. Use one of: ${KNOWN_OWNER_LABELS_TEXT}.`
+    )
+  }
 
-  return cliOwner || envOwner || actor
+  return cliOwner || envOwner || rosterOwner || actor
+}
+
+function resolveSchedulerStrategy(
+  opts: { strategy?: string },
+  actor: string,
+  roster: ReturnType<typeof loadRosterForOpts> = null
+): SchedulerStrategy {
+  const cliStrategy = typeof opts.strategy === 'string' ? opts.strategy.trim().toLowerCase() : ''
+  const rosterStrategy = findRosterMember(roster, actor)?.scheduler_strategy ?? ''
+  const strategy = (cliStrategy || rosterStrategy || 'critical-first') as SchedulerStrategy
+
+  if (strategy !== 'critical-first' && strategy !== 'fifo') {
+    throw new Error(`Invalid --strategy value: ${strategy}. Use one of: critical-first|fifo.`)
+  }
+
+  return strategy
 }
 
 function printCommandError(error: unknown, fail = true): void {
@@ -289,7 +325,8 @@ function runSimpleEventCommand(opts: any, type: ExecEventType): void {
   try {
     const { schedulePath } = resolveProjectContext(opts)
     const actor = requireNonEmpty('by', opts.by)
-    assertValidActor(actor, loadRosterForOpts(opts))
+    const roster = loadRosterForOpts(opts)
+    assertValidActor(actor, roster)
     const event = buildEvent(type, opts)
     const out = writeEventFile(schedulePath, event)
     process.stdout.write(out + '\n')
@@ -305,7 +342,8 @@ function runLockedEventCommand(opts: any, action: LockedEventAction): void {
   try {
     const { schedulePath, executionPath } = resolveProjectContext(opts)
     const actor = requireNonEmpty('by', opts.by)
-    assertValidActor(actor, loadRosterForOpts(opts))
+    const roster = loadRosterForOpts(opts)
+    assertValidActor(actor, roster)
     const taskId = requireNonEmpty('task', opts.task)
     const allowMultipleDoing = !!opts.allowMultipleDoing
     const lockTimeoutMs = Number(opts.lockTimeoutMs)
@@ -333,7 +371,7 @@ function runLockedEventCommand(opts: any, action: LockedEventAction): void {
     const event = buildEvent(action.type, opts)
     if (action.type === 'claim') {
       const plannedOwner = state.schedule.nodes.get(taskId)?.owner
-      const claimOwner = resolveClaimOwner(opts, actor)
+      const claimOwner = resolveClaimOwner(opts, actor, roster)
       const cpm = computeCpm(state.schedule, schedulePath)
       writeGeneratedCore(schedulePath, state.events, state.schedule, cpm)
       writeScheduleHashAndDiff(schedulePath, state.schedule)
@@ -379,7 +417,7 @@ export function registerExecCommands(program: Command): void {
           schedule,
           snapshot,
           taskId,
-          resolveClaimOwner(opts, actor),
+          resolveClaimOwner(opts, actor, loadRosterForOpts(opts)),
           !!opts.allowOwnerMismatch
         ),
     },
@@ -482,7 +520,10 @@ export function registerExecCommands(program: Command): void {
   addProjectOptions(scmd)
   scmd.requiredOption('--by <actor>', 'Actor (agent name)')
   addOwnerOptions(scmd)
-  scmd.option('--strategy <strategy>', 'critical-first|fifo', 'critical-first')
+  scmd.option(
+    '--strategy <strategy>',
+    'critical-first|fifo (defaults to member profile or critical-first)'
+  )
   scmd.option('--dry-run', 'Do not write; print selected task only', false)
   scmd.option('--msg <message>', 'Claim message', 'auto-claim')
   addLockOptions(scmd)
@@ -493,11 +534,12 @@ export function registerExecCommands(program: Command): void {
     try {
       const { schedulePath } = resolveProjectContext(opts)
       const actor = requireNonEmpty('by', opts.by)
-      assertValidActor(actor, loadRosterForOpts(opts))
-      const strategy = String(opts.strategy) as SchedulerStrategy
+      const roster = loadRosterForOpts(opts)
+      assertValidActor(actor, roster)
+      const strategy = resolveSchedulerStrategy(opts, actor, roster)
       const dryRun = !!opts.dryRun
       const msg = String(opts.msg ?? 'auto-claim')
-      const claimOwner = resolveClaimOwner(opts, actor)
+      const claimOwner = resolveClaimOwner(opts, actor, roster)
       const allowOwnerMismatch = !!opts.allowOwnerMismatch
       const allowMultipleDoing = !!opts.allowMultipleDoing
       const lockTimeoutMs = Number(opts.lockTimeoutMs)
