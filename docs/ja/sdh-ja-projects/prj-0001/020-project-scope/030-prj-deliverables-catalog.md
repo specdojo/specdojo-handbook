@@ -12,7 +12,7 @@ Project Deliverables Catalog
 
 ## 1. プロジェクト管理
 
-プロジェクト運営・管理に関する成果物です。
+プロジェクト運営・管理に関する成果物です。`<name>.md` もしくは、`<name>.yaml` 形式で作成し、配置先に保存します。
 
 - ドメイン: `project`
 
@@ -26,7 +26,7 @@ Project Deliverables Catalog
 | `prj-charter`              | プロジェクト憲章       | プロジェクトの正式な認可と権限委譲を文書化 |
 | `prj-stakeholder-register` | ステークホルダー登録簿 | 関係者の役割・関心・影響度を一覧化         |
 
-### 1.2. プロジェクトスコープ（020-project-scope）
+### 1.2. プロジェクトスコープ
 
 - 配置先: `docs/ja/sdh-ja-projects/prj-0001/020-project-scope`
 
@@ -65,25 +65,27 @@ Project Deliverables Catalog
 
 - 配置先: `docs/ja/sdh-ja-projects/prj-0001/040-project-management/020-controls`
 
-  | name                    | 成果物名     | 概要                             |
-  | ----------------------- | ------------ | -------------------------------- |
-  | `pm-risk-register`      | リスク登録簿 | 識別済みリスクと対応策を管理     |
-  | `pm-issue-log`          | 課題ログ     | 発生した課題と対応状況を管理     |
-  | `pm-change-request-log` | 変更要求ログ | 変更要求の申請・審査・決定を管理 |
+| name                    | 成果物名     | 概要                             |
+| ----------------------- | ------------ | -------------------------------- |
+| `pm-risk-register`      | リスク登録簿 | 識別済みリスクと対応策を管理     |
+| `pm-issue-log`          | 課題ログ     | 発生した課題と対応状況を管理     |
+| `pm-change-request-log` | 変更要求ログ | 変更要求の申請・審査・決定を管理 |
 
 #### 1.4.3. レポート
 
+yyyy-mm-dd は報告日を表す形式で、週次・月次などプロジェクトの報告頻度に応じて命名します。
+
 - 配置先: `docs/ja/sdh-ja-projects/prj-0001/040-project-management/030-reporting/progress-reports`
 
-| name | 成果物名 | 概要                   |
-| ---- | -------- | ---------------------- |
-| `pr` | 進捗報告 | 定期的な進捗状況の報告 |
+| name            | 成果物名 | 概要                   |
+| --------------- | -------- | ---------------------- |
+| `pr-yyyy-mm-dd` | 進捗報告 | 定期的な進捗状況の報告 |
 
 - 配置先: `docs/ja/sdh-ja-projects/prj-0001/040-project-management/030-reporting/meeting-minutes`
 
-| name | 成果物名 | 概要                             |
-| ---- | -------- | -------------------------------- |
-| `mm` | 議事録   | 会議の決定事項・アクションを記録 |
+| name            | 成果物名 | 概要                             |
+| --------------- | -------- | -------------------------------- |
+| `mm-yyyy-mm-dd` | 議事録   | 会議の決定事項・アクションを記録 |
 
 ### 1.5. WBS
 

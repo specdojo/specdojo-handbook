@@ -39,9 +39,10 @@ jobs:
 
       - name: Read package metadata
         id: pkg
+        shell: bash
         run: |
-          echo "name=$(node -p \"require('./tools/specdojo/package.json').name\")" >> "$GITHUB_OUTPUT"
-          echo "version=$(node -p \"require('./tools/specdojo/package.json').version\")" >> "$GITHUB_OUTPUT"
+          echo "name=$(node -p "require('./tools/specdojo/package.json').name")" >> "$GITHUB_OUTPUT"
+          echo "version=$(node -p "require('./tools/specdojo/package.json').version")" >> "$GITHUB_OUTPUT"
 
       - name: Check published version
         id: version_check
