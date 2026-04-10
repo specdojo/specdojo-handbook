@@ -14,26 +14,28 @@ docs/
     └── projects/
         └── prj-0001/
             ├── 010-project-overview/
-            │   ├── 010-prj-overview.md
-            │   ├── 020-prj-charter.md
-            │   └── 030-prj-stakeholder-register.md
+            │   ├── prj-overview.md
+            │   ├── prj-charter.md
+            │   └── prj-stakeholder-register.md
             │
             ├── 020-project-scope/
-            │   ├── 010-prj-scope.md
-            │   ├── 020-prj-success-and-acceptance-criteria.md
-            │   └── 030-prj-deliverables-catalog.md
+            │   ├── prj-scope.md
+            │   ├── prj-success-and-acceptance-criteria.md
+            │   └── prj-deliverables-catalog.md
             │
             ├── 030-project-issues-and-approach/
-            │   ├── 010-prj-issues-and-approach.md
-            │   ├── 020-prj-assumptions-constraints-dependencies.md
-            │   └── 030-prj-comparison-of-alternatives.md
+            │   ├── prj-issues-and-approach.md
+            │   ├── prj-assumptions-constraints-dependencies.md
+            │   └── prj-comparison-of-alternatives.md
             │
             ├── 040-project-management/
             │   ├── 010-management-plan/
-            │   │   ├── 010-pm-plan.md
-            │   │   ├── 020-pm-communication-plan.md
-            │   │   ├── 030-pm-quality-management-plan.md
-            │   │   └── 040-pm-organization-and-raci.md
+            │   │   ├── pm-plan.md
+            │   │   ├── pm-communication-plan.md
+            │   │   ├── pm-quality-management-plan.md
+            │   │   ├── pm-organization-and-raci.md
+            │   │   ├── pm-wbs-decomposition-strategy.md
+            │   │   └── pm-wbs-to-schedule-strategy.md
             │   │
             │   ├── 020-controls/
             │   │   ├── pm-risk-register.md
