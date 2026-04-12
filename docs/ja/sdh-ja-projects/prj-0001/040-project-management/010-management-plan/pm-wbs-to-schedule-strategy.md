@@ -12,25 +12,27 @@ WBS to Schedule Strategy
 
 ## 1. 目的と適用範囲
 
-- 対象は `prj-0001` の `wbs-*.yaml` と `sch-*.yaml`、および `sch-milestones.yaml` です。
+- 対象は `docs/ja/sdh-ja-projects/prj-0001` の `wbs-*.yaml` と `sch-*.yaml`、および `sch-milestones.yaml` です。
+- 対象とする入力は、`pm-wbs-decomposition-strategy.md` に従って WBS へ落とし込まれた Item のみです。
 - WBS が定義する **WHAT（何を作るか）** を、Schedule では **WHEN（いつ）** と **ORDER（どの順序で行うか）** に展開します。
-- 共通原則は `docs/ja/handbook/guidelines/specdojo-schedule-design-guide.md` を上位ルールとして参照します。
-- WBS の分解・命名方針との整合は `050-pm-wbs-decomposition-strategy.md` を参照します。
+- WBS の分解・命名方針との整合は `pm-wbs-decomposition-strategy.md` を参照します。
 
 ## 2. 基本方針
 
-| 観点       | 方針                                                                   |
-| ---------- | ---------------------------------------------------------------------- |
-| 展開単位   | `1 WBS Item = 1〜3 個程度の実行可能タスク` を基本とする                |
-| 実行性     | 各タスクは 1 回のエージェント実行または 1 回のレビューで完了可能にする |
-| 依存最小化 | 必須の先行条件のみ `depends_on` に記述し、不要な直列化を避ける         |
-| 並列性     | 同時に進められるタスクは積極的に並列化し、`ready` なタスク数を確保する |
-| 判定可能性 | タスク完了は成果物レビューまたは検証結果で確認できる状態にする         |
+| 観点       | 方針                                                                    |
+| ---------- | ----------------------------------------------------------------------- |
+| 展開単位   | `1 WBS Item = 1〜3 個程度の実行可能タスク` を基本とする                 |
+| 対象範囲   | 成果物カタログで「WBSへの落とし込み対象外」とされた成果物は対象外とする |
+| 実行性     | 各タスクは 1 回のエージェント実行または 1 回のレビューで完了可能にする  |
+| 依存最小化 | 必須の先行条件のみ `depends_on` に記述し、不要な直列化を避ける          |
+| 並列性     | 同時に進められるタスクは積極的に並列化し、`ready` なタスク数を確保する  |
+| 判定可能性 | タスク完了は成果物レビューまたは検証結果で確認できる状態にする          |
 
 ## 3. WBS から Task への分解ルール
 
 ### 3.1. 基本ルール
 
+- Schedule 化の対象は、WBS 定義ファイルに存在する Item のみとします。
 - Schedule のタスクは **成果物そのもの** ではなく、**成果物を前進させる実行単位** とします。
 - 1 つの WBS Item をそのまま 1 タスクにしてよいのは、1 回の実行で完了可能な場合のみです。
 - `rules` → `instruction` → `sample` のように段階的な作業が必要な場合は、WBS 1 件を複数タスクへ分けます。
@@ -47,8 +49,8 @@ WBS to Schedule Strategy
 
 例:
 
-- `WBS-BIZ-BPS-010` → `T-SDH-BIZ-010`, `T-SDH-BIZ-011-INS`, `T-SDH-BIZ-011-SMP`
-- `WBS-DES-CXD-020` → ルール整備、Mermaid 整合、派生成果物整備
+- `WBS-PDT-BPS-0010` → `T-SDH-PDT-0010`, `T-SDH-PDT-0010-INS`, `T-SDH-PDT-0010-SMP`
+- `WBS-PDT-CXD-0020` → ルール整備、Mermaid 整合、派生成果物整備
 
 ### 3.3. 分割する条件
 
@@ -59,6 +61,17 @@ WBS to Schedule Strategy
 3. 担当ロールや専門性が途中で切り替わる
 4. 依存関係を明確に切り出した方が、並列化や再計画がしやすい
 
+### 3.4. WBS への落とし込み対象外の扱い
+
+成果物カタログで「WBSへの落とし込み対象外」と明示された次の成果物は、本戦略の対象外です。
+
+- 管理台帳: `pm-risk-register`, `pm-issue-log`, `pm-change-request-log`
+- レポート: `pr-yyyy-mm-dd`, `mm-yyyy-mm-dd`
+- 実行管理: `exec/`, `generated/`
+- 決定記録: `dec-<NNNN>-<topic>`
+
+これらに関する実行計画は、必要時に個別運用（定常運用計画、会議運営計画など）として管理し、本戦略の `sch-<scope>.yaml` には含めません。
+
 ## 4. タスク `id` 命名規則
 
 ### 4.1. 基本形式
@@ -66,29 +79,39 @@ WBS to Schedule Strategy
 タスク `id` は次の形式を基本とします。
 
 ```text
-T-SDH-<DOMAIN>-<NNN>
+T-SDH-<DOMAIN>-<NNNN>
 ```
 
 派生成果物フェーズを明示したい場合は、接尾辞を付与します。
 
 ```text
-T-SDH-<DOMAIN>-<NNN>-INS
-T-SDH-<DOMAIN>-<NNN>-SMP
+T-SDH-<DOMAIN>-<NNNN>-INS
+T-SDH-<DOMAIN>-<NNNN>-SMP
 ```
 
 例:
 
 ```text
-T-SDH-BIZ-010
-T-SDH-BIZ-011-INS
-T-SDH-BIZ-011-SMP
+T-SDH-PDT-0010
+T-SDH-PDT-0010-INS
+T-SDH-PDT-0010-SMP
 ```
 
 ### 4.2. 命名ルール
 
 - `SDH` は `specdojo-handbook` プロジェクトの識別子として固定します。
-- `<DOMAIN>` は `BIZ`, `DES`, `QLTY`, `GOV`, `NFR`, `AGT` など、WBS のドメイン略号と整合させます。
-- `<NNN>` は `010` 刻みで採番します。
+- `<DOMAIN>` は `PRJ`, `AGT`, `PJD`, `PDT` のいずれかを使用し、WBS のドメイン略号と整合させます。
+- `prj-deliverables-catalog.md` のドメインは管理分類、`<DOMAIN>` は実行計画（WBS/Schedule）分類として扱います。
+- カタログドメインと WBS/Schedule 略号の対応は次表を基準とします。
+
+| 成果物カタログのドメイン | 主な対象                                                                  | WBS/Schedule の `<DOMAIN>` |
+| ------------------------ | ------------------------------------------------------------------------- | -------------------------- |
+| `project`                | プロジェクト管理・計画（管理台帳・レポート・決定記録など対象外を除く）    | `PRJ`                      |
+| `agent-customization`    | `.github` 配下の instructions / skills / prompts                          | `AGT`                      |
+| `project-docs`           | `docs/ja/handbook/instructions` / `rules` / `samples`                     | `PJD`                      |
+| `product-docs`           | 業務仕様・外部 IF・アーキ・システム設計・非機能・受入・テスト・移行・運用 | `PDT`                      |
+
+- `<NNNN>` は 4 桁固定で `0010` 刻みを基本に採番します。
 - 同一 WBS 内の派生タスクは近い番号帯にまとめます。
 - 並び替えのみを理由に既存 `id` を変更しません。
 
@@ -179,28 +202,28 @@ T-SDH-BIZ-011-SMP
 
 ```yaml
 tasks:
-  - id: T-SDH-BIZ-010
-    wbs: WBS-BIZ-BPS-010
+  - id: T-SDH-PDT-0010
+    wbs: WBS-PDT-BPS-0010
     name: 業務プロセス仕様ルールの起草・レビュー
     duration_days: 0.5
     depends_on:
       - M-SDH-100
     owner: BA
 
-  - id: T-SDH-BIZ-011-INS
-    wbs: WBS-BIZ-BPS-010
+  - id: T-SDH-PDT-0010-INS
+    wbs: WBS-PDT-BPS-0010
     name: 業務プロセス仕様 instruction.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-BIZ-010
+      - T-SDH-PDT-0010
     owner: BA
 
-  - id: T-SDH-BIZ-011-SMP
-    wbs: WBS-BIZ-BPS-010
+  - id: T-SDH-PDT-0010-SMP
+    wbs: WBS-PDT-BPS-0010
     name: 業務プロセス仕様 sample.md の起草・レビュー
     duration_days: 0.25
     depends_on:
-      - T-SDH-BIZ-011-INS
+      - T-SDH-PDT-0010-INS
     owner: BA
 ```
 
@@ -217,6 +240,7 @@ tasks:
 ## 11. 運用メモ
 
 - WBS を追加・変更した場合は、必ず対応する `sch-<scope>.yaml` のタスク化方針を見直します。
+- 成果物カタログの「WBSへの落とし込み対象外」定義が変更された場合は、先に WBS 側の対象範囲を更新し、その後本戦略へ反映します。
 - 依存関係に迷う場合は、まず **依存を置かない案** を考え、着手不能な理由が明確な場合のみ追加します。
 - タスク長に迷う場合は、**1 回のエージェント作業で完了確認まで到達できるか** を基準にします。
 - 本戦略の更新後は、Schedule の妥当性を `ready` タスク数と依存の深さで点検します。
