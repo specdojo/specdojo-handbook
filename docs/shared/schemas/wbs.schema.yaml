@@ -1,28 +1,63 @@
 # wbs.schema.yaml
 $schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://specdojo.org/schemas/wbs/v1"
 $title: "SpecDojo WBS (domain) schema"
 $type: object
 $comment: >
   Schema for domain-scoped WBS SSOT files:
-  docs/ja/project-docs/<project_id>/020-project-scope/040-wbs/wbs-<domain>.yaml
+  docs/ja/projects/<project_id>/020-project-scope/040-wbs/wbs-<domain>.yaml
   WBS is scope baseline: deliverables + done criteria. No schedule fields here.
   Domain is the stable ownership boundary; assigned_team is optional and may change over time.
   This schema models leaf-level deliverable-driven WBS items intended to bridge
-  Spec -> WBS -> Schedule -> Execution.
+  Deliverables -> WBS -> Schedule -> Execution.
 
 additionalProperties: false
 
 required:
-  - version
+  - id
+  - type
+  - status
   - project_id
   - domain
   - wbs
 
 properties:
-  version:
-    type: integer
-    minimum: 1
-    description: "Schema/data version."
+  id:
+    type: string
+    minLength: 1
+    description: "Document metadata ID (frontmatter-compatible). Required."
+    pattern: "^[a-z0-9][a-z0-9-]*$"
+
+  type:
+    type: string
+    description: "Document metadata type. Must be 'wbs'. Required."
+    enum: ["wbs"]
+
+  status:
+    type: string
+    description: "Document metadata status (frontmatter-compatible). Required."
+    enum: ["draft", "ready", "deprecated"]
+
+  part_of:
+    type: array
+    description: "Optional parent document IDs (frontmatter-compatible)."
+    items:
+      $ref: "#/$defs/DocId"
+    uniqueItems: true
+
+  based_on:
+    type: array
+    description: "Optional basis document IDs (frontmatter-compatible)."
+    items:
+      $ref: "#/$defs/DocId"
+    uniqueItems: true
+
+  supersedes:
+    type: array
+    description: "Optional superseded document IDs (frontmatter-compatible)."
+    items:
+      $ref: "#/$defs/DocId"
+    uniqueItems: true
 
   project_id:
     type: string
@@ -50,6 +85,12 @@ properties:
       $ref: "#/$defs/WbsItem"
 
 $defs:
+  DocId:
+    type: string
+    minLength: 1
+    description: "Frontmatter-compatible document ID."
+    pattern: "^[a-z0-9][a-z0-9-]*$"
+
   Owner:
     type: string
     description: "Document owner role. PO=Project Owner, BA=Business Analyst, ARC=Architect, QE=Quality Engineer."
