@@ -177,26 +177,10 @@ BPS を更新すること。
 
 ## 8. サンプル（最小でも可）
 
-- サンプル未作成。作成後に以下へリンクを追記する。
-  - `../samples/wbs-sample.md`
+- サンプルは次を参照する。
+  - `../samples/wbs-sample.yaml`
 
 ## 9. 生成 AI への指示テンプレート
 
-- instruction 未作成。作成後に以下へリンクを追記する。
+- 生成 AI への具体的な指示は次を参照する。
   - `../instructions/wbs-instruction.md`
-
-生成 AI へ依頼する際の最小テンプレート:
-
-```text
-次の条件で wbs-<scope>.yaml を作成してください。
-- スキーマ: docs/shared/schemas/wbs.schema.yaml に厳密準拠
-- ルート必須: id, type, status, project_id, domain, wbs
-- 粒度: 1 WBS Item = 1 完了判定を共有する成果物ファミリー
-- type は wbs 固定
-- id: WBS-<DOMAIN>-<ARTIFACT>-<NNNN> 推奨（4桁、0010刻み）
-- wbs item 必須: id, name, owner, deliverables, done_criteria
-- owner は PO/BA/ARC/QE のいずれか
-- deliverables は {path, kind, note?} の配列（kind は create/modify/reference）
-- WBS対象外成果物（管理台帳/レポート/実行管理/決定記録）は含めない
-- 実行順序・依存・日程は記述しない
-```
