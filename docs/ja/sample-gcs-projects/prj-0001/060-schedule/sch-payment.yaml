@@ -1,0 +1,6 @@
+id: sch-payment
+activities:
+  - id: ACT-PAY-001
+    name: つけ管理実装
+    start: 2026-05-03
+    finish: 2026-05-20

@@ -1,0 +1,23 @@
+id: wbs-auth
+type: wbs
+status: draft
+project_id: prj-0001
+domain: auth
+assigned_team: app-dev
+wbs:
+  - id: WBS-AUTH-010
+    name: 認証要件を定義する
+    description: ログインとセッション管理の要件を整理する。
+    owner: BA
+    component: auth-api
+    deliverables:
+      - path: docs/ja/sample-gcs-projects/prj-0001/020-project-scope/prj-scope.md
+        kind: reference
+      - path: docs/ja/sample-gcs-projects/prj-0001/090-decision-log/dec-0003-auth-method.md
+        kind: reference
+    done_criteria: 認証に関する機能範囲、入出力、運用前提が文書化され、関係者レビューで合意されている。
+    acceptance_refs:
+      - BAC-AUTH-010
+    tags:
+      - auth
+      - scope

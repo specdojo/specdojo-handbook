@@ -1,0 +1,23 @@
+id: wbs-payment
+type: wbs
+status: draft
+project_id: prj-0001
+domain: payment
+assigned_team: app-dev
+wbs:
+  - id: WBS-PAYMENT-010
+    name: つけ管理要件を定義する
+    description: つけ残高と履歴管理の要件を明確化する。
+    owner: BA
+    component: credit-ledger
+    deliverables:
+      - path: docs/ja/sample-gcs-projects/prj-0001/020-project-scope/prj-scope.md
+        kind: reference
+      - path: docs/ja/sample-gcs-projects/prj-0001/090-decision-log/dec-0004-credit-ledger-policy.md
+        kind: reference
+    done_criteria: つけ登録、残高更新、履歴確認の業務ルールが文書化され、受け入れ観点が定義されている。
+    acceptance_refs:
+      - BAC-PAYMENT-010
+    tags:
+      - payment
+      - scope

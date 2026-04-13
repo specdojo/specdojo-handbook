@@ -1,0 +1,6 @@
+id: sch-auth
+activities:
+  - id: ACT-AUTH-001
+    name: 認証設計
+    start: 2026-04-15
+    finish: 2026-04-22

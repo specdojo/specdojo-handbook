@@ -1,0 +1,5 @@
+id: sch-milestones
+milestones:
+  - id: MS-001
+    name: 要件確定
+    date: 2026-04-30

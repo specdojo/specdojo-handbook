@@ -1,0 +1,6 @@
+id: sch-auth-api
+activities:
+  - id: ACT-AUTH-API-001
+    name: 認証API実装
+    start: 2026-04-23
+    finish: 2026-05-02
