@@ -306,7 +306,7 @@ supersedes:
 | プロジェクト憲章 | Project Charter | prj- | prj-charter |
 | ステークホルダー登録簿 | Stakeholder Register | prj- | prj-stakeholder-register |
 | プロジェクトスコープ | Project Scope | prj- | prj-scope |
-| 成功条件・受入条件 | Success Criteria and Acceptance Criteria | prj- | prj-success-and-acceptance-criteria |
+| 成功条件・受入条件 | Success Criteria and Acceptance Criteria | prj- | prj-success-criteria-and-acceptance-criteria |
 | 成果物カタログ | Deliverables Catalog | prj- | prj-deliverables-catalog |
 | WBS | Work Breakdown Structure | wbs- | wbs-auth |
 | プロジェクト課題と解決アプローチ | Project Issues and Approach | prj- | prj-issues-and-approach |
@@ -344,8 +344,7 @@ supersedes:
 | システム化機能 | System Function | sf- | sf-index, sf-product-register |
 | 業務イベント仕様 | Business Event Specification | bes- | bes-index, bes-order-approved |
 | 業務受入条件 | Business Acceptance Criteria | bac- | bac-order-approved |
-| 用語集 | Glossary | gl- | gl-sales |
-| 用語集の用語 | Glossary Term | tm- | tm-reorder-point |
+| 用語集 / 用語 | Glossary / Term | gl- / tm- | gl-sales / tm-reorder-point |
 | 外部システムI/F | External System Interface | ifx- | ifx-index |
 | 外部API仕様 | External API Specification | ifx-api- | ifx-api-inventory |
 | 外部ファイル連携仕様 | External File Exchange Specification | ifx-file- | ifx-file-order |
@@ -356,8 +355,8 @@ supersedes:
 | インフラ構成図 | Infrastructure Diagram | ifd- | ifd-index |
 | 技術スタック定義 | Technology Stack Definition | tsd- | tsd-index |
 | システム設計-全体構成 | System Design Index | sysd- | sysd-index |
-| システム設計-重要フロー | System Design Critical Flows | sysd- / scf- | sysd-critical-flows |
-| システム設計-横断ルール | System Design Cross-cutting Policy | sysd- / scp- | sysd-cross-cutting-policy |
+| システム設計-重要フロー / フロー| System Design Critical Flows / Flow | sysd- / scf- | sysd-critical-flows / scf-001|
+| システム設計-横断ルール / ルール | System Design Cross-cutting Policy / Policy | sysd- / scp- | sysd-cross-cutting-policy / scp-API-001 |
 | 非機能要件 | Non-Functional Requirements | nfr- | nfr-performance |
 | システム受入条件 | System Acceptance Criteria | sac- | sac-performance |
 | テスト戦略・方針 | Test Strategy and Policy | tsp- | tsp-index |

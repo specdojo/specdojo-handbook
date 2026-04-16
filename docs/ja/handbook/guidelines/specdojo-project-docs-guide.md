@@ -13,22 +13,37 @@ docs/
 └── ja/
     └── projects/
         └── prj-0001/
-            ├── 010-project-overview/
+            ├── 010-project-definition/
             │   ├── prj-overview.md
             │   ├── prj-charter.md
-            │   └── prj-stakeholder-register.md
-            │
-            ├── 020-project-scope/
+            │   ├── prj-stakeholder-register.md
             │   ├── prj-scope.md
             │   ├── prj-success-and-acceptance-criteria.md
-            │   └── prj-deliverables-catalog.md
-            │
-            ├── 030-project-issues-and-approach/
+            │   ├── prj-deliverables-catalog.md
             │   ├── prj-issues-and-approach.md
             │   ├── prj-assumptions-constraints-dependencies.md
             │   └── prj-comparison-of-alternatives.md
             │
-            ├── 040-project-management/
+            ├── 020-product-change/
+            │   ├── 010-as-is/
+            │   │   ├── business-spec/
+            │   │   ├── external-interface/
+            │   │   ├── architecture/
+            │   │   ├── system-design/
+            │   │   └── others/
+            │   │
+            │   ├── 020-impact-analysis/
+            │   │   ├── impact-business.md
+            │   │   ├── impact-data.md
+            │   │   ├── impact-interface.md
+            │   │   ├── impact-test.md
+            │   │   └── impact-operations.md
+            │   │
+            │   └── 030-traceability/
+            │       ├── requirements-to-product-docs.md
+            │       └── requirements-to-tests.md
+            │
+            ├── 030-project-management/
             │   ├── 010-management-plan/
             │   │   ├── pm-plan.md
             │   │   ├── pm-communication-plan.md
@@ -42,7 +57,18 @@ docs/
             │   │   ├── pm-issue-log.md
             │   │   └── pm-change-request-log.md
             │   │
-            │   └── 030-reporting/
+            │   ├── 030-wbs/
+            │   │   ├── wbs-auth.yaml
+            │   │   ├── wbs-payment.yaml
+            │   │   └── wbs-infra.yaml
+            │   │
+            │   ├── 040-schedule/
+            │   │   ├── sch-milestones.yaml
+            │   │   ├── sch-auth.yaml
+            │   │   ├── sch-auth-api.yaml
+            │   │   └── sch-payment.yaml
+            │   │
+            │   └── 050-reporting/
             │       ├── progress-reports/
             │       │   ├── pr-2026-03-01-01.md
             │       │   └── pr-2026-03-08-01.md
@@ -51,25 +77,14 @@ docs/
             │           ├── mm-2026-03-01-01.md
             │           └── mm-2026-03-08-01.md
             │
-            ├── 050-wbs/
-            │   ├── wbs-auth.yaml
-            │   ├── wbs-payment.yaml
-            │   └── wbs-infra.yaml
-            │
-            ├── 060-schedule/
-            │   ├── sch-milestones.yaml
-            │   ├── sch-auth.yaml
-            │   ├── sch-auth-api.yaml
-            │   └── sch-payment.yaml
-            │
-            ├── 070-execution/
+            ├── 040-execution/
             │   ├── exec/
             │   │   ├── events/
             │   │   └── .locks/
             │   │
             │   └── generated/
             │
-            └── 090-decision-log/
+            └── 050-decision-log/
                 ├── dec-0001-auth.md
                 └── dec-0002-payment.md
 ```

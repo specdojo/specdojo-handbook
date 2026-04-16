@@ -1,5 +1,5 @@
 ---
-id: prj-success-and-acceptance-criteria
+id: prj-success-criteria-and-acceptance-criteria
 type: project
 status: draft
 ---
