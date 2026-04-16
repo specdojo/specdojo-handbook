@@ -44,7 +44,7 @@ Frontmatter の共通ルールは [meta-document-metadata-rules.md](meta-documen
 
 - 用語集（`gl-...`）や業務データ辞書（`bdd-...`）
 - 外部システムIFの仕様（IF章のドキュメント）
-- 参照する上位の方針（ADR、非機能要件など）
+- 参照する上位の方針（DEC、非機能要件など）
 
 ## 4. CNDで合意すること（スコープ）
 

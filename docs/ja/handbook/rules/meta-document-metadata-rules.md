@@ -54,7 +54,7 @@ Document Metadata Rules
 | flow         | 業務フロー仕様                                     |
 | rule         | 業務ルール仕様                                     |
 | architecture | 構造・構成（C4、配置、統合、ネットワーク境界など） |
-| decision     | 設計判断（ADR的な意思決定記録）                    |
+| decision     | 設計判断（DEC的な意思決定記録）                    |
 | meta         | 共通/横断ルール                                    |
 | rulebook     | ドキュメント記述ルール                             |
 | instruction  | 生成AIへの指示テンプレート                         |

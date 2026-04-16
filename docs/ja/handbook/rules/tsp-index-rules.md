@@ -102,13 +102,13 @@ Frontmatter は共通スキーマに従います（参照: [docs/shared/schemas/
 | title      | 方針名（例: テスト戦略・方針: 全体）               | ○    |
 | status     | `draft`/`ready`/`deprecated`                       | ○    |
 | part_of    | 集約ドキュメントへの所属（例: `tsp-index`）        | 任意 |
-| based_on   | 参照する仕様ID（BAC/NFR/SAC/ADR/TSL/UIS/EAPIS 等） | 任意 |
+| based_on   | 参照する仕様ID（BAC/NFR/SAC/DEC/TSL/UIS/EAPIS 等） | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）                      | 任意 |
 
 ### 4.2. 推奨ルール
 
 - `part_of`: 複数ファイルに分割した場合、集約ドキュメント（`tsp-overview`など）を指定。
-- `based_on`: 方針の根拠となる主要仕様（BAC/NFR/SAC/ADRなど）を列挙し、スコープを明確にする。
+- `based_on`: 方針の根拠となる主要仕様（BAC/NFR/SAC/DECなど）を列挙し、スコープを明確にする。
 
 ## 5. 本文構成（標準テンプレ）
 

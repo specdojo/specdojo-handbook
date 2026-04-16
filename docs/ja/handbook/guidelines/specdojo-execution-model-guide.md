@@ -120,8 +120,8 @@ req-*
 nfr-*
 prd-*
 sysd-*
-sdf-*
-scr-*
+scf-*
+scp-*
 ```
 
 Definition Layerは **人間が編集する最上位の情報**である。

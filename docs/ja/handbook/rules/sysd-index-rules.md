@@ -35,7 +35,7 @@ Code as Spec の原則:
 
 - `sysd-index`：システム設計情報の導線を集約する Index（本書）
 - API仕様、DBスキーマ、ジョブ定義、設定スキーマなど：実体を持つ一次情報（SSOT）
-- C4 / NFR / OPD / ADR：背景・方針・判断記録の関連ドキュメント
+- C4 / NFR / OPD / DEC：背景・方針・判断記録の関連ドキュメント
 
 ### 2.2. 用語定義
 
@@ -82,7 +82,7 @@ Frontmatter は共通スキーマに従います（参照: [shared/schemas/spec-
 | 2    | SSOT 一覧（表形式）                              | ○    |
 | 3    | 自動生成物（生成コマンド/生成先/閲覧先）         | 任意 |
 | 4    | 変更の入口（どこを修正すればよいか：典型ケース） | ○    |
-| 5    | 関連ドキュメント導線（C4 / NFR / OPD / ADR 等）  | ○    |
+| 5    | 関連ドキュメント導線（C4 / NFR / OPD / DEC 等）  | ○    |
 
 補足:
 
@@ -132,7 +132,7 @@ SDI の中核は **SSOT 一覧表** とする。
 備考（書いてよい補足）:
 
 - CIで検証されること（lint/互換性チェック/差分検知）
-- バージョニング方針の入口（詳細はSCR/ADRへ）
+- バージョニング方針の入口（詳細はSCR/DECへ）
 - 読者や利用方法の要点（1〜2行）
 
 ### 6.3. 自動生成物（任意）
@@ -158,7 +158,7 @@ SDI の中核は **SSOT 一覧表** とする。
 
 生成する本文の見出しは **## 5. 関連ドキュメント導線）**
 
-- C4 / NFR / OPD / ADR など、判断・方針系ドキュメントへの導線を明記する。
+- C4 / NFR / OPD / DEC など、判断・方針系ドキュメントへの導線を明記する。
 - 分冊が無い場合でも `（なし）` または `（本書のみ）` を明記する。
 
 ## 7. 禁止事項
@@ -196,9 +196,9 @@ supersedes: []
 <!-- prettier-ignore -->
 | 種別 | SSOT | 参照先 | 更新責任 | 備考 |
 | --- | --- | --- | --- | --- |
-| Internal API | OpenAPI | `api/openapi.yaml` | Dev | CIでlint、破壊的変更はADR必須 |
+| Internal API | OpenAPI | `api/openapi.yaml` | Dev | CIでlint、破壊的変更はDEC必須 |
 | Internal Events | AsyncAPI + CloudEvents | `api/asyncapi.yaml` | Dev | schema互換性チェックを実施 |
-| External I/F | 外部連携定義 | `spec/external-if/` | Dev | 接続先契約変更時は `adr-*` を更新 |
+| External I/F | 外部連携定義 | `spec/external-if/` | Dev | 接続先契約変更時は `dec-*` を更新 |
 | Database Schema | migrations | `db/migrations/` | Dev | schema dumpはCI生成 |
 | Jobs / Batch | workflow | `ops/workflows/` | Ops | 失敗時通知・リトライもここで定義 |
 | Configurations | config schema | `config/schema.yaml` | Dev/Ops | 上書き階層はSCR参照 |
@@ -229,7 +229,7 @@ supersedes: []
 | アーキ   | cpd-business-domain | 外部境界・依存先の把握         | 入口として必須         |
 | 品質     | nfr-index           | 非機能要件との整合確認         | 可用性・性能の判断基準 |
 | 運用方針 | opd-index           | 運用統制（監視/証跡/権限）確認 | 監査観点で参照         |
-| 決定記録 | adr-index           | 設計判断の背景追跡             | 破壊的変更時に必須     |
+| 決定記録 | dec-index           | 設計判断の背景追跡             | 破壊的変更時に必須     |
 
 ## 9. 生成 AI への指示テンプレート
 

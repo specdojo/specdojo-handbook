@@ -25,9 +25,9 @@ Non-Functional Requirements Index Documentation Rules
 
 - `nfr-index`：NFR 全体の入口（本体）
 - `nfr-<category>`：カテゴリ別 NFR 本文（分冊）
-- `sac-*` / `sts-*`：NFR の合否を検証する受入条件・試験仕様
+- `sac-*` / `stc-*`：NFR の合否を検証する受入条件・試験仕様
 - `opd-*` / `opr-*`：運用方針・運用手順への接続先
-- `adr-*`：例外基準や判断記録
+- `dec-*`：例外基準や判断記録
 
 ### 2.2. 用語定義
 
@@ -74,7 +74,7 @@ Frontmatter は共通スキーマに従います（参照: [shared/schemas/spec-
 | 2    | カテゴリ一覧（8カテゴリ）                   | ○    |
 | 3    | 分冊ドキュメント一覧（ID/参照先/Owner）     | ○    |
 | 4    | 変更の入口（追加・統廃合・改定）            | ○    |
-| 5    | 関連ドキュメント導線（SAC/STS/OPD/OPR/ADR） | ○    |
+| 5    | 関連ドキュメント導線（SAC/STC/OPD/OPR/DEC） | ○    |
 
 補足:
 
@@ -114,9 +114,9 @@ Frontmatter は共通スキーマに従います（参照: [shared/schemas/spec-
 
 ### 6.5. 関連ドキュメント導線
 
-生成する本文の見出しは **## 5. 関連ドキュメント導線（SAC/STS/OPD/OPR/ADR）**
+生成する本文の見出しは **## 5. 関連ドキュメント導線（SAC/STC/OPD/OPR/DEC）**
 
-- カテゴリごとに検証（SAC/STS）・運用（OPD/OPR）・判断記録（ADR）への導線を置く。
+- カテゴリごとに検証（SAC/STC）・運用（OPD/OPR）・判断記録（DEC）への導線を置く。
 - 導線がない場合は `（なし）` を明示する。
 
 ## 7. 禁止事項

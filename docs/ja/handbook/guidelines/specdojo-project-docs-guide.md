@@ -18,7 +18,7 @@ docs/
             │   ├── prj-charter.md
             │   ├── prj-stakeholder-register.md
             │   ├── prj-scope.md
-            │   ├── prj-success-and-acceptance-criteria.md
+            │   ├── prj-success-criteria-and-acceptance-criteria.md
             │   ├── prj-deliverables-catalog.md
             │   ├── prj-issues-and-approach.md
             │   ├── prj-assumptions-constraints-dependencies.md
