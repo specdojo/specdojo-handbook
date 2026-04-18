@@ -12,7 +12,7 @@ WBS Decomposition Strategy
 
 ## 1. 目的と適用範囲
 
-- 対象は `docs/ja/sdh-ja-projects/prj-0001` の成果物カタログと WBS 定義ファイルです。
+- 対象は `docs/ja/projects/prj-0001` の成果物カタログと WBS 定義ファイルです。
 - 本戦略は `050-wbs/` 配下の各 `wbs-<scope>.yaml` に適用します。
 - WBS は **WHAT（何を作るか）** を定義する成果物定義であり、実行順序・依存・日程は本戦略の対象外とします。
 - 実行計画（Schedule）への展開は `pm-wbs-to-schedule-strategy.md` を参照します。

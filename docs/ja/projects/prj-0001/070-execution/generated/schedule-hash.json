@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
+  "schedule_path": "docs/ja/projects/prj-0001/060-schedule",
   "schedule_files": [
     "sch-agent-customization.yaml",
     "sch-agent-overrides.yaml",

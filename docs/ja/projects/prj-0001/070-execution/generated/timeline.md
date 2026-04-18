@@ -11,7 +11,7 @@
 1. クリティカルパス上の進行中タスクを優先完了させてください。
 2. 次の着手候補 T-SDH-DES-020 を前倒しで着手できるか確認してください。
 
-- schedule_path: `docs/ja/sdh-ja-projects/prj-0001/060-schedule`
+- schedule_path: `docs/ja/projects/prj-0001/060-schedule`
 - project_start_date: `2026-03-28`
 - project_duration_days: `4.25`
 - scope: `full_schedule`

@@ -87,9 +87,9 @@ wbs:
     owner: PO
     component: governance
     deliverables:
-      - path: docs/ja/sdh-ja-projects/prj-0001/020-project-scope/030-prj-deliverables-catalog.md
+      - path: docs/ja/projects/prj-0001/020-project-scope/030-prj-deliverables-catalog.md
         kind: modify
-      - path: docs/ja/sdh-ja-projects/prj-0001/050-wbs/wbs-agent-customization.yaml
+      - path: docs/ja/projects/prj-0001/050-wbs/wbs-agent-customization.yaml
         kind: modify
     done_criteria: |-
       成果物カタログと WBS の対応が保たれ、

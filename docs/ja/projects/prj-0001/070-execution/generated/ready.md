@@ -1,7 +1,7 @@
 # Ready Tasks
 
-- schedule_path: `docs/ja/sdh-ja-projects/prj-0001/060-schedule`
-- execution_path: `docs/ja/sdh-ja-projects/prj-0001/070-execution`
+- schedule_path: `docs/ja/projects/prj-0001/060-schedule`
+- execution_path: `docs/ja/projects/prj-0001/070-execution`
 - ready_count: `11`
 - default_strategy: `critical-first`
 

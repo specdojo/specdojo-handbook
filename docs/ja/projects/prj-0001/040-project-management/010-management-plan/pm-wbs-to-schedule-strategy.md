@@ -12,7 +12,7 @@ WBS to Schedule Strategy
 
 ## 1. 目的と適用範囲
 
-- 対象は `docs/ja/sdh-ja-projects/prj-0001` の `wbs-*.yaml` と `sch-*.yaml`、および `sch-milestones.yaml` です。
+- 対象は `docs/ja/projects/prj-0001` の `wbs-*.yaml` と `sch-*.yaml`、および `sch-milestones.yaml` です。
 - 対象とする入力は、`pm-wbs-decomposition-strategy.md` に従って WBS へ落とし込まれた Item のみです。
 - WBS が定義する **WHAT（何を作るか）** を、Schedule では **WHEN（いつ）** と **ORDER（どの順序で行うか）** に展開します。
 - WBS の分解・命名方針との整合は `pm-wbs-decomposition-strategy.md` を参照します。

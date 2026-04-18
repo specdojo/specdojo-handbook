@@ -37,7 +37,7 @@ repo-root/
 ├─ .env
 ├─ docs/
 │  └─ ja/
-│     └─ sdh-ja-projects/
+│     └─ projects/
 │        └─ prj-0001/
 │           ├─ 060-schedule/
 │           │  ├─ sch-milestones.yaml
@@ -66,9 +66,9 @@ repo-root/
   "version": 1,
   "projects": {
     "shj-0001": {
-      "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
-      "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution",
-      "members_path": "docs/ja/sdh-ja-projects/prj-0001/040-project-management/010-management-plan/members.yaml"
+      "schedule_path": "docs/ja/projects/prj-0001/060-schedule",
+      "execution_path": "docs/ja/projects/prj-0001/070-execution",
+      "members_path": "docs/ja/projects/prj-0001/040-project-management/010-management-plan/members.yaml"
     }
   }
 }
@@ -87,8 +87,8 @@ SPECDOJO_PROJECT=shj-0001
 または
 
 ```bash
-SPECDOJO_SCHEDULE_PATH=docs/ja/sdh-ja-projects/prj-0001/060-schedule
-SPECDOJO_EXECUTION_PATH=docs/ja/sdh-ja-projects/prj-0001/070-execution
+SPECDOJO_SCHEDULE_PATH=docs/ja/projects/prj-0001/060-schedule
+SPECDOJO_EXECUTION_PATH=docs/ja/projects/prj-0001/070-execution
 ```
 
 ### 3.3. プロジェクトパス解決順序

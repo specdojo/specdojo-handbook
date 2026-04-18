@@ -50,9 +50,9 @@ Create `specdojo.config.json` in the repository root.
   "version": 1,
   "projects": {
     "shj-0001": {
-      "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
-      "execution_path": "docs/ja/sdh-ja-projects/prj-0001/070-execution",
-      "members_path": "docs/ja/sdh-ja-projects/prj-0001/040-project-management/010-management-plan/members.yaml"
+      "schedule_path": "docs/ja/projects/prj-0001/060-schedule",
+      "execution_path": "docs/ja/projects/prj-0001/070-execution",
+      "members_path": "docs/ja/projects/prj-0001/040-project-management/010-management-plan/members.yaml"
     }
   }
 }

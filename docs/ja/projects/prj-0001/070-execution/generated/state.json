@@ -1,5 +1,5 @@
 {
-  "schedule_path": "docs/ja/sdh-ja-projects/prj-0001/060-schedule",
+  "schedule_path": "docs/ja/projects/prj-0001/060-schedule",
   "tasks": {
     "T-SDH-GOV-010": {
       "state": "doing",
