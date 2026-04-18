@@ -53,27 +53,27 @@ wbs:
     owner: BA
     component: prompts
     deliverables:
-      - path: .github/prompts/upsert-rulebook.md
+      - path: .github/prompts/upsert-rulebook.prompt.md
         kind: modify
-      - path: .github/prompts/upsert-instruction.md
+      - path: .github/prompts/upsert-instruction.prompt.md
         kind: modify
-      - path: .github/prompts/upsert-all-instructions.md
+      - path: .github/prompts/upsert-all-instructions.prompt.md
         kind: modify
-      - path: .github/prompts/upsert-changed-instructions.md
+      - path: .github/prompts/upsert-changed-instructions.prompt.md
         kind: modify
-      - path: .github/prompts/upsert-last-commit-instructions.md
+      - path: .github/prompts/upsert-last-commit-instructions.prompt.md
         kind: modify
-      - path: .github/prompts/upsert-test-instructions.md
+      - path: .github/prompts/upsert-test-instructions.prompt.md
         kind: modify
-      - path: .github/prompts/upsert-nfr-instructions.md
+      - path: .github/prompts/upsert-nfr-instructions.prompt.md
         kind: modify
-      - path: .github/prompts/upsert-migration-instructions.md
+      - path: .github/prompts/upsert-migration-instructions.prompt.md
         kind: modify
-      - path: .github/prompts/rulebook-lifecycle.md
+      - path: .github/prompts/rulebook-lifecycle.prompt.md
         kind: modify
-      - path: .github/prompts/rulebook-lifecycle-all.md
+      - path: .github/prompts/rulebook-lifecycle-all.prompt.md
         kind: modify
-      - path: .github/prompts/reverse-rulebook.md
+      - path: .github/prompts/reverse-rulebook.prompt.md
         kind: modify
     done_criteria: |-
       Prompts セットが、起動対象 Skill・想定入力・出力形式を一貫して定義し、
