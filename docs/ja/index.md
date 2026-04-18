@@ -40,23 +40,23 @@ docs/
 │   │   └── instructions/ # 生成AIへの指示テンプレート
 │   ├── sample-gcs-projects/ # おばあちゃんの駄菓子屋サンプルドキュメント
 │   │   ├── prj-0001/ # プロジェクトの構築や改修時に追加されるドキュメント群
-│   │   │   ├── 010-プロジェクト概要/
-│   │   │   ├── 020-プロジェクトスコープ/
-│   │   │   ├── 030-プロジェクト課題と解決アプローチ/
-│   │   │   ├── 040-プロジェクトマネジメント/
-│   │   │   └── 090-決定記録/
+│   │   │   ├── 010-project-overview/            # プロジェクト概要
+│   │   │   ├── 020-project-scope/               # プロジェクトスコープ
+│   │   │   ├── 030-project-issues-and-approach/ # プロジェクト課題と解決アプローチ
+│   │   │   ├── 040-project-management/          # プロジェクトマネジメント
+│   │   │   └── 090-decision-log/                # 決定記録
 │   │   └── prj-0002/ ...
 │   └── sample-gcs-product/ # おばあちゃんの駄菓子屋サンプルドキュメント
-│       ├── 010-業務仕様/
-│       ├── 020-外部IF仕様/
-│       ├── 030-アーキテクチャ/
-│       ├── 040-システム設計/
-│       ├── 050-業務受入条件/
-│       ├── 060-非機能要件/
-│       ├── 070-システム受入条件/
-│       ├── 080-テスト/
-│       ├── 090-移行設計/
-│       └── 100-運用設計/
+│       ├── 010-business-specifications/        # 業務仕様
+│       ├── 020-external-if-specifications/     # 外部I/F仕様
+│       ├── 030-architecture/                   # アーキテクチャ
+│       ├── 040-system-design/                  # システム設計
+│       ├── 050-business-acceptance-criteria/   # 業務受入条件
+│       ├── 060-non-functional-requirements/    # 非機能要件
+│       ├── 070-system-acceptance-criteria/     # システム受入条件
+│       ├── 080-testing/                        # テスト
+│       ├── 090-migration/                      # 移行
+│       └── 100-operations/                     # 運用
 └── en/                   # 将来の英語ドキュメント用ディレクトリ
 ```
 

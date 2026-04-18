@@ -12,79 +12,83 @@ status: draft
 docs/
 └── ja/
     └── projects/
-        └── prj-0001/
-            ├── 010-project-definition/
-            │   ├── prj-overview.md
-            │   ├── prj-charter.md
-            │   ├── prj-stakeholder-register.md
-            │   ├── prj-scope.md
-            │   ├── prj-success-criteria-and-acceptance-criteria.md
-            │   ├── prj-deliverables-catalog.md
-            │   ├── prj-issues-and-approach.md
-            │   ├── prj-assumptions-constraints-dependencies.md
-            │   └── prj-comparison-of-alternatives.md
+        └── prj-0001/ # プロジェクト（ID）
+            ├── 010-project-definition/         # プロジェクト定義
+            │   ├── prj-overview.md             # プロジェクト概要
+            │   ├── prj-charter.md              # プロジェクト憲章
+            │   ├── prj-stakeholder-register.md # ステークホルダー登録簿
+            │   ├── prj-scope.md                # プロジェクトスコープ
+            │   ├── prj-success-criteria-and-acceptance-criteria.md # 成功基準と受入条件
+            │   ├── prj-deliverables-catalog.md # 成果物カタログ
+            │   ├── prj-issues-and-approach.md  # プロジェクト課題と解決アプローチ
+            │   ├── prj-assumptions-constraints-dependencies.md # 前提・制約・依存関係
+            │   └── prj-comparison-of-alternatives.md # 代替案の比較
             │
-            ├── 020-product-change/
-            │   ├── 010-as-is/
-            │   │   ├── business-spec/
-            │   │   ├── external-interface/
-            │   │   ├── architecture/
-            │   │   ├── system-design/
-            │   │   └── others/
+            ├── 020-product-change/                   # プロダクト変更
+            │   ├── 010-as-is/                        # 現状定義（As-Is）
+            │   │   └── 010-business-specifications/  # 業務仕様
             │   │
-            │   ├── 020-impact-analysis/
-            │   │   ├── impact-business.md
-            │   │   ├── impact-data.md
-            │   │   ├── impact-interface.md
-            │   │   ├── impact-test.md
-            │   │   └── impact-operations.md
+            │   ├── 020-impact-analysis/              # 影響調査
+            │   │   ├── imp-business.md               # 業務影響
+            │   │   ├── imp-data.md                   # データ影響
+            │   │   ├── imp-interface.md              # インターフェース影響
+            │   │   ├── imp-test.md                   # テスト影響
+            │   │   └── imp-operations.md             # 運用影響
             │   │
-            │   └── 030-traceability/
-            │       ├── requirements-to-product-docs.md
-            │       └── requirements-to-tests.md
+            │   ├── 030-traceability/                     # トレーサビリティ
+            │   │    └── generated/                       # 自動生成成果物
+            │   │        ├── trc-requirements-to-specs.md # 要求と仕様のトレース
+            │   │        └── trc-requirements-to-tests.md # 要求とテストのトレース
+            │   │
+            │   └── 040-migration/ # 移行
+            │       ├── mip-index.md # 移行計画
+            │       ├── dmd-index.md # データ移行設計
+            │       ├── mtp-index.md # 移行テスト計画（リハーサル計画）
+            │       ├── cop-index.md # カットオーバー計画（本番切替手順）
+            │       └── otp-index.md # 運用切替計画（ハイパーケア含む）
             │
-            ├── 030-project-management/
-            │   ├── 010-management-plan/
-            │   │   ├── pm-plan.md
-            │   │   ├── pm-communication-plan.md
-            │   │   ├── pm-quality-management-plan.md
-            │   │   ├── pm-organization-and-raci.md
-            │   │   ├── pm-wbs-decomposition-strategy.md
-            │   │   └── pm-wbs-to-schedule-strategy.md
+            ├── 030-project-management/ # プロジェクトマネジメント
+            │   ├── 010-management-plan/ # 管理計画
+            │   │   ├── pm-plan.md # プロジェクト管理計画
+            │   │   ├── pm-communication-plan.md # コミュニケーション計画
+            │   │   ├── pm-quality-management-plan.md # 品質管理計画
+            │   │   ├── pm-organization-and-raci.md # 組織体制とRACI
+            │   │   ├── pm-wbs-decomposition-strategy.md # WBS分解戦略
+            │   │   └── pm-wbs-to-schedule-strategy.md # WBSからスケジュールへの戦略
             │   │
-            │   ├── 020-controls/
-            │   │   ├── pm-risk-register.md
-            │   │   ├── pm-issue-log.md
-            │   │   └── pm-change-request-log.md
+            │   ├── 020-controls/ # 管理台帳
+            │   │   ├── pm-risk-register.md # リスク登録簿
+            │   │   ├── pm-issue-log.md # 課題ログ
+            │   │   └── pm-change-request-log.md # 変更要求ログ
             │   │
-            │   ├── 030-wbs/
-            │   │   ├── wbs-auth.yaml
-            │   │   ├── wbs-payment.yaml
-            │   │   └── wbs-infra.yaml
+            │   ├── 030-wbs/ # WBS
+            │   │   ├── wbs-auth.yaml # WBS定義（認証）
+            │   │   ├── wbs-payment.yaml # WBS定義（決済）
+            │   │   └── wbs-infra.yaml # WBS定義（インフラ）
             │   │
-            │   ├── 040-schedule/
-            │   │   ├── sch-milestones.yaml
-            │   │   ├── sch-auth.yaml
-            │   │   ├── sch-auth-api.yaml
-            │   │   └── sch-payment.yaml
+            │   ├── 040-schedule/ # スケジュール
+            │   │   ├── sch-milestones.yaml # マイルストーン定義
+            │   │   ├── sch-auth.yaml # スケジュール定義（認証）
+            │   │   ├── sch-auth-api.yaml # スケジュール定義（認証API）
+            │   │   └── sch-payment.yaml # スケジュール定義（決済）
             │   │
-            │   └── 050-reporting/
-            │       ├── progress-reports/
-            │       │   ├── pr-2026-03-01-01.md
-            │       │   └── pr-2026-03-08-01.md
+            │   └── 050-reporting/ # レポート
+            │       ├── progress-reports/ # 進捗報告
+            │       │   ├── pr-2026-03-01-01.md # 進捗報告
+            │       │   └── pr-2026-03-08-01.md # 進捗報告
             │       │
-            │       └── meeting-minutes/
-            │           ├── mm-2026-03-01-01.md
-            │           └── mm-2026-03-08-01.md
+            │       └── meeting-minutes/ # 議事録
+            │           ├── mm-2026-03-01-01.md # 議事録
+            │           └── mm-2026-03-08-01.md # 議事録
             │
-            ├── 040-execution/
-            │   ├── exec/
-            │   │   ├── events/
-            │   │   └── .locks/
+            ├── 040-execution/ # 実行管理
+            │   ├── exec/ # タスク実行ワークスペース
+            │   │   ├── events/ # イベントログ
+            │   │   └── .locks/ # 実行ロック
             │   │
-            │   └── generated/
+            │   └── generated/ # 自動生成成果物
             │
-            └── 050-decision-log/
-                ├── dec-0001-auth.md
-                └── dec-0002-payment.md
+            └── 050-decision-log/ # 決定記録
+                ├── dec-0001-auth.md # 決定記録（認証）
+                └── dec-0002-payment.md # 決定記録（決済）
 ```

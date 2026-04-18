@@ -312,6 +312,8 @@ supersedes:
 | プロジェクト課題と解決アプローチ | Project Issues and Approach | prj- | prj-issues-and-approach |
 | 前提・制約・依存 | Assumptions, Constraints, and Dependencies | prj- | prj-assumptions-constraints-dependencies |
 | 代替案の比較 | Comparison of Alternatives | prj- | prj-comparison-of-alternatives |
+| 現状定義 | As-Is Definition | asis- | asis-cdfd-index |
+| 影響調査 | Impact Analysis | imp- | imp-business |
 | プロジェクトマネジメント計画 | Project Management Plan | pm- | pm-plan |
 | スケジュール | Schedule | sch- | sch-auth |
 | コミュニケーション計画 | Communication Plan | pm- | pm-communication-plan |
