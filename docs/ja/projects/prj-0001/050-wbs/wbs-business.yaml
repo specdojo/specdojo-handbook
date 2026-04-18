@@ -1,4 +1,6 @@
-version: 1
+id: wbs-business
+type: wbs
+status: draft
 project_id: prj-0001
 domain: business
 assigned_team: specdojo-handbook
@@ -265,5 +267,4 @@ wbs:
       BAC ルール・指示ペアが、業務受入条件の必須セクション・ 判定基準・AIガイダンスを定義していること。 The BAC rule and
       instruction pair defines required business acceptance sections, completion
       conditions, and AI authoring constraints without ambiguous wording.
-      Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample
-      を一括で ready 化する。
+      Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。

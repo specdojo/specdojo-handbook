@@ -1,4 +1,6 @@
-version: 1
+id: wbs-nfr
+type: wbs
+status: draft
 project_id: prj-0001
 domain: nfr
 assigned_team: specdojo-handbook

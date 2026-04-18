@@ -1,4 +1,6 @@
-version: 1
+id: wbs-quality
+type: wbs
+status: draft
 project_id: prj-0001
 domain: quality
 assigned_team: specdojo-handbook

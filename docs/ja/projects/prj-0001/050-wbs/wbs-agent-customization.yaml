@@ -1,4 +1,6 @@
-version: 1
+id: wbs-agent-customization
+type: wbs
+status: draft
 project_id: prj-0001
 domain: agent-customization
 assigned_team: specdojo-handbook
