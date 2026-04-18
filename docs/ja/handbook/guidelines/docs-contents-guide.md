@@ -38,13 +38,42 @@ SpecDojoで扱うドキュメントの内容について、以下のガイドラ
 
 ### 1.4. プロダクト変更
 
+#### 1.4.1. 現状定義
+
 <!-- prettier-ignore -->
 | ドキュメント | 英語名称 | 推奨ファイル名 | 目的 | 主な内容 |
 | --- | --- | --- | --- | --- |
 | 現状定義（As-Is） | As-Is Definition | `asis-<spec>-index` | 変更前のベースラインを定義し、比較の基準を固定する | 現行業務仕様の対象範囲、前提、参照元、凍結時点 |
-| 影響調査（業務/データ/I/F/テスト/運用） | Impact Analysis | `imp-business` / `imp-data` / `imp-interface` / `imp-test` / `imp-operations` | 変更要求が各領域へ与える影響を整理する | 影響対象、変更要否、影響度、対応方針、未解決事項 |
-| トレーサビリティ（要求→仕様/要求→テスト） | Requirements Traceability | `trc-requirements-to-specs` / `trc-requirements-to-tests` | 要求と仕様・テストの対応を可視化し、漏れを防ぐ | 要求ID、対応仕様ID、対応テストID、充足状況、ギャップ |
-| 移行 | Migration | `mip-index` / `dmd-index` / `mtp-index` / `cop-index` / `otp-index` | 変更対象の移行計画と実行準備を定義し、切替リスクを管理する | 移行計画、データ移行設計、移行テスト計画、カットオーバー計画、運用切替計画 |
+
+#### 1.4.2. 影響調査
+
+<!-- prettier-ignore -->
+| ドキュメント | 英語名称 | 推奨ファイル名 | 目的 | 主な内容 |
+| --- | --- | --- | --- | --- |
+| 影響調査（業務） | Impact Analysis (Business) | `imp-business` | 変更要求が業務へ与える影響を整理する | 影響対象業務、変更要否、影響度、対応方針、未解決事項 |
+| 影響調査（データ） | Impact Analysis (Data) | `imp-data` | 変更要求がデータへ与える影響を整理する | 影響対象データ、変更要否、影響度、対応方針、未解決事項 |
+| 影響調査（I/F） | Impact Analysis (Interface) | `imp-interface` | 変更要求がインターフェースへ与える影響を整理する | 影響対象I/F、変更要否、影響度、対応方針、未解決事項 |
+| 影響調査（テスト） | Impact Analysis (Test) | `imp-test` | 変更要求がテストへ与える影響を整理する | 影響対象テスト、変更要否、影響度、対応方針、未解決事項 |
+| 影響調査（運用） | Impact Analysis (Operations) | `imp-operations` | 変更要求が運用へ与える影響を整理する | 影響対象運用、変更要否、影響度、対応方針、未解決事項 |
+
+#### 1.4.3. トレーサビリティ
+
+<!-- prettier-ignore -->
+| ドキュメント | 英語名称 | 推奨ファイル名 | 目的 | 主な内容 |
+| --- | --- | --- | --- | --- |
+| トレーサビリティ（要求→仕様） | Requirements Traceability (Requirements to Specs) | `trc-requirements-to-specs` | 要求と仕様の対応を可視化し、漏れを防ぐ | 要求ID、対応仕様ID、充足状況、ギャップ |
+| トレーサビリティ（要求→テスト） | Requirements Traceability (Requirements to Tests) | `trc-requirements-to-tests` | 要求とテストの対応を可視化し、漏れを防ぐ | 要求ID、対応テストID、充足状況、ギャップ |
+
+#### 1.4.4. 移行
+
+<!-- prettier-ignore -->
+| ドキュメント | 英語名称 | 推奨ファイル名 | 目的 | 主な内容 |
+| --- | --- | --- | --- | --- |
+| 移行計画 | Migration Plan | `mip-index` | 変更対象の移行方針と全体計画を定義し、切替リスクを管理する | 移行範囲、移行方式、体制、スケジュール、リスクと対策 |
+| データ移行設計 | Data Migration Design | `dmd-index` | データ移行の設計内容を定義し、移行時の整合性を確保する | 移行対象データ、変換方針、マッピング、検証方法、ロールバック方針 |
+| 移行テスト計画（リハーサル計画） | Migration Test Plan | `mtp-index` | 移行リハーサルの実施計画を定義し、切替前に妥当性を検証する | テスト範囲、シナリオ、環境、判定基準、是正計画 |
+| カットオーバー計画（本番切替手順） | Cutover Plan | `cop-index` | 本番切替の手順を定義し、停止時間と障害リスクを最小化する | 切替手順、実施順序、判定ポイント、エスカレーション、切戻し手順 |
+| 運用切替計画（ハイパーケア含む） | Operations Transition Plan | `otp-index` | 切替後の運用移管計画を定義し、安定稼働へ移行する | 運用引継ぎ、体制、監視強化期間、問い合わせ対応、安定化完了条件 |
 
 ### 1.5. プロジェクトマネジメント
 
