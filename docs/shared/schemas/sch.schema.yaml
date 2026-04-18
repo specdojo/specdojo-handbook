@@ -3,9 +3,8 @@ $schema: "https://json-schema.org/draft/2020-12/schema"
 title: "SpecDojo Schedule schema (level-discriminated)"
 $type: object
 $comment: >
-  Schema for schedule SSOT files.
-  File name is NOT used to infer domain/container.
-  Instead, schedule_level discriminates required fields:
+  Schema for schedule SSOT files. File name is NOT used to infer
+  domain/container. Instead, schedule_level discriminates required fields:
     - milestones: organization-wide milestone plan
     - domain: domain-level summary plan
     - container: container/component-level detailed plan
@@ -18,8 +17,9 @@ required:
 properties:
   kind:
     type: string
-    description: "Document kind. schedule for schedule SSOT, defaults for schedule defaults file, agent_overrides for runtime agent mode overrides."
-    enum: ["schedule", "defaults", "agent_overrides"]
+    description: "Document kind. schedule for schedule SSOT, defaults for schedule
+      defaults file, agent_overrides for runtime agent mode overrides."
+    enum: [ "schedule", "defaults", "agent_overrides" ]
     default: "schedule"
 
   version:
@@ -30,32 +30,33 @@ properties:
   project_id:
     type: string
     minLength: 1
-    description: "Project identifier (e.g., prj-sdh-ja-0001)."
+    description: "Project identifier (e.g., prj-0001)."
 
   schedule_level:
     type: string
     description: "Schedule granularity level."
-    enum: ["milestones", "domain", "container"]
+    enum: [ "milestones", "domain", "container" ]
 
   domain:
     type: string
     description: >
-      Stable ownership boundary (required for domain/container schedules).
-      Not inferred from file name.
+      Stable ownership boundary (required for domain/container schedules). Not
+      inferred from file name.
     pattern: "^[a-z0-9][a-z0-9-]{0,62}$"
 
   container:
     type: string
     description: >
-      Sub-scope inside a domain (required for container schedules).
-      Use a stable slug (service/component/module).
+      Sub-scope inside a domain (required for container schedules). Use a stable
+      slug (service/component/module).
     pattern: "^[a-z0-9][a-z0-9-]{0,62}$"
 
   assigned_team:
     type: string
     description: >
-      Optional current team/org label (may change). For readability/reporting only.
-    pattern: '^[^\s].{0,127}$'
+      Optional current team/org label (may change). For readability/reporting
+      only.
+    pattern: "^[^\\s].{0,127}$"
 
   calendar:
     $ref: "#/$defs/CalendarOverride"
@@ -92,7 +93,7 @@ allOf:
       properties:
         kind:
           const: schedule
-      required: [kind]
+      required: [ kind ]
     then:
       required:
         - version
@@ -107,22 +108,23 @@ allOf:
       properties:
         kind:
           const: defaults
-      required: [kind]
+      required: [ kind ]
     then:
       $ref: "#/$defs/DefaultsKind"
   - if:
       properties:
         kind:
           const: agent_overrides
-      required: [kind]
+      required: [ kind ]
     then:
       $ref: "#/$defs/AgentOverridesKind"
 
 $defs:
   Owner:
     type: string
-    description: "Document owner role. PO=Project Owner, BA=Business Analyst, ARC=Architect, QE=Quality Engineer."
-    enum: ["PO", "BA", "ARC", "QE"]
+    description: "Document owner role. PO=Project Owner, BA=Business Analyst,
+      ARC=Architect, QE=Quality Engineer."
+    enum: [ "PO", "BA", "ARC", "QE" ]
 
   Id:
     type: string
@@ -141,7 +143,7 @@ $defs:
 
   Weekday:
     type: string
-    enum: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    enum: [ "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" ]
 
   Calendar:
     type: object
@@ -251,28 +253,28 @@ $defs:
         $ref: "#/$defs/DefaultsSettings"
     allOf:
       - not:
-          required: [project_id]
+          required: [ project_id ]
       - not:
-          required: [schedule_level]
+          required: [ schedule_level ]
       - not:
-          required: [domain]
+          required: [ domain ]
       - not:
-          required: [container]
+          required: [ container ]
       - not:
-          required: [assigned_team]
+          required: [ assigned_team ]
       - not:
-          required: [tasks]
+          required: [ tasks ]
       - not:
-          required: [milestones]
+          required: [ milestones ]
       - not:
-          required: [default_agent_mode]
+          required: [ default_agent_mode ]
       - not:
-          required: [task_overrides]
+          required: [ task_overrides ]
 
   AgentMode:
     type: string
     description: "Agent execution mode. manual requires step-by-step human confirmation."
-    enum: ["manual", "standard", "agent-max", "agent-ultra"]
+    enum: [ "manual", "standard", "agent-max", "agent-ultra" ]
 
   AgentTaskOverride:
     type: object
@@ -318,21 +320,21 @@ $defs:
         description: "Optional file-level notes."
     allOf:
       - not:
-          required: [schedule_level]
+          required: [ schedule_level ]
       - not:
-          required: [domain]
+          required: [ domain ]
       - not:
-          required: [container]
+          required: [ container ]
       - not:
-          required: [assigned_team]
+          required: [ assigned_team ]
       - not:
-          required: [calendar]
+          required: [ calendar ]
       - not:
-          required: [settings]
+          required: [ settings ]
       - not:
-          required: [tasks]
+          required: [ tasks ]
       - not:
-          required: [milestones]
+          required: [ milestones ]
 
   Settings:
     type: object
@@ -363,8 +365,9 @@ $defs:
   DependencyIds:
     type: array
     description: >
-      List of predecessor IDs. These IDs may refer to tasks or milestones in any schedule file.
-      The merged graph is validated by tooling (existence, no cycles).
+      List of predecessor IDs. These IDs may refer to tasks or milestones in any
+      schedule file. The merged graph is validated by tooling (existence, no
+      cycles).
     items:
       $ref: "#/$defs/Id"
     uniqueItems: true
@@ -385,7 +388,8 @@ $defs:
       wbs:
         type: string
         minLength: 1
-        description: "WBS element ID this task contributes to (e.g., WBS-AUTH-010, WBS-AUTH-API-010)."
+        description: "WBS element ID this task contributes to (e.g., WBS-AUTH-010,
+          WBS-AUTH-API-010)."
         pattern: "^WBS-[A-Z0-9-]+-[0-9]{2,4}$"
       name:
         type: string
@@ -395,9 +399,8 @@ $defs:
         type: number
         exclusiveMinimum: 0
         description: >
-          Task duration in working days.
-          Fractional values are allowed (e.g., 0.125, 0.25, 0.5, 1.0).
-          Use milestones instead of 0-day tasks.
+          Task duration in working days. Fractional values are allowed (e.g.,
+          0.125, 0.25, 0.5, 1.0). Use milestones instead of 0-day tasks.
       depends_on:
         $ref: "#/$defs/DependencyIds"
       owner:
@@ -458,17 +461,17 @@ $defs:
           $ref: "#/$defs/Milestone"
     allOf:
       - not:
-          required: ["domain"]
+          required: [ "domain" ]
       - not:
-          required: ["container"]
+          required: [ "container" ]
       - not:
-          required: ["default_agent_mode"]
+          required: [ "default_agent_mode" ]
       - not:
-          required: ["task_overrides"]
+          required: [ "task_overrides" ]
     $comment: >
-      Milestones plan: require milestones.
-      Tasks are optional; if used, keep them coarse and treat as summary tasks.
-      domain/container must be omitted here.
+      Milestones plan: require milestones. Tasks are optional; if used, keep
+      them coarse and treat as summary tasks. domain/container must be omitted
+      here.
 
   DomainLevel:
     type: object
@@ -486,12 +489,12 @@ $defs:
           $ref: "#/$defs/Task"
     allOf:
       - not:
-          required: ["container"]
+          required: [ "container" ]
       - not:
-          required: ["task_overrides"]
+          required: [ "task_overrides" ]
     $comment: >
-      Domain summary plan: require domain + tasks.
-      container must be omitted here.
+      Domain summary plan: require domain + tasks. container must be omitted
+      here.
 
   ContainerLevel:
     type: object
@@ -510,6 +513,6 @@ $defs:
           $ref: "#/$defs/Task"
     allOf:
       - not:
-          required: ["task_overrides"]
+          required: [ "task_overrides" ]
     $comment: >
       Container-level detailed plan: require domain + container + tasks.

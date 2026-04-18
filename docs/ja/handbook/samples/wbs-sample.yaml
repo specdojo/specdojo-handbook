@@ -7,7 +7,7 @@ based_on:
   - prj-scope
   - pm-wbs-decomposition-strategy
 supersedes: []
-project_id: prj-sdh-ja-0001
+project_id: prj-0001
 domain: product-docs
 assigned_team: 業務設計チーム
 wbs:
