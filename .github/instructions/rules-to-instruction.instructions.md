@@ -1,6 +1,6 @@
 # Rules→Instruction 変換運用ルール
 
-このファイルは、`docs/ja/handbook/rules` 配下の `*-rules.md` を要約し、
+このファイルは、`docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を要約し、
 対応する `docs/ja/handbook/instructions/*-instruction.md` を作成/更新するための共通運用ルールです。
 
 ## 1. 目的
@@ -11,13 +11,13 @@
 
 ## 2. 入出力の対応
 
-- 入力: `docs/ja/handbook/rules/<name>-rules.md`
+- 入力: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
 - 出力: `docs/ja/handbook/instructions/<name>-instruction.md`
 
 対応原則:
 
-- `<name>` は同一（例: `utc-index-rules.md` → `utc-index-instruction.md`）
-- `meta-*-rules.md` は instruction 変換対象外（新規作成/更新ともに行わない）
+- `<name>` は同一（例: `utc-index-rulebook.md` → `utc-index-instruction.md`）
+- `meta-*-rulebook.md` は instruction 変換対象外（新規作成/更新ともに行わない）
 - 対応先が存在しない場合は新規作成
 - 対応先が存在する場合はアップサート（差分反映）
 
@@ -28,7 +28,7 @@
 3. 参照元ルールの語彙と整合する（`index`/`overview` などの命名ゆれを持ち込まない）
 4. 曖昧語（十分/適切/問題ない）を避け、判定可能な指示にする
 5. 不要な実装依存情報（SQL全文、具体クラス名等）は追加しない
-6. `*-rules.md` 側の「生成 AI への指示テンプレート」セクションは、対応する `*-instruction.md` へのリンクを記載し、最小テンプレート本文は保持しない
+6. `*-rulebook.md` 側の「生成 AI への指示テンプレート」セクションは、対応する `*-instruction.md` へのリンクを記載し、最小テンプレート本文は保持しない
 
 ## 4. 生成する instruction の推奨構成
 

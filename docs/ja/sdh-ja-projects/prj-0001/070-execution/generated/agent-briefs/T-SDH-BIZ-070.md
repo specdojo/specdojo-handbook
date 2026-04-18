@@ -26,9 +26,9 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/cld-rules.md
-- docs/ja/handbook/rules/stsd-rules.md
-- docs/ja/handbook/rules/sld-rules.md
+- docs/ja/handbook/rulebooks/cld-rulebook.md
+- docs/ja/handbook/rulebooks/stsd-rulebook.md
+- docs/ja/handbook/rulebooks/sld-rulebook.md
 
 secondary_paths:
 

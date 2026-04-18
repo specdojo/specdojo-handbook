@@ -62,7 +62,7 @@ entities:
 ## **6. 参考**
 
 - 必要に応じて用語集（glossary）を参照し、glossary_term_id を補完してください。
-- BDD 作成ルールはこのファイル **bdd-rules.md** を参照してください。
+- BDD 作成ルールはこのファイル **bdd-rulebook.md** を参照してください。
 
 ## **7. 最終出力**
 

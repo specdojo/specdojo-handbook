@@ -26,7 +26,7 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/tsp-index-rules.md
+- docs/ja/handbook/rulebooks/tsp-index-rulebook.md
 
 secondary_paths:
 

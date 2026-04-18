@@ -185,7 +185,7 @@ function selectPrimaryArtifactCandidates(
     return samplePaths.length > 0 ? samplePaths : deliverables
   }
   if (tags.includes('rules-lifecycle')) {
-    const rulePaths = deliverables.filter(path => path.includes('/rules/'))
+    const rulePaths = deliverables.filter(path => path.includes('/rulebooks/'))
     return rulePaths.length > 0 ? rulePaths : deliverables
   }
 

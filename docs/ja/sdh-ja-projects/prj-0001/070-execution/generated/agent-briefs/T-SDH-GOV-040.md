@@ -26,10 +26,10 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/meta-document-metadata-rules.md
-- docs/ja/handbook/rules/meta-id-and-file-naming-rules.md
-- docs/ja/handbook/rules/meta-rulebook-structure-rules.md
-- docs/ja/handbook/rules/meta-test-document-scope-rules.md
+- docs/ja/handbook/rulebooks/meta-document-metadata-rulebook.md
+- docs/ja/handbook/rulebooks/meta-id-and-file-naming-rulebook.md
+- docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md
+- docs/ja/handbook/rulebooks/meta-test-document-scope-rulebook.md
 
 secondary_paths:
 

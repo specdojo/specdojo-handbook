@@ -135,6 +135,10 @@
     "/^python - <<'PY'\nfrom pathlib import Path\np = Path\\('/tmp/test-gh-step\\.sh'\\)\np\\.write_text\\('echo \"name=\\$\\(node -p \\\\\\\\\\\\\"require\\(\\\\'\\./tools/specdojo/package\\.json\\\\'\\)\\.name\\\\\\\\\\\\\"\\)\" >> \"\\$GITHUB_OUTPUT\"\\\\n'\\)\nprint\\(p\\.read_text\\(\\)\\)\nPY\nexport GITHUB_OUTPUT=/tmp/ghout && bash -e /tmp/test-gh-step\\.sh$/": {
       "approve": true,
       "matchCommandLine": true
+    },
+    "/^set -e\ncd /workspaces/specdojo-handbook\nrg -n --hidden -g '!\\.git' -- 'docs/ja/handbook/rulebooks\\|docs/handbook/rulebooks\\|\\\\\\.\\\\\\./rulebooks/' \\. \\| head -n 120 \\|\\| true$/": {
+      "approve": true,
+      "matchCommandLine": true
     }
   }
 }

@@ -2,13 +2,13 @@
 
 @file:.github/skills/rules-lifecycle-all/SKILL.md
 
-`/docs/ja/handbook/rules` 配下の **すべての `*-rules.md`** を対象に、
+`/docs/ja/handbook/rulebooks` 配下の **すべての `*-rulebook.md`** を対象に、
 各 rules について Phase 1（rules）→ Phase 2（derivatives）を順に実行してください。
 
 ## 対象ルール
 
-- 対象は `docs/ja/handbook/rules/*-rules.md`
-- `meta-*-rules.md` は対象外
+- 対象は `docs/ja/handbook/rulebooks/*-rulebook.md`
+- `meta-*-rulebook.md` は対象外
 - 実行順はファイル名昇順（再現性のため）
 
 ## 実行モード
@@ -18,8 +18,8 @@
 
 ## 進め方
 
-1. 対象 rules を列挙（`meta-*-rules.md` を除外）
-2. 各 `<name>-rules.md` について以下を実行
+1. 対象 rules を列挙（`meta-*-rulebook.md` を除外）
+2. 各 `<name>-rulebook.md` について以下を実行
    - Phase 1: ① agent draft → ② modify → ③ agent review → ④ human approve
    - Phase 2: ⑤ agent draft → ⑥ agent review → ⑦ human approve
 3. 各ファイルの完了時に、変更ファイル・レビュー要点・未解決事項を記録

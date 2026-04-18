@@ -1,6 +1,6 @@
 # Rules→Sample 変換運用ルール
 
-このファイルは、`docs/ja/handbook/rules` 配下の `*-rules.md` に従い、
+このファイルは、`docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` に従い、
 対応する `docs/ja/handbook/samples/*-sample.md` もしくは `docs/ja/handbook/samples/*-sample.yaml` を作成/更新するための共通運用ルールです。
 
 ## 1. 目的
@@ -11,17 +11,17 @@
 
 ## 2. 入出力の対応
 
-- 入力: `docs/ja/handbook/rules/<name>-rules.md`
+- 入力: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
 - 出力: `docs/ja/handbook/samples/<name>-sample.md` もしくは `docs/ja/handbook/samples/<name>-sample.yaml`
 
 対応原則:
 
-- `<name>` は同一（例: `utc-index-rules.md` → `utc-index-sample.md`）
-- `meta-*-rules.md` は sample 変換対象外（新規作成/更新ともに行わない）
+- `<name>` は同一（例: `utc-index-rulebook.md` → `utc-index-sample.md`）
+- `meta-*-rulebook.md` は sample 変換対象外（新規作成/更新ともに行わない）
 - 対応先が存在しない場合は新規作成
 - 対応先が存在する場合はアップサート（差分反映）
 - sample の形式は、対象が文書テンプレート・記述例なら `*.md`、schema を持つ SSOT データ例なら `*.yaml` を優先する
-- `*-rules.md` 側の「サンプル（最小でも可）」セクションのリンク先も、対応する sample の実拡張子（`.md` または `.yaml`）に一致させる
+- `*-rulebook.md` 側の「サンプル（最小でも可）」セクションのリンク先も、対応する sample の実拡張子（`.md` または `.yaml`）に一致させる
 
 ## 3. 前提プロジェクト（固定）
 
@@ -36,7 +36,7 @@
 3. 参照元ルールの語彙と整合する（`index`/`overview` などの命名ゆれを持ち込まない）
 4. 曖昧語（十分/適切/問題ない）を避け、読み手が意図を判定できる記述にする
 5. 不要な実装依存情報（SQL 全文、具体クラス名等）は追加しない
-6. `*-rules.md` 側の「サンプル（最小でも可）」セクションは、対応する `*-sample.md` または `*-sample.yaml` へのリンクを記載し、最小サンプル本文は保持しない
+6. `*-rulebook.md` 側の「サンプル（最小でも可）」セクションは、対応する `*-sample.md` または `*-sample.yaml` へのリンクを記載し、最小サンプル本文は保持しない
 7. sample が YAML の場合は、対応する schema があればそれも参照し、構造・必須項目・制約を sample 側へ反映する
 8. sample が YAML の場合は、rules だけでなく schema を一次制約として扱い、`required` / `type` / `enum` / `pattern` / `additionalProperties` を確認する
 9. sample が YAML の場合の schema 検証は、インストール済みの `ajv` を使って実行する

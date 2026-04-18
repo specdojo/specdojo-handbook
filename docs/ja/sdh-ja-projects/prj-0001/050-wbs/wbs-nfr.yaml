@@ -11,7 +11,7 @@ wbs:
     owner: QE
     component: index
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-index-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-index-instruction.md
         kind: modify
@@ -27,7 +27,7 @@ wbs:
     owner: QE
     component: availability
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-availability-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-availability-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-availability-instruction.md
         kind: modify
@@ -43,7 +43,7 @@ wbs:
     owner: QE
     component: integrity
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-integrity-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-integrity-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-integrity-instruction.md
         kind: modify
@@ -59,7 +59,7 @@ wbs:
     owner: QE
     component: maintainability
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-maintainability-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-maintainability-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-maintainability-instruction.md
         kind: modify
@@ -75,7 +75,7 @@ wbs:
     owner: QE
     component: operations
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-operations-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-operations-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-operations-instruction.md
         kind: modify
@@ -91,7 +91,7 @@ wbs:
     owner: QE
     component: performance
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-performance-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-performance-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-performance-instruction.md
         kind: modify
@@ -107,7 +107,7 @@ wbs:
     owner: QE
     component: reliability
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-reliability-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-reliability-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-reliability-instruction.md
         kind: modify
@@ -123,7 +123,7 @@ wbs:
     owner: QE
     component: security-safety
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-security-safety-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-security-safety-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-security-safety-instruction.md
         kind: modify
@@ -139,7 +139,7 @@ wbs:
     owner: BA
     component: usability
     deliverables:
-      - path: docs/ja/handbook/rules/nfr-usability-rules.md
+      - path: docs/ja/handbook/rulebooks/nfr-usability-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/nfr-usability-instruction.md
         kind: modify

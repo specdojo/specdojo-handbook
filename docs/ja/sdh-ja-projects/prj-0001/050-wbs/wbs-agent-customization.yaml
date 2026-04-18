@@ -53,7 +53,7 @@ wbs:
     owner: BA
     component: prompts
     deliverables:
-      - path: .github/prompts/upsert-rules.md
+      - path: .github/prompts/upsert-rulebook.md
         kind: modify
       - path: .github/prompts/upsert-instruction.md
         kind: modify
@@ -73,7 +73,7 @@ wbs:
         kind: modify
       - path: .github/prompts/rules-lifecycle-all.md
         kind: modify
-      - path: .github/prompts/reverse-rules.md
+      - path: .github/prompts/reverse-rulebook.md
         kind: modify
     done_criteria: |-
       Prompts セットが、起動対象 Skill・想定入力・出力形式を一貫して定義し、

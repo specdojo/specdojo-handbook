@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. 帳票仕様の作成・更新ルールは [bds-rules.md](../../../handbook/rules/bds-rules.md) を参照してください。
+1. 帳票仕様の作成・更新ルールは [bds-rulebook.md](../../../handbook/rulebooks/bds-rulebook.md) を参照してください。
 2. 生成AIを活用して帳票仕様を作成する場合は [bds-instruction.md](../../../handbook/instructions/bds-instruction.md) をプロンプトのテンプレートとして利用してください。

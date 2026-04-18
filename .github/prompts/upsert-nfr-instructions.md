@@ -16,15 +16,15 @@
 
 | rules                                                | instruction                                                       |
 | ---------------------------------------------------- | ----------------------------------------------------------------- |
-| /docs/ja/handbook/rules/nfr-index-rules.md           | /docs/ja/handbook/instructions/nfr-index-instruction.md           |
-| /docs/ja/handbook/rules/nfr-reliability-rules.md     | /docs/ja/handbook/instructions/nfr-reliability-instruction.md     |
-| /docs/ja/handbook/rules/nfr-availability-rules.md    | /docs/ja/handbook/instructions/nfr-availability-instruction.md    |
-| /docs/ja/handbook/rules/nfr-maintainability-rules.md | /docs/ja/handbook/instructions/nfr-maintainability-instruction.md |
-| /docs/ja/handbook/rules/nfr-integrity-rules.md       | /docs/ja/handbook/instructions/nfr-integrity-instruction.md       |
-| /docs/ja/handbook/rules/nfr-security-safety-rules.md | /docs/ja/handbook/instructions/nfr-security-safety-instruction.md |
-| /docs/ja/handbook/rules/nfr-performance-rules.md     | /docs/ja/handbook/instructions/nfr-performance-instruction.md     |
-| /docs/ja/handbook/rules/nfr-operations-rules.md      | /docs/ja/handbook/instructions/nfr-operations-instruction.md      |
-| /docs/ja/handbook/rules/nfr-usability-rules.md       | /docs/ja/handbook/instructions/nfr-usability-instruction.md       |
+| /docs/ja/handbook/rulebooks/nfr-index-rulebook.md           | /docs/ja/handbook/instructions/nfr-index-instruction.md           |
+| /docs/ja/handbook/rulebooks/nfr-reliability-rulebook.md     | /docs/ja/handbook/instructions/nfr-reliability-instruction.md     |
+| /docs/ja/handbook/rulebooks/nfr-availability-rulebook.md    | /docs/ja/handbook/instructions/nfr-availability-instruction.md    |
+| /docs/ja/handbook/rulebooks/nfr-maintainability-rulebook.md | /docs/ja/handbook/instructions/nfr-maintainability-instruction.md |
+| /docs/ja/handbook/rulebooks/nfr-integrity-rulebook.md       | /docs/ja/handbook/instructions/nfr-integrity-instruction.md       |
+| /docs/ja/handbook/rulebooks/nfr-security-safety-rulebook.md | /docs/ja/handbook/instructions/nfr-security-safety-instruction.md |
+| /docs/ja/handbook/rulebooks/nfr-performance-rulebook.md     | /docs/ja/handbook/instructions/nfr-performance-instruction.md     |
+| /docs/ja/handbook/rulebooks/nfr-operations-rulebook.md      | /docs/ja/handbook/instructions/nfr-operations-instruction.md      |
+| /docs/ja/handbook/rulebooks/nfr-usability-rulebook.md       | /docs/ja/handbook/instructions/nfr-usability-instruction.md       |
 
 出力:
 

@@ -26,8 +26,8 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/cxd-rules.md
-- docs/ja/handbook/rules/cxd-mermaid-rules.md
+- docs/ja/handbook/rulebooks/cxd-rulebook.md
+- docs/ja/handbook/rulebooks/cxd-mermaid-rulebook.md
 
 secondary_paths:
 

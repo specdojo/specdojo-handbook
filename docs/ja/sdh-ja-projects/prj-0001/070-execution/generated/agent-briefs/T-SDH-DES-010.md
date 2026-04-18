@@ -26,10 +26,10 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/ifx-rules.md
-- docs/ja/handbook/rules/ifx-api-rules.md
-- docs/ja/handbook/rules/ifx-file-rules.md
-- docs/ja/handbook/rules/ifx-msg-rules.md
+- docs/ja/handbook/rulebooks/ifx-rulebook.md
+- docs/ja/handbook/rulebooks/ifx-api-rulebook.md
+- docs/ja/handbook/rulebooks/ifx-file-rulebook.md
+- docs/ja/handbook/rulebooks/ifx-msg-rulebook.md
 
 secondary_paths:
 

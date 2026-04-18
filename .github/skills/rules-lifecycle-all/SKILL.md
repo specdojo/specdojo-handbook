@@ -1,11 +1,11 @@
 ---
 name: rules-lifecycle-all
-description: '`docs/ja/handbook/rules` 配下の全 `*-rules.md` を対象に、rules と派生成果物（instruction / sample）のライフサイクルを順次実行するための Skill です。'
+description: '`docs/ja/handbook/rulebooks` 配下の全 `*-rulebook.md` を対象に、rules と派生成果物（instruction / sample）のライフサイクルを順次実行するための Skill です。'
 ---
 
 # SKILL: rules-lifecycle-all
 
-`docs/ja/handbook/rules` 配下の全 `*-rules.md` を対象に、
+`docs/ja/handbook/rulebooks` 配下の全 `*-rulebook.md` を対象に、
 rules と派生成果物（instruction / sample）のライフサイクルを順次実行するための Skill です。
 
 ## 使いどころ
@@ -17,13 +17,13 @@ rules と派生成果物（instruction / sample）のライフサイクルを順
 ## 前提
 
 - 共通ライフサイクル: `@file:.github/skills/rules-lifecycle/SKILL.md`
-- 対象パス: `docs/ja/handbook/rules/*-rules.md`
-- 対象除外: `meta-*-rules.md`
+- 対象パス: `docs/ja/handbook/rulebooks/*-rulebook.md`
+- 対象除外: `meta-*-rulebook.md`
 - 既定モード: `standard`
 
 ## 実行フロー
 
-1. `docs/ja/handbook/rules` から `*-rules.md` を列挙し、`meta-*-rules.md` を除外する
+1. `docs/ja/handbook/rulebooks` から `*-rulebook.md` を列挙し、`meta-*-rulebook.md` を除外する
 2. 対象をファイル名昇順で固定する（再現性確保）
 3. 各 `<name>` について `rules-lifecycle` を ①〜⑦で実行する
 4. ④/⑦ は `<name>` ごとに `PO` 承認を待ってから次へ進む
@@ -52,4 +52,4 @@ rules と派生成果物（instruction / sample）のライフサイクルを順
 
 - 承認待ちの `<name>` がある間は次の `<name>` へ進まない
 - 途中中断時は `<name>` とステップ番号（①〜⑦）を必ず記録する
-- `meta-*-rules.md` は本 Skill の対象外
+- `meta-*-rulebook.md` は本 Skill の対象外

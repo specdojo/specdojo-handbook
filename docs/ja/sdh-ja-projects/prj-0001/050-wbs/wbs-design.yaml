@@ -11,19 +11,19 @@ wbs:
     owner: ARC
     component: external-if
     deliverables:
-      - path: docs/ja/handbook/rules/ifx-rules.md
+      - path: docs/ja/handbook/rulebooks/ifx-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/ifx-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/ifx-api-rules.md
+      - path: docs/ja/handbook/rulebooks/ifx-api-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/ifx-api-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/ifx-file-rules.md
+      - path: docs/ja/handbook/rulebooks/ifx-file-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/ifx-file-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/ifx-msg-rules.md
+      - path: docs/ja/handbook/rulebooks/ifx-msg-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/ifx-msg-instruction.md
         kind: modify
@@ -45,11 +45,11 @@ wbs:
     owner: ARC
     component: c4-context
     deliverables:
-      - path: docs/ja/handbook/rules/cxd-rules.md
+      - path: docs/ja/handbook/rulebooks/cxd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cxd-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/cxd-mermaid-rules.md
+      - path: docs/ja/handbook/rulebooks/cxd-mermaid-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cxd-mermaid-instruction.md
         kind: modify
@@ -67,11 +67,11 @@ wbs:
     owner: ARC
     component: c4-container
     deliverables:
-      - path: docs/ja/handbook/rules/cnd-rules.md
+      - path: docs/ja/handbook/rulebooks/cnd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cnd-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/cnd-mermaid-rules.md
+      - path: docs/ja/handbook/rulebooks/cnd-mermaid-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cnd-mermaid-instruction.md
         kind: modify
@@ -89,11 +89,11 @@ wbs:
     owner: ARC
     component: c4-component
     deliverables:
-      - path: docs/ja/handbook/rules/cpd-rules.md
+      - path: docs/ja/handbook/rulebooks/cpd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cpd-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/cpd-mermaid-rules.md
+      - path: docs/ja/handbook/rulebooks/cpd-mermaid-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cpd-mermaid-instruction.md
         kind: modify
@@ -111,7 +111,7 @@ wbs:
     owner: ARC
     component: infrastructure
     deliverables:
-      - path: docs/ja/handbook/rules/ifd-mermaid-rules.md
+      - path: docs/ja/handbook/rulebooks/ifd-mermaid-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/ifd-mermaid-instruction.md
         kind: modify
@@ -127,7 +127,7 @@ wbs:
     owner: ARC
     component: tech-stack
     deliverables:
-      - path: docs/ja/handbook/rules/tsd-rules.md
+      - path: docs/ja/handbook/rulebooks/tsd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/tsd-instruction.md
         kind: modify
@@ -143,15 +143,15 @@ wbs:
     owner: ARC
     component: system-design
     deliverables:
-      - path: docs/ja/handbook/rules/sysd-index-rules.md
+      - path: docs/ja/handbook/rulebooks/sysd-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/sysd-index-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/sysd-critical-flows-rules.md
+      - path: docs/ja/handbook/rulebooks/sysd-critical-flows-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/sysd-critical-flows-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/sysd-cross-cutting-policy-rules.md
+      - path: docs/ja/handbook/rulebooks/sysd-cross-cutting-policy-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/sysd-cross-cutting-policy-instruction.md
         kind: modify

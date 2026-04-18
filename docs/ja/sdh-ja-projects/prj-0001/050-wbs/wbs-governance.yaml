@@ -11,15 +11,15 @@ wbs:
     owner: PO
     component: project-docs
     deliverables:
-      - path: docs/ja/handbook/rules/prj-overview-rules.md
+      - path: docs/ja/handbook/rulebooks/prj-overview-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/prj-overview-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/prj-scope-rules.md
+      - path: docs/ja/handbook/rulebooks/prj-scope-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/prj-scope-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/prj-issues-and-approach-rules.md
+      - path: docs/ja/handbook/rulebooks/prj-issues-and-approach-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/prj-issues-and-approach-instruction.md
         kind: modify
@@ -39,23 +39,23 @@ wbs:
     owner: PO
     component: migration
     deliverables:
-      - path: docs/ja/handbook/rules/mip-index-rules.md
+      - path: docs/ja/handbook/rulebooks/mip-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/mip-index-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/mtp-rules.md
+      - path: docs/ja/handbook/rulebooks/mtp-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/mtp-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/dmd-rules.md
+      - path: docs/ja/handbook/rulebooks/dmd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/dmd-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/cop-rules.md
+      - path: docs/ja/handbook/rulebooks/cop-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cop-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/otp-rules.md
+      - path: docs/ja/handbook/rulebooks/otp-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/otp-instruction.md
         kind: modify
@@ -79,11 +79,11 @@ wbs:
     owner: PO
     component: operations
     deliverables:
-      - path: docs/ja/handbook/rules/opd-rules.md
+      - path: docs/ja/handbook/rulebooks/opd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/opd-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/opr-rules.md
+      - path: docs/ja/handbook/rulebooks/opr-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/opr-instruction.md
         kind: modify
@@ -101,13 +101,13 @@ wbs:
     owner: ARC
     component: meta
     deliverables:
-      - path: docs/ja/handbook/rules/meta-document-metadata-rules.md
+      - path: docs/ja/handbook/rulebooks/meta-document-metadata-rulebook.md
         kind: modify
-      - path: docs/ja/handbook/rules/meta-id-and-file-naming-rules.md
+      - path: docs/ja/handbook/rulebooks/meta-id-and-file-naming-rulebook.md
         kind: modify
-      - path: docs/ja/handbook/rules/meta-rulebook-structure-rules.md
+      - path: docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md
         kind: modify
-      - path: docs/ja/handbook/rules/meta-test-document-scope-rules.md
+      - path: docs/ja/handbook/rulebooks/meta-test-document-scope-rulebook.md
         kind: modify
     done_criteria: |-
       メタルールセットが、下流のルール・指示が矛盾なく再利用できる 共有メタデータ・命名・構造・テストスコープの制約を定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。

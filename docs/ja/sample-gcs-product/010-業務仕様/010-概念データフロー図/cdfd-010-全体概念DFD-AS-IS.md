@@ -10,7 +10,7 @@
 
 ## 外部主体と物理保管に着目した概要フロー
 
-凡例は[こちら(cdfd-mermaid-rules#6.凡例)](../../../handbook/rules/cdfd-mermaid-rules.md#6-凡例)を参照してください。
+凡例は[こちら(cdfd-mermaid-rules#6.凡例)](../../../handbook/rulebooks/cdfd-mermaid-rulebook.md#6-凡例)を参照してください。
 
 ```mermaid
 flowchart LR

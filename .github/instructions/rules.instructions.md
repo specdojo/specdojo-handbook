@@ -1,24 +1,24 @@
 # Rules 作成運用ルール
 
-このファイルは、`docs/ja/handbook/rules` 配下の `*-rules.md` を作成/更新するための共通運用ルールです。
-章立ては `meta-rulebook-structure-rules.md` に従い、構成・見出し順・必須要素を統一します。
+このファイルは、`docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を作成/更新するための共通運用ルールです。
+章立ては `meta-rulebook-structure-rulebook.md` に従い、構成・見出し順・必須要素を統一します。
 
 ## 1. 目的と適用範囲
 
-- 目的は、`*-rules.md` の章構成と記述品質を統一し、参照・保守を容易にすること。
-- 本ルールは `docs/ja/handbook/rules/` 配下の `*-rules.md` の作成/更新に適用する。
-- `meta-*-rules.md` は本ルールの対象外とし、個別の meta ルールで管理する。
+- 目的は、`*-rulebook.md` の章構成と記述品質を統一し、参照・保守を容易にすること。
+- 本ルールは `docs/ja/handbook/rulebooks/` 配下の `*-rulebook.md` の作成/更新に適用する。
+- `meta-*-rulebook.md` は本ルールの対象外とし、個別の meta ルールで管理する。
 
 ## 2. 入力情報
 
-- 対象ファイル: `docs/ja/handbook/rules/<name>-rules.md`
-- 構成基準: `docs/ja/handbook/rules/meta-rulebook-structure-rules.md`
+- 対象ファイル: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
+- 構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
 - Frontmatter スキーマ: `docs/shared/schemas/spec-frontmatter.schema.yaml`
 - 参照先（必要に応じて）: `../samples/*-sample.md`、`../instructions/*-instruction.md`
 
 ## 3. 出力仕様（Frontmatter と命名）
 
-- ファイル名は `<name>-rules.md` とする。
+- ファイル名は `<name>-rulebook.md` とする。
 - ファイル先頭に YAML Frontmatter を置き、最低限 `id` / `type` / `status` を含める。
 - `id` は英小文字・数字・ハイフンのみを使用し、一意にする。
 - H1 はファイル内で 1 つだけとし、タイトルとして使用する。
@@ -26,7 +26,7 @@
 
 ## 4. 標準章構成（必須）
 
-- `meta-rulebook-structure-rules.md` の標準章構成に従う。
+- `meta-rulebook-structure-rulebook.md` の標準章構成に従う。
 - 章番号は `## 1.` からの連番とし、スキップしない。
 - 不要章を省略する場合は、省略理由を本文に明記する。
 
@@ -49,7 +49,7 @@
 - `## 6. 記述ガイド` には、章ごとの書き方、推奨表、記載例を置く。
 - 共通事項は上位ドキュメントを SSOT とし、重複記載を避ける。
 - 用語はファイル内で統一し、`index` / `overview` などの命名ゆれを持ち込まない。
-- 未確定事項や仮置き情報がある場合は、`*-rules.md` 本文の中に `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を直接記述する。
+- 未確定事項や仮置き情報がある場合は、`*-rulebook.md` 本文の中に `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を直接記述する。
 - 対象ドキュメントで未確定事項や仮置き情報を扱う必要がある場合は、共通ラベルとして `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` のみを使用してよい。
 - 各ラベルの意味は以下のとおりとする。
   - `_TODO_:` 後で人または生成 AI が確認・追記・修正する必要がある事項
@@ -66,14 +66,14 @@
 - 章番号末尾の `.` を省略しない。
 - rules 本文に実装詳細（SQL 全文、具体クラス名、詳細 API 設計）を書かない。
 - 曖昧語（十分、適切、問題ない）を根拠なく使用しない。
-- `meta-*-rules.md` を本ルールで機械的に上書きしない。
+- `meta-*-rulebook.md` を本ルールで機械的に上書きしない。
 - `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` 以外の独自ラベルを、共通ルール未定義のまま追加しない。
 - 確定済みの内容をラベル付きのまま放置しない。
 - ラベルを本文の代替として多用し、対象ドキュメントの確定記述を不足させない。
 
 ## 7. 作成・更新手順
 
-1. 対象 `*-rules.md` を特定し、既存ファイル有無を確認する。
+1. 対象 `*-rulebook.md` を特定し、既存ファイル有無を確認する。
 1. 構成基準（meta-rulebook-structure）との差分を洗い出す。
 1. 新規作成またはアップサートで章構成と記述を反映する。
 1. サンプルリンクと instruction リンクを更新する。

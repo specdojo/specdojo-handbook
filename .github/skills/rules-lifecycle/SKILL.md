@@ -1,25 +1,25 @@
 ---
 name: rules-lifecycle
-description: '*-rules.md の作成からその派生成果物（instruction / sample）の作成までを、エージェントと人間のレビューサイクルで進めるワークフロー Skill です。'
+description: '*-rulebook.md の作成からその派生成果物（instruction / sample）の作成までを、エージェントと人間のレビューサイクルで進めるワークフロー Skill です。'
 ---
 
 # SKILL: rules-lifecycle
 
-`*-rules.md` の作成からその派生成果物（instruction / sample）の作成までを、
+`*-rulebook.md` の作成からその派生成果物（instruction / sample）の作成までを、
 エージェントと人間のレビューサイクルで進めるワークフロー Skill です。
 
 ## 使いどころ
 
-- 新規の `*-rules.md` を作成し、そのまま派生成果物まで一貫して仕上げたいとき
+- 新規の `*-rulebook.md` を作成し、そのまま派生成果物まで一貫して仕上げたいとき
 - WBS アイテム単位でルールと派生成果物の完成度をトラッキングしたいとき
 - Phase 1（rules）完了後に Phase 2（derivatives）へ進む判断を人間が行いたいとき
 
 ## 前提
 
 - すべての入力/出力パスは `docs/ja/handbook/` 配下を基準とする
-- `meta-*-rules.md` は本ワークフローの対象外
+- `meta-*-rulebook.md` は本ワークフローの対象外
 - Phase 1 では、別の `*-input.md` は作成しない
-- Agent は `*-rules.md` の雛形を直接作成し、人はその中の `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を追記・更新する
+- Agent は `*-rulebook.md` の雛形を直接作成し、人はその中の `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を追記・更新する
 
 ### specdojo 実行前提
 
@@ -120,7 +120,7 @@ Phase 1 (rules)                Phase 2 (derivatives)
 ### ① agent draft — ルールの初版作成
 
 1. 対象 `<name>` を特定する（WBS の deliverables パス、または開いているファイルから）
-2. `upsert-rules` Skill を使って `rules/<name>-rules.md` を新規作成またはアップサートする
+2. `upsert-rules` Skill を使って `rules/<name>-rulebook.md` を新規作成またはアップサートする
 3. 未確定事項がある箇所には `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を入れた雛形として作成する
 4. Frontmatter の `status` を `draft` に設定する
 5. `npm run -s lint:md` で検証する
@@ -130,8 +130,8 @@ Phase 1 (rules)                Phase 2 (derivatives)
 ### ② modify — ドラフト修正（人 / Agent）
 
 1. エージェントがドラフトの要約と、`_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を追記すべき箇所を提示する
-2. Manual / Standard では人間が `*-rules.md` 本文の中でラベル付き項目を追記・更新し、Agent-Max では Agent が修正を実行する
-3. 別の `*-input.md` は作成せず、必要な未確定情報は `*-rules.md` 本文に保持する
+2. Manual / Standard では人間が `*-rulebook.md` 本文の中でラベル付き項目を追記・更新し、Agent-Max では Agent が修正を実行する
+3. 別の `*-input.md` は作成せず、必要な未確定情報は `*-rulebook.md` 本文に保持する
 4. 修正が完了したら、エージェントレビュー（③）に進む
 
 **完了条件**: 修正差分が反映され、③へ進める状態であること
@@ -140,7 +140,7 @@ Phase 1 (rules)                Phase 2 (derivatives)
 
 以下の観点でレビューを実施する:
 
-- `meta-rulebook-structure-rules.md` との章構成整合
+- `meta-rulebook-structure-rulebook.md` との章構成整合
 - `docs-contents-guide.md` との目的・内容整合
 - 禁止事項（曖昧語、実装詳細、章番号飛び）の検出
 - サンプルリンク（§8）と instruction リンク（§9）の有効性
@@ -160,7 +160,7 @@ Phase 1 (rules)                Phase 2 (derivatives)
 
 ### ⑤ agent draft — 派生成果物の一括作成
 
-Phase 1 で完成した `rules/<name>-rules.md` を入力として、以下を作成する:
+Phase 1 で完成した `rules/<name>-rulebook.md` を入力として、以下を作成する:
 
 1. `instructions/<name>-instruction.md` — `rules-to-instruction` Skill を使用
 2. `samples/<name>-sample.md` — `rules-to-sample` Skill を使用
@@ -260,10 +260,10 @@ specdojo exec scheduler --project <project-id> --by <actor> --dry-run
 以下のチェックリストは補助資料として使い、最終判定は `specdojo` のイベントと生成物で行う。
 
 ```text
-[ ] Phase 1: ① agent draft       — <name>-rules.md
-[ ] Phase 1: ② modify            — <name>-rules.md
-[ ] Phase 1: ③ agent review      — <name>-rules.md
-[ ] Phase 1: ④ human approve     — <name>-rules.md
+[ ] Phase 1: ① agent draft       — <name>-rulebook.md
+[ ] Phase 1: ② modify            — <name>-rulebook.md
+[ ] Phase 1: ③ agent review      — <name>-rulebook.md
+[ ] Phase 1: ④ human approve     — <name>-rulebook.md
 [ ] Phase 2: ⑤ agent draft       — <name>-instruction.md, <name>-sample.md
 [ ] Phase 2: ⑥ agent review      — <name>-instruction.md, <name>-sample.md
 [ ] Phase 2: ⑦ human approve     — rules + derivatives
@@ -272,9 +272,9 @@ specdojo exec scheduler --project <project-id> --by <actor> --dry-run
 Agent-Ultra では以下を使う。
 
 ```text
-[ ] Phase 1: ① agent draft        — <name>-rules.md
-[ ] Phase 1: ② agent modify       — <name>-rules.md
-[ ] Phase 1: ③ agent review       — <name>-rules.md
+[ ] Phase 1: ① agent draft        — <name>-rulebook.md
+[ ] Phase 1: ② agent modify       — <name>-rulebook.md
+[ ] Phase 1: ③ agent review       — <name>-rulebook.md
 [ ] Phase 1: ④ skip human approve — carry draft to Phase 2
 [ ] Phase 2: ⑤ agent draft        — <name>-instruction.md, <name>-sample.md
 [ ] Phase 2: ⑥ agent review       — <name>-instruction.md, <name>-sample.md
@@ -289,5 +289,5 @@ Agent-Ultra では以下を使う。
 
 ## 対象外
 
-- `meta-*-rules.md` — メタルールは個別管理
+- `meta-*-rulebook.md` — メタルールは個別管理
 - WBS/スケジュールファイルの更新 — 本 Skill のスコープ外

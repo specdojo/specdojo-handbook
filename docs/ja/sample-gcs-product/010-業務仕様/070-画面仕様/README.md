@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. 画面仕様の作成・更新ルールは [uis-rules.md](../../../handbook/rules/uis-rules.md) を参照してください。
+1. 画面仕様の作成・更新ルールは [uis-rulebook.md](../../../handbook/rulebooks/uis-rulebook.md) を参照してください。
 2. 生成AIを活用して画面仕様を作成する場合は [uis-instruction.md](../../../handbook/instructions/uis-instruction.md) をプロンプトのテンプレートとして利用してください。

@@ -6,5 +6,5 @@
 
 | ドキュメント     | 略称      | 内容                                                          | 記法ガイド                                                                                                                 |
 | ---------------- | --------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| 業務イベント一覧 | BES Index | 業務イベントの一覧と、イベントが表す事実を定義する            | [ルール](../../../handbook/rules/bes-index-rules.md) / [作成指示](../../../handbook/instructions/bes-index-instruction.md) |
-| 業務イベント仕様 | BES       | 個別イベントの詳細（イベントの事実データ/条件など）を定義する | [ルール](../../../handbook/rules/bes-rules.md) / [作成指示](../../../handbook/instructions/bes-instruction.md)             |
+| 業務イベント一覧 | BES Index | 業務イベントの一覧と、イベントが表す事実を定義する            | [ルール](../../../handbook/rulebooks/bes-index-rulebook.md) / [作成指示](../../../handbook/instructions/bes-index-instruction.md) |
+| 業務イベント仕様 | BES       | 個別イベントの詳細（イベントの事実データ/条件など）を定義する | [ルール](../../../handbook/rulebooks/bes-rulebook.md) / [作成指示](../../../handbook/instructions/bes-instruction.md)             |

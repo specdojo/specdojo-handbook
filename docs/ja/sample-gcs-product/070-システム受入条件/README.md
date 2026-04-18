@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. ドキュメントの作成・更新ルールは [sac-rules.md](../../handbook/rules/sac-rules.md) を参照してください。
+1. ドキュメントの作成・更新ルールは [sac-rulebook.md](../../handbook/rulebooks/sac-rulebook.md) を参照してください。
 2. 生成AIを活用してドキュメントを作成する場合は [sac-instruction.md](../../handbook/instructions/sac-instruction.md) をプロンプトのテンプレートとして利用してください。

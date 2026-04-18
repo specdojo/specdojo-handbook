@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. ドキュメントの作成・更新ルールは [bac-rules.md](../../handbook/rules/bac-rules.md) を参照してください。
+1. ドキュメントの作成・更新ルールは [bac-rulebook.md](../../handbook/rulebooks/bac-rulebook.md) を参照してください。
 2. 生成AIを活用してドキュメントを作成する場合は [bac-instruction.md](../../handbook/instructions/bac-instruction.md) をプロンプトのテンプレートとして利用してください。

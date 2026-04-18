@@ -26,7 +26,7 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/sac-rules.md
+- docs/ja/handbook/rulebooks/sac-rulebook.md
 
 secondary_paths:
 

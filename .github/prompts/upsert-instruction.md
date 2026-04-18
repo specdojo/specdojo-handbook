@@ -2,19 +2,19 @@
 
 @file:.github/skills/rules-to-instruction/SKILL.md
 
-現在開いている **1件の `*-rules.md`** を対象に、
+現在開いている **1件の `*-rulebook.md`** を対象に、
 対応する `*-instruction.md` を作成または更新してください。
 
 ## 対象
 
-- 対象 rules は、現在エディタで開いている `*-rules.md` とする
-- 開いているファイルが `meta-*-rules.md` の場合は対象外として処理を中止する
+- 対象 rules は、現在エディタで開いている `*-rulebook.md` とする
+- 開いているファイルが `meta-*-rulebook.md` の場合は対象外として処理を中止する
 
 ## 対応ルール
 
 - 対応先は `rules` と同名の `<name>-instruction.md` とする
-  - 例: `utc-index-rules.md` → `utc-index-instruction.md`
-- `meta-*-rules.md` は `*-instruction.md` 作成/更新の対象外とする
+  - 例: `utc-index-rulebook.md` → `utc-index-instruction.md`
+- `meta-*-rulebook.md` は `*-instruction.md` 作成/更新の対象外とする
 - 対応する instruction が存在しない場合は新規作成
 - 存在する場合はアップサート（不足項目追記・不整合修正）
 
@@ -27,7 +27,7 @@
 
 ## 進め方
 
-1. 現在開いている `rules` の存在確認と対象妥当性を確認（`meta-*-rules.md` は除外）
+1. 現在開いている `rules` の存在確認と対象妥当性を確認（`meta-*-rulebook.md` は除外）
 2. 対応する `instructions` 側のファイルパスを決定
 3. 新規作成/アップサートを実施
 4. 変更一覧と反映要点を出力

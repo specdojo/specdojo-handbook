@@ -11,7 +11,7 @@ wbs:
     owner: QE
     component: acceptance
     deliverables:
-      - path: docs/ja/handbook/rules/sac-rules.md
+      - path: docs/ja/handbook/rulebooks/sac-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/sac-instruction.md
         kind: modify
@@ -27,7 +27,7 @@ wbs:
     owner: QE
     component: test-planning
     deliverables:
-      - path: docs/ja/handbook/rules/tsp-index-rules.md
+      - path: docs/ja/handbook/rulebooks/tsp-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/tsp-index-instruction.md
         kind: modify
@@ -43,11 +43,11 @@ wbs:
     owner: QE
     component: unit-tests
     deliverables:
-      - path: docs/ja/handbook/rules/utc-index-rules.md
+      - path: docs/ja/handbook/rulebooks/utc-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/utc-index-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/utc-rules.md
+      - path: docs/ja/handbook/rulebooks/utc-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/utc-instruction.md
         kind: modify
@@ -65,11 +65,11 @@ wbs:
     owner: QE
     component: integration-tests
     deliverables:
-      - path: docs/ja/handbook/rules/itc-index-rules.md
+      - path: docs/ja/handbook/rulebooks/itc-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/itc-index-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/itc-rules.md
+      - path: docs/ja/handbook/rulebooks/itc-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/itc-instruction.md
         kind: modify
@@ -87,11 +87,11 @@ wbs:
     owner: QE
     component: external-tests
     deliverables:
-      - path: docs/ja/handbook/rules/etc-index-rules.md
+      - path: docs/ja/handbook/rulebooks/etc-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/etc-index-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/etc-rules.md
+      - path: docs/ja/handbook/rulebooks/etc-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/etc-instruction.md
         kind: modify
@@ -125,11 +125,11 @@ wbs:
     owner: QE
     component: system-tests
     deliverables:
-      - path: docs/ja/handbook/rules/stc-index-rules.md
+      - path: docs/ja/handbook/rulebooks/stc-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/stc-index-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/stc-rules.md
+      - path: docs/ja/handbook/rulebooks/stc-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/stc-instruction.md
         kind: modify
@@ -147,11 +147,11 @@ wbs:
     owner: BA
     component: acceptance-tests
     deliverables:
-      - path: docs/ja/handbook/rules/atc-index-rules.md
+      - path: docs/ja/handbook/rulebooks/atc-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/atc-index-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/atc-rules.md
+      - path: docs/ja/handbook/rulebooks/atc-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/atc-instruction.md
         kind: modify

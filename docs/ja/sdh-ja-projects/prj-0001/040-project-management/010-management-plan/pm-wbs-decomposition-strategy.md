@@ -79,7 +79,7 @@ WBS Decomposition Strategy
 
 | 対象                                                    | 推奨                                         |
 | ------------------------------------------------------- | -------------------------------------------- |
-| `bps-rules.md` / `bps-instruction.md` / `bps-sample.md` | 1 Item にまとめる                            |
+| `bps-rulebook.md` / `bps-instruction.md` / `bps-sample.md` | 1 Item にまとめる                            |
 | `cxd` と `cxd-mermaid`                                  | 1 Item にまとめる                            |
 | `cld` / `stsd` / `sld`                                  | リファレンスデータ群として 1 Item にまとめる |
 | 独立した受入条件とテスト計画                            | 別 Item に分割する                           |

@@ -11,7 +11,7 @@ wbs:
     owner: BA
     component: process
     deliverables:
-      - path: docs/ja/handbook/rules/bps-rules.md
+      - path: docs/ja/handbook/rulebooks/bps-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/bps-instruction.md
         kind: modify
@@ -27,7 +27,7 @@ wbs:
     owner: BA
     component: rules
     deliverables:
-      - path: docs/ja/handbook/rules/br-rules.md
+      - path: docs/ja/handbook/rulebooks/br-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/br-instruction.md
         kind: modify
@@ -43,7 +43,7 @@ wbs:
     owner: BA
     component: data
     deliverables:
-      - path: docs/ja/handbook/rules/bdd-rules.md
+      - path: docs/ja/handbook/rulebooks/bdd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/bdd-instruction.md
         kind: modify
@@ -59,7 +59,7 @@ wbs:
     owner: BA
     component: forms
     deliverables:
-      - path: docs/ja/handbook/rules/bds-rules.md
+      - path: docs/ja/handbook/rulebooks/bds-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/bds-instruction.md
         kind: modify
@@ -75,7 +75,7 @@ wbs:
     owner: BA
     component: screen
     deliverables:
-      - path: docs/ja/handbook/rules/uis-rules.md
+      - path: docs/ja/handbook/rulebooks/uis-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/uis-instruction.md
         kind: modify
@@ -91,7 +91,7 @@ wbs:
     owner: BA
     component: glossary
     deliverables:
-      - path: docs/ja/handbook/rules/gl-rules.md
+      - path: docs/ja/handbook/rulebooks/gl-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/gl-instruction.md
         kind: modify
@@ -107,15 +107,15 @@ wbs:
     owner: BA
     component: reference-data
     deliverables:
-      - path: docs/ja/handbook/rules/cld-rules.md
+      - path: docs/ja/handbook/rulebooks/cld-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cld-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/stsd-rules.md
+      - path: docs/ja/handbook/rulebooks/stsd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/stsd-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/sld-rules.md
+      - path: docs/ja/handbook/rulebooks/sld-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/sld-instruction.md
         kind: modify
@@ -135,11 +135,11 @@ wbs:
     owner: BA
     component: events
     deliverables:
-      - path: docs/ja/handbook/rules/bes-index-rules.md
+      - path: docs/ja/handbook/rulebooks/bes-index-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/bes-index-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/bes-rules.md
+      - path: docs/ja/handbook/rulebooks/bes-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/bes-instruction.md
         kind: modify
@@ -157,11 +157,11 @@ wbs:
     owner: BA
     component: data-flow
     deliverables:
-      - path: docs/ja/handbook/rules/cdfd-rules.md
+      - path: docs/ja/handbook/rulebooks/cdfd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cdfd-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/cdfd-mermaid-rules.md
+      - path: docs/ja/handbook/rulebooks/cdfd-mermaid-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cdfd-mermaid-instruction.md
         kind: modify
@@ -179,7 +179,7 @@ wbs:
     owner: BA
     component: data-store
     deliverables:
-      - path: docs/ja/handbook/rules/cdsd-rules.md
+      - path: docs/ja/handbook/rulebooks/cdsd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cdsd-instruction.md
         kind: modify
@@ -195,11 +195,11 @@ wbs:
     owner: BA
     component: state-transition
     deliverables:
-      - path: docs/ja/handbook/rules/cstd-rules.md
+      - path: docs/ja/handbook/rulebooks/cstd-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cstd-instruction.md
         kind: modify
-      - path: docs/ja/handbook/rules/cstd-mermaid-rules.md
+      - path: docs/ja/handbook/rulebooks/cstd-mermaid-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/cstd-mermaid-instruction.md
         kind: modify
@@ -217,7 +217,7 @@ wbs:
     owner: BA
     component: class-diagram
     deliverables:
-      - path: docs/ja/handbook/rules/ccd-mermaid-rules.md
+      - path: docs/ja/handbook/rulebooks/ccd-mermaid-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/ccd-mermaid-instruction.md
         kind: modify
@@ -233,11 +233,11 @@ wbs:
     owner: BA
     component: system-functions
     deliverables:
-      - path: docs/ja/handbook/rules/sf-index-rules.md
+      - path: docs/ja/handbook/rulebooks/sf-index-rulebook.md
         kind: create
       - path: docs/ja/handbook/instructions/sf-index-instruction.md
         kind: create
-      - path: docs/ja/handbook/rules/sf-rules.md
+      - path: docs/ja/handbook/rulebooks/sf-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/sf-instruction.md
         kind: modify
@@ -255,7 +255,7 @@ wbs:
     owner: BA
     component: acceptance
     deliverables:
-      - path: docs/ja/handbook/rules/bac-rules.md
+      - path: docs/ja/handbook/rulebooks/bac-rulebook.md
         kind: modify
       - path: docs/ja/handbook/instructions/bac-instruction.md
         kind: modify

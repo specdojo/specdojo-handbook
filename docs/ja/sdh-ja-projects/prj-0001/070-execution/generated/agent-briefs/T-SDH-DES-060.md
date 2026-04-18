@@ -26,7 +26,7 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/tsd-rules.md
+- docs/ja/handbook/rulebooks/tsd-rulebook.md
 
 secondary_paths:
 

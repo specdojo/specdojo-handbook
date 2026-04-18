@@ -1,6 +1,6 @@
 # 会計概念データフロー図（現状）
 
-凡例と記号の意味は[cdfd-mermaid-rules.md](../../../handbook/rules/cdfd-mermaid-rules.md)を参照してください。
+凡例と記号の意味は[cdfd-mermaid-rulebook.md](../../../handbook/rulebooks/cdfd-mermaid-rulebook.md)を参照してください。
 
 ## 会計プロセス概要
 

@@ -16,11 +16,11 @@
 
 | rules                                      | instruction                                             |
 | ------------------------------------------ | ------------------------------------------------------- |
-| /docs/ja/handbook/rules/mip-index-rules.md | /docs/ja/handbook/instructions/mip-index-instruction.md |
-| /docs/ja/handbook/rules/dmd-rules.md       | /docs/ja/handbook/instructions/dmd-instruction.md       |
-| /docs/ja/handbook/rules/mtp-rules.md       | /docs/ja/handbook/instructions/mtp-instruction.md       |
-| /docs/ja/handbook/rules/cop-rules.md       | /docs/ja/handbook/instructions/cop-instruction.md       |
-| /docs/ja/handbook/rules/otp-rules.md       | /docs/ja/handbook/instructions/otp-instruction.md       |
+| /docs/ja/handbook/rulebooks/mip-index-rulebook.md | /docs/ja/handbook/instructions/mip-index-instruction.md |
+| /docs/ja/handbook/rulebooks/dmd-rulebook.md       | /docs/ja/handbook/instructions/dmd-instruction.md       |
+| /docs/ja/handbook/rulebooks/mtp-rulebook.md       | /docs/ja/handbook/instructions/mtp-instruction.md       |
+| /docs/ja/handbook/rulebooks/cop-rulebook.md       | /docs/ja/handbook/instructions/cop-instruction.md       |
+| /docs/ja/handbook/rulebooks/otp-rulebook.md       | /docs/ja/handbook/instructions/otp-instruction.md       |
 
 出力:
 

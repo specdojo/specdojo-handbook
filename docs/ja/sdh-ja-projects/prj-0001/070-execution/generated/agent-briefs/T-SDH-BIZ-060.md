@@ -26,7 +26,7 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/gl-rules.md
+- docs/ja/handbook/rulebooks/gl-rulebook.md
 
 secondary_paths:
 

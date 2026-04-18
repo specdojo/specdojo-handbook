@@ -16,17 +16,17 @@
 
 | rules                                      | instruction                                             |
 | ------------------------------------------ | ------------------------------------------------------- |
-| /docs/ja/handbook/rules/tsp-index-rules.md | /docs/ja/handbook/instructions/tsp-index-instruction.md |
-| /docs/ja/handbook/rules/utc-index-rules.md | /docs/ja/handbook/instructions/utc-index-instruction.md |
-| /docs/ja/handbook/rules/itc-index-rules.md | /docs/ja/handbook/instructions/itc-index-instruction.md |
-| /docs/ja/handbook/rules/etc-index-rules.md | /docs/ja/handbook/instructions/etc-index-instruction.md |
-| /docs/ja/handbook/rules/stc-index-rules.md | /docs/ja/handbook/instructions/stc-index-instruction.md |
-| /docs/ja/handbook/rules/atc-index-rules.md | /docs/ja/handbook/instructions/atc-index-instruction.md |
-| /docs/ja/handbook/rules/utc-rules.md       | /docs/ja/handbook/instructions/utc-instruction.md       |
-| /docs/ja/handbook/rules/itc-rules.md       | /docs/ja/handbook/instructions/itc-instruction.md       |
-| /docs/ja/handbook/rules/etc-rules.md       | /docs/ja/handbook/instructions/etc-instruction.md       |
-| /docs/ja/handbook/rules/stc-rules.md       | /docs/ja/handbook/instructions/stc-instruction.md       |
-| /docs/ja/handbook/rules/atc-rules.md       | /docs/ja/handbook/instructions/atc-instruction.md       |
+| /docs/ja/handbook/rulebooks/tsp-index-rulebook.md | /docs/ja/handbook/instructions/tsp-index-instruction.md |
+| /docs/ja/handbook/rulebooks/utc-index-rulebook.md | /docs/ja/handbook/instructions/utc-index-instruction.md |
+| /docs/ja/handbook/rulebooks/itc-index-rulebook.md | /docs/ja/handbook/instructions/itc-index-instruction.md |
+| /docs/ja/handbook/rulebooks/etc-index-rulebook.md | /docs/ja/handbook/instructions/etc-index-instruction.md |
+| /docs/ja/handbook/rulebooks/stc-index-rulebook.md | /docs/ja/handbook/instructions/stc-index-instruction.md |
+| /docs/ja/handbook/rulebooks/atc-index-rulebook.md | /docs/ja/handbook/instructions/atc-index-instruction.md |
+| /docs/ja/handbook/rulebooks/utc-rulebook.md       | /docs/ja/handbook/instructions/utc-instruction.md       |
+| /docs/ja/handbook/rulebooks/itc-rulebook.md       | /docs/ja/handbook/instructions/itc-instruction.md       |
+| /docs/ja/handbook/rulebooks/etc-rulebook.md       | /docs/ja/handbook/instructions/etc-instruction.md       |
+| /docs/ja/handbook/rulebooks/stc-rulebook.md       | /docs/ja/handbook/instructions/stc-instruction.md       |
+| /docs/ja/handbook/rulebooks/atc-rulebook.md       | /docs/ja/handbook/instructions/atc-instruction.md       |
 
 出力:
 

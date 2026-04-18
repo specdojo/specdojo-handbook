@@ -26,7 +26,7 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/bdd-rules.md
+- docs/ja/handbook/rulebooks/bdd-rulebook.md
 
 secondary_paths:
 

@@ -26,7 +26,7 @@
 
 primary_paths:
 
-- docs/ja/handbook/rules/nfr-index-rules.md
+- docs/ja/handbook/rulebooks/nfr-index-rulebook.md
 
 secondary_paths:
 
