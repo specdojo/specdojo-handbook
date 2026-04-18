@@ -19,7 +19,7 @@ tasks:
     owner: ARC
     tags:
       - design
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-IFX-010
     owner: ARC
@@ -52,7 +52,7 @@ tasks:
     owner: ARC
     tags:
       - design
-      - rules-lifecycle
+      - rulebook-lifecycle
       - c4
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-CXD-020
@@ -88,7 +88,7 @@ tasks:
     owner: ARC
     tags:
       - design
-      - rules-lifecycle
+      - rulebook-lifecycle
       - c4
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-CND-030
@@ -124,7 +124,7 @@ tasks:
     owner: ARC
     tags:
       - design
-      - rules-lifecycle
+      - rulebook-lifecycle
       - c4
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-CPD-040
@@ -160,7 +160,7 @@ tasks:
     owner: ARC
     tags:
       - design
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-IFD-050
     owner: ARC
@@ -193,7 +193,7 @@ tasks:
     owner: ARC
     tags:
       - design
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-TSD-060
     owner: ARC
@@ -229,7 +229,7 @@ tasks:
     owner: ARC
     tags:
       - design
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-DES-SYSD-070
     owner: ARC

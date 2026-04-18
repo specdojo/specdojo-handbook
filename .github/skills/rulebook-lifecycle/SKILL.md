@@ -1,9 +1,9 @@
 ---
-name: rules-lifecycle
+name: rulebook-lifecycle
 description: '*-rulebook.md の作成からその派生成果物（instruction / sample）の作成までを、エージェントと人間のレビューサイクルで進めるワークフロー Skill です。'
 ---
 
-# SKILL: rules-lifecycle
+# SKILL: rulebook-lifecycle
 
 `*-rulebook.md` の作成からその派生成果物（instruction / sample）の作成までを、
 エージェントと人間のレビューサイクルで進めるワークフロー Skill です。
@@ -79,10 +79,10 @@ specdojo exec build --project <project-id>
 
 | 種別        | パス / 参照                                          |
 | ----------- | ---------------------------------------------------- |
-| rules 作成  | `@file:.github/skills/upsert-rules/SKILL.md`         |
-| instruction | `@file:.github/skills/rules-to-instruction/SKILL.md` |
-| sample      | `@file:.github/skills/rules-to-sample/SKILL.md`      |
-| 運用ルール  | `@file:.github/instructions/rules.instructions.md`   |
+| rules 作成  | `@file:.github/skills/upsert-rulebook/SKILL.md`         |
+| instruction | `@file:.github/skills/rulebook-to-instruction/SKILL.md` |
+| sample      | `@file:.github/skills/rulebook-to-sample/SKILL.md`      |
+| 運用ルール  | `@file:.github/instructions/rulebook.instructions.md`   |
 
 ## ワークフロー概要
 
@@ -120,7 +120,7 @@ Phase 1 (rules)                Phase 2 (derivatives)
 ### ① agent draft — ルールの初版作成
 
 1. 対象 `<name>` を特定する（WBS の deliverables パス、または開いているファイルから）
-2. `upsert-rules` Skill を使って `rules/<name>-rulebook.md` を新規作成またはアップサートする
+2. `upsert-rulebook` Skill を使って `rules/<name>-rulebook.md` を新規作成またはアップサートする
 3. 未確定事項がある箇所には `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を入れた雛形として作成する
 4. Frontmatter の `status` を `draft` に設定する
 5. `npm run -s lint:md` で検証する
@@ -162,8 +162,8 @@ Phase 1 (rules)                Phase 2 (derivatives)
 
 Phase 1 で完成した `rules/<name>-rulebook.md` を入力として、以下を作成する:
 
-1. `instructions/<name>-instruction.md` — `rules-to-instruction` Skill を使用
-2. `samples/<name>-sample.md` — `rules-to-sample` Skill を使用
+1. `instructions/<name>-instruction.md` — `rulebook-to-instruction` Skill を使用
+2. `samples/<name>-sample.md` — `rulebook-to-sample` Skill を使用
 
 それぞれ Frontmatter の `status` を `draft` に設定する。
 
@@ -209,7 +209,7 @@ specdojo exec claim \
     --project <project-id> \
     --task <task-id> \
     --by <actor> \
-    --msg "rules-lifecycle:<name>:phase<1|2>-step<1..7>:start"
+    --msg "rulebook-lifecycle:<name>:phase<1|2>-step<1..7>:start"
 ```
 
 #### 3. 完了時に complete
@@ -219,7 +219,7 @@ specdojo exec complete \
     --project <project-id> \
     --task <task-id> \
     --by <actor> \
-    --msg "rules-lifecycle:<name>:phase<1|2>-step<1..7>:done"
+    --msg "rulebook-lifecycle:<name>:phase<1|2>-step<1..7>:done"
 ```
 
 #### 4. 生成物を再計算して状態を更新

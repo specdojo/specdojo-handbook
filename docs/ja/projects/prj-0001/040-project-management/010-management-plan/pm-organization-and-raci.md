@@ -138,7 +138,7 @@ status: draft
 
 ## 5. Agent主導モード運用補足
 
-rules-lifecycle Skill の `Standard` / `Agent-Max` / `Agent-Ultra` を使用する場合、
+rulebook-lifecycle Skill の `Standard` / `Agent-Max` / `Agent-Ultra` を使用する場合、
 本節のルールを適用する。
 
 ### 5.1. BA委譲条件（Agent-Max / Agent-Ultra）

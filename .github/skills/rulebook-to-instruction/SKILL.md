@@ -1,9 +1,9 @@
 ---
-name: rules-to-instruction
+name: rulebook-to-instruction
 description: '`docs/ja/handbook/rulebooks` の更新内容を、`docs/ja/handbook/instructions` の `*-instruction.md` へ反映するための Skill です。'
 ---
 
-# SKILL: rules-to-instruction
+# SKILL: rulebook-to-instruction
 
 `docs/ja/handbook/rulebooks` の更新内容を、
 `docs/ja/handbook/instructions` の `*-instruction.md` へ反映するための Skill です。
@@ -17,7 +17,7 @@ description: '`docs/ja/handbook/rulebooks` の更新内容を、`docs/ja/handboo
 
 ## 前提
 
-- 共通運用ルール: `@file:.github/instructions/rules-to-instruction.instructions.md`
+- 共通運用ルール: `@file:.github/instructions/rulebook-to-instruction.instructions.md`
 - 命名対応: `<name>-rulebook.md` → `<name>-instruction.md`
 - 対象除外: `meta-*-rulebook.md` は instruction 同期対象外
 

@@ -1,6 +1,6 @@
 # 開いている rules から instruction を作成/更新
 
-@file:.github/skills/rules-to-instruction/SKILL.md
+@file:.github/skills/rulebook-to-instruction/SKILL.md
 
 現在開いている **1件の `*-rulebook.md`** を対象に、
 対応する `*-instruction.md` を作成または更新してください。

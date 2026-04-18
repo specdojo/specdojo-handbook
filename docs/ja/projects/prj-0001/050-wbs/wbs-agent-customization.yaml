@@ -13,11 +13,11 @@ wbs:
     deliverables:
       - path: .github/instructions/markdown.instructions.md
         kind: modify
-      - path: .github/instructions/rules.instructions.md
+      - path: .github/instructions/rulebook.instructions.md
         kind: modify
-      - path: .github/instructions/rules-to-instruction.instructions.md
+      - path: .github/instructions/rulebook-to-instruction.instructions.md
         kind: modify
-      - path: .github/instructions/rules-to-sample.instructions.md
+      - path: .github/instructions/rulebook-to-sample.instructions.md
         kind: modify
     done_criteria: |-
       Instructions セットが、適用範囲（applyTo）・運用ルール・責務境界を矛盾なく定義し、
@@ -31,15 +31,15 @@ wbs:
     owner: ARC
     component: skills
     deliverables:
-      - path: .github/skills/upsert-rules/SKILL.md
+      - path: .github/skills/upsert-rulebook/SKILL.md
         kind: modify
-      - path: .github/skills/rules-to-instruction/SKILL.md
+      - path: .github/skills/rulebook-to-instruction/SKILL.md
         kind: modify
-      - path: .github/skills/rules-to-sample/SKILL.md
+      - path: .github/skills/rulebook-to-sample/SKILL.md
         kind: modify
-      - path: .github/skills/rules-lifecycle/SKILL.md
+      - path: .github/skills/rulebook-lifecycle/SKILL.md
         kind: modify
-      - path: .github/skills/rules-lifecycle-all/SKILL.md
+      - path: .github/skills/rulebook-lifecycle-all/SKILL.md
         kind: modify
     done_criteria: |-
       Skills セットが、単体実行と全体実行のワークフロー境界を明確に定義し、
@@ -69,9 +69,9 @@ wbs:
         kind: modify
       - path: .github/prompts/upsert-migration-instructions.md
         kind: modify
-      - path: .github/prompts/rules-lifecycle.md
+      - path: .github/prompts/rulebook-lifecycle.md
         kind: modify
-      - path: .github/prompts/rules-lifecycle-all.md
+      - path: .github/prompts/rulebook-lifecycle-all.md
         kind: modify
       - path: .github/prompts/reverse-rulebook.md
         kind: modify

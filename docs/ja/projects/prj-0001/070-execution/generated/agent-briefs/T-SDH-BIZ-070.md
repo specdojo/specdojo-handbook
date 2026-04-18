@@ -20,7 +20,7 @@
 
 - primary_goal: リファレンスデータルールの起草・レビュー
 - schedule_notes: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
-- tags: `business`, `rules-lifecycle`
+- tags: `business`, `rulebook-lifecycle`
 
 ## 3. 対象成果物候補
 

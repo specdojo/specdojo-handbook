@@ -1,6 +1,6 @@
 # 成果物から対応する rules を逆生成
 
-@file:.github/skills/upsert-rules/SKILL.md
+@file:.github/skills/upsert-rulebook/SKILL.md
 
 現在開いている **成果物ファイル** を分析し、
 対応する `*-rulebook.md` を新規作成または更新してください。
@@ -8,7 +8,7 @@
 ## 対象の決定
 
 - 開いているファイルが `sample-gcs-product/` 配下、またはプロジェクト成果物の場合 → 成果物からの逆生成フローを適用する
-- 開いているファイルが `*-rulebook.md` / `*-instruction.md` / `*-sample.md` の場合 → `upsert-rules` プロンプトの対象のため、処理を中止し誘導する
+- 開いているファイルが `*-rulebook.md` / `*-instruction.md` / `*-sample.md` の場合 → `upsert-rulebook` プロンプトの対象のため、処理を中止し誘導する
 - 開いているファイルが `meta-*-rulebook.md` の場合 → 対象外として処理を中止する
 
 ## 対象ファイル → rules の特定

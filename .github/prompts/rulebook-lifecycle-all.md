@@ -1,6 +1,6 @@
 # 全 rules のライフサイクルを一括実行
 
-@file:.github/skills/rules-lifecycle-all/SKILL.md
+@file:.github/skills/rulebook-lifecycle-all/SKILL.md
 
 `/docs/ja/handbook/rulebooks` 配下の **すべての `*-rulebook.md`** を対象に、
 各 rules について Phase 1（rules）→ Phase 2（derivatives）を順に実行してください。

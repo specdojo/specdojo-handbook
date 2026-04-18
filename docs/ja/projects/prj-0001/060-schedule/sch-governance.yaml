@@ -19,7 +19,7 @@ tasks:
     owner: PO
     tags:
       - governance
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: >-
       Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
   - wbs: WBS-GOV-PRJ-010
@@ -55,7 +55,7 @@ tasks:
     owner: PO
     tags:
       - governance
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: |-
       Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
   - wbs: WBS-GOV-MIG-020
@@ -89,7 +89,7 @@ tasks:
     owner: PO
     tags:
       - governance
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: |-
       Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
   - wbs: WBS-GOV-OPS-030
@@ -123,7 +123,7 @@ tasks:
     owner: ARC
     tags:
       - governance
-      - rules-lifecycle
+      - rulebook-lifecycle
       - meta
     notes: >-
       Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。

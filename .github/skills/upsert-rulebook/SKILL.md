@@ -1,9 +1,9 @@
 ---
-name: upsert-rules
+name: upsert-rulebook
 description: 'docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を新規作成または更新するための Skill です。'
 ---
 
-# SKILL: upsert-rules
+# SKILL: upsert-rulebook
 
 `docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を新規作成または更新するための Skill です。
 
@@ -17,7 +17,7 @@ description: 'docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を新規作
 
 ## 前提
 
-- 共通運用ルール: `@file:.github/instructions/rules.instructions.md`
+- 共通運用ルール: `@file:.github/instructions/rulebook.instructions.md`
 - 章構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
 - メタ情報ルール: `docs/ja/handbook/rulebooks/meta-document-metadata-rulebook.md`
 - 命名ルール: `docs/ja/handbook/rulebooks/meta-id-and-file-naming-rulebook.md`

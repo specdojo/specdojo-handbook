@@ -19,7 +19,7 @@ tasks:
     owner: QE
     tags:
       - quality
-      - rules-lifecycle
+      - rulebook-lifecycle
       - acceptance
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-SAC-010
@@ -55,7 +55,7 @@ tasks:
     owner: QE
     tags:
       - quality
-      - rules-lifecycle
+      - rulebook-lifecycle
       - test-planning
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-TSP-020
@@ -91,7 +91,7 @@ tasks:
     owner: QE
     tags:
       - quality
-      - rules-lifecycle
+      - rulebook-lifecycle
       - unit-tests
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-UTC-030
@@ -127,7 +127,7 @@ tasks:
     owner: QE
     tags:
       - quality
-      - rules-lifecycle
+      - rulebook-lifecycle
       - integration-tests
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-ITC-040
@@ -163,7 +163,7 @@ tasks:
     owner: QE
     tags:
       - quality
-      - rules-lifecycle
+      - rulebook-lifecycle
       - external-tests
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-ETC-050
@@ -199,7 +199,7 @@ tasks:
     owner: QE
     tags:
       - quality
-      - rules-lifecycle
+      - rulebook-lifecycle
       - system-tests
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-STC-060
@@ -235,7 +235,7 @@ tasks:
     owner: BA
     tags:
       - quality
-      - rules-lifecycle
+      - rulebook-lifecycle
       - acceptance-tests
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-QLTY-ATC-070

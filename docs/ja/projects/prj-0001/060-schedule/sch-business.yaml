@@ -21,7 +21,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-BPS-010
     owner: BA
@@ -54,7 +54,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-BR-020
     owner: BA
@@ -87,7 +87,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-BDD-030
     owner: BA
@@ -120,7 +120,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-BDS-040
     owner: BA
@@ -153,7 +153,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-UIS-050
     owner: BA
@@ -186,7 +186,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-GL-060
     owner: BA
@@ -219,7 +219,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-REFDATA-070
     owner: BA
@@ -252,7 +252,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-BES-080
     owner: BA
@@ -285,7 +285,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-CDFD-090
     owner: BA
@@ -318,7 +318,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-CDSD-100
     owner: BA
@@ -351,7 +351,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-CSTD-110
     owner: BA
@@ -384,7 +384,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-CCD-120
     owner: BA
@@ -417,7 +417,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-SF-130
     owner: BA
@@ -452,7 +452,7 @@ tasks:
     owner: BA
     tags:
       - business
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-BIZ-BAC-140
     owner: BA

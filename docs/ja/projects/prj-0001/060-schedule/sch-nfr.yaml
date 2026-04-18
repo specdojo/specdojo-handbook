@@ -19,7 +19,7 @@ tasks:
     owner: QE
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
       - index
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-INDEX-010
@@ -55,7 +55,7 @@ tasks:
     owner: QE
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-AVAIL-020
     owner: QE
@@ -88,7 +88,7 @@ tasks:
     owner: QE
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-INTEG-030
     owner: QE
@@ -121,7 +121,7 @@ tasks:
     owner: QE
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-MAINT-040
     owner: QE
@@ -154,7 +154,7 @@ tasks:
     owner: QE
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-OPS-050
     owner: QE
@@ -187,7 +187,7 @@ tasks:
     owner: QE
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-PERF-060
     owner: QE
@@ -220,7 +220,7 @@ tasks:
     owner: QE
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-RELY-070
     owner: QE
@@ -253,7 +253,7 @@ tasks:
     owner: QE
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-SEC-080
     owner: QE
@@ -286,7 +286,7 @@ tasks:
     owner: BA
     tags:
       - nfr
-      - rules-lifecycle
+      - rulebook-lifecycle
     notes: "Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。"
   - wbs: WBS-NFR-USAB-090
     owner: BA

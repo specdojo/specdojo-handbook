@@ -1,6 +1,6 @@
 # Rules から Instructions をアップサート
 
-@file:.github/skills/rules-to-instruction/SKILL.md
+@file:.github/skills/rulebook-to-instruction/SKILL.md
 
 以下の対応表に従って、`rules` の内容を要約し、
 生成AI向け指示ファイル `instruction` を作成または更新してください。

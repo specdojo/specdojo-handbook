@@ -20,7 +20,7 @@
 
 - primary_goal: C4 コンテキスト図ルールの起草・レビュー
 - schedule_notes: Phase 1 はエージェント起草・修正・レビューを連続実行し、中間の人間承認は省略可能。最終承認は後段で一括実施。
-- tags: `design`, `rules-lifecycle`, `c4`
+- tags: `design`, `rulebook-lifecycle`, `c4`
 
 ## 3. 対象成果物候補
 

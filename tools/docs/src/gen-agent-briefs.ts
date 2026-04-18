@@ -167,7 +167,7 @@ function relativeScheduleFile(schedulePath: string, filePath: string): string {
 function inferArtifactKind(taskId: string, tags: string[]): string {
   if (taskId.endsWith('-INS')) return 'instruction の起草・レビュー'
   if (taskId.endsWith('-SMP')) return 'sample の起草・レビュー'
-  if (tags.includes('rules-lifecycle')) return 'rules の起草・レビュー'
+  if (tags.includes('rulebook-lifecycle')) return 'rules の起草・レビュー'
   if (tags.includes('derivatives-lifecycle')) return '派生成果物の起草・レビュー'
   return 'タスク定義に従う作業'
 }
@@ -220,7 +220,7 @@ function selectArtifactCandidates(detail: TaskDetail): string[] {
     const samplePaths = deliverables.filter(path => path.includes('/samples/'))
     return samplePaths.length > 0 ? samplePaths : deliverables
   }
-  if (detail.tags.includes('rules-lifecycle')) {
+  if (detail.tags.includes('rulebook-lifecycle')) {
     const rulePaths = deliverables.filter(path => path.includes('/rulebooks/'))
     return rulePaths.length > 0 ? rulePaths : deliverables
   }

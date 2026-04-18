@@ -1,6 +1,6 @@
 # 開いている対象の rules を作成/更新
 
-@file:.github/skills/upsert-rules/SKILL.md
+@file:.github/skills/upsert-rulebook/SKILL.md
 
 現在開いている **1 件のファイル** を手がかりに、
 対応する `*-rulebook.md` を作成または更新してください。
