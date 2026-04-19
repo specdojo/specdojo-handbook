@@ -13,18 +13,18 @@
 
 - 対象ファイル: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
 - 構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
+- ファイル名・ディレクトリ構成基準: `docs/ja/handbook/guidelines/docs-structure-guide.md`
 - Frontmatter スキーマ: `docs/shared/schemas/rulebook-frontmatter.schema.yaml`
 - メタ情報ルール（種別別）:
   - `docs/ja/handbook/rulebooks/meta-rulebook-metadata-rulebook.md`
   - `docs/ja/handbook/rulebooks/meta-deliverable-metadata-rulebook.md`
-- rulebook の Frontmatter は `meta-rulebook-metadata-rulebook.md` に従う。
-- 推奨 Frontmatter 項目は `meta-deliverable-metadata-rulebook.md` に従う。
-- 参照先（必要に応じて）: `../samples/*-sample.md`、`../instructions/*-instruction.md`
+- 参照先（必要に応じて）: `[*-sample](../samples/*-sample.md)`、`[*-instruction](../instructions/*-instruction.md)`
 
 ## 3. 出力仕様（Frontmatter と命名）
 
 - ファイル名は `<name>-rulebook.md` とする。
 - ファイル先頭に YAML Frontmatter を置き、最低限 `id` / `type` / `status` を含める。
+- rulebook の Frontmatter は `docs/ja/handbook/rulebooks/meta-rulebook-metadata-rulebook.md` に従う。
 - `rulebook` は推奨項目として扱い、原則 `none` を記載する。
 - `id` は英小文字・数字・ハイフンのみを使用し、一意にする。
 - H1 はファイル内で 1 つだけとし、タイトルとして使用する。
@@ -32,7 +32,7 @@
 
 ## 4. 標準章構成（必須）
 
-- `meta-rulebook-structure-rulebook.md` の標準章構成に従う。
+- `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md` の標準章構成に従う。
 - 章番号は `## 1.` からの連番とし、スキップしない。
 - 不要章を省略する場合は、省略理由を本文に明記する。
 
@@ -45,7 +45,7 @@
 | 5      | 本文構成（標準テンプレ）           | ○    |
 | 6      | 記述ガイド                         | ○    |
 | 7      | 禁止事項                           | ○    |
-| 8      | サンプル（最小でも可）             | ○    |
+| 8      | サンプル                           | ○    |
 | 9      | 生成 AI への指示テンプレート       | ○    |
 
 ## 5. 記述ルール
@@ -66,6 +66,30 @@
 - 確定した内容はラベルを外し、通常の本文として記述する。
 - `*_rules.md` 自体にラベル運用を記載する場合は、対象ドキュメントにとって必要な場合のみ記載し、不要な rules には機械的に追加しない。
 - ラベルを記載する場合は、本文の補助として箇条書き内に記述し、ラベル自体を章構成や見出しとして扱わない。
+- `推奨 Frontmatter 項目` は `docs/ja/handbook/rulebooks/meta-deliverable-metadata-rulebook.md` に従う。
+- `ファイル命名・ID規則` でのファイル名及びディレクトリ名は以下のルールに従う
+  - ファイル名およびディレクトリ名は、`docs/ja/handbook/guidelines/docs-structure-guide.md` のディレクトリ構成に従う。
+  - 命名は英語名称を推奨し、日本語名称も可とする。
+  - 日本語名称を採用する場合は、同一ディレクトリ内で一貫した命名規約を維持し、Frontmatter の `id` と対応関係を明確にする。
+- `サンプル`には、ファイルが存在する場合は、`- 参照先: [<name>-sample](../samples/<name>-sample.md)`でリンクを記載する。
+  存在しない場合は「サンプル未作成。作成後にリンクを追記する」と記載する。
+- `生成 AI への指示テンプレート` には、ファイルが存在する場合は、`- 参照先: [<name>-instruction](../instructions/<name>-instruction.md)`でリンクを記載する。
+  存在しない場合は「instruction 未作成。作成後にリンクを追記する」と記載する。
+
+### 5.1. 内容充実化ルール（薄いドキュメント防止）
+
+- 各必須章には、最低 3 つ以上の具体項目（箇条書きまたは表項目）を置く。
+- 「適切に」「十分に」などの抽象語だけで終わらせず、判断可能な条件を書く。
+- 少なくとも 1 つは、推奨表のカラム定義（例: ID、目的、条件、判定基準、担当）を提示する。
+- 次の観点の欠落有無を確認する。
+  - 要求の明確性（目的、対象範囲、責務境界）
+  - 品質特性（性能、可用性、保守性、セキュリティ、操作性）
+  - テスト/受入（検証観点、合格基準、証跡）
+  - 運用/保守（監視、障害時対応、変更時の扱い）
+  - トレーサビリティ（上位/下位ドキュメントへの導線）
+- docs-contents-guide の記述が短い場合でも、類似 rulebook と一般的開発知見で必要観点を補完する。
+- PMBOK 成果物観点（立上げ/計画/監視・統制/終結）で不足がないか確認し、対象外とする観点は理由を明記する。
+- ただし、実装依存の詳細（SQL 全文、具体クラス名、詳細 API 設計）には踏み込まない。
 
 ## 6. 禁止事項
 
@@ -82,9 +106,9 @@
 ## 7. 作成・更新手順
 
 1. 対象 `*-rulebook.md` を特定し、既存ファイル有無を確認する。
-2. 構成基準（meta-rulebook-structure）との差分を洗い出す。
+2. 構成基準（`docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`）との差分を洗い出す。
 3. 新規作成またはアップサートで章構成と記述を反映する。
-4. sampleファイルファイルが存在する場合は、サンプルリンクを更新する。
+4. sampleファイルが存在する場合は、サンプルリンクを更新する。
 5. instructionファイルが存在する場合は、instruction リンクを更新する。
 6. 変更点を要約し、最終チェック結果を記録する。
 
@@ -92,6 +116,6 @@
 
 - Frontmatter がスキーマ要件（`id` / `type` / `status`）を満たしている。
 - 章構成が `## 1.` からの連番で、必須章が欠落していない。
-- `サンプル（最小でも可）` と `生成 AI への指示テンプレート` が存在し、リンクが有効。
+- `サンプル` と `生成 AI への指示テンプレート` が存在し、リンクが有効。
 - 禁止事項に該当する記述がない。
 - `npm run -s lint:md` を実行し、エラーがない。
