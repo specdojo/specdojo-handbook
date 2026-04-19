@@ -10,10 +10,10 @@ entities:
     description: 駄菓子屋で販売する個々の商品
     glossary_term_id: tm-product
     related_terms: [ tm-price, tm-stock ]
-    key_fields: [ productCode ]
+    key_fields: [ product_code ]
     fields:
       - logical_name: 商品コード
-        physical_name: productCode
+        physical_name: product_code
         glossary_term_id: tm-product-code
         type: string
         description: 各商品を一意に識別するコード
@@ -22,7 +22,7 @@ entities:
           unique: true
         example: 45-14603-32581-2
       - logical_name: 商品名
-        physical_name: productName
+        physical_name: product_name
         type: string
         glossary_term_id: tm-product-name
         description: おばあちゃんやお客さんが読める商品名
@@ -43,10 +43,10 @@ entities:
     physical_name: payment
     description: 顧客からの支払い情報
     glossary_term_id: tm-payment
-    key_fields: [ paymentId ]
+    key_fields: [ payment_id ]
     fields:
       - logical_name: 支払いID
-        physical_name: paymentId
+        physical_name: payment_id
         type: string
         glossary_term_id: tm-payment-id
         description: 支払いを一意に識別するID
@@ -55,7 +55,7 @@ entities:
           unique: true
         example: PAY-0001
       - logical_name: 支払ステータス
-        physical_name: paymentStatus
+        physical_name: payment_status
         type: enum
         description: 支払い処理の現在状態
         constraints:

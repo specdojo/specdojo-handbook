@@ -21,10 +21,11 @@ supersedes: []
 ## **3. 記載ルール（遵守）**
 
 - **論理名（logical_name）は日本語単数形**で記載すること。
-- **物理名（physical_name）は lowerCamelCase** で記載すること。
+- **物理名（physical_name）は lower_snake_case** で記載すること。
+- TypeScript等のアプリケーションで利用する場合は、`physical_name` を lowerCamelCase に変換して扱うこと。
 - **実装都合の属性（created_at など）は含めない**こと。
 - 用語集と連動する場合は **glossary_term_id を対応IDで記載**すること。
-- **キー項目は key_fields に、物理名の配列**で記載すること。
+- **キー項目は key_fields に、physical_name の配列**で記載すること。
 - フィールドの型は以下から選択：
   `integer / string / boolean / date / datetime / enum / money`
 - enum を使う場合、以下のどちらかの方式で許容値を記述する：
@@ -40,7 +41,7 @@ entities:
     description: 〇〇（業務的な説明）
     glossary_term_id: tm-xxxx # 任意
     related_terms: [tm-xxxx] # 任意
-    key_fields: [primaryKeyField] # 必須。複合キーも可
+    key_fields: [primary_key_field] # 必須。複合キーも可
     fields:
       - logical_name: 〇〇
         physical_name: 〇〇

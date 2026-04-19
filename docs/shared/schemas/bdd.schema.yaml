@@ -63,7 +63,7 @@ properties:
 
         physical_name:
           type: string
-          pattern: "^[a-z][A-Za-z0-9]*$"
+          pattern: "^[a-z][a-z0-9_]*$"
 
         description:
           type: string
@@ -83,7 +83,7 @@ properties:
           minItems: 1
           items:
             type: string
-            pattern: "^[a-z][A-Za-z0-9]*$"
+            pattern: "^[a-z][a-z0-9_]*$"
 
         fields:
           type: array
@@ -103,7 +103,7 @@ properties:
 
               physical_name:
                 type: string
-                pattern: "^[a-z][A-Za-z0-9]*$"
+                pattern: "^[a-z][a-z0-9_]*$"
 
               glossary_term_id:
                 type: string
