@@ -17,7 +17,8 @@
 - メタ情報ルール（種別別）:
   - `docs/ja/handbook/rulebooks/meta-rulebook-metadata-rulebook.md`
   - `docs/ja/handbook/rulebooks/meta-deliverable-metadata-rulebook.md`
-  - `docs/ja/handbook/rulebooks/meta-instruction-metadata-rulebook.md`
+- rulebook の Frontmatter は `meta-rulebook-metadata-rulebook.md` に従う。
+- 推奨 Frontmatter 項目は `meta-deliverable-metadata-rulebook.md` に従う。
 - 参照先（必要に応じて）: `../samples/*-sample.md`、`../instructions/*-instruction.md`
 
 ## 3. 出力仕様（Frontmatter と命名）
@@ -50,9 +51,10 @@
 ## 5. 記述ルール
 
 - 各章は「何を定義する章か」が判定できる粒度で記述する。
-- `## 5. 本文構成（標準テンプレ）` には、対象ドキュメントの章構成を表で示し、必須/任意を明示する。
-- `## 6. 記述ガイド` には、章ごとの書き方、推奨表、記載例を置く。
+- `本文構成（標準テンプレ）` には、対象ドキュメントの章構成を表で示し、必須/任意を明示する。
+- `記述ガイド` には、章ごとの書き方、推奨表、記載例を置く。
 - 共通事項は上位ドキュメントを SSOT とし、重複記載を避ける。
+- 章への参照は章番号ではなく章タイトルで記載する（例: `本文構成（標準テンプレ）` のようにタイトルで参照する）。
 - 用語はファイル内で統一し、`index` / `overview` などの命名ゆれを持ち込まない。
 - 未確定事項や仮置き情報がある場合は、`*-rulebook.md` 本文の中に `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を直接記述する。
 - 対象ドキュメントで未確定事項や仮置き情報を扱う必要がある場合は、共通ラベルとして `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` のみを使用してよい。
@@ -69,6 +71,7 @@
 
 - 章番号なし見出し（例: `## 全体方針`）を使用しない。
 - 章番号末尾の `.` を省略しない。
+- 章参照を番号のみ（例: `§5` / `第5章`）で記述しない。
 - rules 本文に実装詳細（SQL 全文、具体クラス名、詳細 API 設計）を書かない。
 - 曖昧語（十分、適切、問題ない）を根拠なく使用しない。
 - `meta-*-rulebook.md` を本ルールで機械的に上書きしない。
@@ -79,15 +82,16 @@
 ## 7. 作成・更新手順
 
 1. 対象 `*-rulebook.md` を特定し、既存ファイル有無を確認する。
-1. 構成基準（meta-rulebook-structure）との差分を洗い出す。
-1. 新規作成またはアップサートで章構成と記述を反映する。
-1. サンプルリンクと instruction リンクを更新する。
-1. 変更点を要約し、最終チェック結果を記録する。
+2. 構成基準（meta-rulebook-structure）との差分を洗い出す。
+3. 新規作成またはアップサートで章構成と記述を反映する。
+4. sampleファイルファイルが存在する場合は、サンプルリンクを更新する。
+5. instructionファイルが存在する場合は、instruction リンクを更新する。
+6. 変更点を要約し、最終チェック結果を記録する。
 
 ## 8. 最終チェック
 
 - Frontmatter がスキーマ要件（`id` / `type` / `status`）を満たしている。
 - 章構成が `## 1.` からの連番で、必須章が欠落していない。
-- `## 8. サンプル（最小でも可）` と `## 9. 生成 AI への指示テンプレート` が存在し、リンクが有効。
+- `サンプル（最小でも可）` と `生成 AI への指示テンプレート` が存在し、リンクが有効。
 - 禁止事項に該当する記述がない。
 - `npm run -s lint:md` を実行し、エラーがない。
