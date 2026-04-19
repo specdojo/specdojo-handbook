@@ -1,8 +1,8 @@
 ---
-id: opr-rules
+id: opr-rulebook
 type: rulebook
 status: draft
-
+target_format: markdown
 ---
 
 # 運用手順 作成ルール
