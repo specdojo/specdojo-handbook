@@ -40,6 +40,8 @@ Business Data Dictionary (BDD) Documentation Rules
 
 ## 4. 推奨 Frontmatter 項目
 
+Frontmatter と同等の以下の項目をYAMLドキュメントの先頭に必ず定義してください。
+
 | 項目       | 説明                             | 必須 |
 | ---------- | -------------------------------- | ---- |
 | id         | データ辞書ID（`bdd-...`）        | ○    |

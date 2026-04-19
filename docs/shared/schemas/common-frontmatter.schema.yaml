@@ -1,7 +1,6 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
 title: Common Front Matter
 type: object
-additionalProperties: false
 required:
   - id
   - type
@@ -56,5 +55,3 @@ properties:
   supersedes:
     $ref: "#/$defs/idRefArray"
     default: []
-  rulebook:
-    $ref: "#/$defs/rulebookRef"

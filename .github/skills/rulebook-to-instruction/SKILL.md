@@ -45,7 +45,11 @@ description: '`docs/ja/handbook/rulebooks` の更新内容を、`docs/ja/handboo
 1. 引数有無を判定し、対象一覧を正規化する（未指定時は開いている 1 件）
 2. 対象を 1 ファイルずつ順に処理する
 3. 各対象 rules を読み、必須章・必須表・禁止事項・最終チェックを抽出（`meta-*-rulebook.md` は対象単位でスキップ）
+   - `target_format`（`markdown` / `yaml` / `json`）を確認する
+   - `target_format` 未記載時は `@file:.github/instructions/rulebook.instructions.md` の推測ルールで判定する
 4. 対応する instruction を新規作成またはアップサート
+   - `target_format: markdown` は Frontmatter + 見出し順を中心に指示する
+   - `target_format: yaml` / `json` はルートキー・必須キー・ネスト構造・型制約を中心に指示する
 5. 命名・章番号・責務境界（index vs term）を整合
 6. 対象ごとの結果を集約して出力する
 7. `npm run -s lint:md` で検証
@@ -55,3 +59,8 @@ description: '`docs/ja/handbook/rulebooks` の更新内容を、`docs/ja/handboo
 - rules 本文の丸写しではなく、生成AIへの実行指示として再構成する
 - 既存 instruction は全置換せず、差分アップサートを優先する
 - 実装依存の詳細（SQL全文、具体クラス名等）は追加しない
+- `target_format: yaml` / `json` の rules では、instruction 側に以下を明示する
+  - 先頭メタ項目
+  - ルートキーと必須キー
+  - 命名規則・参照規則・型制約
+  - sample / schema による検証手順

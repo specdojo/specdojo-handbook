@@ -30,15 +30,23 @@
 5. 不要な実装依存情報（SQL全文、具体クラス名等）は追加しない
 6. `*-rulebook.md` 側の「生成 AI への指示テンプレート」セクションは、対応する `*-instruction.md` へのリンクを記載し、最小テンプレート本文は保持しない
 7. 章への参照は章番号ではなく章タイトルで記載する（例: `本文構成（標準テンプレ）`）
+8. 入力 rulebook の `target_format` が `yaml` / `json` の場合、instruction 側の出力要件は「Markdown文書」ではなく「YAML/JSON データ本体」を生成する指示として記述する
+9. `target_format` が未記載の場合は、`@file:.github/instructions/rulebook.instructions.md` の推測ルールに従って対象フォーマットを判定してから instruction を構成する
 
 ## 4. 生成する instruction の推奨構成
 
 1. 目的と前提
 2. 入力情報
-3. 出力フォーマット（Frontmatter + 見出し順）
+3. 出力フォーマット（対象フォーマット + 構造）
 4. 記述ルール（章ごとの必須要素）
 5. 禁止事項
 6. 最終チェック（自己検査）
+
+補足:
+
+- `target_format: markdown` の場合は、`出力フォーマット` で Frontmatter と見出し順を指示する。
+- `target_format: yaml` / `json` の場合は、`出力フォーマット` でルートキー、必須キー、ネスト構造、型制約（`enum` / `pattern` / `required` など）を指示する。
+- `target_format: yaml` / `json` の場合は、先頭メタ項目（例: `id` / `type` / `status`）を必須要素として明示する。
 
 ## 5. 変更時の整合チェック
 
@@ -46,6 +54,11 @@
 - 章タイトル（見出し名称）の整合を確認（番号一致は要件にしない）
 - `index` 系ドキュメントでは「共通原則」「採用基準」「分配方針」の有無を確認
 - `rules` 側の「生成 AI への指示テンプレート」は、リンクのみで運用され最小テンプレート本文が削除されていることを確認
+- `target_format: yaml` / `json` の rules では、instruction 側に以下が反映されていることを確認
+  - 先頭メタ項目
+  - ルートキーと必須キー
+  - 命名規則・参照規則・型制約
+  - sample / schema による検証手順
 - 反映後は Markdown lint を実行
 
 推奨コマンド:
