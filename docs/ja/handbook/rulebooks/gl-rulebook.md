@@ -70,99 +70,22 @@
 
 ## 5. サンプル
 
-用語集 YAML（例: `gl-inventory-ja.yaml`）
-
-```yaml
-id: gl-inventory
-title: 用語集: 在庫・調達
-locale: ja
-status: draft
-
-terms:
-  - id: tm-reorder-point
-    term: 発注点
-    aliases: [発注基準点]
-    definition: 在庫数量がこの値を下回ったときに、発注候補とみなす基準数量。
-    notes: 商品ごとに設定。定番商品でのみ利用する。
-    category: tm-inventory
-    relatedTerms: [tm-safety-stock]
-    source: https://example.com
-    status: official
-    example: '発注点を下回ったため、追加発注を行う。'
-
-  - id: tm-standard-product
-    term: 定番商品
-    aliases: [レギュラー商品, 人気商品, 定番]
-    definition: 常に棚に置いておきたい、よく売れる商品。
-    notes: 発注点・最低在庫数などを設定する対象。
-    category: tm-inventory
-
-  - id: tm-accounts-receivable
-    term: つけ
-    aliases: [ツケ]
-    definition: 顧客が代金を後払いにする販売形態。
-    notes: 顧客単位で残高と限度額を管理する。
-    category: tm-sales
-
-  - id: tm-grandma
-    term: おばあちゃん
-    definition: 駄菓子屋の店主。システムの主な利用者。
-    notes: IT に詳しくない前提で画面を設計する。
-    category: tm-actor
-```
+- 参照先: [gl-sample](../samples/gl-sample.yaml)
 
 ## 6. 生成 AI への指示テンプレート
 
-生成 AI に用語集 YAML を作らせるときは、以下のような指示を与える。
+- 参照先: [gl-instruction](../instructions/gl-instruction.md)
 
-> 以下のルールに従って、**YAML形式の用語集（Glossary）** を作成してください。
->
-> ---
->
-> ## 1. ファイル形式
->
-> - 出力は **YAML形式** とし、余計な文章は書かず、YAML のみを出力してください。
-> - トップレベルに `terms:`（配列）を必ず含め、用語は配列で記述してください。
-> - `id` / `title` / `locale` などのメタデータは、トップレベルに併記してよいです。
->
-> ## 2. ID 規約
->
-> - 用語集IDは `gl-` で始まる一意ID（例: `gl-inventory`）
-> - 用語IDは `tm-` で始まる一意ID（例: `tm-reorder-point`）
->
-> ## 3. 記載ルール（遵守）
->
-> - **term（用語）と definition（定義）は必須**。
-> - `definition` は同義語説明ではなく、境界が分かる説明にしてください。
-> - 実装詳細（テーブル名、SQL、内部クラス名等）は含めないでください。
-> - 同義語は `aliases` で表現し、重複登録しないでください。
-> - `relatedTerms` を使う場合は **用語ID（`tm-...`）** を列挙してください。
->
-> ## 4. 出力構造（推奨）
->
-> 以下のキーを持つ YAML を出力してください。
->
-> ```yaml
-> id: gl-XXXX
-> title: 用語集: XXXX
-> locale: ja
-> status: draft
->
-> terms:
->   - id: tm-xxxx
->     term: 用語
->     aliases: []
->     definition: 定義
->     notes: 補足
->     category: tm-xxxx
->     relatedTerms: []
->     source: https://example.com
->     status: official
->     example: '例文'
-> ```
->
-> ## 5. 最終出力
->
-> - 出力は YAML のみ。
->
-> **以上のルールに従って、用語集を生成してください。**
+## 7. 禁止事項
+
+- 用語定義に実装詳細（クラス名、SQL、内部コード）を記載しない。
+- 用語IDを未採番または重複させない。
+- 曖昧語のみで定義を終えない。
+
+## 8. サンプル
+
+- 参照先: [gl-sample](../samples/gl-sample.yaml)
+
+## 9. 生成 AI への指示テンプレート
+
+- 参照先: [gl-instruction](../instructions/gl-instruction.md)

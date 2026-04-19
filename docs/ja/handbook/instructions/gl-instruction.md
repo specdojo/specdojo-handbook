@@ -29,7 +29,7 @@
 
 ```yaml
 id: gl-XXXX
-title: 用語集: XXXX
+title: '用語集: XXXX'
 locale: ja
 status: draft
 
