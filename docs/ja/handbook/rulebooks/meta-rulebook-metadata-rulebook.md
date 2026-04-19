@@ -6,7 +6,7 @@ status: draft
 
 # Rulebook メタ情報の記述ルール
 
-Rulebook Metadata Rules
+Rulebook Metadata Rulebook
 
 `*-rulebook.md` の Frontmatter 記述ルールを定義します。`meta-*-rulebook.md` を含む rulebook 系ドキュメントに適用します。
 
@@ -26,15 +26,16 @@ Rulebook Metadata Rules
 
 ## 3. 推奨項目
 
-| 項目       | 説明                       |
-| ---------- | -------------------------- |
-| based_on   | 上位規約や根拠ドキュメント |
-| supersedes | 置き換え関係               |
+| 項目          | 説明                                   |
+| ------------- | -------------------------------------- |
+| target_format | ルールの対象ドキュメントのフォーマット |
+| based_on      | 上位規約や根拠ドキュメント             |
+| supersedes    | 置き換え関係                           |
 
 補足:
 
-- rulebook 自体は規約を定義する文書のため、`rulebook: none` を推奨する。
-- 既存文書との互換運用では、`rulebook` が未記載でもスキーマ上は許容される。
+- target_format は、ルールの対象となるドキュメントのフォーマットを指定する。例: `yaml` / `json` / `markdown`
+- target_format が指定されていない場合はmarkdown形式を対象とするルールであると解釈する。
 
 ## 4. 値制約
 
