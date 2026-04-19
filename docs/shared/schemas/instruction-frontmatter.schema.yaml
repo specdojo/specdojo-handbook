@@ -3,8 +3,13 @@ title: Instruction Front Matter
 allOf:
   - $ref: "./common-frontmatter.schema.yaml"
   - type: object
+    required:
+      - rulebook
     properties:
       type:
         type: string
         const: instruction
         description: "ドキュメント種別（instruction 固定）"
+      rulebook:
+        $ref: "./common-frontmatter.schema.yaml#/$defs/rulebookRef"
+        description: "準拠する rulebook の ID。該当がない場合は none。"

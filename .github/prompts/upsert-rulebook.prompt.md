@@ -45,9 +45,10 @@
 1. 引数有無を判定し、対象ファイル一覧を確定（未指定時は開いている 1 件）
 2. 各対象ファイルの存在確認と対象妥当性を確認
 3. `meta-rulebook-structure-rulebook.md` を読み、標準章構成を把握
-4. docs-contents-guide から対象ドキュメントの目的・内容を確認
-5. 同カテゴリの既存 rules を参考に粒度を把握
-6. 新規作成またはアップサートを実行
-7. サンプルリンク（§8）と instruction リンク（§9）を確認・更新
-8. 変更一覧（対象ごとの結果）を出力
-9. `npm run -s lint:md` で検証
+4. `meta-rulebook-metadata-rulebook.md` を読み、rulebook の Frontmatter 要件を把握
+5. docs-contents-guide から対象ドキュメントの目的・内容を確認
+6. 同カテゴリの既存 rules を参考に粒度を把握
+7. 新規作成またはアップサートを実行
+8. サンプルリンク（§8）と instruction リンク（§9）を確認・更新
+9. 変更一覧（対象ごとの結果）を出力
+10. `npm run -s lint:md` で検証

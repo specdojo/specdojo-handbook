@@ -32,7 +32,7 @@ Business Document Specification (BDS) Documentation Rules
 
 ## 4. 推奨 Frontmatter 項目
 
-Frontmatter は `docs/handbook/shared/schemas/deliverable-frontmatter.schema.yaml` の制約に従います。
+Frontmatter は `docs/shared/schemas/deliverable-frontmatter.schema.yaml` の制約に従います。
 
 | 項目       | 説明                                  | 必須 |
 | ---------- | ------------------------------------- | ---- |

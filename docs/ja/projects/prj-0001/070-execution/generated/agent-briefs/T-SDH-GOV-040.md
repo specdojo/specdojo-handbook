@@ -26,7 +26,7 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/meta-document-metadata-rulebook.md
+- docs/ja/handbook/rulebooks/meta-deliverable-metadata-rulebook.md
 - docs/ja/handbook/rulebooks/meta-id-and-file-naming-rulebook.md
 - docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md
 - docs/ja/handbook/rulebooks/meta-test-document-scope-rulebook.md

@@ -13,13 +13,18 @@
 
 - 対象ファイル: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
 - 構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
-- Frontmatter スキーマ: `docs/shared/schemas/deliverables-frontmatter.schema.yaml`
+- Frontmatter スキーマ: `docs/shared/schemas/rulebook-frontmatter.schema.yaml`
+- メタ情報ルール（種別別）:
+  - `docs/ja/handbook/rulebooks/meta-rulebook-metadata-rulebook.md`
+  - `docs/ja/handbook/rulebooks/meta-deliverable-metadata-rulebook.md`
+  - `docs/ja/handbook/rulebooks/meta-instruction-metadata-rulebook.md`
 - 参照先（必要に応じて）: `../samples/*-sample.md`、`../instructions/*-instruction.md`
 
 ## 3. 出力仕様（Frontmatter と命名）
 
 - ファイル名は `<name>-rulebook.md` とする。
 - ファイル先頭に YAML Frontmatter を置き、最低限 `id` / `type` / `status` を含める。
+- `rulebook` は推奨項目として扱い、原則 `none` を記載する。
 - `id` は英小文字・数字・ハイフンのみを使用し、一意にする。
 - H1 はファイル内で 1 つだけとし、タイトルとして使用する。
 - タイトル直下に英語名（1行）と目的・概要（1〜3文）を置く。

@@ -66,7 +66,7 @@ WBS-PJD-PRJ-0010
 ## 4. 推奨 Frontmatter 項目
 
 `wbs-<scope>.yaml` では、Frontmatter を分離して持たず、Frontmatter 相当の文書メタデータを YAML のルートキーとして埋め込む。
-項目の意味と値の考え方は `meta-document-metadata-rulebook.md` に準拠し、WBS 定義では次を使用する。
+項目の意味と値の考え方は `meta-deliverable-metadata-rulebook.md` に準拠し、WBS 定義では次を使用する。
 
 | 項目       | 説明                                 | 必須 |
 | ---------- | ------------------------------------ | ---- |
