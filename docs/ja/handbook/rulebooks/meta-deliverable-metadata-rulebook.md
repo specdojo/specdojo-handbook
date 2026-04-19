@@ -13,6 +13,7 @@ Deliverable Metadata Rules
 ## 1. 適用範囲
 
 - 対象: `project` / `screen` / `api` / `domain` / `data` / `test` / `flow` / `rule` / `architecture` / `decision` / `meta` / `guide` / `migration` / `operations` / `template`
+- 共通原則の正本: [meta-document-metadata-rulebook.md](meta-document-metadata-rulebook.md)
 - 参照スキーマ: [docs/shared/schemas/deliverable-frontmatter.schema.yaml](../../../../shared/schemas/deliverable-frontmatter.schema.yaml)
 
 ## 2. 必須項目

@@ -13,6 +13,7 @@ Instruction Metadata Rules
 ## 1. 適用範囲
 
 - 対象: `docs/ja/handbook/instructions/` 配下の `*-instruction.md`
+- 共通原則の正本: [meta-document-metadata-rulebook.md](meta-document-metadata-rulebook.md)
 - 参照スキーマ: [docs/shared/schemas/instruction-frontmatter.schema.yaml](../../../../shared/schemas/instruction-frontmatter.schema.yaml)
 
 ## 2. 必須項目

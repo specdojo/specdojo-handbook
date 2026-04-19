@@ -13,6 +13,7 @@ Rulebook Metadata Rules
 ## 1. 適用範囲
 
 - 対象: `docs/ja/handbook/rulebooks/` 配下の `*-rulebook.md`
+- 共通原則の正本: [meta-document-metadata-rulebook.md](meta-document-metadata-rulebook.md)
 - 参照スキーマ: [docs/shared/schemas/rulebook-frontmatter.schema.yaml](../../../../shared/schemas/rulebook-frontmatter.schema.yaml)
 
 ## 2. 必須項目
