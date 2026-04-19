@@ -117,7 +117,8 @@
   "yaml.schemas": {
     "./docs/shared/schemas/deliverables-frontmatter.schema.yaml": [
       "docs/ja/product/**/*.md",
-      "docs/ja/project/**/*.md"
+      "docs/ja/project/**/*.md",
+      "docs/ja/handbook/samples/**/*.md"
     ],
     "./docs/shared/schemas/rulebook-frontmatter.schema.yaml": [
       "docs/ja/handbook/rulebooks/**/*.md"

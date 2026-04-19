@@ -13,6 +13,7 @@
 - `/upsert-rulebook <file1> <file2> ...` のようなスペース区切りを受け付ける
 - 改行区切り・カンマ区切りでも受け付ける
 - 相対パスと絶対パスの両方を受け付ける
+- `-rulebook.md` を省略した短縮指定を受け付ける（例: `imp-business` → `docs/ja/handbook/rulebooks/imp-business-rulebook.md`）
 - 同一ファイルの重複指定は 1 件に正規化する
 
 ## 対象の決定
