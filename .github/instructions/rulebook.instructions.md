@@ -13,7 +13,7 @@
 
 - 対象ファイル: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
 - 構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
-- Frontmatter スキーマ: `docs/shared/schemas/spec-frontmatter.schema.yaml`
+- Frontmatter スキーマ: `docs/shared/schemas/deliverables-frontmatter.schema.yaml`
 - 参照先（必要に応じて）: `../samples/*-sample.md`、`../instructions/*-instruction.md`
 
 ## 3. 出力仕様（Frontmatter と命名）

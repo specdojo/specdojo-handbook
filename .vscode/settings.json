@@ -115,7 +115,16 @@
   "yaml.completion": true,
   "yaml.format.enable": true,
   "yaml.schemas": {
-    "./docs/shared/schemas/spec-frontmatter.schema.yaml": ["docs/**/*.md"],
+    "./docs/shared/schemas/deliverables-frontmatter.schema.yaml": [
+      "docs/ja/product/**/*.md",
+      "docs/ja/project/**/*.md"
+    ],
+    "./docs/shared/schemas/rulebook-frontmatter.schema.yaml": [
+      "docs/ja/handbook/rulebooks/**/*.md"
+    ],
+    "./docs/shared/schemas/instruction-frontmatter.schema.yaml": [
+      "docs/ja/handbook/instructions/**/*.md"
+    ],
     "./docs/shared/schemas/bdd.schema.yaml": ["docs/**/bdd-*.yaml"],
     "./docs/shared/schemas/esil.schema.yaml": ["docs/**/esil-*.yaml"],
     "./docs/shared/schemas/sch.schema.yaml": ["docs/**/sch-*.yaml"],

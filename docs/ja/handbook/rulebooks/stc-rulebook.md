@@ -61,7 +61,7 @@ flowchart BT
 
 Frontmatter は共通スキーマに従います（あわせてドキュメントのメタ情報の記述ルールも参照）。
 
-- 参照スキーマ: [docs/shared/schemas/spec-frontmatter.schema.yaml](../../../shared/schemas/spec-frontmatter.schema.yaml)
+- 参照スキーマ: [docs/shared/schemas/deliverables-frontmatter.schema.yaml](../../../shared/schemas/deliverables-frontmatter.schema.yaml)
 - メタ情報ルール: [meta-document-metadata-rulebook.md](meta-document-metadata-rulebook.md)
 
 | 項目       | 説明                                                                             | 必須 |

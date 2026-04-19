@@ -1,4 +1,4 @@
-$schema: 'http://json-schema.org/draft-07/schema#'
+$schema: "https://json-schema.org/draft/2020-12/schema"
 title: External System Interface List Schema
 type: object
 additionalProperties: false
@@ -10,15 +10,15 @@ required:
   - status
   - interfaces
 
-definitions:
+$defs:
   idRef:
     type: string
-    pattern: '^[a-z0-9][a-z0-9-]*$'
-    description: '英小文字・数字・ハイフンのみ。先頭は英小文字または数字。'
+    pattern: "^[a-z0-9][a-z0-9-]*$"
+    description: "英小文字・数字・ハイフンのみ。先頭は英小文字または数字。"
   idRefArray:
     type: array
     items:
-      $ref: '#/definitions/idRef'
+      $ref: "#/$defs/idRef"
     uniqueItems: true
   semver:
     type: string
@@ -28,24 +28,24 @@ definitions:
 properties:
   id:
     type: string
-    pattern: '^esil-[a-z0-9-]+$'
-    description: '一意なID（esil-...）'
+    pattern: "^esil-[a-z0-9-]+$"
+    description: "一意なID（esil-...）"
   type:
     type: string
-    const: 'api'
+    const: "api"
   title:
     type: string
     minLength: 1
   status:
     type: string
-    enum: ['draft', 'ready', 'deprecated']
+    enum: [ "draft", "ready", "deprecated" ]
   version:
-    $ref: '#/definitions/semver'
+    $ref: "#/$defs/semver"
   owners:
     type: array
     items:
       type: string
-      format: email
+      pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
     uniqueItems: true
 
   tags:
@@ -56,19 +56,19 @@ properties:
     uniqueItems: true
 
   part_of:
-    $ref: '#/definitions/idRefArray'
+    $ref: "#/$defs/idRefArray"
     default: []
   based_on:
-    $ref: '#/definitions/idRefArray'
+    $ref: "#/$defs/idRefArray"
     default: []
   implements:
-    $ref: '#/definitions/idRefArray'
+    $ref: "#/$defs/idRefArray"
     default: []
   tests:
-    $ref: '#/definitions/idRefArray'
+    $ref: "#/$defs/idRefArray"
     default: []
   supersedes:
-    $ref: '#/definitions/idRefArray'
+    $ref: "#/$defs/idRefArray"
     default: []
 
   interfaces:
@@ -90,29 +90,29 @@ properties:
         name:
           type: string
           minLength: 1
-          description: '連携名'
+          description: "連携名"
         source:
           type: string
           minLength: 1
-          description: '連携元（システム/コンテナ/コンポーネントなど）'
+          description: "連携元（システム/コンテナ/コンポーネントなど）"
         target:
           type: string
           minLength: 1
-          description: '連携先（外部システム名など）'
+          description: "連携先（外部システム名など）"
         direction:
           type: string
           enum:
             - source_to_target
             - target_to_source
             - bidirectional
-          description: '方向（source/targetに基づく）'
+          description: "方向（source/targetに基づく）"
         kind:
           type: string
           enum:
             - API
             - ファイル
             - メッセージ
-          description: '連携の種別'
+          description: "連携の種別"
         format:
           type: string
           enum:
@@ -121,15 +121,15 @@ properties:
             - XML
             - その他
             - TBD
-          description: 'データ形式（限定列挙）'
+          description: "データ形式（限定列挙）"
         timing:
           type: string
           minLength: 1
-          description: '連携タイミング'
+          description: "連携タイミング"
         error_handling:
           type: string
-          description: 'エラー処理・備考'
+          description: "エラー処理・備考"
         spec_ref:
           type: string
-          pattern: '^(?:eapis|efes|ems)-[a-z0-9-]+$|^TBD$'
-          description: '詳細仕様ドキュメントのid（eapis-/efes-/ems-...）または TBD'
+          pattern: "^(?:eapis|efes|ems)-[a-z0-9-]+$|^TBD$"
+          description: "詳細仕様ドキュメントのid（eapis-/efes-/ems-...）または TBD"

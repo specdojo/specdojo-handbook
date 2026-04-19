@@ -100,11 +100,11 @@ OK 例:
 - 山括弧付きプレースホルダ（例: `<project-id>`、`<name>`）は、HTML タグ誤認を防ぐため必ずインラインコードで記述する。
 - 山括弧の前後で英字・数字・ハイフン・アンダースコアが連結している場合は、連結範囲全体を 1 つのインラインコードで囲む（NG: prefix-`<term>`-suffix、OK: `prefix-<term>-suffix`）。
 - **強調（太字）** は用語定義など意味的に重要な箇所のみ使う。多用しない。
-- _斜体_ は使わない（日本語では視認性が低い）。
+- _斜体_ は`_TODO_`, `_UNDECIDED_`, `_ASSUMPTION_` のみ使用する（日本語では視認性が低い）。
 
 ## 9. Frontmatter 必須フィールド
 
-共通スキーマ（`docs/shared/schemas/spec-frontmatter.schema.yaml`）に従う。
+共通スキーマ（`docs/shared/schemas/deliverables-frontmatter.schema.yaml`）に従う。
 最低限以下の3フィールドを含める。
 
 | フィールド | 値の例                           | 説明               |

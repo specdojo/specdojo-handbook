@@ -1,0 +1,51 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Common Front Matter
+type: object
+additionalProperties: false
+required:
+  - id
+  - type
+  - status
+
+$defs:
+  idRef:
+    type: string
+    pattern: "^[a-z0-9][a-z0-9-]*$"
+    description: "英小文字・数字・ハイフンのみ。先頭は英小文字または数字。"
+  idRefArray:
+    type: array
+    items:
+      $ref: "#/$defs/idRef"
+    uniqueItems: true
+
+properties:
+  id:
+    $ref: "#/$defs/idRef"
+    description: "一意なID"
+  phase:
+    type: string
+    enum:
+      - need # 要求
+      - requirement # 要件
+      - specification # 仕様
+      - design # 設計
+      - implement # 実装
+    description: "対象フェーズ"
+  type:
+    type: string
+    description: "仕様の種別"
+  status:
+    type: string
+    # draft: 作成中
+    # ready: 公開済み
+    # deprecated: 廃止済み
+    enum: [ "draft", "ready", "deprecated" ]
+  part_of:
+    $ref: "#/$defs/idRefArray"
+    default: []
+  based_on:
+    $ref: "#/$defs/idRefArray"
+    default: []
+  supersedes:
+    $ref: "#/$defs/idRefArray"
+    default: []

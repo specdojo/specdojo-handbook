@@ -1,0 +1,12 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Rulebook Front Matter
+allOf:
+  - $ref: "./common-frontmatter.schema.yaml"
+  - type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - rulebook
+          - meta
+        description: "ドキュメント種別（rulebook または meta）"

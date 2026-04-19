@@ -1,0 +1,25 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Deliverables Front Matter
+allOf:
+  - $ref: "./common-frontmatter.schema.yaml"
+  - type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - project # プロジェクト関連
+          - screen # 画面仕様
+          - api # API仕様
+          - domain # ドメイン仕様
+          - data # データ仕様
+          - test # テスト仕様
+          - flow # 業務フロー仕様
+          - rule # 業務ルール仕様
+          - architecture # 構造・構成仕様（C4、配置、統合、ネットワーク境界など
+          - decision # 設計判断（ADR的な意思決定記録）
+          - meta # 共通/横断ルール
+          - guide # ガイドライン
+          - migration # 移行計画・設計・手順
+          - operations # 運用要件・設計・手順
+          - template # ドキュメントテンプレート
+        description: "仕様の種別"

@@ -12,7 +12,7 @@ Document Metadata Rules
 
 機械可読性を向上する目的で、各ドキュメントのヘッダー部に属性情報を記述します。
 
-- 参照スキーマ: [`docs/shared/schemas/spec-frontmatter.schema.yaml`](../../../shared/schemas/spec-frontmatter.schema.yaml)
+- 参照スキーマ: [`docs/shared/schemas/deliverables-frontmatter.schema.yaml`](../../../shared/schemas/deliverables-frontmatter.schema.yaml)
 - Markdownの場合は、記述は YAML Front Matter を想定（各仕様ドキュメントの先頭）。
 - ドキュメント名は Frontmatter ではなく、本文先頭の `#` 見出し（H1）に記述する。
 - YAML/JSON や他フォーマットの場合は、同等のメタ情報を持つこと。

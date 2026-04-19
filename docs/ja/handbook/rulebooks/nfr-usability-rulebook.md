@@ -45,7 +45,7 @@ Non-Functional Requirements Usability Documentation Rules
 
 ### 4.1. 設定内容
 
-Frontmatter は共通スキーマに従います（参照: [shared/schemas/spec-frontmatter.schema.yaml](../../../../shared/schemas/spec-frontmatter.schema.yaml) / [meta-document-metadata-rulebook.md](meta-document-metadata-rulebook.md)）。
+Frontmatter は共通スキーマに従います（参照: [shared/schemas/deliverables-frontmatter.schema.yaml](../../../../shared/schemas/deliverables-frontmatter.schema.yaml) / [meta-document-metadata-rulebook.md](meta-document-metadata-rulebook.md)）。
 
 | 項目    | 説明                                | 必須 |
 | ------- | ----------------------------------- | ---- |

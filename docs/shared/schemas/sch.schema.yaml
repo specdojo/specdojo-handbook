@@ -1,7 +1,7 @@
 # sch.schema.yaml
 $schema: "https://json-schema.org/draft/2020-12/schema"
 title: "SpecDojo Schedule schema (level-discriminated)"
-$type: object
+type: object
 $comment: >
   Schema for schedule SSOT files. File name is NOT used to infer
   domain/container. Instead, schedule_level discriminates required fields:

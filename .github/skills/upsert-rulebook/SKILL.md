@@ -21,7 +21,7 @@ description: 'docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を新規作
 - 章構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
 - メタ情報ルール: `docs/ja/handbook/rulebooks/meta-document-metadata-rulebook.md`
 - 命名ルール: `docs/ja/handbook/rulebooks/meta-id-and-file-naming-rulebook.md`
-- Frontmatter スキーマ: `docs/shared/schemas/spec-frontmatter.schema.yaml`
+- Frontmatter スキーマ: `docs/shared/schemas/deliverables-frontmatter.schema.yaml`
 - ドキュメント内容ガイド: `docs/ja/handbook/guidelines/docs-contents-guide.md`
 - 対象除外: `meta-*-rulebook.md` は本 Skill の対象外
 

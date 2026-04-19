@@ -1,8 +1,8 @@
 # wbs.schema.yaml
 $schema: "https://json-schema.org/draft/2020-12/schema"
 $id: "https://specdojo.org/schemas/wbs/v1"
-$title: "SpecDojo WBS (domain) schema"
-$type: object
+title: "SpecDojo WBS (domain) schema"
+type: object
 $comment: >
   Schema for domain-scoped WBS SSOT files:
   docs/ja/projects/<project_id>/020-project-scope/040-wbs/wbs-<domain>.yaml WBS

@@ -13,7 +13,5 @@ plugins:
   - - remark-gfm
     - tablePipeAlign: false
   - remark-lint
-  - - remark-lint-frontmatter-schema
-    - schemas:
-        ./docs/shared/schemas/spec-frontmatter.schema.yaml:
-          - ./docs/**/*.md
+  - - ./tools/docs/src/remark-frontmatter-ajv2020.cjs
+    - strict: true
