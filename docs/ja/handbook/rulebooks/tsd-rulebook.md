@@ -87,3 +87,23 @@ supersedes: []
 > - Frontmatter は `docs/shared/schemas/deliverable-frontmatter.schema.yaml` に従い、`id`/`type`/`title`/`status` を必ず含め、`type` は `architecture` 固定にしてください。
 > - 列は `区分` / `採用技術` / `担当責務` を必ず含めてください（必要なら `補足` を追加可）。
 > - 禁止: 物理テーブル名・物理カラム名・SQL全文、実装クラス/関数名、内部モジュール構成、UI操作の逐語列挙、機密値
+
+## 6. 記述ガイド
+
+- 区分ごとに採用技術を重複なく記載する。
+- 担当責務は業務・運用で判定可能な粒度で記載する。
+- 変更時は採用理由と影響範囲を追記する。
+
+## 7. 禁止事項
+
+- 機密値や接続情報を本文へ記載しない。
+- 実装コードやクラス名を記載しない。
+- 採用技術の責務を空欄にしない。
+
+## 8. サンプル
+
+- 参照先: [tsd-sample](../samples/tsd-sample.md)
+
+## 9. 生成 AI への指示テンプレート
+
+- 参照先: [tsd-instruction](../instructions/tsd-instruction.md)

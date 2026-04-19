@@ -1,0 +1,62 @@
+---
+id: ifx-index-rulebook
+type: rulebook
+status: draft
+target_format: markdown
+---
+
+# 外部システムI/F一覧 作成ルール
+
+External System Interface Index Documentation Rulebook
+
+本ドキュメントは、外部システムI/F一覧（`ifx-index`）を統一形式で記述するためのルールを定義する。
+
+## 1. 全体方針
+
+- 外部連携の全体像を一覧で可視化し、連携漏れを防ぐ。
+- 連携名、連携元、連携先、方式、フォーマット、タイミングを明示する。
+- 実装依存詳細ではなく、契約レベルの定義に限定する。
+
+## 2. 位置づけと用語定義（必要に応じて）
+
+- `ifx-index` は外部I/F仕様の入口となる一覧ドキュメントである。
+- 個別仕様（`ifx-api` / `ifx-file` / `ifx-msg`）への導線を持つ。
+
+## 3. ファイル命名・ID規則
+
+- 対象IDは `ifx-index` を使用する。
+- ファイル名は `ifx-index.md` を推奨する。
+
+## 4. 推奨 Frontmatter 項目
+
+| 項目   | 説明                             | 必須 |
+| ------ | -------------------------------- | ---- |
+| id     | `ifx-index`                      | ○    |
+| type   | `spec`                           | ○    |
+| status | `draft` / `ready` / `deprecated` | ○    |
+
+## 5. 本文構成（標準テンプレ）
+
+| 番号 | 見出し              | 必須 |
+| ---- | ------------------- | ---- |
+| 1    | 外部システムI/F一覧 | ○    |
+
+## 6. 記述ガイド
+
+- 一覧表は連携単位で1行にする。
+- 方式やフォーマットは標準語彙で統一する。
+- 個別仕様へのリンクを併記する。
+
+## 7. 禁止事項
+
+- 実装コード、SQL、内部設計詳細を記載しない。
+- 連携先未特定のまま確定しない。
+- タイミングを曖昧語のみで記載しない。
+
+## 8. サンプル
+
+- 参照先: [ifx-index-sample](../samples/ifx-index-sample.md)
+
+## 9. 生成 AI への指示テンプレート
+
+- 参照先: [ifx-index-instruction](../instructions/ifx-index-instruction.md)

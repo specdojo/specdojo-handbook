@@ -21,6 +21,8 @@
 - 対応先が存在しない場合は新規作成
 - 対応先が存在する場合はアップサート（差分反映）
 - sample の形式は、対象が文書テンプレート・記述例なら `*.md`、schema を持つ SSOT データ例なら `*.yaml` を優先する
+- 入力 rules に `target_format` がある場合は、`target_format` と一致する sample 形式（`.md` / `.yaml` / `.json`）を優先する
+- 入力 rules に `target_format` が未記載の場合は、`@file:.github/instructions/rulebook.instructions.md` の推測ルールに従って対象フォーマットを判定する
 - `*-rulebook.md` 側の「サンプル（最小でも可）」セクションのリンク先も、対応する sample の実拡張子（`.md` または `.yaml`）に一致させる
 
 ## 3. 前提プロジェクト（固定）
@@ -41,6 +43,7 @@
 8. sample が YAML の場合は、rules だけでなく schema を一次制約として扱い、`required` / `type` / `enum` / `pattern` / `additionalProperties` を確認する
 9. sample が YAML の場合の schema 検証は、インストール済みの `ajv` を使って実行する
 10. 章への参照は章番号ではなく章タイトルで記載する（例: `本文構成（標準テンプレ）`）
+11. sample 形式の選択は、rules の `target_format` を優先し、`target_format` 未記載時のみ推測ルールを用いる
 
 ## 5. 生成する sample の推奨構成
 

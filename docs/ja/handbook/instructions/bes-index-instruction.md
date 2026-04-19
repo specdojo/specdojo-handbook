@@ -1,16 +1,17 @@
-# 業務イベント一覧 (BEL) 作成の指示テンプレート
+# 業務イベント仕様 全体構成 (BES Index) 作成の指示テンプレート
 
-- 以下のルールに従って、**業務イベント一覧（Business Event List: BEL）** を 1 つ作成してください。出力は **Markdown** とします。
+- 以下のルールに従って、**業務イベント仕様 全体構成（Business Event Specification Index: BES Index）** を 1 つ作成してください。出力は **Markdown** とします。
 - 対象は「一覧（表）」です。複雑なイベントの詳細手順や実装設計は書かず、イベントを網羅的に整理してください。
 - 禁止: 物理テーブル名・物理カラム名・SQL全文、実装クラス/関数名・API実装詳細、UIコンポーネント名、クリック手順など UI 操作の逐語列挙
 - 先頭に YAML Frontmatter を付与し、以下の形式で記述してください（不要な項目は省略可だが、`id` / `type` / `title` / `status` は必須）：
 
   ```yaml
   ---
-  id: bel-<英小文字とハイフンで構成したID> # 例: bel-main
-  type: domain
-  title: <業務イベント一覧名> # 例: 業務イベント一覧(main)
+  id: bes-index
+  type: project
+  title: 業務イベント仕様 全体構成
   status: draft # draft / ready / deprecated のいずれか
+  rulebook: bes-index-rulebook
   supersedes: []
   ---
   ```

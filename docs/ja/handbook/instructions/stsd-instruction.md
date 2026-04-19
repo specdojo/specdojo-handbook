@@ -7,7 +7,7 @@
 
   ```yaml
   ---
-  id: sts-<英小文字とハイフンで構成したID> # 例: sts-money
+  id: stl-<英小文字とハイフンで構成したID> # 例: stl-money
   type: domain
   title: <ステータス一覧名> # 例: お金のステータス
   status: draft # draft / ready / deprecated のいずれか
