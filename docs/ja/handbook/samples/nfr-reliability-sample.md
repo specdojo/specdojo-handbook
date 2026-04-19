@@ -1,0 +1,37 @@
+---
+id: nfr-reliability
+type: project
+status: draft
+rulebook: nfr-reliability-rulebook
+---
+
+# [非機能要件 / 信頼性](../rulebooks/nfr-reliability-rulebook.md) サンプル
+
+## 1. 目的と適用範囲
+
+本書は、障害抑止と誤動作防止を定義するための最小サンプルである。
+
+## 2. 入力情報
+
+- 対象: 駄菓子屋の販売管理システム
+- 前提: プロジェクト文脈は handbook の共通方針に準拠する
+- 参照: `../rulebooks/nfr-reliability-rulebook.md`
+
+## 3. 記述内容
+
+- 主な内容: 故障率、平均故障間隔(MTBF)、エラー率、データ検証ルール
+- 必須観点: 対象、条件、判定基準、責任者
+
+## 4. 最小記述例
+
+| 項目 | 値 | 備考 |
+| --- | --- | --- |
+| ドキュメント | [非機能要件 / 信頼性](../rulebooks/nfr-reliability-rulebook.md) | 最小サンプル |
+| 目的 | 障害抑止と誤動作防止を定義する | docs-contents-guide 準拠 |
+| 主な内容 | 故障率、平均故障間隔(MTBF)、エラー率、データ検証ルール | 要点のみ記載 |
+
+## 5. 未解決事項
+
+| 論点 | 処理方針 |
+| --- | --- |
+| 要件詳細の補強 | 実案件適用時に具体化する |

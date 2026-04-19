@@ -1,0 +1,8 @@
+id: sch
+type: schedule
+status: draft
+rulebook: sch-rulebook
+items:
+  - id: sch-001
+    title: サンプル項目
+    description: 最小構成のサンプル

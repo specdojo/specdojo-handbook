@@ -1,0 +1,37 @@
+---
+id: nfr-security-safety
+type: project
+status: draft
+rulebook: nfr-security-safety-rulebook
+---
+
+# [非機能要件 / 機密性・安全性](../rulebooks/nfr-security-safety-rulebook.md) サンプル
+
+## 1. 目的と適用範囲
+
+本書は、不正利用防止とセキュリティを定義するための最小サンプルである。
+
+## 2. 入力情報
+
+- 対象: 駄菓子屋の販売管理システム
+- 前提: プロジェクト文脈は handbook の共通方針に準拠する
+- 参照: `../rulebooks/nfr-security-safety-rulebook.md`
+
+## 3. 記述内容
+
+- 主な内容: 認証・認可、脆弱性対応SLA、暗号化、アクセス制御
+- 必須観点: 対象、条件、判定基準、責任者
+
+## 4. 最小記述例
+
+| 項目 | 値 | 備考 |
+| --- | --- | --- |
+| ドキュメント | [非機能要件 / 機密性・安全性](../rulebooks/nfr-security-safety-rulebook.md) | 最小サンプル |
+| 目的 | 不正利用防止とセキュリティを定義する | docs-contents-guide 準拠 |
+| 主な内容 | 認証・認可、脆弱性対応SLA、暗号化、アクセス制御 | 要点のみ記載 |
+
+## 5. 未解決事項
+
+| 論点 | 処理方針 |
+| --- | --- |
+| 要件詳細の補強 | 実案件適用時に具体化する |

@@ -1,0 +1,37 @@
+---
+id: prj-success-criteria-and-acceptance-criteria
+type: project
+status: draft
+rulebook: prj-success-criteria-and-acceptance-criteria-rulebook
+---
+
+# 成功基準と受入条件 サンプル
+
+## 1. 目的と適用範囲
+
+本書は、プロジェクト成功の判定基準と受入条件を明確化するための最小サンプルである。
+
+## 2. 入力情報
+
+- 対象: 駄菓子屋の販売管理システム
+- 前提: プロジェクト文脈は handbook の共通方針に準拠する
+- 参照: `../rulebooks/prj-success-criteria-and-acceptance-criteria-rulebook.md`
+
+## 3. 記述内容
+
+- 主な内容: 成功指標、完了定義、受入条件、判定方法、承認者
+- 必須観点: 対象、条件、判定基準、責任者
+
+## 4. 最小記述例
+
+| 項目 | 値 | 備考 |
+| --- | --- | --- |
+| ドキュメント | 成功基準と受入条件 | 最小サンプル |
+| 目的 | プロジェクト成功の判定基準と受入条件を明確化する | docs-contents-guide 準拠 |
+| 主な内容 | 成功指標、完了定義、受入条件、判定方法、承認者 | 要点のみ記載 |
+
+## 5. 未解決事項
+
+| 論点 | 処理方針 |
+| --- | --- |
+| 要件詳細の補強 | 実案件適用時に具体化する |
