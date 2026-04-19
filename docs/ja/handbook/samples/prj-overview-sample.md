@@ -1,7 +1,8 @@
 ---
-id: prj-0001-overview
+id: prj-0001-prj-overview
 type: project
 status: draft
+rulebook: prj-overview-rulebook
 based_on: []
 supersedes: []
 ---

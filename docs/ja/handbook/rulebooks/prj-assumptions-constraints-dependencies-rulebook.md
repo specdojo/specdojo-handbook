@@ -1,66 +1,136 @@
 ---
-id: prj-assumptions-constraints-dependencies-rules
+id: prj-assumptions-constraints-dependencies-rulebook
 type: rulebook
 status: draft
 ---
 
 # 前提・制約・依存関係 作成ルール
 
-Assumptions, Constraints and Dependencies Documentation Rules
+Assumptions, Constraints and Dependencies Documentation Rulebook
 
-本ドキュメントは、`前提・制約・依存関係` を一貫した粒度で作成するためのルールを定義する。
+本ドキュメントは、プロジェクトの前提、制約、依存関係を明確化するためのルールです。
+計画の破綻要因を早期に把握し、影響と対応方針を管理することを目的とします。
 
 ## 1. 全体方針
 
-- 目的: 実行上の前提条件・制約事項・外部依存を明示する
-- 主な内容: 前提条件、制約事項、依存先、影響、対応方針
-- 曖昧表現を避け、判定可能な記述にする。
+- 本ルールの対象は、前提条件、制約事項、外部依存の管理です。
+- 目的は、計画成立条件を可視化し、変更時の影響判断を可能にすることです。
+- PMBOK 観点では、リスク管理、依存管理、変更統制に必要な情報を含めます。
+- 各項目は「内容」「影響」「監視方法」「責任者」「対応方針」を 1 セットで定義します。
+- 前提が崩れた場合のエスカレーション条件を必ず記載します。
 
-## 2. 位置づけと用語定義（必要に応じて）
+## 2. 位置づけと用語定義
 
-- 上位方針・関連成果物との責務境界を明確化する。
-- 必要に応じて用語を定義し、命名ゆれを防ぐ。
+### 2.1. 位置づけ（他ドキュメントとの関係）
+
+```mermaid
+flowchart LR
+  PSC["プロジェクトスコープ"]
+  ACD["前提・制約・依存関係"]
+  RSK["リスク登録簿"]
+  CRL["変更要求ログ"]
+
+  PSC --> ACD --> RSK --> CRL
+
+  classDef target stroke-width:4px
+  class ACD target
+```
+
+### 2.2. 用語定義（本ルール内）
+
+| 用語     | 定義                                           |
+| -------- | ---------------------------------------------- |
+| 前提     | 計画が成立するために真とみなす条件             |
+| 制約     | 予算、期限、制度等の守るべき制限条件           |
+| 依存関係 | 外部組織や他チーム等に依存する条件             |
+| 影響     | 条件未達時に発生する遅延、コスト、品質への影響 |
+| トリガー | 監視対象のしきい値や発火条件                   |
 
 ## 3. ファイル命名・ID規則
 
-- 推奨ファイル名: `prj-assumptions-constraints-dependencies`
-- ドキュメントID: `prj-assumptions-constraints-dependencies-<term>` または用途に応じた識別子
+### 3.1. 配置（推奨）
+
+- `docs/ja/projects/<project-id>/030-プロジェクト課題と解決アプローチ/` 配下への配置を推奨します。
+- 外部依存先との合意資料は参照リンクで紐付けます。
+
+### 3.2. ドキュメントID（推奨）
+
+- 推奨: `<project-id>-prj-assumptions-constraints-dependencies`
+  - 例: `prj-0001-prj-assumptions-constraints-dependencies`
+
+### 3.3. ファイル名（推奨）
+
+- 推奨: `prj-assumptions-constraints-dependencies.md`
+- 日本語ファイル名の場合: `前提・制約・依存関係.md`
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目 | 値 | 必須 |
-| --- | --- | --- |
-| id | 一意なID | ○ |
-| type | project / spec / test / architecture / operations | ○ |
-| status | draft / ready / deprecated | ○ |
-| rulebook | `prj-assumptions-constraints-dependencies-rulebook` | 任意 |
+### 4.1. 設定内容
+
+- 参照スキーマ: [docs/shared/schemas/deliverable-frontmatter.schema.yaml](../../../../shared/schemas/deliverable-frontmatter.schema.yaml)
+- メタ情報ルール: [meta-deliverable-metadata-rulebook.md](meta-deliverable-metadata-rulebook.md)
+
+| 項目       | 説明                                                    | 必須 |
+| ---------- | ------------------------------------------------------- | ---- |
+| id         | `<project-id>-prj-assumptions-constraints-dependencies` | ○    |
+| type       | `project` 固定                                          | ○    |
+| status     | `draft` / `ready` / `deprecated`                        | ○    |
+| based_on   | スコープ、契約、外部合意文書                            | 任意 |
+| supersedes | 置き換え対象の旧文書 ID                                 | 任意 |
+
+### 4.2. 推奨ルール
+
+- 前提、制約、依存を同一列で混在させず、種別を明示します。
+- 各項目に見直し周期と更新責任者を設定します。
 
 ## 5. 本文構成（標準テンプレ）
 
-| 章 | 必須 | 内容 |
-| --- | --- | --- |
-| 1. 目的と適用範囲 | ○ | 対象、目的、適用境界 |
-| 2. 入力情報 | ○ | 前提、参照元、制約 |
-| 3. 記述内容 | ○ | 主要項目、構成、記述順 |
-| 4. 検証観点 | ○ | 完了条件、確認観点 |
-| 5. 未解決事項 | 任意 | 課題、決定期限、担当 |
+### 5.1. 前提・制約・依存関係（Assumptions, Constraints and Dependencies）
+
+| 番号 | 見出し             | 必須 | 内容（要点）                   |
+| ---- | ------------------ | ---- | ------------------------------ |
+| 1    | 前提条件           | ○    | 前提内容、妥当性根拠、監視方法 |
+| 2    | 制約事項           | ○    | 制約内容、適用範囲、遵守条件   |
+| 3    | 依存関係           | ○    | 依存先、期限、受領条件         |
+| 4    | 影響評価と対応方針 | ○    | 影響、回避策、軽減策、責任者   |
+| 5    | 監視・変更管理     | 任意 | 見直し周期、トリガー、変更手順 |
 
 ## 6. 記述ガイド
 
-- 事実と判断を分離し、根拠を併記する。
-- 表は列見出しを固定し、欠損値の扱いを明示する。
-- 章参照は章番号ではなく章タイトルで記述する。
+### 6.1. 共通
+
+- 各項目を登録簿形式で管理し、ID を付与します。
+- 章参照は章番号ではなく章タイトルで記述します。
+- 未確定値は `_UNDECIDED_:` を用い、確定期限を明示します。
+
+### 6.2. 前提/制約/依存の記述
+
+- 「成立条件」「崩壊条件」「監視方法」を明示します。
+- 依存先が外部組織の場合は、合意窓口と SLA/期限を記載します。
+
+推奨表（ACD 登録簿）:
+
+| ID  | 種別 | 内容 | 影響 | 監視方法 | トリガー | 責任者 | 対応方針 |
+| --- | ---- | ---- | ---- | -------- | -------- | ------ | -------- |
+
+### 6.3. 影響評価と対応方針
+
+- 影響は工数、期日、品質、運用への影響で明示します。
+- 対応方針は回避、軽減、受容、移転のいずれかを明示します。
 
 ## 7. 禁止事項
 
-- 実装依存の詳細を記載しない。
-- 判定不能な曖昧語を使わない。
-- 参照元不明の値を断定しない。
+| 項目                   | 理由                         |
+| ---------------------- | ---------------------------- |
+| 種別未分類の記述       | 対応優先度が判断できないため |
+| 影響評価なしの登録     | 変更判断に使えないため       |
+| 責任者なしの対応方針   | 実行されず放置されるため     |
+| トリガーなしの監視項目 | 発火条件が曖昧になるため     |
 
 ## 8. サンプル（最小でも可）
 
-- 参照: `../samples/prj-assumptions-constraints-dependencies-sample.md`
+- 参照: [prj-assumptions-constraints-dependencies-sample.md](../samples/prj-assumptions-constraints-dependencies-sample.md)
 
 ## 9. 生成 AI への指示テンプレート
 
-- 参照: `../instructions/prj-assumptions-constraints-dependencies-instruction.md`
+- 参照: [prj-assumptions-constraints-dependencies-instruction.md](../instructions/prj-assumptions-constraints-dependencies-instruction.md)
