@@ -1,0 +1,101 @@
+openapi: 3.0.3
+info:
+  title: 決済サービスAPI
+  description: |
+    決済サービスとの連携API仕様。
+
+x-spec-meta:
+  id: ifx-api-payment
+  type: api
+  status: draft
+  based_on: []
+
+servers:
+  - url: https://api.payment.example.com
+    description: 本番
+
+paths:
+  /v1/payments:
+    post:
+      operationId: createPayment
+      summary: 決済を作成する
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePaymentRequest"
+      responses:
+        "201":
+          description: 作成成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreatePaymentResponse"
+        "400":
+          description: 入力不正
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: 認証エラー
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: 内部エラー
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+  schemas:
+    CreatePaymentRequest:
+      type: object
+      additionalProperties: false
+      required: [ amount, currency, order_id ]
+      properties:
+        amount:
+          type: integer
+          minimum: 1
+        currency:
+          type: string
+          example: JPY
+        order_id:
+          type: string
+          description: 注文ID（連携元の識別子）
+
+    CreatePaymentResponse:
+      type: object
+      additionalProperties: false
+      required: [ payment_id, status ]
+      properties:
+        payment_id:
+          type: string
+        status:
+          type: string
+          enum: [ PENDING, PAID, FAILED ]
+
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [ code, message ]
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+          description: 任意の追加情報

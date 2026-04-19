@@ -1,0 +1,88 @@
+asyncapi: 2.6.0
+info:
+  title: 在庫変更イベント仕様
+  description: |
+    在庫が変更されたときに発行されるイベント仕様。
+
+x-spec-meta:
+  id: ifx-msg-stock-changed
+  type: message
+  status: draft
+  based_on: []
+
+defaultContentType: application/json
+
+servers:
+  broker:
+    url: mqtt://broker.example.com
+    protocol: mqtt
+    description: メッセージブローカー
+
+channels:
+  inventory.stock.changed:
+    description: 在庫が変更された通知
+    subscribe:
+      message:
+        $ref: "#/components/messages/StockChangedEvent"
+
+components:
+  messages:
+    StockChangedEvent:
+      name: StockChangedEvent
+      title: 在庫変更イベント
+      contentType: application/cloudevents+json
+      payload:
+        $ref: "#/components/schemas/CloudEventStockChanged"
+
+  schemas:
+    CloudEventStockChanged:
+      type: object
+      additionalProperties: false
+      required:
+        - specversion
+        - type
+        - source
+        - id
+        - time
+        - datacontenttype
+        - data
+      properties:
+        specversion:
+          type: string
+          enum: [ "1.0" ]
+        type:
+          type: string
+          example: com.kinuya.stock.changed.v1
+        source:
+          type: string
+          example: /inventory
+        id:
+          type: string
+          description: イベントID
+        time:
+          type: string
+          format: date-time
+        datacontenttype:
+          type: string
+          example: application/json
+        subject:
+          type: string
+          description: 対象識別子（任意）
+          example: product/PROD-0001
+        data:
+          $ref: "#/components/schemas/StockChangedData"
+
+    StockChangedData:
+      type: object
+      additionalProperties: false
+      required: [ product_id, delta, current_quantity ]
+      properties:
+        product_id:
+          type: string
+          description: 商品ID
+        delta:
+          type: integer
+          description: 増減量（減少は負の値）
+        current_quantity:
+          type: integer
+          description: 現在在庫数
