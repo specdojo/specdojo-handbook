@@ -59,7 +59,7 @@ properties:
       properties:
         logical_name:
           type: string
-          pattern: "^[\\p{Script=Hiragana}\\p{Script=Katakana}\\p{Script=Han}A-Za-z0-9]+$"
+          pattern: "^[\\p{L}\\p{N}\\p{Zs}]+$"
 
         physical_name:
           type: string
@@ -99,7 +99,7 @@ properties:
             properties:
               logical_name:
                 type: string
-                pattern: "^[\\p{Script=Hiragana}\\p{Script=Katakana}\\p{Script=Han}A-Za-z0-9]+$"
+                pattern: "^[\\p{L}\\p{N}\\p{Zs}]+$"
 
               physical_name:
                 type: string

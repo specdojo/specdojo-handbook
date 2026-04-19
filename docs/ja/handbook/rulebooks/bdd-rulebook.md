@@ -1,3 +1,10 @@
+---
+id: bdd-rulebook
+type: rulebook
+status: draft
+target_format: yaml
+---
+
 # 業務データ辞書 作成ルール
 
 Business Data Dictionary (BDD) Documentation Rules
@@ -91,152 +98,8 @@ Business Data Dictionary (BDD) Documentation Rules
 
 ## 5. サンプル
 
-```yaml
-id: bdd-main
-type: domain
-title: 業務データ辞書(main)
-status: draft
-supersedes: []
-
-entities:
-  - logical_name: 商品
-    physical_name: product
-    description: 駄菓子屋で販売する個々の商品
-    glossary_term_id: tm-product
-    related_terms: [tm-price, tm-stock]
-    key_fields: [productCode]
-    fields:
-      - logical_name: 商品コード
-        physical_name: productCode
-        glossary_term_id: tm-product-code
-        type: string
-        description: 各商品を一意に識別するコード
-        constraints:
-          required: true
-          unique: true
-        example: 45-14603-32581-2
-      - logical_name: 商品名
-        physical_name: productName
-        type: string
-        glossary_term_id: tm-product-name
-        description: おばあちゃんやお客さんが読める商品名
-        constraints:
-          required: true
-        example: うまか棒 たこ焼き味
-      - logical_name: 価格
-        physical_name: price
-        type: integer
-        glossary_term_id: tm-price
-        description: 商品の販売価格（税抜き）
-        unit: 円
-        constraints:
-          required: true
-        example: 100
-
-  - logical_name: 支払い
-    physical_name: payment
-    description: 顧客からの支払い情報
-    glossary_term_id: tm-payment
-    key_fields: [paymentId]
-    fields:
-      - logical_name: 支払いID
-        physical_name: paymentId
-        type: string
-        glossary_term_id: tm-payment-id
-        description: 支払いを一意に識別するID
-        constraints:
-          required: true
-          unique: true
-        example: PAY-0001
-      - logical_name: 支払ステータス
-        physical_name: paymentStatus
-        type: enum
-        description: 支払い処理の現在状態
-        constraints:
-          required: true
-        allowed_values_detailed:
-          - value: PENDING
-            label: 未処理
-          - value: PAID
-            label: 支払済
-          - value: CANCELED
-            label: 取消
-```
+- 参照: [bdd-sample.yaml](../samples/bdd-sample.yaml)
 
 ## 7. 生成 AI への指示テンプレート
 
-生成 AI に業務データ辞書を作らせるときは、以下のような指示を与える。
-
-> 以下のルールに従って、**YAML形式の業務データ辞書（BDD）を作成**してください。
->
-> ---
->
-> ## **1. ファイル形式**
->
-> - 出力は **YAML形式** とし、余計な文章は書かず、YAML のみを出力してください。
->
-> ## **2. メタデータ**
->
-> 次のメタデータを必ず定義してください。
->
-> ```yaml
-> id: bdd-XXXX # 任意の一意ID（bdd-から始める）
-> type: domain
-> title: 業務データ辞書(XXXX)
-> status: draft
-> supersedes: []
-> ```
->
-> ## **3. 記載ルール（遵守）**
->
-> - **論理名（logical_name）は日本語単数形**で記載すること。
-> - **物理名（physical_name）は lowerCamelCase** で記載すること。
-> - **実装都合の属性（created_at など）は含めない**こと。
-> - 用語集と連動する場合は **glossary_term_id を対応IDで記載**すること。
-> - **キー項目は key_fields に、物理名の配列**で記載すること。
-> - フィールドの型は以下から選択：
->   `integer / string / boolean / date / datetime / enum / money`
-> - enum を使う場合、以下のどちらかの方式で許容値を記述する：
->   - `allowed_values: [A, B, C]`
->   - `allowed_values_detailed:` 形式で `value` / `label` を列挙
->
-> ## **4. エンティティの記述形式（必ずこの構造）**
->
-> ```yaml
-> entities:
->   - logical_name: 〇〇
->     physical_name: 〇〇
->     description: 〇〇（業務的な説明）
->     glossary_term_id: tm-xxxx # 任意
->     related_terms: [tm-xxxx] # 任意
->     key_fields: [primaryKeyField] # 必須。複合キーも可
->     fields:
->       - logical_name: 〇〇
->         physical_name: 〇〇
->         type: string
->         glossary_term_id: tm-xxx # 任意
->         description: 〇〇 # 任意
->         unit: 円 # 任意
->         constraints:
->           required: true
->           unique: true
->         example: サンプル値
-> ```
->
-> ### **5. 出力要件**
->
-> - エンティティ間で名前の衝突や ID の不整合がないよう生成してください。
-> - 物理名・論理名・説明は、業務シナリオに整合する自然な内容にしてください。
->
-> ## **6. 参考**
->
-> - 必要に応じて用語集（glossary）を参照し、glossary_term_id を補完してください。
-> - BDD 作成ルールはこのファイル **bdd-rulebook.md** を参照してください。
->
-> ## **7. 最終出力**
->
-> - 出力は YAML コードブロックのみで、前後や途中に文章を入れないこと。
->
-> **以上のルールに従って、業務データ辞書を生成してください。**
-
-このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[bdd-instruction.md](../instructions/bdd-instruction.md)として別ファイルに保存しています。
+- 参照: [bdd-instruction.md](../instructions/bdd-instruction.md)
