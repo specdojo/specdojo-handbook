@@ -1,8 +1,8 @@
-# 開いている対象の rules を作成/更新（引数指定対応）
+# 開いている rules から sample を作成/更新（引数指定対応）
 
-@file:.github/skills/upsert-rulebook/SKILL.md
+@file:.github/skills/rulebook-to-sample/SKILL.md
 
-`/upsert-rulebook` は、上記 SKILL に定義された手順と実行ルールに従って実行してください。
+`/rulebook-to-sample` は、上記 SKILL に定義された手順と実行ルールに従って実行してください。
 
 ## 入力の扱い
 
@@ -12,7 +12,7 @@
 
 ## 実行方針
 
-- 対象除外、失敗時継続、アップサート方針などの詳細は SKILL の定義を正とする。
+- 対象除外、失敗時継続、アップサート方針、YAML/Markdown の扱い、生成要件の詳細は SKILL の定義を正とする。
 - 処理完了後に `npm run -s lint:md` を実行する。
 
 ## 出力
