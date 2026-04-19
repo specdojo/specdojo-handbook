@@ -5,7 +5,7 @@ const { load } = require('js-yaml')
 const Ajv2020 = require('ajv/dist/2020').default
 
 const DEFAULT_SCHEMAS = {
-  deliverables: 'docs/shared/schemas/deliverables-frontmatter.schema.yaml',
+  deliverables: 'docs/shared/schemas/deliverable-frontmatter.schema.yaml',
   rulebook: 'docs/shared/schemas/rulebook-frontmatter.schema.yaml',
   instruction: 'docs/shared/schemas/instruction-frontmatter.schema.yaml',
 }

@@ -1,5 +1,5 @@
 ---
-id: meta-rulebook-structure-rules
+id: meta-rulebook-structure-rulebook
 type: meta
 status: draft
 ---

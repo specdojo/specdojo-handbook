@@ -3,6 +3,8 @@ title: Deliverables Front Matter
 allOf:
   - $ref: "./common-frontmatter.schema.yaml"
   - type: object
+    required:
+      - rulebook
     properties:
       type:
         type: string
@@ -23,3 +25,6 @@ allOf:
           - operations # 運用要件・設計・手順
           - template # ドキュメントテンプレート
         description: "仕様の種別"
+      rulebook:
+        $ref: "./common-frontmatter.schema.yaml#/$defs/rulebookRef"
+        description: "準拠する rulebook の ID。該当がない場合は none。"

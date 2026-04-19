@@ -76,7 +76,7 @@ flowchart LR
 
 Frontmatter は共通スキーマに従います（あわせてドキュメントのメタ情報の記述ルールも参照）。
 
-- 参照スキーマ: [docs/shared/schemas/deliverables-frontmatter.schema.yaml](../../../shared/schemas/deliverables-frontmatter.schema.yaml)
+- 参照スキーマ: [docs/shared/schemas/deliverable-frontmatter.schema.yaml](../../../shared/schemas/deliverable-frontmatter.schema.yaml)
 - メタ情報ルール: [meta-document-metadata-rulebook.md](meta-document-metadata-rulebook.md)
 
 | 項目       | 説明                               | 必須 |

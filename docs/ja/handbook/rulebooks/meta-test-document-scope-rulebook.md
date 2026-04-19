@@ -1,8 +1,7 @@
 ---
-id: meta-test-document-scope-rules
+id: meta-test-document-scope-rulebook
 type: meta
 status: draft
-
 ---
 
 # テストドキュメントスコープ定義ルール

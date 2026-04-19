@@ -1,5 +1,5 @@
 ---
-id: meta-id-and-file-naming-rules
+id: meta-id-and-file-naming-rulebook
 type: meta
 status: draft
 ---
