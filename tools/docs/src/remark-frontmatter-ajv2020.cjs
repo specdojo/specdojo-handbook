@@ -8,7 +8,16 @@ const DEFAULT_SCHEMAS = {
   deliverables: 'docs/shared/schemas/deliverable-frontmatter.schema.yaml',
   rulebook: 'docs/shared/schemas/rulebook-frontmatter.schema.yaml',
   instruction: 'docs/shared/schemas/instruction-frontmatter.schema.yaml',
+  guide: 'docs/shared/schemas/guide-frontmatter.schema.yaml',
 }
+
+const DEFAULT_SCHEMA_RULES = [
+  { startsWith: 'docs/ja/handbook/rulebooks/', schema: 'rulebook' },
+  { startsWith: 'docs/ja/handbook/instructions/', schema: 'instruction' },
+  { startsWith: 'docs/ja/handbook/guidelines/', schema: 'guide' },
+  { endsWith: '.md', schema: 'deliverables' },
+  { endsWith: '.mdx', schema: 'deliverables' },
+]
 
 const validatorCache = new Map()
 
@@ -32,18 +41,98 @@ function findKeyLine(frontmatterBody, key) {
   return index >= 0 ? index + 2 : 2
 }
 
-function selectSchemaPath(relativePath, schemas) {
+function toArray(value) {
+  if (value == null) return []
+  return Array.isArray(value) ? value : [value]
+}
+
+function globToRegExp(globPattern) {
+  const pattern = toPosix(String(globPattern || ''))
+  let source = '^'
+  for (let i = 0; i < pattern.length; i += 1) {
+    const ch = pattern[i]
+    const next = pattern[i + 1]
+    const next2 = pattern[i + 2]
+    if (ch === '*' && next === '*' && next2 === '/') {
+      source += '(?:.*/)?'
+      i += 2
+      continue
+    }
+    if (ch === '*' && next === '*') {
+      source += '.*'
+      i += 1
+      continue
+    }
+    if (ch === '*') {
+      source += '[^/]*'
+      continue
+    }
+    if (ch === '?') {
+      source += '[^/]'
+      continue
+    }
+    source += escapeRegExp(ch)
+  }
+  source += '$'
+  return new RegExp(source)
+}
+
+function normalizeYamlSchemas(yamlSchemas) {
+  if (!yamlSchemas || typeof yamlSchemas !== 'object' || Array.isArray(yamlSchemas)) {
+    return []
+  }
+
+  const rules = []
+  for (const [schemaPath, patterns] of Object.entries(yamlSchemas)) {
+    for (const pattern of toArray(patterns)) {
+      rules.push({ glob: String(pattern), schema: String(schemaPath) })
+    }
+  }
+  return rules
+}
+
+function ruleMatches(filePath, rule) {
+  const globs = toArray(rule.glob)
+  const startsWith = toArray(rule.startsWith)
+  const endsWith = toArray(rule.endsWith)
+  const includes = toArray(rule.includes)
+
+  if (globs.length) {
+    const matched = globs.some(glob => globToRegExp(glob).test(filePath))
+    if (!matched) return false
+  }
+
+  if (startsWith.length && !startsWith.some(prefix => filePath.startsWith(String(prefix)))) {
+    return false
+  }
+  if (endsWith.length && !endsWith.some(suffix => filePath.endsWith(String(suffix)))) {
+    return false
+  }
+  if (includes.length && !includes.some(part => filePath.includes(String(part)))) {
+    return false
+  }
+  if (rule.regex != null) {
+    const re = new RegExp(String(rule.regex))
+    if (!re.test(filePath)) return false
+  }
+  return true
+}
+
+function resolveSchemaPath(schemaRef, schemas) {
+  if (typeof schemaRef !== 'string' || !schemaRef) return null
+  return schemas[schemaRef] || schemaRef
+}
+
+function selectSchemaPath(relativePath, schemas, schemaRules) {
   const filePath = toPosix(relativePath || '')
-  if (!filePath.startsWith('docs/')) return null
-  if (filePath.startsWith('docs/ja/handbook/rulebooks/')) {
-    return schemas.rulebook
+
+  for (const rule of schemaRules) {
+    if (!rule || typeof rule !== 'object') continue
+    if (!ruleMatches(filePath, rule)) continue
+    const path = resolveSchemaPath(rule.schema, schemas)
+    if (path) return path
   }
-  if (filePath.startsWith('docs/ja/handbook/instructions/')) {
-    return schemas.instruction
-  }
-  if (filePath.endsWith('.md') || filePath.endsWith('.mdx')) {
-    return schemas.deliverables
-  }
+
   return null
 }
 
@@ -94,12 +183,19 @@ module.exports = function remarkFrontmatterAjv2020(options = {}) {
       ? { deliverables: optionSchemas.spec }
       : {}),
   }
+  const yamlSchemasOption = options.yamlSchemas || options['yaml.schemas']
+  const yamlSchemaRules = normalizeYamlSchemas(yamlSchemasOption)
+  const schemaRules = Array.isArray(options.schemaRules)
+    ? options.schemaRules
+    : yamlSchemaRules.length
+      ? yamlSchemaRules
+      : DEFAULT_SCHEMA_RULES
 
   return function transformer(tree, file) {
     const workspaceRoot = options.workspaceRoot || process.cwd()
     const currentPath = file.path ? path.resolve(String(file.path)) : ''
     const relativePath = currentPath ? toPosix(path.relative(workspaceRoot, currentPath)) : ''
-    const schemaPath = selectSchemaPath(relativePath, schemas)
+    const schemaPath = selectSchemaPath(relativePath, schemas, schemaRules)
     if (!schemaPath) return
 
     const source = String(file.value || '')
