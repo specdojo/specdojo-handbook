@@ -1,0 +1,13 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Guide Front Matter
+type: object
+unevaluatedProperties: false
+allOf:
+  - $ref: "./common-frontmatter.schema.yaml"
+  - type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - guide
+        description: "ドキュメント種別（guide）"

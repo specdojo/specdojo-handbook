@@ -2,6 +2,7 @@
 id: prj-0001-deliverables-catalog
 type: project
 status: draft
+rulebook: prj-deliverables-catalog-rulebook
 ---
 
 # 成果物カタログ
@@ -30,11 +31,11 @@ Project Deliverables Catalog
 
 - 配置先: `docs/ja/projects/prj-0001/020-project-scope`
 
-| name                                  | 成果物名             | 概要                                             |
-| ------------------------------------- | -------------------- | ------------------------------------------------ |
-| `prj-scope`                           | プロジェクトスコープ | プロジェクトの対象範囲と除外範囲を定義           |
-| `prj-success-and-acceptance-criteria` | 成功基準と受入条件   | プロジェクト成功の判定基準と受入条件を明確化     |
-| `prj-deliverables-catalog`            | 成果物カタログ       | プロジェクト成果物の一覧と説明（本ドキュメント） |
+| name                                           | 成果物名             | 概要                                             |
+| ---------------------------------------------- | -------------------- | ------------------------------------------------ |
+| `prj-scope`                                    | プロジェクトスコープ | プロジェクトの対象範囲と除外範囲を定義           |
+| `prj-success-criteria-and-acceptance-criteria` | 成功基準と受入条件   | プロジェクト成功の判定基準と受入条件を明確化     |
+| `prj-deliverables-catalog`                     | 成果物カタログ       | プロジェクト成果物の一覧と説明（本ドキュメント） |
 
 ### 1.3. プロジェクト課題と解決アプローチ
 
