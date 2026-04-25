@@ -173,8 +173,9 @@ docs/
 │   │   ├── prj-0001/                             # プロジェクト（ID）
 │   │   │   ├── 010-project-definition/           # プロジェクト定義
 │   │   │   │   ├── prj-overview.md               # プロジェクト概要
-│   │   │   │   ├── prj-charter.md                # プロジェクト憲章
 │   │   │   │   ├── prj-stakeholder-register.md   # ステークホルダー登録簿
+│   │   │   │   ├── prj-charter.md                # プロジェクト憲章
+│   │   │   │   ├── prj-definition-strategy.md # プロジェクト定義戦略
 │   │   │   │   ├── prj-scope.md                  # プロジェクトスコープ
 │   │   │   │   ├── prj-success-criteria-and-acceptance-criteria.md # 成功基準と受入条件
 │   │   │   │   ├── prj-deliverables-catalog.md   # 成果物カタログ
@@ -212,7 +213,7 @@ docs/
 │   │   │   │   │   ├── pm-quality-management-plan.md　# 品質管理計画
 │   │   │   │   │   ├── pm-organization-and-raci.md　# 組織体制とRACI
 │   │   │   │   │   ├── pm-wbs-decomposition-strategy.md　# WBS分解戦略
-│   │   │   │   │   └── pm-wbs-to-schedule-strategy.md　# WBSからスケジュールへの戦略
+│   │   │   │   │   └── pm-wbs-to-schedule-strategy.md　# WBSからスケジュールへの変換戦略
 │   │   │   │   │
 │   │   │   │   ├── 020-controls/                 # 管理台帳・管理ビュー
 │   │   │   │   │   ├── 010-project-register/     # 統合管理台帳（正本）
@@ -232,11 +233,13 @@ docs/
 │   │   │   │   │       └── pm-decision-log.md    # type=decision の抽出ビュー
 │   │   │   │   │
 │   │   │   │   ├── 030-wbs/                      # WBS
+│   │   │   │   │   ├── wbs-definition-phase.yaml # 成果物カタログ作成までの暫定WBS
 │   │   │   │   │   ├── wbs-auth.yaml             # WBS定義（認証）
 │   │   │   │   │   ├── wbs-payment.yaml          # WBS定義（決済）
 │   │   │   │   │   └── wbs-infra.yaml            # WBS定義（インフラ）
 │   │   │   │   │
 │   │   │   │   ├── 040-schedule/                 # スケジュール
+│   │   │   │   │   ├── sch-definition-phase.yaml # 成果物カタログ作成までの暫定スケジュール
 │   │   │   │   │   ├── sch-milestones.yaml       # マイルストーン定義
 │   │   │   │   │   ├── sch-auth.yaml             # スケジュール定義（認証）
 │   │   │   │   │   ├── sch-auth-api.yaml         # スケジュール定義（認証API）
@@ -353,37 +356,43 @@ docs/
 
 ## 6. プロジェクトドキュメントの依存関係
 
+ここで示す依存関係は、主に作成順・検討順を表します。
+Frontmatter の `based_on` は、各文書を作成する際に直接根拠として参照した文書のみを記載するため、本図のすべての矢印を `based_on` に反映する必要はありません。
+
 ### 6.1. 成果物カタログを中心としたドキュメント依存関係
 
-成果物カタログ（`prj-deliverables-catalog`）をプロジェクト定義フェーズの出口とし、管理計画・WBS・プロダクト変更・実行管理への入口と位置づける。
+成果物カタログ（`prj-deliverables-catalog`）をプロジェクト定義フェーズの出口とし、管理計画・WBS・プロダクト変更・実行管理への入口と位置づけます。
 
 - **prj-deliverables-catalog 以前**: 何を実現するか、何を作るべきかを決める
 - **prj-deliverables-catalog 以後**: 決めた成果物を、どう作り、どう管理し、どう実行するかを決める
 
 ```mermaid
 flowchart TD
-  subgraph A["A. 成果物カタログ定義"]
+  subgraph A["A. 成果物カタログ定義まで"]
     A1["prj-overview<br/>プロジェクト概要"]
-    A2["prj-stakeholder-register<br/>ステークホルダー登録"]
+    A2["prj-stakeholder-register<br/>ステークホルダー登録簿"]
     A3["prj-charter<br/>プロジェクト憲章<br/>（立ち上げ認可）"]
-    A4["prj-scope<br/>スコープ"]
-    A5["prj-success-criteria-and-acceptance-criteria<br/>成功基準と受入基準"]
-    A6["prj-assumptions-constraints-dependencies<br/>前提条件・制約・依存関係"]
-    A7["prj-issues-and-approach<br/>課題とアプローチ"]
-    A8["prj-comparison-of-alternatives<br/>代替案の比較<br/>（必要時）"]
+    A4["prj-definition-strategy<br/>プロジェクト定義方針"]
+    A5["暫定WBS<br/>wbs-definition-phase.yaml"]
+    A6["暫定スケジュール<br/>sch-definition-phase.yaml"]
 
-    A9["020-product-change<br/>プロダクト変更<br/>構成方針"]
-    A10["030-project-management<br/>プロジェクトマネジメント<br/>構成方針"]
+    A7["prj-scope<br/>スコープ"]
+    A8["prj-success-criteria-and-acceptance-criteria<br/>成功基準と受入条件"]
+    A9["prj-assumptions-constraints-dependencies<br/>前提・制約・依存関係"]
+    A10["prj-issues-and-approach<br/>課題とアプローチ"]
+    A11["prj-comparison-of-alternatives<br/>代替案の比較<br/>（必要時）"]
 
-    A11["prj-deliverables-catalog<br/>成果物カタログ<br/>（プロジェクト定義の出口）"]
+    A12["prj-deliverables-catalog<br/>成果物カタログ<br/>（プロジェクト定義の出口）"]
   end
 
   subgraph B["B. 成果物カタログ定義以降"]
-    B1["pm-plan<br/>プロジェクトマネジメント計画"]
-    B2["pm-* sub plans<br/>サブ計画"]
-    B3["WBS / Schedule<br/>WBS / スケジュール"]
-    B4["product-change<br/>成果物の詳細作成"]
-    B5["execution / reporting / controls<br/>実行 / 報告 / 管理"]
+    B1["pm-plan<br/>プロジェクト管理計画"]
+    B2["pm-* sub plans<br/>コミュニケーション / 品質 / RACI"]
+    B3["pm-wbs-decomposition-strategy<br/>WBS分解戦略"]
+    B4["pm-wbs-to-schedule-strategy<br/>WBSからスケジュールへの変換戦略"]
+    B5["正式WBS / 正式スケジュール<br/>wbs-&lt;domain&gt;.yaml / sch-&lt;domain&gt;.yaml"]
+    B6["execution / reporting / controls<br/>実行 / 報告 / 管理"]
+    B7["成果物<br/>(product-change含む, delivery-catalogに定義されたもの)"]
   end
 
   A1 --> A2
@@ -392,97 +401,47 @@ flowchart TD
 
   A3 --> A4
   A4 --> A5
-  A4 --> A6
-  A4 --> A7
+  A5 --> A6
+
   A6 --> A7
-  A7 --> A8
-
-  A4 --> A9
-  A5 --> A9
+  A6 --> A8
   A6 --> A9
-  A7 --> A9
-
-  A4 --> A10
-  A5 --> A10
   A6 --> A10
-
-  A9 --> A11
-  A10 --> A11
-  A5 --> A11
   A6 --> A11
-  A7 --> A11
-  A8 --> A11
 
-  A11 --> B1
-  A11 --> B3
-  A11 --> B4
+  A7 --> A8
+  A7 --> A9
+  A7 --> A10
+  A9 --> A10
+  A10 --> A11
+
+  A4 --> A12
+  A7 --> A12
+  A8 --> A12
+  A9 --> A12
+  A10 --> A12
+  A11 --> A12
+
+  A12 --> B1
+  A12 --> B3
 
   B1 --> B2
-  B2 --> B3
-  B3 --> B5
+  B1 --> B3
+  B3 --> B4
   B4 --> B5
+  B5 --> B6
+  B6 --> B7
 
   classDef projectWise fill:#fff3bf,stroke:#f08c00,color:#000;
-  class A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11 projectWise;
-  class B1,B2,B3,B4,B5 projectWise;
+  class A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13 projectWise;
+  class B1,B2,B3,B4,B5,B6 projectWise;
 ```
 
-プロダクト変更（`020-product-change`）とプロジェクトマネジメント（`030-project-management`）の構成方針は、プロジェクト定義フェーズの出口で決定し、構成要素を成果物カタログに登録する。
+プロダクト変更（`020-product-change`）とプロジェクトマネジメント（`030-project-management`）の構成要素は、`prj-definition-strategy` で方針を定義し、成果物カタログに登録します。
 
-### 6.2. 成果物カタログを作成するまでのプロジェクト管理
+成果物カタログには、プロジェクト定義文書、プロダクト変更成果物、プロジェクトマネジメント成果物、生成成果物を含めます。
 
-- **成果物カタログ前**: 暫定WBS・暫定スケジュールで定義作業を管理する
-  - `wbs-definition-phase.yaml`
-  - `sch-definition-phase.yaml`
-- **成果物カタログ後**: 成果物カタログを入力に正式WBS・正式スケジュールを作成する
-  - `wbs-<domain>.yaml`
-  - `sch-<domain>.yaml`
+成果物カタログを作成するまでのプロジェクト管理については、暫定WBS・暫定スケジュールで管理します。成果物カタログを作成した後は、成果物カタログを入力として、プロジェクト管理計画、正式WBS、正式スケジュールを作成して管理します。
 
-```mermaid
-flowchart TD
-  POV["prj-overview<br/>プロジェクト概要"]
-  SHR["prj-stakeholder-register<br/>ステークホルダー登録"]
-  PCH["prj-charter<br/>プロジェクト憲章<br/>（立ち上げ認可）"]
-
-  TWBS["暫定WBS<br/>wbs-definition-phase.yaml"]
-  TSCH["暫定スケジュール<br/>sch-definition-phase.yaml"]
-
-  PSC["prj-scope<br/>スコープ"]
-  SCA["prj-success-criteria-and-acceptance-criteria<br/>成功基準と受入基準"]
-  ACD["prj-assumptions-constraints-dependencies<br/>前提条件・制約・依存関係"]
-  PIA["prj-issues-and-approach<br/>課題とアプローチ"]
-  COA["prj-comparison-of-alternatives<br/>代替案の比較<br/>（必要時）"]
-  DVC["prj-deliverables-catalog<br/>成果物カタログ<br/>（プロジェクト定義の出口）"]
-
-  PMP["pm-plan<br/>本格実行計画"]
-  FWBS["正式WBS<br/>wbs-*.yaml"]
-  FSCH["正式スケジュール<br/>sch-*.yaml"]
-
-  POV --> SHR
-  POV --> PCH
-  SHR --> PCH
-
-  PCH --> TWBS
-  TWBS --> TSCH
-
-  TSCH --> PSC
-  TSCH --> SCA
-  TSCH --> ACD
-  TSCH --> PIA
-  TSCH --> COA
-  TSCH --> DVC
-
-  PSC --> DVC
-  SCA --> DVC
-  ACD --> DVC
-  PIA --> DVC
-  COA --> DVC
-
-  DVC --> PMP
-  PMP --> FWBS
-  DVC --> FWBS
-  FWBS --> FSCH
-
-  classDef projectWise fill:#fff3bf,stroke:#f08c00,color:#000;
-  class POV,SHR,PCH,TWBS,TSCH,PSC,SCA,ACD,PIA,COA,DVC　projectWise;
-```
+- **成果物カタログ前**: `wbs-definition-phase.yaml`, `sch-definition-phase.yaml`
+- **成果物カタログ後**: `wbs-<domain>.yaml`, `sch-<domain>.yaml`
