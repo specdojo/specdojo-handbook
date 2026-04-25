@@ -28,15 +28,15 @@ supersedes: []
 
 本書により、次のプロジェクトを正式に開始する。
 
-| 項目                 | 内容                                                                                                                    |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| プロジェクト名       | SpecDojo Handbook                                                                                                       |
-| プロジェクトID       | prj-0001                                                                                                                |
-| 認可対象             | SpecDojo Handbook の整備および運用確立                                                                                  |
-| プロジェクト概要     | [prj-overview.md](./prj-overview.md)                                                                                    |
-| プロジェクトスコープ | [prj-scope.md](../020-project-scope/prj-scope.md)                                                                       |
-| 成功基準・受入条件   | [prj-success-criteria-and-acceptance-criteria.md](../020-project-scope/prj-success-criteria-and-acceptance-criteria.md) |
-| 成果物カタログ       | [prj-deliverables-catalog.md](../020-project-scope/prj-deliverables-catalog.md)                                         |
+| 項目                 | 内容                                                                                                 |
+| -------------------- | ---------------------------------------------------------------------------------------------------- |
+| プロジェクト名       | SpecDojo Handbook                                                                                    |
+| プロジェクトID       | prj-0001                                                                                             |
+| 認可対象             | SpecDojo Handbook の整備および運用確立                                                               |
+| プロジェクト概要     | [prj-overview.md](./prj-overview.md)                                                                 |
+| プロジェクトスコープ | [prj-scope.md](./prj-scope.md)                                                                       |
+| 成功基準・受入条件   | [prj-success-criteria-and-acceptance-criteria.md](./prj-success-criteria-and-acceptance-criteria.md) |
+| 成果物カタログ       | [prj-deliverables-catalog.md](./prj-deliverables-catalog.md)                                         |
 
 ## 3. プロジェクトの目的
 
@@ -48,7 +48,7 @@ supersedes: []
 
 ## 4. プロジェクトの対象範囲
 
-本プロジェクトの対象範囲は [prj-scope.md](../020-project-scope/prj-scope.md) を正とする。
+本プロジェクトの対象範囲は [prj-scope.md](./prj-scope.md) を正とする。
 
 本憲章では、次の範囲を承認対象とする。
 
@@ -58,11 +58,11 @@ supersedes: []
 - 文書品質を維持するための運用ルールの整備
 - 変更管理に伴う関連文書の更新ルールの整備
 
-対象外の詳細は [prj-scope.md](../020-project-scope/prj-scope.md) に定義する。
+対象外の詳細は [prj-scope.md](./prj-scope.md) に定義する。
 
 ## 5. 成功基準
 
-本プロジェクトの成功基準および受入条件は、[prj-success-criteria-and-acceptance-criteria.md](../020-project-scope/prj-success-criteria-and-acceptance-criteria.md) を正とする。
+本プロジェクトの成功基準および受入条件は、[prj-success-criteria-and-acceptance-criteria.md](./prj-success-criteria-and-acceptance-criteria.md) を正とする。
 
 本憲章では、次の観点を成功判定の対象として承認する。
 
@@ -72,11 +72,11 @@ supersedes: []
 - 変更時に関連文書を追跡・更新できること
 - プロジェクトで定めた受入条件を満たしていること
 
-具体的な指標、目標値、判定方法、承認者は [prj-success-criteria-and-acceptance-criteria.md](../020-project-scope/prj-success-criteria-and-acceptance-criteria.md) に定義する。
+具体的な指標、目標値、判定方法、承認者は [prj-success-criteria-and-acceptance-criteria.md](./prj-success-criteria-and-acceptance-criteria.md) に定義する。
 
 ## 6. 主要成果物
 
-本プロジェクトの主要成果物は [prj-deliverables-catalog.md](../020-project-scope/prj-deliverables-catalog.md) を正とする。
+本プロジェクトの主要成果物は [prj-deliverables-catalog.md](./prj-deliverables-catalog.md) を正とする。
 
 本憲章では、次の成果物群を整備対象として承認する。
 
@@ -88,11 +88,11 @@ supersedes: []
 - 決定記録
 - 文書ルール、テンプレート、サンプル、AI 向け指示
 
-成果物の一覧、配置、生成元、派生関係は [prj-deliverables-catalog.md](../020-project-scope/prj-deliverables-catalog.md) に定義する。
+成果物の一覧、配置、生成元、派生関係は [prj-deliverables-catalog.md](./prj-deliverables-catalog.md) に定義する。
 
 ## 7. 体制と責任
 
-プロジェクトの体制、役割、責任分担は [pm-organization-and-raci.md](../040-project-management/010-management-plan/pm-organization-and-raci.md) を正とする。
+プロジェクトの体制、役割、責任分担は [pm-organization-and-raci.md](../030-project-management/010-management-plan/pm-organization-and-raci.md) を正とする。
 
 本憲章では、次の役割をプロジェクト開始時点の主要役割として定める。
 
@@ -123,17 +123,17 @@ supersedes: []
 - 成功基準または受入条件の変更
 - 予算、納期、体制に大きな影響を与える変更
 
-変更管理の詳細は [pm-plan.md](../040-project-management/010-management-plan/pm-plan.md) および [pm-change-request-log.md](../040-project-management/020-controls/pm-change-request-log.md) に従う。
+変更管理の詳細は [pm-plan.md](../030-project-management/010-management-plan/pm-plan.md) および [pm-change-request-log.md](../030-project-management/020-controls/generated/pm-change-request-log.md) に従う。
 
 ## 9. 前提・制約・依存関係
 
-プロジェクトの前提、制約、依存関係は [prj-assumptions-constraints-dependencies.md](../030-project-issues-and-approach/prj-assumptions-constraints-dependencies.md) を正とする。
+プロジェクトの前提、制約、依存関係は [prj-assumptions-constraints-dependencies.md](./prj-assumptions-constraints-dependencies.md) を正とする。
 
 本憲章では、同文書に定義された前提、制約、依存関係を受け入れたうえで、プロジェクト開始を承認する。
 
 ## 10. 管理方針
 
-プロジェクトの管理方針は [pm-plan.md](../040-project-management/010-management-plan/pm-plan.md) を正とする。
+プロジェクトの管理方針は [pm-plan.md](../030-project-management/010-management-plan/pm-plan.md) を正とする。
 
 進捗管理、品質管理、リスク管理、課題管理、変更管理、コミュニケーション管理は、関連するプロジェクトマネジメント文書に従って実施する。
 
