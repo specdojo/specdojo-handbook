@@ -1,62 +1,48 @@
 ---
-id: prj-0001-pm-wbs-decomposition-strategy
+id: prj-0001:pm-wbs-decomposition-strategy
 type: project
 status: draft
+rulebook: pm-wbs-decomposition-strategy-rulebook
 ---
 
 # WBS分解戦略
 
 WBS Decomposition Strategy
 
-本ドキュメントは、`prj-deliverables-catalog.md` に定義した成果物を `030-wbs/` 配下の WBS 定義へ落とし込む際の分解粒度、ファイル分割方針、`id` 命名規則、記述ルールを定義します。
+本ドキュメントは、`dct-index`, `dct-<category>` に定義した成果物を `030-wbs/` 配下の WBS 定義へ落とし込む際の分解粒度、ファイル分割方針、`id` 命名規則、記述ルールを定義します。
 
-## 1. 目的と適用範囲
+## 1. 前提
 
-- 対象は `docs/ja/projects/prj-0001` の成果物カタログと WBS 定義ファイルです。
-- 本戦略は `030-wbs/` 配下の各 `wbs-<scope>.yaml` に適用します。
+- 入力は `docs/ja/projects/prj-0001/010-deliverables-catalog/` 以下の成果物カタログです。
+- 出力は `docs/ja/projects/prj-0001/030-project-management/030-wbs/` 以下の WBS 定義ファイル `wbs-<category>.yaml` です。
+- WBS定義ファイルのyamlのスキーマは `docs/shared/schemas/wbs.schema.yaml` に従います。
 - WBS は **WHAT（何を作るか）** を定義する成果物定義であり、実行順序・依存・日程は本戦略の対象外とします。
-- 実行計画（Schedule）への展開は `pm-wbs-to-schedule-strategy.md` を参照します。
 
 ## 2. 基本方針
 
-| 観点             | 方針                                                                  |
-| ---------------- | --------------------------------------------------------------------- |
-| 分解基準         | `1 WBS Item = 1 完了判定を共有する成果物ファミリー` を基本とする      |
-| 対象範囲         | 成果物カタログで「WBSへの落とし込み対象外」と明示した成果物は除外する |
-| トレーサビリティ | 各 WBS Item は成果物カタログの対象行または対象グループに対応づける    |
-| 安定性           | `id` は人が読める略号を使い、途中で意味なく変更しない                 |
-| 判定可能性       | `done_criteria` はレビューで完了可否を判定できる文章にする            |
-| 役割分担         | WBS は成果物スコープと完了定義を記述し、実行計画は別戦略で扱う        |
+| 観点             | 方針                                                               |
+| ---------------- | ------------------------------------------------------------------ |
+| 分解基準         | `1 WBS Item = 1 完了判定を共有する成果物ファミリー` を基本とする   |
+| 対象範囲         | 成果物カタログで`種別`が`work`のものを対象とする                   |
+| トレーサビリティ | 各 WBS Item は成果物カタログの対象行または対象グループに対応づける |
+| 安定性           | `id` は人が読める略号を使い、途中で意味なく変更しない              |
+| 判定可能性       | `done_criteria` はレビューで完了可否を判定できる文章にする         |
+| 役割分担         | WBS は成果物スコープと完了定義を記述し、実行計画は別戦略で扱う     |
 
 ## 3. WBS ファイルへの振り分け方針
 
-成果物カタログのドメインに一対一で対応するため、WBS は次の単位でファイル分割します。
+成果物カタログの`カテゴリ`に一対一で対応するため、WBS は次の単位でファイル分割します。
 
-| 成果物カタログ上のドメイン | WBS ファイル                   | `id` のドメイン略号 | 分割方針                                                   |
-| -------------------------- | ------------------------------ | ------------------- | ---------------------------------------------------------- |
-| `project`                  | `wbs-project.yaml`             | `PRJ`               | プロジェクト管理成果物をドメイン単位で管理する             |
-| `agent-customization`      | `wbs-agent-customization.yaml` | `AGT`               | instructions / skills / prompts などの運用セットを管理する |
-| `project-docs`             | `wbs-project-docs.yaml`        | `PJD`               | プロジェクト文書ルールと派生成果物をドメイン単位で管理する |
-| `product-docs`             | `wbs-product-docs.yaml`        | `PDT`               | プロダクト文書ルールと派生成果物をドメイン単位で管理する   |
-
-### 3.1. WBS への落とし込み対象外
-
-成果物カタログで「WBSへの落とし込み対象外」と明示した次の成果物は、本戦略の対象外とします。
-
-- 管理台帳: `pm-risk-register`, `pm-issue-log`, `pm-change-request-log`
-- レポート: `pr-yyyy-mm-dd`, `mm-yyyy-mm-dd`
-- 実行管理: `exec/`, `generated/`
-- 決定記録: `dec-<NNNN>-<topic>`
-
-これらを WBS 管理対象へ変更する場合は、成果物カタログ側の定義を先に更新したうえで本戦略へ反映します。
+| 成果物カタログ上のカテゴリ | カテゴリ略号 | WBS ファイル                  |
+| -------------------------- | ------------ | ----------------------------- |
+| `project-management`       | `PRM`        | `wbs-project-management.yaml` |
+| `project-definition`       | `PRD`        | `wbs-project-definition.yaml` |
 
 ## 4. WBS 粒度ルール
 
 ### 4.1. 基本粒度
 
 - 基本単位は **単一ファイル** ではなく、**同じ完了条件でレビュー・承認できる成果物ファミリー** とします。
-- `rules` / `instruction` / `sample` の 3 点が常に一体で更新される場合は、**1 WBS Item にまとめる** ことを推奨します。
-- Markdown 本文と Mermaid 図のように、整合した 1 セットとして管理すべきものも **1 WBS Item** とします。
 
 ### 4.2. 分割する条件
 
@@ -75,15 +61,6 @@ WBS Decomposition Strategy
 2. 常に同じライフサイクルで更新される
 3. 1 つの成果物群として利用者が理解する方が自然である
 
-例:
-
-| 対象                                                    | 推奨                                         |
-| ------------------------------------------------------- | -------------------------------------------- |
-| `bps-rulebook.md` / `bps-instruction.md` / `bps-sample.md` | 1 Item にまとめる                            |
-| `cxd` と `cxd-mermaid`                                  | 1 Item にまとめる                            |
-| `cld` / `stsd` / `sld`                                  | リファレンスデータ群として 1 Item にまとめる |
-| 独立した受入条件とテスト計画                            | 別 Item に分割する                           |
-
 ## 5. `id` 命名規則
 
 ### 5.1. 基本形式
@@ -91,7 +68,7 @@ WBS Decomposition Strategy
 `id` は次の形式を基本とします。
 
 ```text
-WBS-<DOMAIN>-<ARTIFACT>-<NNNN>
+WBS-<CATEGORY>-<ARTIFACT>-<NNNN>
 ```
 
 例:
@@ -102,15 +79,6 @@ WBS-PDT-IFX-0020
 WBS-PDT-NFR-0030
 WBS-PJD-PRJ-0010
 ```
-
-### 5.2. ドメイン略号
-
-| 略号  | 意味                |
-| ----- | ------------------- |
-| `PRJ` | Project             |
-| `AGT` | Agent Customization |
-| `PJD` | Project Docs        |
-| `PDT` | Product Docs        |
 
 ### 5.3. ARTIFACT の決め方
 
@@ -151,14 +119,13 @@ BPS を作成する
 
 ## 7. 成果物カタログから WBS への落とし込み手順
 
-1. `030-prj-deliverables-catalog.md` から対象の成果物または成果物群を特定する
-2. 成果物カタログで「WBSへの落とし込み対象外」と明示された成果物を除外する
-3. 既存の `wbs-<scope>.yaml` に同じファミリーがあるか確認する
-4. 新規 Item とするか、既存 Item に統合するかを判断する
-5. `WBS-<DOMAIN>-<ARTIFACT>-<NNNN>` 形式で `id` を付与する
-6. `deliverables` に実ファイルパスを列挙する
-7. `done_criteria` を成果物レビュー観点で記述する
-8. 実行計画が必要な場合は `pm-wbs-to-schedule-strategy.md` に従って別途タスク化する
+1. `docs/ja/projects/prj-0001/010-deliverables-catalog/dct-index.md`, `docs/ja/projects/prj-0001/010-deliverables-catalog/dct-<category>.md`
+   から`種別`が`work`のものを対象の成果物または成果物群としてピックアップする
+2. 既存の `wbs-<scope>.yaml` に同じファミリーがあるか確認する
+3. 新規 Item とするか、既存 Item に統合するかを判断する
+4. `WBS-<CATEGORY>-<ARTIFACT>-<NNNN>` 形式で `id` を付与する
+5. `deliverables` に実ファイルパスを列挙する
+6. `done_criteria` を成果物レビュー観点で記述する
 
 ## 8. 具体例
 
