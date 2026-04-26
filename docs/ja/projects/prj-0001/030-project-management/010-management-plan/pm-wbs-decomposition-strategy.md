@@ -9,143 +9,311 @@ rulebook: pm-wbs-decomposition-strategy-rulebook
 
 WBS Decomposition Strategy
 
-本ドキュメントは、`dct-index`, `dct-<category>` に定義した成果物を `030-wbs/` 配下の WBS 定義へ落とし込む際の分解粒度、ファイル分割方針、`id` 命名規則、記述ルールを定義します。
+本ドキュメントは、成果物カタログに定義した成果物を WBS 定義へ落とし込む際の分解粒度、ファイル分割方針、`id` 命名規則、記述ルールを定義します。
 
 ## 1. 前提
 
 - 入力は `docs/ja/projects/prj-0001/010-deliverables-catalog/` 以下の成果物カタログです。
-- 出力は `docs/ja/projects/prj-0001/030-project-management/030-wbs/` 以下の WBS 定義ファイル `wbs-<category>.yaml` です。
-- WBS定義ファイルのyamlのスキーマは `docs/shared/schemas/wbs.schema.yaml` に従います。
-- WBS は **WHAT（何を作るか）** を定義する成果物定義であり、実行順序・依存・日程は本戦略の対象外とします。
+- 出力は `docs/ja/projects/prj-0001/030-project-management/030-wbs/` 以下の `wbs-<domain>.yaml` です。
+- WBS 定義ファイルは `docs/shared/schemas/wbs.schema.yaml` に従います。
+- WBS は **WHAT（何を作るか）** と **完了条件** を定義します。
+- 実行順序、依存関係、日程、フェーズ、実行回は、スケジュールまたは実行管理で扱います。
 
 ## 2. 基本方針
 
-| 観点             | 方針                                                               |
-| ---------------- | ------------------------------------------------------------------ |
-| 分解基準         | `1 WBS Item = 1 完了判定を共有する成果物ファミリー` を基本とする   |
-| 対象範囲         | 成果物カタログで`種別`が`work`のものを対象とする                   |
-| トレーサビリティ | 各 WBS Item は成果物カタログの対象行または対象グループに対応づける |
-| 安定性           | `id` は人が読める略号を使い、途中で意味なく変更しない              |
-| 判定可能性       | `done_criteria` はレビューで完了可否を判定できる文章にする         |
-| 役割分担         | WBS は成果物スコープと完了定義を記述し、実行計画は別戦略で扱う     |
+| 観点             | 方針                                                       |
+| ---------------- | ---------------------------------------------------------- |
+| 分解基準         | `1 WBS Item = 1 成果物` を基本とする                       |
+| 対象範囲         | 成果物カタログで `種別` が `work` のもの                   |
+| トレーサビリティ | WBS Item は成果物カタログの 1 成果物に対応づける           |
+| 安定性           | `id` は意味なく変更しない                                  |
+| 判定可能性       | `done_criteria` はレビューで完了可否を判定できる文章にする |
+| 役割分担         | WBS は成果物スコープと完了定義に限定する                   |
 
-## 3. WBS ファイルへの振り分け方針
+## 3. WBS ファイル分割ルール
 
-成果物カタログの`カテゴリ`に一対一で対応するため、WBS は次の単位でファイル分割します。
+WBS 定義ファイルは、成果物カタログの `ドメイン` 単位で分割します。
 
-| 成果物カタログ上のカテゴリ | カテゴリ略号 | WBS ファイル                  |
-| -------------------------- | ------------ | ----------------------------- |
-| `project-management`       | `PRM`        | `wbs-project-management.yaml` |
-| `project-definition`       | `PRD`        | `wbs-project-definition.yaml` |
+```text
+1 成果物ドメイン = 1 WBS 定義ファイル
+```
+
+ファイル名は次の形式とします。
+
+```text
+wbs-<domain>.yaml
+```
+
+`domain` は成果物ドメインに対応する安定した識別子です。
+ドメインと WBS ファイルの対応は、`Appendix A. ドメインと WBS ファイルの対応定義` に定義します。
+
+例外的に、ドメインが大きすぎる場合、完了判定単位とドメインが一致しない場合、または複数ドメイン横断の共通成果物群を独立管理したい場合は、別ファイル化を認めます。例外は `Appendix A` に明示します。
 
 ## 4. WBS 粒度ルール
 
-### 4.1. 基本粒度
+### 4.1. 原則
 
-- 基本単位は **単一ファイル** ではなく、**同じ完了条件でレビュー・承認できる成果物ファミリー** とします。
+WBS Item の基本単位は、成果物カタログに定義された **1 成果物** とします。
+
+```text
+原則: 1 成果物 = 1 WBS Item
+```
+
+成果物カタログ上で別 `name` として定義されているものは、原則として別 WBS Item にします。
 
 ### 4.2. 分割する条件
 
 次のいずれかに該当する場合は、WBS Item を分割します。
 
-1. 完了条件が別であり、独立してレビューできる
-2. 担当ロール（`owner`）や専門性（`component`）が異なる
-3. 実行フェーズや優先度の前提が大きく異なる
-4. 成果物の数が多く、1 Item ではスコープが曖昧になる
+1. 成果物カタログ上で別 `name` として定義されている
+2. 完了条件、担当ロール、専門性、利用者、承認者のいずれかが異なる
+3. ライフサイクルまたは更新頻度が異なる
+4. 1 つの `done_criteria` で完了判定を書くと不自然になる
 
-### 4.3. まとめてよい条件
+### 4.3. まとめてよい例外
 
-次のいずれかに該当する場合は、WBS Item をまとめてよいものとします。
+複数成果物を 1 つの WBS Item にまとめるのは例外です。
 
-1. 同一テーマの成果物群で、完了判定を 1 つにできる
-2. 常に同じライフサイクルで更新される
-3. 1 つの成果物群として利用者が理解する方が自然である
+まとめてよいのは、次の条件をすべて満たす場合に限ります。
 
-## 5. `id` 命名規則
+1. 常に同時に作成・更新される
+2. 同一レビューで一体として承認される
+3. 個別に完了判定する意味がない
+4. 利用者が一体の成果物セットとして認識する
 
-### 5.1. 基本形式
+まとめる場合は、`deliverables` に対象ファイルをすべて列挙し、`description` または `done_criteria` に一体として扱う理由を記述します。
 
-`id` は次の形式を基本とします。
+## 5. フェーズ横断成果物の扱い
+
+同じ成果物が複数フェーズで扱われる場合でも、WBS Item は重複させません。
+
+WBS では成果物の完了単位だけを定義し、フェーズ、実行回、日程、順序、タスクはスケジュールまたは実行管理で扱います。
+
+## 6. WBS 定義ファイルの構造
+
+WBS 定義ファイルは、次のトップレベル項目を持ちます。
+
+| 項目            | 必須 | 記述ルール                                           |
+| --------------- | ---- | ---------------------------------------------------- |
+| `id`            | 必須 | WBS 定義ファイルの文書 ID                            |
+| `type`          | 必須 | `wbs` 固定                                           |
+| `status`        | 必須 | `draft`, `ready`, `deprecated` のいずれか            |
+| `project_id`    | 必須 | プロジェクト ID。例: `prj-0001`                      |
+| `domain`        | 必須 | WBS の対象領域。ファイル名の `<domain>` と一致させる |
+| `wbs`           | 必須 | WBS Item の配列                                      |
+| `part_of`       | 任意 | 上位文書 ID                                          |
+| `based_on`      | 任意 | 根拠文書 ID                                          |
+| `supersedes`    | 任意 | 置き換え元文書 ID                                    |
+| `assigned_team` | 任意 | 現在の担当チーム名。安定キーとしては使わない         |
+
+## 7. `id` 命名規則
+
+### 7.1. WBS 定義ファイルの `id`
+
+WBS 定義ファイルの `id` は、次の形式を基本とします。
 
 ```text
-WBS-<CATEGORY>-<ARTIFACT>-<NNNN>
+<project-id>:wbs-<domain>
 ```
 
 例:
 
 ```text
-WBS-PDT-BPS-0010
-WBS-PDT-IFX-0020
-WBS-PDT-NFR-0030
-WBS-PJD-PRJ-0010
+prj-0001:wbs-project-definition
+prj-0001:wbs-project-management
 ```
 
-### 5.3. ARTIFACT の決め方
+### 7.2. WBS Item の `id`
 
-- 原則として成果物カタログの `name` に対応する短い識別子を使います。
-- 既存の略号がある場合はそれを優先します。例: `BPS` `BR` `BDD` `IFX` `UTC`
-- 複数成果物を 1 Item にまとめる場合は、代表的なファミリー名を使います。例: `REFDATA`
-- 略号は **意味が推測できること** を優先し、過度に短縮しません。
-
-### 5.4. 連番の付け方
-
-- 連番は 4 桁固定（`NNNN`）で `0010` 刻みを基本に付与します。
-- 同一ファイル内で上から順に `0010`, `0020`, `0030` と採番します。
-- 途中追加が想定されるため、`0001` 刻みではなく `0010` 刻みを維持します。
-- 並び順変更のみを理由に既存 `id` を付け替えません。
-
-## 6. WBS Item 記述ルール
-
-| 項目            | 記述ルール                                           |
-| --------------- | ---------------------------------------------------- |
-| `name`          | 人が一覧で識別できる短い日本語ラベルにする           |
-| `description`   | 何を対象にし、どの成果物群を整備するのかを具体化する |
-| `owner`         | 主責任ロールを 1 つ設定する                          |
-| `component`     | 専門領域を短い英語で表す                             |
-| `deliverables`  | 実際に作成・更新するファイルパスを列挙する           |
-| `done_criteria` | 完了状態をレビュー可能な文章で記述する               |
-
-`done_criteria` の良い例:
+WBS Item の `id` は、次の形式を基本とします。
 
 ```text
-BPS ルール・指示ペアが、プロセス仕様の必須セクション・禁止事項・AI ガイダンスを一貫して定義していること。
+WBS-<DOMAIN>-<ARTIFACT>-<NNN>
 ```
 
-`done_criteria` の悪い例:
+例:
 
 ```text
-BPS を作成する
+WBS-PJD-OVERVIEW-010
+WBS-PJD-SCOPE-020
+WBS-PJD-ISSUES-030
+WBS-PJM-PLAN-010
+WBS-PJM-COMM-020
+WBS-PJM-QMPLAN-030
 ```
 
-## 7. 成果物カタログから WBS への落とし込み手順
+| 要素       | ルール                                                 |
+| ---------- | ------------------------------------------------------ |
+| `DOMAIN`   | `Appendix A` で定義したドメイン略号を使用する          |
+| `ARTIFACT` | 成果物カタログの `name` に対応する短い識別子を使用する |
+| `NNN`      | 3 桁、`010` 刻みで採番する                             |
 
-1. `docs/ja/projects/prj-0001/010-deliverables-catalog/dct-index.md`, `docs/ja/projects/prj-0001/010-deliverables-catalog/dct-<category>.md`
-   から`種別`が`work`のものを対象の成果物または成果物群としてピックアップする
-2. 既存の `wbs-<scope>.yaml` に同じファミリーがあるか確認する
-3. 新規 Item とするか、既存 Item に統合するかを判断する
-4. `WBS-<CATEGORY>-<ARTIFACT>-<NNNN>` 形式で `id` を付与する
-5. `deliverables` に実ファイルパスを列挙する
-6. `done_criteria` を成果物レビュー観点で記述する
+WBS Item の `id` は、並び順変更だけを理由に変更しません。既存 `id` は、スケジュール、実行管理、進捗報告、トレーサビリティから参照されるため、原則として不変とします。
 
-## 8. 具体例
+### 7.3. ARTIFACT の決め方
 
-| 成果物カタログ上の対象                               | WBS Item の考え方                        | 例                     |
-| ---------------------------------------------------- | ---------------------------------------- | ---------------------- |
-| `bps`                                                | 単独ファミリーとして 1 Item              | `WBS-PDT-BPS-0010`     |
-| `cld` `stsd` `sld`                                   | リファレンスデータ群として 1 Item        | `WBS-PDT-REFDATA-0070` |
-| `cxd` と `cxd-mermaid`                               | 文書と図の整合セットとして 1 Item        | `WBS-PDT-CXD-0020`     |
-| `prj-overview` `prj-scope` `prj-issues-and-approach` | プロジェクト文書ファミリーとしてまとめる | `WBS-PJD-PRJ-0010`     |
+`ARTIFACT` は、成果物カタログの `name` から意味が推測できる略号にします。
 
-## 9. アンチパターン
+| 成果物 `name`                                  | ARTIFACT 例 |
+| ---------------------------------------------- | ----------- |
+| `prj-overview`                                 | `OVERVIEW`  |
+| `prj-scope`                                    | `SCOPE`     |
+| `prj-issues-and-approach`                      | `ISSUES`    |
+| `prj-success-criteria-and-acceptance-criteria` | `SUCCESS`   |
+| `prj-assumptions-constraints-dependencies`     | `ACD`       |
+| `prj-comparison-of-alternatives`               | `ALT`       |
+| `pm-plan`                                      | `PLAN`      |
+| `pm-communication-plan`                        | `COMM`      |
+| `pm-quality-management-plan`                   | `QMPLAN`    |
+| `pm-organization-and-raci`                     | `RACI`      |
+| `pm-wbs-decomposition-strategy`                | `WBSSTR`    |
+| `pm-wbs-to-schedule-strategy`                  | `SCHSTR`    |
 
-- 1 Item に「業務仕様全部」のような広すぎるスコープを入れる
-- `rules` と `instruction` を常に同時更新する前提なのに不必要に分割する
+`ARTIFACT` は同一 `DOMAIN` 内で重複させません。複数成果物を例外的に 1 WBS Item にまとめる場合は、代表的な成果物セット名またはファミリー名を使用します。
+
+## 8. WBS Item 記述ルール
+
+WBS Item は、スキーマ上の `wbs` 配列に記述します。
+
+| 項目              | 必須 | 記述ルール                                     |
+| ----------------- | ---- | ---------------------------------------------- |
+| `id`              | 必須 | `WBS-<DOMAIN>-<ARTIFACT>-<NNN>` 形式で記述する |
+| `name`            | 必須 | 一覧で識別できる短い日本語ラベルにする         |
+| `owner`           | 必須 | `PO`, `BA`, `ARC`, `QE` のいずれか             |
+| `deliverables`    | 必須 | 作成・更新・参照する成果物を列挙する           |
+| `done_criteria`   | 必須 | レビュー可能な完了条件を書く                   |
+| `description`     | 任意 | 対象成果物と整備内容を簡潔に書く               |
+| `component`       | 任意 | 領域内の安定したサブ領域を英小文字で書く       |
+| `acceptance_refs` | 任意 | 受入条件、仕様、判断記録などの参照 ID          |
+| `tags`            | 任意 | フィルタ・分類用タグ                           |
+| `notes`           | 任意 | 補足メモ。SSOT の重複記述は避ける              |
+
+### 8.1. `owner`
+
+`owner` は次のいずれかを指定します。
+
+| 値    | 意味             |
+| ----- | ---------------- |
+| `PO`  | Project Owner    |
+| `BA`  | Business Analyst |
+| `ARC` | Architect        |
+| `QE`  | Quality Engineer |
+
+### 8.2. `deliverables`
+
+`deliverables` は文字列配列ではなく、次のオブジェクト配列として記述します。
+
+| 項目   | 必須 | 記述ルール                                 |
+| ------ | ---- | ------------------------------------------ |
+| `path` | 必須 | リポジトリ内の成果物パス                   |
+| `kind` | 必須 | `create`, `modify`, `reference` のいずれか |
+| `note` | 任意 | 成果物に関する補足                         |
+
+`kind` の意味は次の通りです。
+
+| 値          | 意味                           |
+| ----------- | ------------------------------ |
+| `create`    | 新規作成する成果物             |
+| `modify`    | 変更する既存成果物             |
+| `reference` | 参照するが直接変更しない成果物 |
+
+## 9. 記述例
+
+```yaml
+id: prj-0001:wbs-project-definition
+type: wbs
+status: draft
+project_id: prj-0001
+domain: project-definition
+based_on:
+  - prj-0001:dct-project-definition
+
+wbs:
+  - id: WBS-PJD-OVERVIEW-010
+    name: プロジェクト概要整備
+    description: プロジェクトの背景、目的、ゴール、期待効果を示すプロジェクト概要を整備する。
+    owner: PO
+    component: project-definition
+    deliverables:
+      - path: docs/ja/projects/prj-0001/020-project-definition/prj-overview.md
+        kind: create
+    done_criteria: プロジェクト概要が、背景、目的、ゴール、期待効果を矛盾なく定義しており、プロジェクト憲章およびスコープ定義の根拠として利用できること。
+    acceptance_refs:
+      - BAC-PJD-OVERVIEW-010
+    tags:
+      - project-definition
+
+  - id: WBS-PJD-SCOPE-020
+    name: プロジェクトスコープ整備
+    description: プロジェクトの対象範囲、対象外、境界条件を示すプロジェクトスコープを整備する。
+    owner: PO
+    component: project-definition
+    deliverables:
+      - path: docs/ja/projects/prj-0001/020-project-definition/prj-scope.md
+        kind: create
+    done_criteria: プロジェクトスコープが、対象範囲、対象外、境界条件を明確に定義しており、後続の WBS 作成と変更判断の基準として利用できること。
+    acceptance_refs:
+      - BAC-PJD-SCOPE-020
+    tags:
+      - project-definition
+```
+
+## 10. 成果物カタログから WBS への落とし込み手順
+
+1. `dct-index.md` および `dct-<domain>.md` を確認する
+2. `種別` が `work` の成果物を抽出する
+3. 成果物の `ドメイン` から対応する WBS ファイルを確認する
+4. 既存 WBS Item に同じ成果物が存在しないか確認する
+5. 原則として、対象成果物ごとに 1 つの WBS Item を作成する
+6. 複数成果物をまとめる場合は、例外条件を満たすか確認する
+7. `id`, `name`, `owner`, `deliverables`, `done_criteria` を記述する
+8. 必要に応じて、`description`, `component`, `acceptance_refs`, `tags`, `notes` を記述する
+9. フェーズ、順序、日程は、スケジュールまたは実行管理側で定義する
+
+## 11. 具体例
+
+| 成果物                       | WBS Item               |
+| ---------------------------- | ---------------------- |
+| `prj-overview`               | `WBS-PJD-OVERVIEW-010` |
+| `prj-scope`                  | `WBS-PJD-SCOPE-020`    |
+| `prj-issues-and-approach`    | `WBS-PJD-ISSUES-030`   |
+| `pm-plan`                    | `WBS-PJM-PLAN-010`     |
+| `pm-communication-plan`      | `WBS-PJM-COMM-020`     |
+| `pm-quality-management-plan` | `WBS-PJM-QMPLAN-030`   |
+
+## 12. アンチパターン
+
+- 別 `name` の成果物を、理由なく 1 WBS Item にまとめる
+- 個別にレビュー・承認できる成果物をまとめる
+- 更新タイミングが異なる成果物をまとめる
 - `done_criteria` を「更新する」「整備する」だけで終わらせる
-- `id` に意味の分からない略号を使う
-- 実行計画で管理すべき日付や順序を WBS の `description` に書き込む
+- 並び順変更だけを理由に既存 `id` を変更する
+- 日付、順序、担当タスクを WBS の `description` に書く
+- フェーズが異なるという理由だけで、同じ成果物を別 WBS Item として重複定義する
+- 自動生成ビューや管理ビューを、手作業で完了判定する WBS Item として扱う
+- `assigned_team` を安定した分類キーとして使う
 
-## 10. 運用メモ
+## 13. 運用ルール
 
-- 新しい成果物種別を成果物カタログへ追加した場合は、まず本戦略に照らして **どの WBS ファイルへ所属させるか** を決めます。
-- 分解判断に迷う場合は、**完了条件を 1 つに書けるか** を基準にします。
-- 本戦略を更新した場合は、関連する `wbs-*.yaml` の整合を確認します。
+- 成果物ドメインを追加する場合は、既存 WBS ファイルに含めるか、新しい WBS ファイルを作成するかを判断し、必要に応じて `Appendix A` に追記します。
+- WBS Item を追加する場合は、同じ成果物の WBS Item が既に存在しないことを確認します。
+- WBS Item を変更する場合は、成果物カタログ、スケジュール、実行管理、進捗報告、トレーサビリティへの影響を確認します。
+- `id` の変更は原則として避けます。
+- 分解判断に迷う場合は、**1 成果物として個別に完了判定できるか** を基準にします。
+
+## Appendix A. ドメインと WBS ファイルの対応定義
+
+本付録は、成果物カタログのドメインと WBS 定義ファイルの対応を定義します。
+成果物ドメインの追加に応じて更新します。
+
+| 成果物カタログ上のドメイン | ドメイン略号 | WBS ファイル                  |
+| -------------------------- | ------------ | ----------------------------- |
+| `project-definition`       | `PJD`        | `wbs-project-definition.yaml` |
+| `project-management`       | `PJM`        | `wbs-project-management.yaml` |
+
+ドメイン略号は次のルールで定義します。
+
+- ドメイン略号は 3 文字程度の英大文字を基本とします。
+- 既存の略号と重複しないものを使用します。
+- 意味が推測しやすい略号を優先します。
+- 一度使用した略号は、原則として変更しません。
