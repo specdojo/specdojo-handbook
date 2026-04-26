@@ -325,7 +325,7 @@ supersedes:
 | ステークホルダー登録簿 | Stakeholder Register | prj- | prj-stakeholder-register |
 | プロジェクトスコープ | Project Scope | prj- | prj-scope |
 | 成功条件・受入条件 | Success Criteria and Acceptance Criteria | prj- | prj-success-criteria-and-acceptance-criteria |
-| 成果物カタログ | Deliverables Catalog | prj- | prj-deliverables-catalog |
+| 成果物カタログ | Deliverables Catalog | dct- | dct-index, dct-project-definition |
 | WBS | Work Breakdown Structure | wbs- | wbs-auth |
 | プロジェクト課題と解決アプローチ | Project Issues and Approach | prj- | prj-issues-and-approach |
 | 前提・制約・依存 | Assumptions, Constraints, and Dependencies | prj- | prj-assumptions-constraints-dependencies |

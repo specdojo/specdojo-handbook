@@ -9,8 +9,8 @@ required:
 $defs:
   idRef:
     type: string
-    pattern: "^[a-z0-9][a-z0-9-]*$"
-    description: "英小文字・数字・ハイフンのみ。先頭は英小文字または数字。"
+    pattern: "^[a-z0-9][a-z0-9-:]*$"
+    description: "英小文字・数字・ハイフン・コロンのみ。先頭は英小文字または数字。"
   idRefArray:
     type: array
     items:
