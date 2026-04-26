@@ -14,11 +14,8 @@ wbs:
     component: process
     deliverables:
       - path: docs/ja/handbook/rulebooks/bps-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/bps-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/bps-sample.md
-        kind: modify
     done_criteria: |-
       BPS ルール・指示ペアが、プロセス仕様の必須セクション・ トレーサビリティのある出力・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-BR-020
@@ -30,11 +27,8 @@ wbs:
     component: rules
     deliverables:
       - path: docs/ja/handbook/rulebooks/br-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/br-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/br-sample.md
-        kind: modify
     done_criteria: |-
       BR ルール・指示ペアが、ビジネスルールの構造・制約・表現を定義し、 AI生成コンテンツがテスト可能かつ曖昧さのない状態を維持できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-BDD-030
@@ -46,11 +40,8 @@ wbs:
     component: data
     deliverables:
       - path: docs/ja/handbook/rulebooks/bdd-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/bdd-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/bdd-sample.md
-        kind: modify
     done_criteria: |-
       BDD ルール・指示ペアが、必須のデータ定義構造・属性説明・ AIガイダンスを定義し、業務データドキュメントを一貫して作成できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-BDS-040
@@ -62,11 +53,8 @@ wbs:
     component: forms
     deliverables:
       - path: docs/ja/handbook/rulebooks/bds-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/bds-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/bds-sample.md
-        kind: modify
     done_criteria: |-
       BDS ルール・指示ペアが、帳票仕様の構造・レイアウト期待・ 禁止ルールを定義し、一貫した帳票仕様ドキュメントを生成できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-UIS-050
@@ -78,11 +66,8 @@ wbs:
     component: screen
     deliverables:
       - path: docs/ja/handbook/rulebooks/uis-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/uis-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/uis-sample.md
-        kind: modify
     done_criteria: |-
       UIS ルール・指示ペアが、画面仕様の必須セクション・遷移ルール・ AI執筆ガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-GL-060
@@ -94,11 +79,8 @@ wbs:
     component: glossary
     deliverables:
       - path: docs/ja/handbook/rulebooks/gl-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/gl-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/gl-sample.md
-        kind: modify
     done_criteria: |-
       GL ルール・指示ペアが、必須の用語集構造・用語記述ルール・ 再利用可能なAIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-REFDATA-070
@@ -110,23 +92,14 @@ wbs:
     component: reference-data
     deliverables:
       - path: docs/ja/handbook/rulebooks/cld-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/cld-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/stsd-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/stsd-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/sld-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/sld-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/cld-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/stsd-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/sld-sample.md
-        kind: modify
     done_criteria: |-
       リファレンスデータのルール・指示ファイルが、分類・ステータス・格納場所の 各ドキュメントに対し一貫した構造とAI執筆ガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-BES-080
@@ -138,17 +111,11 @@ wbs:
     component: events
     deliverables:
       - path: docs/ja/handbook/rulebooks/bes-index-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/bes-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/bes-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/bes-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/bes-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/bes-sample.md
-        kind: modify
     done_criteria: |-
       BES ファミリーが、インデックスと詳細ドキュメントの両方の要件を定義し、 業務イベント仕様を一貫したスコープ配分とセクション構成で作成できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-CDFD-090
@@ -160,17 +127,11 @@ wbs:
     component: data-flow
     deliverables:
       - path: docs/ja/handbook/rulebooks/cdfd-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/cdfd-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/cdfd-mermaid-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/cdfd-mermaid-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/cdfd-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/cdfd-mermaid-sample.md
-        kind: modify
     done_criteria: |-
       CDFD ファミリーが、概念データフロードキュメントのテキストと Mermaid 表現に対し一貫した構造とAIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-CDSD-100
@@ -182,11 +143,8 @@ wbs:
     component: data-store
     deliverables:
       - path: docs/ja/handbook/rulebooks/cdsd-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/cdsd-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/cdsd-sample.md
-        kind: modify
     done_criteria: |-
       CDSD ルール・指示ペアが、データストア構造・属性説明・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-CSTD-110
@@ -198,17 +156,11 @@ wbs:
     component: state-transition
     deliverables:
       - path: docs/ja/handbook/rulebooks/cstd-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/cstd-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/cstd-mermaid-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/cstd-mermaid-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/cstd-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/cstd-mermaid-sample.md
-        kind: modify
     done_criteria: |-
       CSTD ファミリーが、概念状態遷移ドキュメントのナラティブと Mermaid の 要件を一貫した見出し・カバレッジ・禁止ルールで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-CCD-120
@@ -220,11 +172,8 @@ wbs:
     component: class-diagram
     deliverables:
       - path: docs/ja/handbook/rulebooks/ccd-mermaid-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/ccd-mermaid-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/ccd-mermaid-sample.md
-        kind: modify
     done_criteria: |-
       CCD Mermaid ルール・指示ペアが、図の構文・必須ノード・関係・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-SF-130
@@ -236,17 +185,11 @@ wbs:
     component: system-functions
     deliverables:
       - path: docs/ja/handbook/rulebooks/sf-index-rulebook.md
-        kind: create
       - path: docs/ja/handbook/instructions/sf-index-instruction.md
-        kind: create
       - path: docs/ja/handbook/rulebooks/sf-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/sf-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/sf-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/sf-sample.md
-        kind: modify
     done_criteria: |-
       SF ファミリーが、インデックスと詳細ドキュメントの両方の要件を定義し、 システム機能一覧を一貫したスコープ配分とセクション構成で作成できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-BIZ-BAC-140
@@ -258,11 +201,8 @@ wbs:
     component: acceptance
     deliverables:
       - path: docs/ja/handbook/rulebooks/bac-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/bac-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/bac-sample.md
-        kind: modify
     done_criteria: >-
       BAC ルール・指示ペアが、業務受入条件の必須セクション・ 判定基準・AIガイダンスを定義していること。 The BAC rule and
       instruction pair defines required business acceptance sections, completion

@@ -103,7 +103,6 @@ $defs:
     additionalProperties: false
     required:
       - path
-      - kind
     properties:
       path:
         type: string
@@ -113,13 +112,6 @@ $defs:
           product-docs/project-docs/src/tests/infra or other SSOT locations in
           the repository.
         pattern: "^(.+/)?[^\\s]+$"
-      kind:
-        type: string
-        description: >
-          Intended relationship of this WBS item to the deliverable. create: new
-          file/artifact modify: existing file/artifact to change reference:
-          referenced artifact, not directly changed by this WBS item
-        enum: [ "create", "modify", "reference" ]
       note:
         type: string
         description: "Optional note about the deliverable."
@@ -177,7 +169,8 @@ $defs:
       deliverables:
         type: array
         minItems: 1
-        description: "Deliverables produced, modified, or referenced by this WBS element."
+        description: "Deliverables that define the scope of this WBS element (done when
+          all paths exist and meet done_criteria)."
         items:
           $ref: "#/$defs/Deliverable"
 

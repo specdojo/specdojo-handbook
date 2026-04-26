@@ -14,11 +14,8 @@ wbs:
     component: acceptance
     deliverables:
       - path: docs/ja/handbook/rulebooks/sac-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/sac-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/sac-sample.md
-        kind: modify
     done_criteria: |-
       SAC ルール・指示ペアが、システム受入の必須コンテンツ・ 受入境界・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-QLTY-TSP-020
@@ -30,11 +27,8 @@ wbs:
     component: test-planning
     deliverables:
       - path: docs/ja/handbook/rulebooks/tsp-index-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/tsp-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/tsp-index-sample.md
-        kind: modify
     done_criteria: |-
       TSP インデックスルール・指示ペアが、テスト戦略コンテンツ・ レベル定義・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-QLTY-UTC-030
@@ -46,17 +40,11 @@ wbs:
     component: unit-tests
     deliverables:
       - path: docs/ja/handbook/rulebooks/utc-index-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/utc-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/utc-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/utc-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/utc-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/utc-sample.md
-        kind: modify
     done_criteria: |-
       UTC ファミリーが、単体テストのインデックスと詳細の要件を固定見出し・ テスト期待・AIガイダンスで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-QLTY-ITC-040
@@ -68,17 +56,11 @@ wbs:
     component: integration-tests
     deliverables:
       - path: docs/ja/handbook/rulebooks/itc-index-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/itc-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/itc-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/itc-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/itc-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/itc-sample.md
-        kind: modify
     done_criteria: |-
       ITC ファミリーが、インデックス・基準・詳細ドキュメントの期待を 明示的な必須コンテンツとAI指示で定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-QLTY-ETC-050
@@ -90,33 +72,19 @@ wbs:
     component: external-tests
     deliverables:
       - path: docs/ja/handbook/rulebooks/etc-index-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/etc-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/etc-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/etc-instruction.md
-        kind: modify
       - path: docs/ja/handbook/instructions/etd-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/instructions/etd-instruction.md
-        kind: modify
       - path: docs/ja/handbook/instructions/ets-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/instructions/ets-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/etc-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/etc-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/etd-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/etd-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/ets-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/ets-sample.md
-        kind: modify
     done_criteria: |-
       ETC ファミリーが、外部テストのルールセットとすべての派生指示テンプレートを 整合した構造・スコープ配分・AI執筆ガイダンスで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-QLTY-STC-060
@@ -128,17 +96,11 @@ wbs:
     component: system-tests
     deliverables:
       - path: docs/ja/handbook/rulebooks/stc-index-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/stc-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/stc-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/stc-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/stc-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/stc-sample.md
-        kind: modify
     done_criteria: |-
       STC ファミリーが、インデックスと詳細ドキュメントの構造を統一用語と AI生成ガイダンスで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-QLTY-ATC-070
@@ -150,32 +112,18 @@ wbs:
     component: acceptance-tests
     deliverables:
       - path: docs/ja/handbook/rulebooks/atc-index-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/atc-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/rulebooks/atc-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/atc-instruction.md
-        kind: modify
       - path: docs/ja/handbook/instructions/atd-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/instructions/atd-instruction.md
-        kind: modify
       - path: docs/ja/handbook/instructions/ats-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/instructions/ats-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/atc-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/atc-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/atd-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/atd-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/ats-index-sample.md
-        kind: modify
       - path: docs/ja/handbook/samples/ats-sample.md
-        kind: modify
     done_criteria: |-
       ATC ファミリーが、受入テストのルールセットとすべての派生指示テンプレートを 一貫したスコープ分割・必須セクション・AIガイダンスで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。

@@ -18,10 +18,8 @@ wbs:
     component: sales
     deliverables:
       - path: docs/ja/sample-gcs-product/010-業務仕様/050-業務プロセス仕様/README.md
-        kind: modify
         note: 販売業務の主フローと例外フローを整理する
       - path: docs/ja/sample-gcs-product/010-業務仕様/010-概念データフロー図/cdfd-030-販売概念DFD-AS-IS.md
-        kind: modify
         note: 販売時の情報流れを明確化する
     done_criteria: 店頭販売の業務フロー、入出力、例外時対応がレビュー可能な粒度で記述され、図と本文の説明が相互に整合していること。
     acceptance_refs:
@@ -38,10 +36,8 @@ wbs:
     component: ui
     deliverables:
       - path: docs/ja/sample-gcs-product/040-システム設計/050-実装画面仕様/サンプル.md
-        kind: modify
         note: 会計画面と商品管理画面の入力項目・表示項目を定義する
       - path: docs/ja/sample-gcs-product/040-システム設計/040-エラー処理/サンプル.md
-        kind: reference
         note: 画面で扱う入力エラーと業務エラーの方針を参照する
     done_criteria: 画面ごとの入力項目、表示項目、操作結果、主要エラー時の振る舞いが定義され、店員向けの操作想定と整合していること。
     acceptance_refs:

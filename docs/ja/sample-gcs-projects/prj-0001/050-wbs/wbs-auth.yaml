@@ -12,9 +12,7 @@ wbs:
     component: auth-api
     deliverables:
       - path: docs/ja/sample-gcs-projects/prj-0001/020-project-scope/prj-scope.md
-        kind: reference
       - path: docs/ja/sample-gcs-projects/prj-0001/090-decision-log/dec-0003-auth-method.md
-        kind: reference
     done_criteria: 認証に関する機能範囲、入出力、運用前提が文書化され、関係者レビューで合意されている。
     acceptance_refs:
       - BAC-AUTH-010

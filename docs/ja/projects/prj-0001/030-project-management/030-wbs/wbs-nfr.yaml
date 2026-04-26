@@ -14,11 +14,8 @@ wbs:
     component: index
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-index-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-index-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-index-sample.md
-        kind: modify
     done_criteria: |-
       NFR インデックスルール・指示ペアが、共通インデックス構造・ 選定ロジック・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-NFR-AVAIL-020
@@ -30,11 +27,8 @@ wbs:
     component: availability
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-availability-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-availability-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-availability-sample.md
-        kind: modify
     done_criteria: |-
       可用性 NFR ルール・指示ペアが、必須の可用性基準・エビデンス期待・ AIガイダンスを曖昧な閾値なく定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-NFR-INTEG-030
@@ -46,11 +40,8 @@ wbs:
     component: integrity
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-integrity-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-integrity-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-integrity-sample.md
-        kind: modify
     done_criteria: |-
       完全性 NFR ルール・指示ペアが、必須の完全性統制・ ドキュメントセクション・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-NFR-MAINT-040
@@ -62,11 +53,8 @@ wbs:
     component: maintainability
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-maintainability-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-maintainability-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-maintainability-sample.md
-        kind: modify
     done_criteria: |-
       保守性 NFR ルール・指示ペアが、測定可能な保守性期待・ 必須セクション・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-NFR-OPS-050
@@ -78,11 +66,8 @@ wbs:
     component: operations
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-operations-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-operations-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-operations-sample.md
-        kind: modify
     done_criteria: |-
       運用性 NFR ルール・指示ペアが、運用制約・可観測性期待・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-NFR-PERF-060
@@ -94,11 +79,8 @@ wbs:
     component: performance
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-performance-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-performance-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-performance-sample.md
-        kind: modify
     done_criteria: |-
       性能 NFR ルール・指示ペアが、測定可能な性能目標・ ワークロード前提・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-NFR-RELY-070
@@ -110,11 +92,8 @@ wbs:
     component: reliability
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-reliability-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-reliability-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-reliability-sample.md
-        kind: modify
     done_criteria: |-
       信頼性 NFR ルール・指示ペアが、障害対応期待・エビデンス要件・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-NFR-SEC-080
@@ -126,11 +105,8 @@ wbs:
     component: security-safety
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-security-safety-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-security-safety-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-security-safety-sample.md
-        kind: modify
     done_criteria: |-
       セキュリティ・安全性 NFR ルール・指示ペアが、必須の脅威・ 統制・安全性カバレッジを具体的かつ監査可能なAIガイダンスで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
   - id: WBS-NFR-USAB-090
@@ -142,10 +118,7 @@ wbs:
     component: usability
     deliverables:
       - path: docs/ja/handbook/rulebooks/nfr-usability-rulebook.md
-        kind: modify
       - path: docs/ja/handbook/instructions/nfr-usability-instruction.md
-        kind: modify
       - path: docs/ja/handbook/samples/nfr-usability-sample.md
-        kind: modify
     done_criteria: |-
       ユーザビリティ NFR ルール・指示ペアが、ユーザー中心の基準・ 測定期待・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
