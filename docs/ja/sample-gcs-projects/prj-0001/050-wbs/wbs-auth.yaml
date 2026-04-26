@@ -5,7 +5,7 @@ project_id: prj-0001
 domain: auth
 assigned_team: app-dev
 wbs:
-  - id: WBS-AUTH-010
+  - id: WBS-AUTH-AUTH-API-010
     name: 認証要件を定義する
     description: ログインとセッション管理の要件を整理する。
     owner: BA

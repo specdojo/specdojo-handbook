@@ -5,7 +5,7 @@ project_id: prj-0001
 domain: infra
 assigned_team: platform
 wbs:
-  - id: WBS-INFRA-010
+  - id: WBS-INFRA-RUNTIME-010
     name: 実行環境を準備する
     description: サンプル運用に必要な実行環境と初期設定を整備する。
     owner: ARC

@@ -1,6 +1,16 @@
-id: sch-auth
-activities:
-  - id: ACT-AUTH-001
+kind: schedule
+version: 1
+project_id: prj-0001
+schedule_level: domain
+domain: auth
+
+settings:
+  notes: "認証ドメインの中日程。"
+
+tasks:
+  - id: T-AUTH-001
+    wbs: WBS-AUTH-AUTH-API-010
     name: 認証設計
-    start: 2026-04-15
-    finish: 2026-04-22
+    duration_days: 6
+    depends_on: []
+    owner: ARC

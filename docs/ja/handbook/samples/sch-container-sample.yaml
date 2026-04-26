@@ -9,39 +9,38 @@ assigned_team: "Backend Team A" # 任意
 
 settings:
   notes: >
-    ドメイン単位の中日程（要約）。粒度は「主要作業パッケージ」まで。
-    小日程（containerレベル）を別ファイルで持つ場合でも、このファイルは
+    ドメイン単位の中日程（要約）。粒度は「主要作業パッケージ」まで。 小日程（containerレベル）を別ファイルで持つ場合でも、このファイルは
     上位説明・ゲート紐付け・ドメイン内の代表タスク（要約）に留める。
 
 tasks:
   - id: T-AUTH-100
-    wbs: WBS-AUTH-010
+    wbs: WBS-AUTH-AUTH-API-010
     name: "認証：設計（要約）"
     duration_days: 5
-    depends_on: [M-100] # 大日程ゲートを参照してOK（クロスファイル参照）
+    depends_on: [ M-100 ] # 大日程ゲートを参照してOK（クロスファイル参照）
     owner: ARC
-    tags: ["summary"]
+    tags: [ "summary" ]
     notes: "詳細は container スケジュールを参照"
 
   - id: T-AUTH-200
-    wbs: WBS-AUTH-010
+    wbs: WBS-AUTH-AUTH-API-010
     name: "認証：実装（要約）"
     duration_days: 10
-    depends_on: [T-AUTH-100]
+    depends_on: [ T-AUTH-100 ]
     owner: ARC
-    tags: ["summary"]
+    tags: [ "summary" ]
 
   - id: T-AUTH-300
-    wbs: WBS-AUTH-010
+    wbs: WBS-AUTH-AUTH-API-010
     name: "認証：テスト（要約）"
     duration_days: 5
-    depends_on: [T-AUTH-200]
+    depends_on: [ T-AUTH-200 ]
     owner: ARC
-    tags: ["summary"]
+    tags: [ "summary" ]
 
 milestones:
   - id: M-AUTH-900
     name: "認証ドメイン完了"
-    depends_on: [T-AUTH-300]
-    date_hint: 2026-04-05
+    depends_on: [ T-AUTH-300 ]
+    date_hint: "2026-04-05"
     notes: "全体リリースゲートへの入力。"

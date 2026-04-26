@@ -14,20 +14,20 @@ milestones:
   - id: M-100
     name: "要件確定"
     depends_on: []
-    date_hint: 2026-03-07
+    date_hint: "2026-03-07"
     notes: "ゲート条件は project-docs の決定記録 or 受入条件を参照"
 
   - id: M-200
     name: "設計完了承認"
-    depends_on: [M-100]
-    date_hint: 2026-03-21
+    depends_on: [ M-100 ]
+    date_hint: "2026-03-21"
 
   - id: M-300
     name: "テスト完了承認"
-    depends_on: [M-200]
-    date_hint: 2026-04-10
+    depends_on: [ M-200 ]
+    date_hint: "2026-04-10"
 
   - id: M-999
     name: "リリース"
-    depends_on: [M-300]
-    date_hint: 2026-04-15
+    depends_on: [ M-300 ]
+    date_hint: "2026-04-15"

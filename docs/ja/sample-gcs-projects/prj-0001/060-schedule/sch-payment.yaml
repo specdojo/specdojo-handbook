@@ -1,6 +1,16 @@
-id: sch-payment
-activities:
-  - id: ACT-PAY-001
+kind: schedule
+version: 1
+project_id: prj-0001
+schedule_level: domain
+domain: payment
+
+settings:
+  notes: "つけ管理ドメインの中日程。"
+
+tasks:
+  - id: T-PAY-001
+    wbs: WBS-PAYMENT-CREDIT-LEDGER-010
     name: つけ管理実装
-    start: 2026-05-03
-    finish: 2026-05-20
+    duration_days: 12
+    depends_on: []
+    owner: ARC

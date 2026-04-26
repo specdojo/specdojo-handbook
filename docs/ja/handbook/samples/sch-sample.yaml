@@ -1,8 +1,13 @@
-id: sch
-type: schedule
-status: draft
-rulebook: sch-rulebook
-items:
-  - id: sch-001
-    title: サンプル項目
-    description: 最小構成のサンプル
+kind: schedule
+version: 1
+project_id: prj-sdh-ja-0001
+schedule_level: milestones
+
+settings:
+  notes: "最小構成の sch サンプル。"
+
+milestones:
+  - id: M-SAMPLE-010
+    name: "サンプルゲート"
+    depends_on: []
+    date_hint: "2026-04-01"
