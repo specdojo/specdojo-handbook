@@ -12,7 +12,7 @@ Project Deliverables Catalog: Project Definition for SpecDojo Handbook
 
 本ドキュメントは、プロジェクト定義に関する成果物の一覧とその説明をまとめたカタログです。各成果物の目的・内容・配置先・派生関係を定義します。
 
-- カテゴリ: `project-definition`
+- ドメイン: `project-definition`
 - 配置先: `docs/ja/projects/prj-0001/020-project-definition`
 
 | name                                           | 成果物名                         | 種別 | 根拠                                                    | 概要                                         |

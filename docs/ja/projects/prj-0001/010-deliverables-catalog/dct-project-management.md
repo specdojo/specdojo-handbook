@@ -12,7 +12,7 @@ Project Deliverables Catalog: Project Management for SpecDojo Handbook
 
 本ドキュメントは、プロジェクトマネジメントに関する成果物の一覧とその説明をまとめたカタログです。各成果物の目的・内容・配置先・派生関係を定義します。
 
-- カテゴリ: `project-management`
+- ドメイン: `project-management`
 
 ## 1. 管理計画
 
