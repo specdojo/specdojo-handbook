@@ -203,19 +203,10 @@ WBS Item は、スキーマ上の `wbs` 配列に記述します。
 
 `deliverables` は文字列配列ではなく、次のオブジェクト配列として記述します。
 
-| 項目   | 必須 | 記述ルール                                 |
-| ------ | ---- | ------------------------------------------ |
-| `path` | 必須 | リポジトリ内の成果物パス                   |
-| `kind` | 必須 | `create`, `modify`, `reference` のいずれか |
-| `note` | 任意 | 成果物に関する補足                         |
-
-`kind` の意味は次の通りです。
-
-| 値          | 意味                           |
-| ----------- | ------------------------------ |
-| `create`    | 新規作成する成果物             |
-| `modify`    | 変更する既存成果物             |
-| `reference` | 参照するが直接変更しない成果物 |
+| 項目   | 必須 | 記述ルール               |
+| ------ | ---- | ------------------------ |
+| `path` | 必須 | リポジトリ内の成果物パス |
+| `note` | 任意 | 成果物に関する補足       |
 
 ## 9. 記述例
 
@@ -236,7 +227,6 @@ wbs:
     component: project-definition
     deliverables:
       - path: docs/ja/projects/prj-0001/020-project-definition/prj-overview.md
-        kind: create
     done_criteria: プロジェクト概要が、背景、目的、ゴール、期待効果を矛盾なく定義しており、プロジェクト憲章およびスコープ定義の根拠として利用できること。
     acceptance_refs:
       - BAC-PJD-OVERVIEW-010
@@ -250,7 +240,6 @@ wbs:
     component: project-definition
     deliverables:
       - path: docs/ja/projects/prj-0001/020-project-definition/prj-scope.md
-        kind: create
     done_criteria: プロジェクトスコープが、対象範囲、対象外、境界条件を明確に定義しており、後続の WBS 作成と変更判断の基準として利用できること。
     acceptance_refs:
       - BAC-PJD-SCOPE-020
@@ -308,8 +297,8 @@ wbs:
 
 | 成果物カタログ上のドメイン | ドメイン略号 | WBS ファイル                  |
 | -------------------------- | ------------ | ----------------------------- |
-| `project-definition`       | `PJD`        | `wbs-project-definition.yaml` |
 | `project-management`       | `PJM`        | `wbs-project-management.yaml` |
+| `project-definition`       | `PJD`        | `wbs-project-definition.yaml` |
 
 ドメイン略号は次のルールで定義します。
 
