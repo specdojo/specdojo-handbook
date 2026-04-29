@@ -10,67 +10,86 @@ wbs:
     description: |-
       .github/instructions 配下の instructions ファイルを、
       成果物カタログ「エージェントカスタマイズ（.github/）/ Instructions」と整合する形で整備する。
-    owner: ARC
     component: instructions
     deliverables:
-      - path: .github/instructions/markdown.instructions.md
-      - path: .github/instructions/rulebook.instructions.md
-      - path: .github/instructions/rulebook-to-instruction.instructions.md
-      - path: .github/instructions/rulebook-to-sample.instructions.md
-    done_criteria: |-
-      Instructions セットが、適用範囲（applyTo）・運用ルール・責務境界を矛盾なく定義し、
-      成果物カタログの Instructions 一覧と実体が一致していること。
-
+      - id: markdown
+        path: .github/instructions/markdown.instructions.md
+      - id: rulebook
+        path: .github/instructions/rulebook.instructions.md
+      - id: rulebook-to-instruction
+        path: .github/instructions/rulebook-to-instruction.instructions.md
+      - id: rulebook-to-sample
+        path: .github/instructions/rulebook-to-sample.instructions.md
+    done_criteria:
+      - |-
+        Instructions セットが、適用範囲（applyTo）・運用ルール・責務境界を矛盾なく定義し、
+        成果物カタログの Instructions 一覧と実体が一致していること。
   - id: WBS-AGT-SKL-020
     name: Skills セットの整備
     description: |-
       .github/skills 配下の SKILL ファイルを、
       成果物カタログ「エージェントカスタマイズ（.github/）/ SKILL」と整合する形で整備する。
-    owner: ARC
     component: skills
     deliverables:
-      - path: .github/skills/upsert-rulebook/SKILL.md
-      - path: .github/skills/rulebook-to-instruction/SKILL.md
-      - path: .github/skills/rulebook-to-sample/SKILL.md
-      - path: .github/skills/rulebook-lifecycle/SKILL.md
-      - path: .github/skills/rulebook-lifecycle-all/SKILL.md
-    done_criteria: |-
-      Skills セットが、単体実行と全体実行のワークフロー境界を明確に定義し、
-      参照先 instructions / prompts との整合が取れていること。
-
+      - id: skill
+        path: .github/skills/upsert-rulebook/SKILL.md
+      - id: skill
+        path: .github/skills/rulebook-to-instruction/SKILL.md
+      - id: skill
+        path: .github/skills/rulebook-to-sample/SKILL.md
+      - id: skill
+        path: .github/skills/rulebook-lifecycle/SKILL.md
+      - id: skill
+        path: .github/skills/rulebook-lifecycle-all/SKILL.md
+    done_criteria:
+      - |-
+        Skills セットが、単体実行と全体実行のワークフロー境界を明確に定義し、
+        参照先 instructions / prompts との整合が取れていること。
   - id: WBS-AGT-PRM-030
     name: Prompts セットの整備
     description: |-
       .github/prompts 配下の prompt ファイルを、
       成果物カタログ「エージェントカスタマイズ（.github/）/ Prompts」と整合する形で整備する。
-    owner: BA
     component: prompts
     deliverables:
-      - path: .github/prompts/upsert-rulebook.prompt.md
-      - path: .github/prompts/upsert-instruction.prompt.md
-      - path: .github/prompts/upsert-all-instructions.prompt.md
-      - path: .github/prompts/upsert-changed-instructions.prompt.md
-      - path: .github/prompts/upsert-last-commit-instructions.prompt.md
-      - path: .github/prompts/upsert-test-instructions.prompt.md
-      - path: .github/prompts/upsert-nfr-instructions.prompt.md
-      - path: .github/prompts/upsert-migration-instructions.prompt.md
-      - path: .github/prompts/rulebook-lifecycle.prompt.md
-      - path: .github/prompts/rulebook-lifecycle-all.prompt.md
-      - path: .github/prompts/reverse-rulebook.prompt.md
-    done_criteria: |-
-      Prompts セットが、起動対象 Skill・想定入力・出力形式を一貫して定義し、
-      カタログ上の Prompt 一覧と実体が一致していること。
-
+      - id: upsert-rulebook
+        path: .github/prompts/upsert-rulebook.prompt.md
+      - id: upsert-instruction
+        path: .github/prompts/upsert-instruction.prompt.md
+      - id: upsert-all-instructions
+        path: .github/prompts/upsert-all-instructions.prompt.md
+      - id: upsert-changed-instructions
+        path: .github/prompts/upsert-changed-instructions.prompt.md
+      - id: upsert-last-commit-instructions
+        path: .github/prompts/upsert-last-commit-instructions.prompt.md
+      - id: upsert-test-instructions
+        path: .github/prompts/upsert-test-instructions.prompt.md
+      - id: upsert-nfr-instructions
+        path: .github/prompts/upsert-nfr-instructions.prompt.md
+      - id: upsert-migration-instructions
+        path: .github/prompts/upsert-migration-instructions.prompt.md
+      - id: rulebook-lifecycle
+        path: .github/prompts/rulebook-lifecycle.prompt.md
+      - id: rulebook-lifecycle-all
+        path: .github/prompts/rulebook-lifecycle-all.prompt.md
+      - id: reverse-rulebook
+        path: .github/prompts/reverse-rulebook.prompt.md
+    done_criteria:
+      - |-
+        Prompts セットが、起動対象 Skill・想定入力・出力形式を一貫して定義し、
+        カタログ上の Prompt 一覧と実体が一致していること。
   - id: WBS-AGT-INT-040
     name: カタログ整合性の確認
     description: |-
       プロジェクト成果物カタログと .github 配下成果物の対応を確認し、
       追加・名称変更・廃止がある場合に差分を反映する。
-    owner: PO
     component: governance
     deliverables:
-      - path: docs/ja/projects/prj-0001/010-project-definition/030-prj-deliverables-catalog.md
-      - path: docs/ja/projects/prj-0001/030-project-management/030-wbs/wbs-agent-customization.yaml
-    done_criteria: |-
-      成果物カタログと WBS の対応が保たれ、
-      エージェントカスタマイズ成果物の一覧に不足・重複・命名不整合がないこと。
+      - id: prj-deliverables-catalog
+        path: docs/ja/projects/prj-0001/010-project-definition/030-prj-deliverables-catalog.md
+      - id: wbs-agent-customization
+        path: docs/ja/projects/prj-0001/030-project-management/030-wbs/wbs-agent-customization.yaml
+    done_criteria:
+      - |-
+        成果物カタログと WBS の対応が保たれ、
+        エージェントカスタマイズ成果物の一覧に不足・重複・命名不整合がないこと。

@@ -43,6 +43,7 @@ type WbsDoc = {
   wbs?: Array<{
     id?: string
     deliverables?: Array<{
+      id?: string
       path?: string
     }>
   }>
