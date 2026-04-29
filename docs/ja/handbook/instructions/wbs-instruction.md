@@ -12,7 +12,6 @@
 
 - 目的は、`1 WBS Item = 1 完了判定を共有する成果物ファミリー` の原則で、レビュー可能な WBS 定義を作成することです。
 - WBS は WHAT を定義する層であり、WHEN / ORDER は Schedule 側で管理します。
-- 分解単位やドメイン境界は、対象プロジェクトの `pm-wbs-decomposition-strategy.md` を優先します。
 
 ## 2. 入力情報
 

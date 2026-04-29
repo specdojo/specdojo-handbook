@@ -39,6 +39,5 @@ rulebook: pm-wbs-to-schedule-strategy-rulebook
 
 ## 6. 関連ドキュメント
 
-- `pm-wbs-decomposition-strategy`
 - `sch-gcs`
 - `pm-plan`

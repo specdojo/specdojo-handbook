@@ -8,16 +8,15 @@ status: draft
 
 Work Breakdown Structure Documentation Rules
 
-本ドキュメントは、`wbs-<scope>.yaml` を一貫した粒度と命名で作成・更新するためのルールを定義します。
+本ドキュメントは、`wbs-<domain>.yaml` を一貫した粒度と命名で作成・更新するためのルールを定義します。
 WBS は成果物スコープと完了定義（WHAT）に特化し、実行順序・依存・日程（WHEN/ORDER）は Schedule 側で管理します。
 本ルールで示す YAML 構造は、`docs/shared/schemas/wbs.schema.yaml` を正とします。
 
 ## 1. 全体方針
 
-- `1 WBS Item = 1 完了判定を共有する成果物ファミリー` を基本単位とする。
+- `1 成果物 = 1 WBS Item` を基本単位とする。対象は成果物カタログの `kind: work` の成果物のみ。
 - WBS には成果物スコープ、`deliverables`、`done_criteria` を記述し、実行計画（依存・順序・所要期間）は記述しない。
-- 成果物カタログで「WBSへの落とし込み対象外」とされた成果物は WBS 管理対象に含めない。
-- WBS の分解方針は、対象プロジェクトの `pm-wbs-decomposition-strategy.md` を優先する。
+- `DOMAIN` と `ARTIFACT` は成果物カタログで定義する。WBS Item の `id` はそれらをベースに採番する。
 
 ### 1.1. スキーマ版管理（`$id`）
 
@@ -32,8 +31,8 @@ WBS は成果物スコープと完了定義（WHAT）に特化し、実行順序
 
 | 用語          | 意味                                              |
 | ------------- | ------------------------------------------------- |
-| WBS Item      | 完了判定を共有する成果物ファミリー単位            |
-| deliverables  | 作成・更新対象となる実ファイルパス一覧            |
+| WBS Item      | 1 成果物に対応するスコープ完了単位                |
+| deliverables  | 完了判定対象となる実ファイルパス一覧              |
 | done_criteria | レビューで完了可否を判定できる条件                |
 | scope         | WBS ファイル分割単位（例: project, product-docs） |
 
@@ -41,26 +40,26 @@ WBS は成果物スコープと完了定義（WHAT）に特化し、実行順序
 
 ### 3.1. WBS ファイル名
 
-- ファイル名は `wbs-<scope>.yaml` とする。
-- `<scope>` は成果物カタログのドメインまたは分解戦略で定義した分割単位に一致させる。
+- ファイル名は `wbs-<domain>.yaml` とする。
+- `<domain>` は成果物カタログのドメインまたは分解戦略で定義した分割単位に一致させる。
 - 例: `wbs-project.yaml`, `wbs-agent-customization.yaml`, `wbs-project-docs.yaml`, `wbs-product-docs.yaml`
 
 ### 3.2. WBS Item の `id`
 
-- スキーマ上の形式は `^WBS-[A-Z0-9-]+-[0-9]{2,4}$` とする。
-- 推奨形式は `WBS-<DOMAIN>-<ARTIFACT>-<NNNN>` とする。
-- `<DOMAIN>` はプロジェクトで定義した略号（例: `PRJ`, `AGT`, `PJD`, `PDT`）を使用する。
-- `<ARTIFACT>` は成果物カタログの `name` に対応する意味のある略号を使用する。
-- `<NNNN>` はプロジェクト規約として 4 桁固定、`0010` 刻みで採番する（スキーマは 2〜4 桁を許容）。
+- スキーマ上の形式は `^WBS-[A-Z0-9]+-[A-Z0-9-]+-[0-9]{2,4}$` とする。
+- 形式は `WBS-<DOMAIN>-<ARTIFACT>-<NNN>` とする。
+- `<DOMAIN>` は成果物カタログの `DOMAIN` 列の値を使用する。
+- `<ARTIFACT>` は成果物カタログの `ARTIFACT` 列の値を使用する。
+- `<NNN>` は 3 桁固定、`010` 刻みで採番する（スキーマは 2〜4 桁を許容）。
 - 既存 `id` は並び替えのみを理由に変更しない。
 
 例:
 
 ```text
-WBS-PDT-BPS-0010
-WBS-PDT-CXD-0020
-WBS-PDT-REFDATA-0070
-WBS-PJD-PRJ-0010
+WBS-PJD-OVERVIEW-010
+WBS-PJD-SCOPE-020
+WBS-PJM-PLAN-010
+WBS-PJM-COMM-020
 ```
 
 ## 4. 推奨 Frontmatter 項目
@@ -105,7 +104,6 @@ WBS-PJD-PRJ-0010
 | wbs[].component           | 任意 | サブ領域（例: api, ui, db）                       |
 | wbs[].deliverables        | ○    | 成果物配列                                        |
 | wbs[].deliverables[].path | ○    | 成果物パス                                        |
-| wbs[].deliverables[].kind | ○    | `create` / `modify` / `reference`                 |
 | wbs[].deliverables[].note | 任意 | 成果物補足                                        |
 | wbs[].done_criteria       | ○    | 完了判定可能な条件                                |
 | wbs[].acceptance_refs     | 任意 | 受入基準や決定記録への参照ID配列                  |
@@ -121,27 +119,24 @@ WBS-PJD-PRJ-0010
 
 ### 6.1. 粒度
 
-- 単一ファイル単位ではなく、同じ完了条件でレビューできる成果物ファミリー単位で切る。
-- `rules` / `instruction` / `sample` が一体運用なら 1 WBS Item にまとめる。
-- 文書本体と Mermaid 図のような整合セットも原則 1 WBS Item にまとめる。
+- `1 成果物 = 1 WBS Item` を厳守する。
+- 成果物カタログの `kind: work` の成果物のみが WBS Item の対象。
+- 同一成果物が複数フェーズで扱われる場合でも、WBS Item は重複させない。
 
 ### 6.2. `deliverables`
 
-- 各要素をオブジェクトで記述し、`path` と `kind` を必須とする。
-- `kind` は `create` / `modify` / `reference` のいずれかを使う。
+- 各要素をオブジェクトで記述し、`path` を必須とする。
 - 実在パスを列挙し、曖昧な表記（例: 「関連資料一式」）は使わない。
 - 将来増減が見込まれる場合でも、現時点で管理対象とするファイルを明示する。
-- 成果物カタログで WBS 対象外とされた成果物（管理台帳、レポート、実行管理、決定記録）は列挙しない。
+- 成果物カタログの `kind: work` 以外の成果物は列挙しない。
 
 例:
 
 ```yaml
 deliverables:
   - path: docs/ja/handbook/rulebooks/wbs-rulebook.md
-    kind: modify
-    note: WBS ルール本文の更新
-  - path: docs/ja/handbook/samples/wbs-sample.md
-    kind: create
+    note: WBS ルール本文
+  - path: docs/ja/handbook/samples/wbs-sample.yaml
 ```
 
 ### 6.3. `done_criteria`
@@ -170,7 +165,7 @@ BPS を更新すること。
 
 - 実行順序・依存・日程を WBS に直接書くこと。
 - `id` に意味のない略号や重複番号を使うこと。
-- `deliverables` を文字列配列で記述すること（`path` / `kind` 必須）。
+- `deliverables` を文字列配列で記述すること（オブジェクト配列で `path` 必須）。
 - `deliverables` に存在しない/曖昧なパスを記載すること。
 - `done_criteria` を判定不能な抽象語だけで記述すること。
 - 成果物カタログで WBS 対象外とされた成果物を WBS 管理対象へ混在させること。

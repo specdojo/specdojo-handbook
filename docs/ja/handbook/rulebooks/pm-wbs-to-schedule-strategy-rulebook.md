@@ -18,7 +18,6 @@ WBS to Schedule Strategy Documentation Rules
 
 ## 2. 位置づけと用語定義（必要に応じて）
 
-- `pm-wbs-decomposition-strategy`: WBS分解の基準。
 - `pm-wbs-to-schedule-strategy`: WBSをスケジュールへ変換する規則。
 - `sch-<domain>`: 展開後の詳細スケジュール定義。
 
@@ -81,7 +80,7 @@ WBS to Schedule Strategy Documentation Rules
 
 ### 6.6. 関連ドキュメント
 
-- `pm-wbs-decomposition-strategy`、`sch-<domain>`、`pm-plan` への導線を記載する。
+- `sch-<domain>`、`pm-plan` への導線を記載する。
 - 関連がない場合でも `（本書のみ）` を明記する。
 
 ## 7. 禁止事項

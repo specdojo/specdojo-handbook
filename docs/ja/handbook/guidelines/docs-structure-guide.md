@@ -202,7 +202,6 @@ docs/
 │   │   │   │   │   ├── pm-communication-plan.md  # コミュニケーション計画
 │   │   │   │   │   ├── pm-quality-management-plan.md　# 品質管理計画
 │   │   │   │   │   ├── pm-raci.md　              # 組織体制とRACI
-│   │   │   │   │   ├── pm-wbs-decomposition-strategy.md　# WBS分解戦略
 │   │   │   │   │   └── pm-wbs-to-schedule-strategy.md　# WBSからスケジュールへの変換戦略
 │   │   │   │   │
 │   │   │   │   ├── 020-controls/                 # 管理台帳・管理ビュー ※WBS対象外
@@ -392,20 +391,17 @@ flowchart TB
 flowchart LR
 
   DC["prj-deliverables-catalog<br/>成果物カタログ"]
-  DS["pm-wbs-decomposition-strategy<br/>WBS分解戦略"]
   WBS["WBS<br/>wbs-&lt;domain&gt;.yaml"]
   W2S["pm-wbs-to-schedule-strategy<br/>WBSからスケジュールへの変換戦略"]
   SCH["スケジュール<br/>sch-&lt;domain&gt;.yaml"]
   EXE["execution / reporting / controls<br/>実行 / 報告 / 管理"]
 
   DC --> WBS --> SCH --> EXE
-  DS --> WBS
   W2S --> SCH
-  DC --> DS
   DC --> W2S
 
   classDef projectWise fill:#fff3bf,stroke:#f08c00,color:#000;
-  class DC,DS,W2S,WBS,SCH,EXE projectWise;
+  class DC,W2S,WBS,SCH,EXE projectWise;
 ```
 
 ## 7. プロダクトドキュメントの構成

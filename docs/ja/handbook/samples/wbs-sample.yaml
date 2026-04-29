@@ -5,7 +5,6 @@ part_of:
   - prj-overview
 based_on:
   - prj-scope
-  - pm-wbs-decomposition-strategy
 supersedes: []
 project_id: prj-0001
 domain: product-docs
