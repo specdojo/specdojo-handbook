@@ -58,11 +58,11 @@ WBSへの展開対象は原則 `work` のみとする。ただし、プロジェ
 - 成果物については、成果物カタログの中で略称を定める。略称は、ドメインの略称 `<DOMAIN>` と成果物の略称 `<ARTIFACT>` を定義し、`<DOMAIN>-<ARTIFACT>` はプロジェクト内で一意になるように定める。
 - WBS item の `id` は、成果物の略称をベースに `WBS-<DOMAIN>-<ARTIFACT>` 形式で付ける。
   - 例: `WBS-PJD-OVERVIEW`
-- Schedule item の `id` は、先に Schedule を管理するまとまり `<GROUP>` を定義し、`T-<GROUP>-<DOMAIN>-<ARTIFACT>-<NNN>` 形式で付ける。
+- Schedule item の `id` は、先に Schedule を管理するまとまり `<TRACK>` を定義し、`T-<TRACK>-<DOMAIN>-<ARTIFACT>-<NNN>` 形式で付ける。
   - 例: `T-LAUNCH-PJD-OVERVIEW-010`
-  - `<GROUP>` は Schedule 上の管理グループを表す。フェーズ、リリース、作業グループなど実行管理上のまとまりを表してもよい。
+  - `<TRACK>` は Schedule 上の管理トラックを表す。フェーズ、リリース、作業グループなど実行管理上のまとまりを表してもよい。
   - `<DOMAIN>-<ARTIFACT>` は、対応する成果物の略称を表す。
-  - `<NNN>` は同一 `<GROUP>-<DOMAIN>-<ARTIFACT>` 内で Schedule item を識別する連番とする。
+  - `<NNN>` は同一 `<TRACK>-<DOMAIN>-<ARTIFACT>` 内で Schedule item を識別する連番とする。
 - 厳密な実行順序や依存関係は、Schedule item の `depends_on` で表現する。
 
 ## 5. 参照キーと配置先の原則
