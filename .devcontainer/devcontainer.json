@@ -24,6 +24,7 @@
       "extensions": [
         "streetsidesoftware.code-spell-checker",
         "mhutchie.git-graph",
+        "openai.chatgpt",
         "github.copilot",
         "github.copilot-chat",
         "CucumberOpen.cucumber-official",
