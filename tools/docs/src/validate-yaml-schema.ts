@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { readdirSync, readFileSync } from 'node:fs'
+import { basename, dirname, join, resolve } from 'node:path'
 import { load } from 'js-yaml'
 import fg from 'fast-glob'
 import Ajv from 'ajv'
@@ -62,6 +62,18 @@ function selectAjv(schema: JsonObject): Ajv | Ajv2020 {
   return new Ajv({ allErrors: true, strict: false })
 }
 
+function addSiblingSchemas(ajv: Ajv | Ajv2020, schemaPath: string): void {
+  const schemaDir = dirname(schemaPath)
+  const currentSchemaName = basename(schemaPath)
+
+  for (const entry of readdirSync(schemaDir)) {
+    if (!entry.endsWith('.schema.yaml') || entry === currentSchemaName) continue
+
+    const siblingSchema = load(readFileSync(join(schemaDir, entry), 'utf8')) as JsonObject
+    ajv.addSchema(siblingSchema, entry)
+  }
+}
+
 function main(): void {
   const args = parseArgs(process.argv)
   const schemaPath = resolve(args.schemaPath)
@@ -69,6 +81,7 @@ function main(): void {
 
   const schema = load(readFileSync(schemaPath, 'utf8')) as JsonObject
   const ajv = selectAjv(schema)
+  addSiblingSchemas(ajv, schemaPath)
   const validate = ajv.compile(schema)
 
   const files = fg

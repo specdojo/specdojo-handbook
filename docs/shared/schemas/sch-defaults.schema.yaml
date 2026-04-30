@@ -1,0 +1,26 @@
+# sch-default.schema.yaml
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "SpecDojo Schedule defaults schema"
+type: object
+additionalProperties: false
+
+required:
+  - kind
+  - version
+  - calendar
+  - settings
+
+properties:
+  kind:
+    const: "defaults"
+  version:
+    type: integer
+    minimum: 1
+    description: "Schema/data version."
+  calendar:
+    $ref: "./sch-common.schema.yaml#/$defs/DefaultsCalendar"
+  settings:
+    $ref: "./sch-common.schema.yaml#/$defs/DefaultsSettings"
+  notes:
+    type: string
+    description: "Optional file-level notes."
