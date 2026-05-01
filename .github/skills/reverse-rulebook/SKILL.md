@@ -20,7 +20,6 @@ description: '成果物ファイルを分析し、対応する `docs/ja/specdojo
 - 命名ルール: `docs/ja/specdojo/standards/id-and-file-naming-standard.md`
 - ドキュメント内容ガイド: `docs/ja/specdojo/guidelines/docs-contents-guide.md`
 - 通常の rulebook 作成フロー: `@file:.github/skills/upsert-rulebook/SKILL.md`
-- 対象除外: `docs/ja/specdojo/standards/*-standard.md` は対象外
 
 ## 対象ファイルから rulebook を特定する方法
 
@@ -59,7 +58,6 @@ description: '成果物ファイルを分析し、対応する `docs/ja/specdojo
 ## 実行ルール
 
 - 開いているファイルが `*-rulebook.md` / `*-instruction.md` / `*-sample.*` の場合は対象外として中止し、対応プロンプトへ誘導する
-- `docs/ja/specdojo/standards/*-standard.md` は常にスキップする
 - 特定できない場合のみユーザー確認を行う
 - ある対象で失敗しても、複数対象時は他対象の処理を継続する
 

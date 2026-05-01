@@ -29,7 +29,6 @@ description: 'docs/ja/specdojo/rulebooks` 配下の `*-rulebook.md` を新規作
 - 命名ルール: `docs/ja/specdojo/standards/id-and-file-naming-standard.md`
 - Frontmatter スキーマ: `docs/specdojo/schemas/v1/rulebook-frontmatter.schema.yaml`
 - ドキュメント内容ガイド: `docs/ja/specdojo/guidelines/docs-contents-guide.md`
-- 対象除外: `docs/ja/specdojo/standards/*-standard.md` は本 Skill の対象外
 
 ## 引数仕様（複数対象対応）
 
@@ -45,7 +44,6 @@ description: 'docs/ja/specdojo/rulebooks` 配下の `*-rulebook.md` を新規作
 ## 複数対象の実行ルール
 
 - 正規化後の対象を 1 ファイルずつ独立に判定し、順次実行する。
-- `docs/ja/specdojo/standards/*-standard.md` に該当する対象は、その対象のみスキップする。
 - ある対象で失敗しても他対象の処理は継続する。
 - 最後に対象ごとの結果（更新 / 新規 / スキップ / 失敗）を一覧で出力する。
 

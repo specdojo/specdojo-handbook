@@ -20,7 +20,6 @@ description: '`docs/ja/specdojo/rulebooks` の更新内容を、`docs/ja/specdoj
 - 共通運用ルール: `@file:.github/instructions/rulebook-to-sample.instructions.md`
 - 命名対応: `<name>-rulebook.md` → `<name>-sample.md`
 - 出力先ディレクトリ: `docs/ja/specdojo/samples/`
-- 対象除外: `docs/ja/specdojo/standards/*-standard.md` は sample 同期対象外
 - 前提プロジェクト: 駄菓子屋の販売管理システムを構築するプロジェクト（固定）
 
 ## 引数仕様（複数対象対応）
@@ -37,7 +36,6 @@ description: '`docs/ja/specdojo/rulebooks` の更新内容を、`docs/ja/specdoj
 ## 複数対象の実行ルール
 
 - 正規化後の対象を 1 ファイルずつ独立に判定し、順次実行する。
-- `docs/ja/specdojo/standards/*-standard.md` に該当する対象は、その対象のみスキップする。
 - ある対象で失敗しても他対象の処理は継続する。
 - 最後に対象ごとの結果（更新 / 新規 / スキップ / 失敗）を一覧で出力する。
 
@@ -45,7 +43,7 @@ description: '`docs/ja/specdojo/rulebooks` の更新内容を、`docs/ja/specdoj
 
 1. 引数有無を判定し、対象一覧を正規化する（未指定時は開いている 1 件）
 2. 対象を 1 ファイルずつ順に処理する
-3. 各対象 rules を読み、必須章・必須表・禁止事項・最終チェックを抽出（`docs/ja/specdojo/standards/*-standard.md` は対象単位でスキップ）
+3. 各対象 rules を読み、必須章・必須表・禁止事項・最終チェックを抽出
 4. 対応する sample を新規作成またはアップサート
 5. 命名・章番号・見出し名称・業務文脈を整合
 6. 対象ごとの結果を集約して出力する
