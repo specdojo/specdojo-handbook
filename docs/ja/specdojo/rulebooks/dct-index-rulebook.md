@@ -129,4 +129,4 @@ flowchart LR
 
 ## 9. 生成 AI への指示テンプレート
 
-instruction 未作成。作成後にリンクを追記する。
+[dct-index-instruction.md](../instructions/dct-index-instruction.md)
