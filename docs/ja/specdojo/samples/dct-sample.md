@@ -1,5 +1,5 @@
 ---
-id: prj-0001:dct-project-definition
+id: prj-0001:dct-sample
 type: project
 status: draft
 part_of:
@@ -7,7 +7,13 @@ part_of:
 rulebook: dct-rulebook
 ---
 
-# 成果物カタログ（ドメイン別）サンプル
+# 成果物カタログ: プロジェクト定義
+
+Project Deliverables Catalog: Project Definition
+
+駄菓子屋きぬや販売管理システム構築プロジェクトのプロジェクト定義ドメインに属する成果物を一覧化したカタログです。
+各成果物の `local-id`・種別・根拠・配置先・概要をメタ情報として管理し、プロジェクト内のトレーサビリティを確保します。
+成果物の詳細な本文内容は各成果物ファイルを正とし、このカタログはメタ情報の管理に専念します。
 
 - project-id: prj-0001
 - ドメイン: project-definition

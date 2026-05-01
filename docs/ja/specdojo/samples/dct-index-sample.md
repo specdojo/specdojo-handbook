@@ -1,11 +1,17 @@
 ---
-id: dct-index
+id: prj-0001:dct-index-sample
 type: project
 status: draft
 rulebook: dct-index-rulebook
 ---
 
-# 成果物カタログ索引 サンプル
+# 成果物カタログ索引
+
+Project Deliverables Catalog Index
+
+駄菓子屋きぬや販売管理システム構築プロジェクトの成果物カタログ索引です。
+プロジェクト内で管理する各ドメインとドメイン別成果物カタログ（`dct-<domain>.md`）への参照を一元管理し、ドメインと参照先リンクの整合性を保ちます。
+各ドメインに属する成果物の詳細情報（配置先・根拠・派生関係など）は、それぞれのドメイン別カタログに集約しています。
 
 ## 1. 共通ルール
 

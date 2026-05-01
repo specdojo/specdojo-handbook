@@ -167,7 +167,8 @@
   },
 
   "files.associations": {
-    "*.schema.yaml": "yaml"
+    "*.schema.yaml": "yaml",
+    "*.instructions.md": "markdown"
   },
   "json.schemaDownload.enable": false,
   "chat.tools.terminal.autoApprove": {
