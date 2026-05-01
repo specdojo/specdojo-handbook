@@ -1,7 +1,7 @@
 # Rules→Instruction 変換運用ルール
 
-このファイルは、`docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を要約し、
-対応する `docs/ja/handbook/instructions/*-instruction.md` を作成/更新するための共通運用ルールです。
+このファイルは、`docs/ja/specdojo/rulebooks` 配下の `*-rulebook.md` を要約し、
+対応する `docs/ja/specdojo/instructions/*-instruction.md` を作成/更新するための共通運用ルールです。
 
 ## 1. 目的
 
@@ -11,8 +11,8 @@
 
 ## 2. 入出力の対応
 
-- 入力: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
-- 出力: `docs/ja/handbook/instructions/<name>-instruction.md`
+- 入力: `docs/ja/specdojo/rulebooks/<name>-rulebook.md`
+- 出力: `docs/ja/specdojo/instructions/<name>-instruction.md`
 
 対応原則:
 

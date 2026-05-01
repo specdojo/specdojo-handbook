@@ -26,12 +26,12 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/gl-rulebook.md
+- docs/ja/specdojo/rulebooks/gl-rulebook.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/gl-instruction.md
-- docs/ja/handbook/samples/gl-sample.md
+- docs/ja/specdojo/instructions/gl-instruction.md
+- docs/ja/specdojo/samples/gl-sample.md
 
 ## 4. 依存と優先度
 

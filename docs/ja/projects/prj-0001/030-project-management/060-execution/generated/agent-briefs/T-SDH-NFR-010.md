@@ -26,12 +26,12 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/nfr-index-rulebook.md
+- docs/ja/specdojo/rulebooks/nfr-index-rulebook.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/nfr-index-instruction.md
-- docs/ja/handbook/samples/nfr-index-sample.md
+- docs/ja/specdojo/instructions/nfr-index-instruction.md
+- docs/ja/specdojo/samples/nfr-index-sample.md
 
 ## 4. 依存と優先度
 

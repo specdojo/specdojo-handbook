@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. ビジネスルールの作成・更新ルールは [br-rulebook.md](../../../handbook/rulebooks/br-rulebook.md) を参照してください。
-2. 生成AIを活用してビジネスルールを作成する場合は [br-instruction.md](../../../handbook/instructions/br-instruction.md) をプロンプトのテンプレートとして利用してください。
+1. ビジネスルールの作成・更新ルールは [br-rulebook.md](../../../specdojo/rulebooks/br-rulebook.md) を参照してください。
+2. 生成AIを活用してビジネスルールを作成する場合は [br-instruction.md](../../../specdojo/instructions/br-instruction.md) をプロンプトのテンプレートとして利用してください。

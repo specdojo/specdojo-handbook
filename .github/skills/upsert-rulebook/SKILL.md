@@ -1,11 +1,11 @@
 ---
 name: upsert-rulebook
-description: 'docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を新規作成または更新するための Skill です。'
+description: 'docs/ja/specdojo/rulebooks` 配下の `*-rulebook.md` を新規作成または更新するための Skill です。'
 ---
 
 # SKILL: upsert-rulebook
 
-`docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を新規作成または更新するための Skill です。
+`docs/ja/specdojo/rulebooks` 配下の `*-rulebook.md` を新規作成または更新するための Skill です。
 
 ## 使いどころ
 
@@ -21,14 +21,14 @@ description: 'docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を新規作
 ## 前提
 
 - 共通運用ルール: `@file:.github/instructions/rulebook.instructions.md`
-- 章構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
+- 章構成基準: `docs/ja/specdojo/rulebooks/meta-rulebook-structure-rulebook.md`
 - メタ情報ルール（種別別）:
-  - `docs/ja/handbook/rulebooks/meta-rulebook-metadata-rulebook.md`
-  - `docs/ja/handbook/rulebooks/meta-deliverable-metadata-rulebook.md`
-  - `docs/ja/handbook/rulebooks/meta-instruction-metadata-rulebook.md`
-- 命名ルール: `docs/ja/handbook/rulebooks/meta-id-and-file-naming-rulebook.md`
-- Frontmatter スキーマ: `docs/shared/schemas/v1/rulebook-frontmatter.schema.yaml`
-- ドキュメント内容ガイド: `docs/ja/handbook/guidelines/docs-contents-guide.md`
+  - `docs/ja/specdojo/rulebooks/meta-rulebook-metadata-rulebook.md`
+  - `docs/ja/specdojo/rulebooks/meta-deliverable-metadata-rulebook.md`
+  - `docs/ja/specdojo/rulebooks/meta-instruction-metadata-rulebook.md`
+- 命名ルール: `docs/ja/specdojo/rulebooks/meta-id-and-file-naming-rulebook.md`
+- Frontmatter スキーマ: `docs/specdojo/schemas/v1/rulebook-frontmatter.schema.yaml`
+- ドキュメント内容ガイド: `docs/ja/specdojo/guidelines/docs-contents-guide.md`
 - 対象除外: `meta-*-rulebook.md` は本 Skill の対象外
 
 ## 引数仕様（複数対象対応）
@@ -37,8 +37,8 @@ description: 'docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` を新規作
 - 区切りはスペース / 改行 / カンマを受け付ける。
 - 相対パスと絶対パスの両方を受け付ける。
 - `-rulebook.md` を含む完全指定と、`-rulebook.md` を省略した短縮指定の両方を受け付ける。
-  - 例: `imp-business-rulebook.md`（`docs/ja/handbook/rulebooks/imp-business-rulebook.md` として解釈）
-  - 例: `imp-business`（`docs/ja/handbook/rulebooks/imp-business-rulebook.md` として解釈）
+  - 例: `imp-business-rulebook.md`（`docs/ja/specdojo/rulebooks/imp-business-rulebook.md` として解釈）
+  - 例: `imp-business`（`docs/ja/specdojo/rulebooks/imp-business-rulebook.md` として解釈）
 - 同一対象の重複指定は 1 件に正規化する。
 - 引数なしの場合は、現在開いているファイルを単一対象として扱う。
 

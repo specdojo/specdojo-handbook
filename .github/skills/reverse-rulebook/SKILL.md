@@ -1,12 +1,12 @@
 ---
 name: reverse-rulebook
-description: '成果物ファイルを分析し、対応する `docs/ja/handbook/rulebooks/*-rulebook.md` を逆生成（新規作成または差分更新）する Skill です。'
+description: '成果物ファイルを分析し、対応する `docs/ja/specdojo/rulebooks/*-rulebook.md` を逆生成（新規作成または差分更新）する Skill です。'
 ---
 
 # SKILL: reverse-rulebook
 
 開いている成果物ファイル（`sample-gcs-product/` 配下やプロジェクト固有成果物）を分析し、
-対応する `docs/ja/handbook/rulebooks/*-rulebook.md` を逆生成する Skill です。
+対応する `docs/ja/specdojo/rulebooks/*-rulebook.md` を逆生成する Skill です。
 
 ## 使いどころ
 
@@ -17,9 +17,9 @@ description: '成果物ファイルを分析し、対応する `docs/ja/handbook
 ## 前提
 
 - 共通運用ルール: `@file:.github/instructions/rulebook.instructions.md`
-- 章構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
-- 命名ルール: `docs/ja/handbook/rulebooks/meta-id-and-file-naming-rulebook.md`
-- ドキュメント内容ガイド: `docs/ja/handbook/guidelines/docs-contents-guide.md`
+- 章構成基準: `docs/ja/specdojo/rulebooks/meta-rulebook-structure-rulebook.md`
+- 命名ルール: `docs/ja/specdojo/rulebooks/meta-id-and-file-naming-rulebook.md`
+- ドキュメント内容ガイド: `docs/ja/specdojo/guidelines/docs-contents-guide.md`
 - 通常の rulebook 作成フロー: `@file:.github/skills/upsert-rulebook/SKILL.md`
 - 対象除外: `meta-*-rulebook.md` は対象外
 
@@ -37,7 +37,7 @@ description: '成果物ファイルを分析し、対応する `docs/ja/handbook
 ## 逆生成の実行フロー
 
 1. 対象特定: 上記シグナルで `<prefix>-rulebook.md` を特定する
-2. 既存確認: `docs/ja/handbook/rulebooks/<prefix>-rulebook.md` の存在を確認する
+2. 既存確認: `docs/ja/specdojo/rulebooks/<prefix>-rulebook.md` の存在を確認する
    - 存在する場合: 成果物との乖離を分析し、差分アップサートする
    - 存在しない場合: 新規作成する
 3. 成果物構造の抽出: 開いているファイルから次を抽出する

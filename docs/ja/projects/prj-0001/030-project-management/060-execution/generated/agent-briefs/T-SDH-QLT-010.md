@@ -26,12 +26,12 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/sac-rulebook.md
+- docs/ja/specdojo/rulebooks/sac-rulebook.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/sac-instruction.md
-- docs/ja/handbook/samples/sac-sample.md
+- docs/ja/specdojo/instructions/sac-instruction.md
+- docs/ja/specdojo/samples/sac-sample.md
 
 ## 4. 依存と優先度
 

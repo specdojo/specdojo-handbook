@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { generateSidebar } from 'vitepress-sidebar'
 import * as crypto from 'crypto'
-import { handbookSidebarItems } from './handbook-sidebar-items'
+import { specdojoSidebarItems } from './specdojo-sidebar-items'
 import type { Plugin } from 'vite'
 import {
   generateMermaidSvgs,
@@ -14,11 +14,11 @@ const CONFIG_DIR = path.dirname(fileURLToPath(import.meta.url))
 const DOCS_ROOT = path.resolve(CONFIG_DIR, '..')
 const MERMAID_OUT_DIR = path.join(DOCS_ROOT, 'public', 'mermaid')
 
-const handbookItems = {
+const specdojoItems = {
   ja: {
-    text: 'handbook',
+    text: 'specdojo',
     collapsed: false,
-    items: handbookSidebarItems,
+    items: specdojoSidebarItems,
   },
 }
 
@@ -190,7 +190,8 @@ const normalizeAndPrefixLink = (link: string, locale: Locale): string => {
 
 const isHandbookTop = (item: SidebarItem): boolean => {
   const link = item.link ?? ''
-  return link.includes('/handbook/') || (item.text ?? '').toString().toLowerCase() === 'handbook'
+  const text = (item.text ?? '').toString().toLowerCase()
+  return link.includes('/specdojo/') || text === 'specdojo'
 }
 
 // 再帰的に: 表示名整形（xxx-削除）、並び替え
@@ -258,7 +259,7 @@ export default defineConfig({
       // 言語メニューで押したときのリンク先（日本語トップ）
       link: '/ja/',
       themeConfig: {
-        sidebar: [handbookItems.ja, ...sidebarJaAuto],
+        sidebar: [specdojoItems.ja, ...sidebarJaAuto],
         langMenuLabel: '言語',
       },
     },

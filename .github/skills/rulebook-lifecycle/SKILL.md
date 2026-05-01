@@ -16,7 +16,7 @@ description: '*-rulebook.md の作成からその派生成果物（instruction /
 
 ## 前提
 
-- すべての入力/出力パスは `docs/ja/handbook/` 配下を基準とする
+- すべての入力/出力パスは `docs/ja/specdojo/` 配下を基準とする
 - `meta-*-rulebook.md` は本ワークフローの対象外
 - Phase 1 では、別の `*-input.md` は作成しない
 - Agent は `*-rulebook.md` の雛形を直接作成し、人はその中の `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を追記・更新する

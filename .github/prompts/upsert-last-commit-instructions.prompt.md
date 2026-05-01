@@ -3,14 +3,14 @@
 @file:.github/skills/rulebook-to-instruction/SKILL.md
 
 `HEAD~1..HEAD` の差分に含まれる
-`/docs/ja/handbook/rulebooks/*-rulebook.md` のみを対象に、
-対応する `/docs/ja/handbook/instructions/*-instruction.md` を作成または更新してください。
+`/docs/ja/specdojo/rulebooks/*-rulebook.md` のみを対象に、
+対応する `/docs/ja/specdojo/instructions/*-instruction.md` を作成または更新してください。
 
 ## 対象抽出
 
 1. `HEAD~1..HEAD` の変更ファイルを取得する
    - `HEAD~1` が存在しない場合（初回コミット等）は `HEAD` 単体の変更として扱う
-2. `docs/ja/handbook/rulebooks/*-rulebook.md` に一致するものだけを対象にする
+2. `docs/ja/specdojo/rulebooks/*-rulebook.md` に一致するものだけを対象にする
    - `meta-*-rulebook.md` は対象外とする
 3. 対象が0件なら「更新不要」と明示して終了する
 

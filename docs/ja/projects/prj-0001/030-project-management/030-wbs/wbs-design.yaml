@@ -13,29 +13,29 @@ wbs:
     component: external-if
     deliverables:
       - id: ifx-rulebook
-        path: docs/ja/handbook/rulebooks/ifx-rulebook.md
+        path: docs/ja/specdojo/rulebooks/ifx-rulebook.md
       - id: ifx-instruction
-        path: docs/ja/handbook/instructions/ifx-instruction.md
+        path: docs/ja/specdojo/instructions/ifx-instruction.md
       - id: ifx-api-rulebook
-        path: docs/ja/handbook/rulebooks/ifx-api-rulebook.md
+        path: docs/ja/specdojo/rulebooks/ifx-api-rulebook.md
       - id: ifx-api-instruction
-        path: docs/ja/handbook/instructions/ifx-api-instruction.md
+        path: docs/ja/specdojo/instructions/ifx-api-instruction.md
       - id: ifx-file-rulebook
-        path: docs/ja/handbook/rulebooks/ifx-file-rulebook.md
+        path: docs/ja/specdojo/rulebooks/ifx-file-rulebook.md
       - id: ifx-file-instruction
-        path: docs/ja/handbook/instructions/ifx-file-instruction.md
+        path: docs/ja/specdojo/instructions/ifx-file-instruction.md
       - id: ifx-msg-rulebook
-        path: docs/ja/handbook/rulebooks/ifx-msg-rulebook.md
+        path: docs/ja/specdojo/rulebooks/ifx-msg-rulebook.md
       - id: ifx-msg-instruction
-        path: docs/ja/handbook/instructions/ifx-msg-instruction.md
+        path: docs/ja/specdojo/instructions/ifx-msg-instruction.md
       - id: ifx-sample
-        path: docs/ja/handbook/samples/ifx-sample.md
+        path: docs/ja/specdojo/samples/ifx-sample.md
       - id: ifx-api-sample
-        path: docs/ja/handbook/samples/ifx-api-sample.md
+        path: docs/ja/specdojo/samples/ifx-api-sample.md
       - id: ifx-file
-        path: docs/ja/handbook/samples/ifx-file-sample.md
+        path: docs/ja/specdojo/samples/ifx-file-sample.md
       - id: ifx-msg-sample
-        path: docs/ja/handbook/samples/ifx-msg-sample.md
+        path: docs/ja/specdojo/samples/ifx-msg-sample.md
     done_criteria:
       - |-
         外部インターフェースのルール・指示ファイルが、IF一覧・API・ファイル・ メッセージ仕様ドキュメント全体にわたり一貫した構造・必須フィールド・ AI生成制約を定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -47,17 +47,17 @@ wbs:
     component: c4-context
     deliverables:
       - id: cxd-rulebook
-        path: docs/ja/handbook/rulebooks/cxd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cxd-rulebook.md
       - id: cxd-instruction
-        path: docs/ja/handbook/instructions/cxd-instruction.md
+        path: docs/ja/specdojo/instructions/cxd-instruction.md
       - id: cxd-mermaid-rulebook
-        path: docs/ja/handbook/rulebooks/cxd-mermaid-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cxd-mermaid-rulebook.md
       - id: cxd-mermaid-instruction
-        path: docs/ja/handbook/instructions/cxd-mermaid-instruction.md
+        path: docs/ja/specdojo/instructions/cxd-mermaid-instruction.md
       - id: cxd
-        path: docs/ja/handbook/samples/cxd-sample.md
+        path: docs/ja/specdojo/samples/cxd-sample.md
       - id: cxd-mermaid-sample
-        path: docs/ja/handbook/samples/cxd-mermaid-sample.md
+        path: docs/ja/specdojo/samples/cxd-mermaid-sample.md
     done_criteria:
       - |-
         CXD ファミリーが、C4 コンテキスト図の Markdown と Mermaid の 出力を整合させ、必須コンテンツとAIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -69,17 +69,17 @@ wbs:
     component: c4-container
     deliverables:
       - id: cnd-rulebook
-        path: docs/ja/handbook/rulebooks/cnd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cnd-rulebook.md
       - id: cnd-instruction
-        path: docs/ja/handbook/instructions/cnd-instruction.md
+        path: docs/ja/specdojo/instructions/cnd-instruction.md
       - id: cnd-mermaid-rulebook
-        path: docs/ja/handbook/rulebooks/cnd-mermaid-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cnd-mermaid-rulebook.md
       - id: cnd-mermaid-instruction
-        path: docs/ja/handbook/instructions/cnd-mermaid-instruction.md
+        path: docs/ja/specdojo/instructions/cnd-mermaid-instruction.md
       - id: cnd
-        path: docs/ja/handbook/samples/cnd-sample.md
+        path: docs/ja/specdojo/samples/cnd-sample.md
       - id: cnd-mermaid-sample
-        path: docs/ja/handbook/samples/cnd-mermaid-sample.md
+        path: docs/ja/specdojo/samples/cnd-mermaid-sample.md
     done_criteria:
       - |-
         CND ファミリーが、C4 コンテナドキュメントの Markdown と Mermaid の ナラティブと図の要件を整合させて定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -91,17 +91,17 @@ wbs:
     component: c4-component
     deliverables:
       - id: cpd-rulebook
-        path: docs/ja/handbook/rulebooks/cpd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cpd-rulebook.md
       - id: cpd-instruction
-        path: docs/ja/handbook/instructions/cpd-instruction.md
+        path: docs/ja/specdojo/instructions/cpd-instruction.md
       - id: cpd-mermaid-rulebook
-        path: docs/ja/handbook/rulebooks/cpd-mermaid-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cpd-mermaid-rulebook.md
       - id: cpd-mermaid-instruction
-        path: docs/ja/handbook/instructions/cpd-mermaid-instruction.md
+        path: docs/ja/specdojo/instructions/cpd-mermaid-instruction.md
       - id: cpd
-        path: docs/ja/handbook/samples/cpd-sample.md
+        path: docs/ja/specdojo/samples/cpd-sample.md
       - id: cpd-mermaid-sample
-        path: docs/ja/handbook/samples/cpd-mermaid-sample.md
+        path: docs/ja/specdojo/samples/cpd-mermaid-sample.md
     done_criteria:
       - |-
         CPD ファミリーが、C4 コンポーネントドキュメントのナラティブと Mermaid の 出力をスコープ・用語・必須要素で整合させて定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -113,11 +113,11 @@ wbs:
     component: infrastructure
     deliverables:
       - id: ifd-mermaid-rulebook
-        path: docs/ja/handbook/rulebooks/ifd-mermaid-rulebook.md
+        path: docs/ja/specdojo/rulebooks/ifd-mermaid-rulebook.md
       - id: ifd-mermaid-instruction
-        path: docs/ja/handbook/instructions/ifd-mermaid-instruction.md
+        path: docs/ja/specdojo/instructions/ifd-mermaid-instruction.md
       - id: ifd-mermaid-sample
-        path: docs/ja/handbook/samples/ifd-mermaid-sample.md
+        path: docs/ja/specdojo/samples/ifd-mermaid-sample.md
     done_criteria:
       - |-
         IFD Mermaid ルール・指示ペアが、図の構文・必須ノード・関係・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -129,11 +129,11 @@ wbs:
     component: tech-stack
     deliverables:
       - id: tsd-rulebook
-        path: docs/ja/handbook/rulebooks/tsd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/tsd-rulebook.md
       - id: tsd-instruction
-        path: docs/ja/handbook/instructions/tsd-instruction.md
+        path: docs/ja/specdojo/instructions/tsd-instruction.md
       - id: tsd
-        path: docs/ja/handbook/samples/tsd-sample.md
+        path: docs/ja/specdojo/samples/tsd-sample.md
     done_criteria:
       - |-
         TSD ルール・指示ペアが、技術スタックの必須セクション・ バージョン制約・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -145,23 +145,23 @@ wbs:
     component: system-design
     deliverables:
       - id: sysd-index-rules
-        path: docs/ja/handbook/rulebooks/sysd-index-rulebook.md
+        path: docs/ja/specdojo/rulebooks/sysd-index-rulebook.md
       - id: sysd-index-instruction
-        path: docs/ja/handbook/instructions/sysd-index-instruction.md
+        path: docs/ja/specdojo/instructions/sysd-index-instruction.md
       - id: sysd-critical-flows-rules
-        path: docs/ja/handbook/rulebooks/sysd-critical-flows-rulebook.md
+        path: docs/ja/specdojo/rulebooks/sysd-critical-flows-rulebook.md
       - id: sysd-critical-flows-instruction
-        path: docs/ja/handbook/instructions/sysd-critical-flows-instruction.md
+        path: docs/ja/specdojo/instructions/sysd-critical-flows-instruction.md
       - id: sysd-cross-cutting-policy-rules
-        path: docs/ja/handbook/rulebooks/sysd-cross-cutting-policy-rulebook.md
+        path: docs/ja/specdojo/rulebooks/sysd-cross-cutting-policy-rulebook.md
       - id: sysd-cross-cutting-policy-instruction
-        path: docs/ja/handbook/instructions/sysd-cross-cutting-policy-instruction.md
+        path: docs/ja/specdojo/instructions/sysd-cross-cutting-policy-instruction.md
       - id: sysd-index
-        path: docs/ja/handbook/samples/sysd-index-sample.md
+        path: docs/ja/specdojo/samples/sysd-index-sample.md
       - id: sysd-critical-flows
-        path: docs/ja/handbook/samples/sysd-critical-flows-sample.md
+        path: docs/ja/specdojo/samples/sysd-critical-flows-sample.md
       - id: sysd-cross-cutting-policy
-        path: docs/ja/handbook/samples/sysd-cross-cutting-policy-sample.md
+        path: docs/ja/specdojo/samples/sysd-cross-cutting-policy-sample.md
     done_criteria:
       - |-
         SYSD ファミリーが、インデックス・クリティカルフロー・横断的ポリシーの 成果物を整合したセクション構造と再利用可能なAIガイダンスで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。

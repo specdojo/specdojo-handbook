@@ -26,12 +26,12 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/tsd-rulebook.md
+- docs/ja/specdojo/rulebooks/tsd-rulebook.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/tsd-instruction.md
-- docs/ja/handbook/samples/tsd-sample.md
+- docs/ja/specdojo/instructions/tsd-instruction.md
+- docs/ja/specdojo/samples/tsd-sample.md
 
 ## 4. 依存と優先度
 

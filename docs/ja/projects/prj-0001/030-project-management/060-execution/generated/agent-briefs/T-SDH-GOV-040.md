@@ -26,10 +26,10 @@
 
 primary_paths:
 
-- docs/ja/handbook/standards/deliverable-metadata-standard.md
-- docs/ja/handbook/standards/id-and-file-naming-standard.md
-- docs/ja/handbook/standards/rulebook-structure-standard.md
-- docs/ja/handbook/standards/test-document-scope-standard.md
+- docs/ja/specdojo/standards/deliverable-metadata-standard.md
+- docs/ja/specdojo/standards/id-and-file-naming-standard.md
+- docs/ja/specdojo/standards/rulebook-structure-standard.md
+- docs/ja/specdojo/standards/test-document-scope-standard.md
 
 secondary_paths:
 

@@ -13,7 +13,7 @@
 ## 実行方針
 
 - `## 8. サンプル` 章を探索し、`### 8.x. サンプル:` 単位で抽出する。
-- 各サンプル単位の YAML と本文を使って `docs/ja/handbook/samples/*-sample.md` を作成/更新する。
+- 各サンプル単位の YAML と本文を使って `docs/ja/specdojo/samples/*-sample.md` を作成/更新する。
 - 抽出・命名・見出し整形・差分アップサートの詳細は SKILL の定義を正とする。
 - 処理完了後に `npm run -s lint:md` を実行する。
 

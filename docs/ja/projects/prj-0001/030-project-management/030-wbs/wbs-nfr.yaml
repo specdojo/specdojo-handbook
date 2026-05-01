@@ -13,11 +13,11 @@ wbs:
     component: index
     deliverables:
       - id: nfr-index-rules
-        path: docs/ja/handbook/rulebooks/nfr-index-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-index-rulebook.md
       - id: nfr-index-instruction
-        path: docs/ja/handbook/instructions/nfr-index-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-index-instruction.md
       - id: nfr-index
-        path: docs/ja/handbook/samples/nfr-index-sample.md
+        path: docs/ja/specdojo/samples/nfr-index-sample.md
     done_criteria:
       - |-
         NFR インデックスルール・指示ペアが、共通インデックス構造・ 選定ロジック・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -29,11 +29,11 @@ wbs:
     component: availability
     deliverables:
       - id: nfr-availability-rules
-        path: docs/ja/handbook/rulebooks/nfr-availability-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-availability-rulebook.md
       - id: nfr-availability
-        path: docs/ja/handbook/instructions/nfr-availability-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-availability-instruction.md
       - id: nfr-availability
-        path: docs/ja/handbook/samples/nfr-availability-sample.md
+        path: docs/ja/specdojo/samples/nfr-availability-sample.md
     done_criteria:
       - |-
         可用性 NFR ルール・指示ペアが、必須の可用性基準・エビデンス期待・ AIガイダンスを曖昧な閾値なく定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -45,11 +45,11 @@ wbs:
     component: integrity
     deliverables:
       - id: nfr-integrity-rules
-        path: docs/ja/handbook/rulebooks/nfr-integrity-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-integrity-rulebook.md
       - id: nfr-integrity
-        path: docs/ja/handbook/instructions/nfr-integrity-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-integrity-instruction.md
       - id: nfr-integrity
-        path: docs/ja/handbook/samples/nfr-integrity-sample.md
+        path: docs/ja/specdojo/samples/nfr-integrity-sample.md
     done_criteria:
       - |-
         完全性 NFR ルール・指示ペアが、必須の完全性統制・ ドキュメントセクション・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -61,11 +61,11 @@ wbs:
     component: maintainability
     deliverables:
       - id: nfr-maintainability-rules
-        path: docs/ja/handbook/rulebooks/nfr-maintainability-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-maintainability-rulebook.md
       - id: nfr-maintainability
-        path: docs/ja/handbook/instructions/nfr-maintainability-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-maintainability-instruction.md
       - id: nfr-maintainability
-        path: docs/ja/handbook/samples/nfr-maintainability-sample.md
+        path: docs/ja/specdojo/samples/nfr-maintainability-sample.md
     done_criteria:
       - |-
         保守性 NFR ルール・指示ペアが、測定可能な保守性期待・ 必須セクション・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -77,11 +77,11 @@ wbs:
     component: operations
     deliverables:
       - id: nfr-operations-rules
-        path: docs/ja/handbook/rulebooks/nfr-operations-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-operations-rulebook.md
       - id: nfr-operations
-        path: docs/ja/handbook/instructions/nfr-operations-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-operations-instruction.md
       - id: nfr-operations
-        path: docs/ja/handbook/samples/nfr-operations-sample.md
+        path: docs/ja/specdojo/samples/nfr-operations-sample.md
     done_criteria:
       - |-
         運用性 NFR ルール・指示ペアが、運用制約・可観測性期待・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -93,11 +93,11 @@ wbs:
     component: performance
     deliverables:
       - id: nfr-performance-rules
-        path: docs/ja/handbook/rulebooks/nfr-performance-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-performance-rulebook.md
       - id: nfr-performance-instruction
-        path: docs/ja/handbook/instructions/nfr-performance-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-performance-instruction.md
       - id: nfr-performance
-        path: docs/ja/handbook/samples/nfr-performance-sample.md
+        path: docs/ja/specdojo/samples/nfr-performance-sample.md
     done_criteria:
       - |-
         性能 NFR ルール・指示ペアが、測定可能な性能目標・ ワークロード前提・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -109,11 +109,11 @@ wbs:
     component: reliability
     deliverables:
       - id: nfr-reliability-rules
-        path: docs/ja/handbook/rulebooks/nfr-reliability-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-reliability-rulebook.md
       - id: nfr-reliability
-        path: docs/ja/handbook/instructions/nfr-reliability-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-reliability-instruction.md
       - id: nfr-reliability
-        path: docs/ja/handbook/samples/nfr-reliability-sample.md
+        path: docs/ja/specdojo/samples/nfr-reliability-sample.md
     done_criteria:
       - |-
         信頼性 NFR ルール・指示ペアが、障害対応期待・エビデンス要件・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -125,11 +125,11 @@ wbs:
     component: security-safety
     deliverables:
       - id: nfr-security-safety-rules
-        path: docs/ja/handbook/rulebooks/nfr-security-safety-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-security-safety-rulebook.md
       - id: nfr-security-safety
-        path: docs/ja/handbook/instructions/nfr-security-safety-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-security-safety-instruction.md
       - id: nfr-security-safety
-        path: docs/ja/handbook/samples/nfr-security-safety-sample.md
+        path: docs/ja/specdojo/samples/nfr-security-safety-sample.md
     done_criteria:
       - |-
         セキュリティ・安全性 NFR ルール・指示ペアが、必須の脅威・ 統制・安全性カバレッジを具体的かつ監査可能なAIガイダンスで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -141,11 +141,11 @@ wbs:
     component: usability
     deliverables:
       - id: nfr-usability-rules
-        path: docs/ja/handbook/rulebooks/nfr-usability-rulebook.md
+        path: docs/ja/specdojo/rulebooks/nfr-usability-rulebook.md
       - id: nfr-usability
-        path: docs/ja/handbook/instructions/nfr-usability-instruction.md
+        path: docs/ja/specdojo/instructions/nfr-usability-instruction.md
       - id: nfr-usability
-        path: docs/ja/handbook/samples/nfr-usability-sample.md
+        path: docs/ja/specdojo/samples/nfr-usability-sample.md
     done_criteria:
       - |-
         ユーザビリティ NFR ルール・指示ペアが、ユーザー中心の基準・ 測定期待・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。

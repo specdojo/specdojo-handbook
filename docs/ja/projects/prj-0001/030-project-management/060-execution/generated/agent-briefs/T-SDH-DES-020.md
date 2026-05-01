@@ -26,15 +26,15 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/cxd-rulebook.md
-- docs/ja/handbook/rulebooks/cxd-mermaid-rulebook.md
+- docs/ja/specdojo/rulebooks/cxd-rulebook.md
+- docs/ja/specdojo/rulebooks/cxd-mermaid-rulebook.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/cxd-instruction.md
-- docs/ja/handbook/instructions/cxd-mermaid-instruction.md
-- docs/ja/handbook/samples/cxd-sample.md
-- docs/ja/handbook/samples/cxd-mermaid-sample.md
+- docs/ja/specdojo/instructions/cxd-instruction.md
+- docs/ja/specdojo/instructions/cxd-mermaid-instruction.md
+- docs/ja/specdojo/samples/cxd-sample.md
+- docs/ja/specdojo/samples/cxd-mermaid-sample.md
 
 ## 4. 依存と優先度
 

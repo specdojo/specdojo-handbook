@@ -26,21 +26,21 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/ifx-rulebook.md
-- docs/ja/handbook/rulebooks/ifx-api-rulebook.md
-- docs/ja/handbook/rulebooks/ifx-file-rulebook.md
-- docs/ja/handbook/rulebooks/ifx-msg-rulebook.md
+- docs/ja/specdojo/rulebooks/ifx-rulebook.md
+- docs/ja/specdojo/rulebooks/ifx-api-rulebook.md
+- docs/ja/specdojo/rulebooks/ifx-file-rulebook.md
+- docs/ja/specdojo/rulebooks/ifx-msg-rulebook.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/ifx-instruction.md
-- docs/ja/handbook/instructions/ifx-api-instruction.md
-- docs/ja/handbook/instructions/ifx-file-instruction.md
-- docs/ja/handbook/instructions/ifx-msg-instruction.md
-- docs/ja/handbook/samples/ifx-sample.md
-- docs/ja/handbook/samples/ifx-api-sample.md
-- docs/ja/handbook/samples/ifx-file-sample.md
-- docs/ja/handbook/samples/ifx-msg-sample.md
+- docs/ja/specdojo/instructions/ifx-instruction.md
+- docs/ja/specdojo/instructions/ifx-api-instruction.md
+- docs/ja/specdojo/instructions/ifx-file-instruction.md
+- docs/ja/specdojo/instructions/ifx-msg-instruction.md
+- docs/ja/specdojo/samples/ifx-sample.md
+- docs/ja/specdojo/samples/ifx-api-sample.md
+- docs/ja/specdojo/samples/ifx-file-sample.md
+- docs/ja/specdojo/samples/ifx-msg-sample.md
 
 ## 4. 依存と優先度
 

@@ -105,7 +105,7 @@ OK 例:
 
 ## 9. Frontmatter 必須フィールド
 
-共通スキーマ（`docs/shared/schemas/v1/deliverable-frontmatter.schema.yaml`）に従う。
+共通スキーマ（`docs/specdojo/schemas/v1/deliverable-frontmatter.schema.yaml`）に従う。
 最低限以下の3フィールドを含める。
 
 | フィールド | 値の例                           | 説明               |

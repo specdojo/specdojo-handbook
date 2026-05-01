@@ -1,7 +1,7 @@
 # Rules→Sample 変換運用ルール
 
-このファイルは、`docs/ja/handbook/rulebooks` 配下の `*-rulebook.md` に従い、
-対応する `docs/ja/handbook/samples/*-sample.md` もしくは `docs/ja/handbook/samples/*-sample.yaml` を作成/更新するための共通運用ルールです。
+このファイルは、`docs/ja/specdojo/rulebooks` 配下の `*-rulebook.md` に従い、
+対応する `docs/ja/specdojo/samples/*-sample.md` もしくは `docs/ja/specdojo/samples/*-sample.yaml` を作成/更新するための共通運用ルールです。
 
 ## 1. 目的
 
@@ -11,8 +11,8 @@
 
 ## 2. 入出力の対応
 
-- 入力: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
-- 出力: `docs/ja/handbook/samples/<name>-sample.md` もしくは `docs/ja/handbook/samples/<name>-sample.yaml`
+- 入力: `docs/ja/specdojo/rulebooks/<name>-rulebook.md`
+- 出力: `docs/ja/specdojo/samples/<name>-sample.md` もしくは `docs/ja/specdojo/samples/<name>-sample.yaml`
 
 対応原則:
 

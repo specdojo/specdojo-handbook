@@ -26,12 +26,12 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/bdd-rulebook.md
+- docs/ja/specdojo/rulebooks/bdd-rulebook.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/bdd-instruction.md
-- docs/ja/handbook/samples/bdd-sample.md
+- docs/ja/specdojo/instructions/bdd-instruction.md
+- docs/ja/specdojo/samples/bdd-sample.md
 
 ## 4. 依存と優先度
 

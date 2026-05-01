@@ -1,12 +1,12 @@
 ---
 name: rulebook-to-instruction
-description: '`docs/ja/handbook/rulebooks` の更新内容を、`docs/ja/handbook/instructions` の `*-instruction.md` へ反映するための Skill です。'
+description: '`docs/ja/specdojo/rulebooks` の更新内容を、`docs/ja/specdojo/instructions` の `*-instruction.md` へ反映するための Skill です。'
 ---
 
 # SKILL: rulebook-to-instruction
 
-`docs/ja/handbook/rulebooks` の更新内容を、
-`docs/ja/handbook/instructions` の `*-instruction.md` へ反映するための Skill です。
+`docs/ja/specdojo/rulebooks` の更新内容を、
+`docs/ja/specdojo/instructions` の `*-instruction.md` へ反映するための Skill です。
 
 ## 使いどころ
 
@@ -19,7 +19,7 @@ description: '`docs/ja/handbook/rulebooks` の更新内容を、`docs/ja/handboo
 
 - 共通運用ルール: `@file:.github/instructions/rulebook-to-instruction.instructions.md`
 - 命名対応: `<name>-rulebook.md` → `<name>-instruction.md`
-- 出力先ディレクトリ: `docs/ja/handbook/instructions/`
+- 出力先ディレクトリ: `docs/ja/specdojo/instructions/`
 - 対象除外: `meta-*-rulebook.md` は instruction 同期対象外
 
 ## 引数仕様（複数対象対応）
@@ -29,7 +29,7 @@ description: '`docs/ja/handbook/rulebooks` の更新内容を、`docs/ja/handboo
 - 相対パスと絶対パスの両方を受け付ける。
 - `-rulebook.md` を含む完全指定と、`-rulebook.md` を省略した短縮指定の両方を受け付ける。
   - 例: `imp-business-rulebook.md`
-  - 例: `imp-business`（`docs/ja/handbook/rulebooks/imp-business-rulebook.md` として解釈）
+  - 例: `imp-business`（`docs/ja/specdojo/rulebooks/imp-business-rulebook.md` として解釈）
 - 同一対象の重複指定は 1 件に正規化する。
 - 引数なしの場合は、現在開いているファイルを単一対象として扱う。
 

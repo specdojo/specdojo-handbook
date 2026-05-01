@@ -2,8 +2,8 @@
 
 @file:.github/skills/rulebook-to-instruction/SKILL.md
 
-`/docs/ja/handbook/rulebooks` 配下の **すべての `*-rulebook.md`** を対象に、
-対応する `/docs/ja/handbook/instructions/*-instruction.md` を作成または更新してください。
+`/docs/ja/specdojo/rulebooks` 配下の **すべての `*-rulebook.md`** を対象に、
+対応する `/docs/ja/specdojo/instructions/*-instruction.md` を作成または更新してください。
 
 ## 対応ルール
 

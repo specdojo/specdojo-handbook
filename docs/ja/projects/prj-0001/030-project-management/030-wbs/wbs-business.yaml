@@ -13,11 +13,11 @@ wbs:
     component: process
     deliverables:
       - id: bps-rulebook
-        path: docs/ja/handbook/rulebooks/bps-rulebook.md
+        path: docs/ja/specdojo/rulebooks/bps-rulebook.md
       - id: bps-instruction
-        path: docs/ja/handbook/instructions/bps-instruction.md
+        path: docs/ja/specdojo/instructions/bps-instruction.md
       - id: bps
-        path: docs/ja/handbook/samples/bps-sample.md
+        path: docs/ja/specdojo/samples/bps-sample.md
     done_criteria:
       - |-
         BPS ルール・指示ペアが、プロセス仕様の必須セクション・ トレーサビリティのある出力・AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -29,11 +29,11 @@ wbs:
     component: rules
     deliverables:
       - id: br-rulebook
-        path: docs/ja/handbook/rulebooks/br-rulebook.md
+        path: docs/ja/specdojo/rulebooks/br-rulebook.md
       - id: br-instruction
-        path: docs/ja/handbook/instructions/br-instruction.md
+        path: docs/ja/specdojo/instructions/br-instruction.md
       - id: br
-        path: docs/ja/handbook/samples/br-sample.md
+        path: docs/ja/specdojo/samples/br-sample.md
     done_criteria:
       - |-
         BR ルール・指示ペアが、ビジネスルールの構造・制約・表現を定義し、 AI生成コンテンツがテスト可能かつ曖昧さのない状態を維持できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -45,11 +45,11 @@ wbs:
     component: data
     deliverables:
       - id: bdd-rulebook
-        path: docs/ja/handbook/rulebooks/bdd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/bdd-rulebook.md
       - id: bdd-instruction
-        path: docs/ja/handbook/instructions/bdd-instruction.md
+        path: docs/ja/specdojo/instructions/bdd-instruction.md
       - id: bdd-sample
-        path: docs/ja/handbook/samples/bdd-sample.md
+        path: docs/ja/specdojo/samples/bdd-sample.md
     done_criteria:
       - |-
         BDD ルール・指示ペアが、必須のデータ定義構造・属性説明・ AIガイダンスを定義し、業務データドキュメントを一貫して作成できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -61,11 +61,11 @@ wbs:
     component: forms
     deliverables:
       - id: bds-rulebook
-        path: docs/ja/handbook/rulebooks/bds-rulebook.md
+        path: docs/ja/specdojo/rulebooks/bds-rulebook.md
       - id: bds-instruction
-        path: docs/ja/handbook/instructions/bds-instruction.md
+        path: docs/ja/specdojo/instructions/bds-instruction.md
       - id: bds
-        path: docs/ja/handbook/samples/bds-sample.md
+        path: docs/ja/specdojo/samples/bds-sample.md
     done_criteria:
       - |-
         BDS ルール・指示ペアが、帳票仕様の構造・レイアウト期待・ 禁止ルールを定義し、一貫した帳票仕様ドキュメントを生成できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -77,11 +77,11 @@ wbs:
     component: screen
     deliverables:
       - id: uis-rulebook
-        path: docs/ja/handbook/rulebooks/uis-rulebook.md
+        path: docs/ja/specdojo/rulebooks/uis-rulebook.md
       - id: uis-instruction
-        path: docs/ja/handbook/instructions/uis-instruction.md
+        path: docs/ja/specdojo/instructions/uis-instruction.md
       - id: uis
-        path: docs/ja/handbook/samples/uis-sample.md
+        path: docs/ja/specdojo/samples/uis-sample.md
     done_criteria:
       - |-
         UIS ルール・指示ペアが、画面仕様の必須セクション・遷移ルール・ AI執筆ガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -93,11 +93,11 @@ wbs:
     component: glossary
     deliverables:
       - id: gl-rulebook
-        path: docs/ja/handbook/rulebooks/gl-rulebook.md
+        path: docs/ja/specdojo/rulebooks/gl-rulebook.md
       - id: gl-instruction
-        path: docs/ja/handbook/instructions/gl-instruction.md
+        path: docs/ja/specdojo/instructions/gl-instruction.md
       - id: gl-sample
-        path: docs/ja/handbook/samples/gl-sample.md
+        path: docs/ja/specdojo/samples/gl-sample.md
     done_criteria:
       - |-
         GL ルール・指示ペアが、必須の用語集構造・用語記述ルール・ 再利用可能なAIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -109,23 +109,23 @@ wbs:
     component: reference-data
     deliverables:
       - id: cld-rulebook
-        path: docs/ja/handbook/rulebooks/cld-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cld-rulebook.md
       - id: cld-instruction
-        path: docs/ja/handbook/instructions/cld-instruction.md
+        path: docs/ja/specdojo/instructions/cld-instruction.md
       - id: stsd-rulebook
-        path: docs/ja/handbook/rulebooks/stsd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/stsd-rulebook.md
       - id: stsd-instruction
-        path: docs/ja/handbook/instructions/stsd-instruction.md
+        path: docs/ja/specdojo/instructions/stsd-instruction.md
       - id: sld-rulebook
-        path: docs/ja/handbook/rulebooks/sld-rulebook.md
+        path: docs/ja/specdojo/rulebooks/sld-rulebook.md
       - id: sld-instruction
-        path: docs/ja/handbook/instructions/sld-instruction.md
+        path: docs/ja/specdojo/instructions/sld-instruction.md
       - id: cld
-        path: docs/ja/handbook/samples/cld-sample.md
+        path: docs/ja/specdojo/samples/cld-sample.md
       - id: stl-main
-        path: docs/ja/handbook/samples/stsd-sample.md
+        path: docs/ja/specdojo/samples/stsd-sample.md
       - id: sll-main
-        path: docs/ja/handbook/samples/sld-sample.md
+        path: docs/ja/specdojo/samples/sld-sample.md
     done_criteria:
       - |-
         リファレンスデータのルール・指示ファイルが、分類・ステータス・格納場所の 各ドキュメントに対し一貫した構造とAI執筆ガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -137,17 +137,17 @@ wbs:
     component: events
     deliverables:
       - id: bes-index-rulebook
-        path: docs/ja/handbook/rulebooks/bes-index-rulebook.md
+        path: docs/ja/specdojo/rulebooks/bes-index-rulebook.md
       - id: bes-index-instruction
-        path: docs/ja/handbook/instructions/bes-index-instruction.md
+        path: docs/ja/specdojo/instructions/bes-index-instruction.md
       - id: bes-rulebook
-        path: docs/ja/handbook/rulebooks/bes-rulebook.md
+        path: docs/ja/specdojo/rulebooks/bes-rulebook.md
       - id: bes-instruction
-        path: docs/ja/handbook/instructions/bes-instruction.md
+        path: docs/ja/specdojo/instructions/bes-instruction.md
       - id: bes-index
-        path: docs/ja/handbook/samples/bes-index-sample.md
+        path: docs/ja/specdojo/samples/bes-index-sample.md
       - id: bes
-        path: docs/ja/handbook/samples/bes-sample.md
+        path: docs/ja/specdojo/samples/bes-sample.md
     done_criteria:
       - |-
         BES ファミリーが、インデックスと詳細ドキュメントの両方の要件を定義し、 業務イベント仕様を一貫したスコープ配分とセクション構成で作成できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -159,17 +159,17 @@ wbs:
     component: data-flow
     deliverables:
       - id: cdfd-rulebook
-        path: docs/ja/handbook/rulebooks/cdfd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cdfd-rulebook.md
       - id: cdfd-instruction
-        path: docs/ja/handbook/instructions/cdfd-instruction.md
+        path: docs/ja/specdojo/instructions/cdfd-instruction.md
       - id: cdfd-mermaid-rulebook
-        path: docs/ja/handbook/rulebooks/cdfd-mermaid-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cdfd-mermaid-rulebook.md
       - id: cdfd-mermaid-instruction
-        path: docs/ja/handbook/instructions/cdfd-mermaid-instruction.md
+        path: docs/ja/specdojo/instructions/cdfd-mermaid-instruction.md
       - id: cdfd
-        path: docs/ja/handbook/samples/cdfd-sample.md
+        path: docs/ja/specdojo/samples/cdfd-sample.md
       - id: cdfd-mermaid-sample
-        path: docs/ja/handbook/samples/cdfd-mermaid-sample.md
+        path: docs/ja/specdojo/samples/cdfd-mermaid-sample.md
     done_criteria:
       - |-
         CDFD ファミリーが、概念データフロードキュメントのテキストと Mermaid 表現に対し一貫した構造とAIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -181,11 +181,11 @@ wbs:
     component: data-store
     deliverables:
       - id: cdsd-rulebook
-        path: docs/ja/handbook/rulebooks/cdsd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cdsd-rulebook.md
       - id: cdsd-instruction
-        path: docs/ja/handbook/instructions/cdsd-instruction.md
+        path: docs/ja/specdojo/instructions/cdsd-instruction.md
       - id: cdsd
-        path: docs/ja/handbook/samples/cdsd-sample.md
+        path: docs/ja/specdojo/samples/cdsd-sample.md
     done_criteria:
       - |-
         CDSD ルール・指示ペアが、データストア構造・属性説明・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -197,17 +197,17 @@ wbs:
     component: state-transition
     deliverables:
       - id: cstd-rulebook
-        path: docs/ja/handbook/rulebooks/cstd-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cstd-rulebook.md
       - id: cstd-instruction
-        path: docs/ja/handbook/instructions/cstd-instruction.md
+        path: docs/ja/specdojo/instructions/cstd-instruction.md
       - id: cstd-mermaid-rulebook
-        path: docs/ja/handbook/rulebooks/cstd-mermaid-rulebook.md
+        path: docs/ja/specdojo/rulebooks/cstd-mermaid-rulebook.md
       - id: cstd-mermaid-instruction
-        path: docs/ja/handbook/instructions/cstd-mermaid-instruction.md
+        path: docs/ja/specdojo/instructions/cstd-mermaid-instruction.md
       - id: cstd
-        path: docs/ja/handbook/samples/cstd-sample.md
+        path: docs/ja/specdojo/samples/cstd-sample.md
       - id: cstd-mermaid-sample
-        path: docs/ja/handbook/samples/cstd-mermaid-sample.md
+        path: docs/ja/specdojo/samples/cstd-mermaid-sample.md
     done_criteria:
       - |-
         CSTD ファミリーが、概念状態遷移ドキュメントのナラティブと Mermaid の 要件を一貫した見出し・カバレッジ・禁止ルールで定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -219,11 +219,11 @@ wbs:
     component: class-diagram
     deliverables:
       - id: ccd-mermaid-rulebook
-        path: docs/ja/handbook/rulebooks/ccd-mermaid-rulebook.md
+        path: docs/ja/specdojo/rulebooks/ccd-mermaid-rulebook.md
       - id: ccd-mermaid-instruction
-        path: docs/ja/handbook/instructions/ccd-mermaid-instruction.md
+        path: docs/ja/specdojo/instructions/ccd-mermaid-instruction.md
       - id: ccd-mermaid-sample
-        path: docs/ja/handbook/samples/ccd-mermaid-sample.md
+        path: docs/ja/specdojo/samples/ccd-mermaid-sample.md
     done_criteria:
       - |-
         CCD Mermaid ルール・指示ペアが、図の構文・必須ノード・関係・ AIガイダンスを定義していること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -235,17 +235,17 @@ wbs:
     component: system-functions
     deliverables:
       - id: sf-index-rules
-        path: docs/ja/handbook/rulebooks/sf-index-rulebook.md
+        path: docs/ja/specdojo/rulebooks/sf-index-rulebook.md
       - id: sf-index-instruction
-        path: docs/ja/handbook/instructions/sf-index-instruction.md
+        path: docs/ja/specdojo/instructions/sf-index-instruction.md
       - id: sf-rulebook
-        path: docs/ja/handbook/rulebooks/sf-rulebook.md
+        path: docs/ja/specdojo/rulebooks/sf-rulebook.md
       - id: sf-instruction
-        path: docs/ja/handbook/instructions/sf-instruction.md
+        path: docs/ja/specdojo/instructions/sf-instruction.md
       - id: sf-index
-        path: docs/ja/handbook/samples/sf-index-sample.md
+        path: docs/ja/specdojo/samples/sf-index-sample.md
       - id: sf
-        path: docs/ja/handbook/samples/sf-sample.md
+        path: docs/ja/specdojo/samples/sf-sample.md
     done_criteria:
       - |-
         SF ファミリーが、インデックスと詳細ドキュメントの両方の要件を定義し、 システム機能一覧を一貫したスコープ配分とセクション構成で作成できること。 Agent-Ultra前提: 中間承認は省略可能とし、最終承認で rules/instruction/sample を一括で ready 化する。
@@ -257,11 +257,11 @@ wbs:
     component: acceptance
     deliverables:
       - id: bac-rulebook
-        path: docs/ja/handbook/rulebooks/bac-rulebook.md
+        path: docs/ja/specdojo/rulebooks/bac-rulebook.md
       - id: bac-instruction
-        path: docs/ja/handbook/instructions/bac-instruction.md
+        path: docs/ja/specdojo/instructions/bac-instruction.md
       - id: bac
-        path: docs/ja/handbook/samples/bac-sample.md
+        path: docs/ja/specdojo/samples/bac-sample.md
     done_criteria:
       - |-
         BAC ルール・指示ペアが、業務受入条件の必須セクション・ 判定基準・AIガイダンスを定義していること。 The BAC rule and

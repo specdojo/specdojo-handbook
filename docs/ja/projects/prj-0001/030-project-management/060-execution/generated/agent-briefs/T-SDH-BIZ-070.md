@@ -26,18 +26,18 @@
 
 primary_paths:
 
-- docs/ja/handbook/rulebooks/cld-rulebook.md
-- docs/ja/handbook/rulebooks/stsd-rulebook.md
-- docs/ja/handbook/rulebooks/sld-rulebook.md
+- docs/ja/specdojo/rulebooks/cld-rulebook.md
+- docs/ja/specdojo/rulebooks/stsd-rulebook.md
+- docs/ja/specdojo/rulebooks/sld-rulebook.md
 
 secondary_paths:
 
-- docs/ja/handbook/instructions/cld-instruction.md
-- docs/ja/handbook/instructions/stsd-instruction.md
-- docs/ja/handbook/instructions/sld-instruction.md
-- docs/ja/handbook/samples/cld-sample.md
-- docs/ja/handbook/samples/stsd-sample.md
-- docs/ja/handbook/samples/sld-sample.md
+- docs/ja/specdojo/instructions/cld-instruction.md
+- docs/ja/specdojo/instructions/stsd-instruction.md
+- docs/ja/specdojo/instructions/sld-instruction.md
+- docs/ja/specdojo/samples/cld-sample.md
+- docs/ja/specdojo/samples/stsd-sample.md
+- docs/ja/specdojo/samples/sld-sample.md
 
 ## 4. 依存と優先度
 

@@ -2,12 +2,12 @@
 
 @file:.github/skills/rulebook-lifecycle-all/SKILL.md
 
-`/docs/ja/handbook/rulebooks` 配下の **すべての `*-rulebook.md`** を対象に、
+`/docs/ja/specdojo/rulebooks` 配下の **すべての `*-rulebook.md`** を対象に、
 各 rules について Phase 1（rules）→ Phase 2（derivatives）を順に実行してください。
 
 ## 対象ルール
 
-- 対象は `docs/ja/handbook/rulebooks/*-rulebook.md`
+- 対象は `docs/ja/specdojo/rulebooks/*-rulebook.md`
 - `meta-*-rulebook.md` は対象外
 - 実行順はファイル名昇順（再現性のため）
 
