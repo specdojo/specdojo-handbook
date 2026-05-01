@@ -24,7 +24,6 @@ applyTo: 'docs/ja/specdojo/rulebooks/**/*-rulebook.md'
 - ファイル名は `<prefix>-rulebook.md` とする。
 - ファイル先頭に YAML Frontmatter を置き、最低限 `id` / `type` / `status` を含める。
 - rulebook の Frontmatter は `docs/ja/specdojo/standards/rulebook-metadata-standard.md` に従う。
-- `rulebook` は推奨項目として扱い、原則 `none` を記載する。
 - `id` は英小文字・数字・ハイフンのみを使用し、一意にする。
 - H1 はファイル内で 1 つだけとし、タイトルとして使用する。
 - タイトル直下に英語名（1行）と目的・概要（1〜3文）を置く。
