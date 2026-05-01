@@ -1,17 +1,49 @@
 {
-  "name": "spec-dojo-handbook",
+  "name": "specdojo",
   "version": "0.1.0",
-  "description": "A handbook for SpecDojo, a specification-driven development tool.",
+  "description": "SpecDojo CLI, schemas, and documentation for specification-driven execution workflows.",
   "license": "MIT",
   "author": "naoji3x",
-  "private": true,
-  "workspaces": [
-    "tools/specdojo"
+  "private": false,
+  "type": "module",
+  "bin": {
+    "specdojo": "dist/specdojo.js"
+  },
+  "files": [
+    "dist",
+    "docs/ja/specdojo",
+    "docs/specdojo",
+    "tools/docs/src",
+    "tools/docs/tsconfig.json",
+    "README.md",
+    "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/specdojo/specdojo.git"
+  },
+  "homepage": "https://github.com/specdojo/specdojo#readme",
+  "bugs": {
+    "url": "https://github.com/specdojo/specdojo/issues"
+  },
+  "keywords": [
+    "specdojo",
+    "cli",
+    "specification",
+    "project-management",
+    "workflow"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prepare": "lefthook install",
     "pre-commit": "lefthook run pre-commit",
-    "specdojo:build": "npm --workspace tools/specdojo run build",
+    "build": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.json && node -e \"require('node:fs').chmodSync('dist/specdojo.js', 0o755)\"",
+    "dev": "tsx src/specdojo.ts",
+    "start": "node dist/specdojo.js",
+    "prepack": "npm run build",
+    "specdojo:build": "npm run build",
     "lint:md": "markdownlint '**/*.md'",
     "lint:md:fix": "markdownlint --fix '**/*.md'",
     "docs:dev": "vitepress dev docs --host 0.0.0.0 --port 5173",
@@ -29,10 +61,16 @@
     "dc:name": "bash -lc 'docker ps --format \"{{.Names}}\\t{{.Image}}\" | awk \"\\$2 ~ /^vsc-specdojo-handbook/ {print \\$1; exit}\"'",
     "dc:bash": "bash -lc 'name=$(docker ps --format \"{{.Names}}\\t{{.Image}}\" | awk \"\\$2 ~ /^vsc-specdojo-handbook/ {print \\$1; exit}\"); [ -n \"$name\" ] && docker exec -it \"$name\" bash -lc \"cd /workspaces/specdojo-handbook && exec bash\" || echo \"matching container not found\"'"
   },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "js-yaml": "^4.1.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@mermaid-js/mermaid-cli": "^11.12.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.10.1",
     "ajv": "^8.18.0",
     "ajv-cli": "^5.0.0",
