@@ -16,15 +16,15 @@ plugins:
   - - ./tools/docs/src/remark-frontmatter-ajv2020.cjs
     - strict: true
       yaml.schemas:
-        docs/shared/schemas/rulebook-frontmatter.schema.yaml:
-          - docs/ja/handbook/rulebooks/**/*.md
-        docs/shared/schemas/guide-frontmatter.schema.yaml:
-          - docs/ja/handbook/guidelines/**/*.md
-        docs/shared/schemas/standard-frontmatter.schema.yaml:
-          - docs/ja/handbook/standards/**/*.md
-        docs/shared/schemas/instruction-frontmatter.schema.yaml:
-          - docs/ja/handbook/instructions/**/*.md
-        docs/shared/schemas/deliverable-frontmatter.schema.yaml:
+        docs/specdojo/schemas/v1/rulebook-frontmatter.schema.yaml:
+          - docs/ja/specdojo/rulebooks/**/*.md
+        docs/specdojo/schemas/v1/guide-frontmatter.schema.yaml:
+          - docs/ja/specdojo/guidelines/**/*.md
+        docs/specdojo/schemas/v1/standard-frontmatter.schema.yaml:
+          - docs/ja/specdojo/standards/**/*.md
+        docs/specdojo/schemas/v1/instruction-frontmatter.schema.yaml:
+          - docs/ja/specdojo/instructions/**/*.md
+        docs/specdojo/schemas/v1/deliverable-frontmatter.schema.yaml:
           - docs/ja/product/**/*.md
           - docs/ja/projects/**/*.md
-          - docs/ja/handbook/samples/**/*.md
+          - docs/ja/specdojo/samples/**/*.md
