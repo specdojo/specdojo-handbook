@@ -14,7 +14,7 @@ Instruction Metadata Standard
 
 - 対象: `docs/ja/handbook/instructions/` 配下の `*-instruction.md`
 - 共通原則の正本: [document-metadata-standard.md](document-metadata-standard.md)
-- 参照スキーマ: [docs/shared/schemas/instruction-frontmatter.schema.yaml](../../../../shared/schemas/instruction-frontmatter.schema.yaml)
+- 参照スキーマ: [docs/shared/schemas/v1/instruction-frontmatter.schema.yaml](../../../shared/schemas/v1/instruction-frontmatter.schema.yaml)
 
 ## 2. 必須項目
 

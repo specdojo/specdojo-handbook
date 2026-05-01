@@ -147,16 +147,16 @@
   "yaml.completion": true,
   "yaml.format.enable": true,
   "yaml.schemas": {
-    "./docs/shared/schemas/bdd.schema.yaml": ["docs/ja/**/bdd-*.yaml"],
-    "./docs/shared/schemas/esil.schema.yaml": ["docs/ja/**/esil-*.yaml"],
-    "./docs/shared/schemas/sch-defaults.schema.yaml": ["docs/ja/**/sch-defaults*.yaml"],
-    "./docs/shared/schemas/sch-milestones.schema.yaml": ["docs/ja/**/sch-milestones*.yaml"],
-    "./docs/shared/schemas/sch-track.schema.yaml": ["docs/ja/**/sch-track-*.yaml"],
-    "./docs/shared/schemas/sch-config.schema.yaml": ["docs/ja/**/sch-config-*.yaml"],
-    "./docs/shared/schemas/sch-agent-overrides.schema.yaml": [
+    "./docs/shared/schemas/v1/bdd.schema.yaml": ["docs/ja/**/bdd-*.yaml"],
+    "./docs/shared/schemas/v1/esil.schema.yaml": ["docs/ja/**/esil-*.yaml"],
+    "./docs/shared/schemas/v1/sch-defaults.schema.yaml": ["docs/ja/**/sch-defaults*.yaml"],
+    "./docs/shared/schemas/v1/sch-milestones.schema.yaml": ["docs/ja/**/sch-milestones*.yaml"],
+    "./docs/shared/schemas/v1/sch-track.schema.yaml": ["docs/ja/**/sch-track-*.yaml"],
+    "./docs/shared/schemas/v1/sch-config.schema.yaml": ["docs/ja/**/sch-config-*.yaml"],
+    "./docs/shared/schemas/v1/sch-agent-overrides.schema.yaml": [
       "docs/ja/**/sch-agent-overrides-*.yaml"
     ],
-    "./docs/shared/schemas/wbs.schema.yaml": ["docs/ja/**/wbs-*.yaml"]
+    "./docs/shared/schemas/v1/wbs.schema.yaml": ["docs/ja/**/wbs-*.yaml"]
   },
 
   "[yaml]": {

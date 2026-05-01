@@ -10,7 +10,7 @@ ESIL は「どの外部システムと」「何を」「どの方向で」「ど
 
 ## 1. 参照スキーマ
 
-- 参照スキーマ: [docs/handbook/shared/schemas/esil.schema.yaml](../../docs/handbook/shared/schemas/esil.schema.yaml)
+- 参照スキーマ: [docs/shared/schemas/v1/esil.schema.yaml](../../docs/shared/schemas/v1/esil.schema.yaml)
 - ESIL は `docs/**/ifx-*.yaml` のような YAML ファイルとして作成し、スキーマに従って記述します。
 
 ## 2. ファイル規約
@@ -85,7 +85,7 @@ interfaces:
 
 > - 以下のスキーマに従って、**外部システムIF一覧（ESIL）** を **YAML 1ファイル**として作成してください。
 > - 出力は **YAMLのみ** とし、Markdown文章は出力しないでください。
-> - 参照スキーマ: `docs/handbook/shared/schemas/esil.schema.yaml`
+> - 参照スキーマ: `docs/shared/schemas/v1/esil.schema.yaml`
 > - 禁止: 物理テーブル名・物理カラム名・SQL全文、実装クラス/関数名、APIの内部実装詳細、UI操作の逐語列挙
 > - `id` は `ifx-...`、`type` は `api`、`status` は `draft/ready/deprecated` のいずれかにしてください。
 > - `interfaces` は 1件以上作成し、各要素は以下の制約に従ってください：

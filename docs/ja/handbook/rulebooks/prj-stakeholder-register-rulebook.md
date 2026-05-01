@@ -98,7 +98,7 @@ flowchart TD
 
 ### 4.1. 設定内容
 
-- 参照スキーマ: [docs/shared/schemas/deliverable-frontmatter.schema.yaml](../../../../shared/schemas/deliverable-frontmatter.schema.yaml)
+- 参照スキーマ: [docs/shared/schemas/v1/deliverable-frontmatter.schema.yaml](../../../shared/schemas/v1/deliverable-frontmatter.schema.yaml)
 - メタ情報標準: [deliverable-metadata-standard.md](../standards/deliverable-metadata-standard.md)
 
 | 項目       | 説明                                    | 必須 |

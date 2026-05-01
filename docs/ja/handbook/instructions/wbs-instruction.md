@@ -3,7 +3,7 @@
 以下のルールに従って、`wbs-<scope>.yaml` を 1 ファイル作成してください。出力は **YAML** とします。
 
 - WBS は成果物スコープと完了定義を記述する文書です。実行順序・依存・日程は含めません。
-- 構造と制約は `docs/shared/schemas/wbs.schema.yaml` を正とし、出力内容はこれに厳密準拠してください。
+- 構造と制約は `docs/shared/schemas/v1/wbs.schema.yaml` を正とし、出力内容はこれに厳密準拠してください。
 - 記述例は `docs/ja/handbook/samples/wbs-sample.yaml` を参照し、粒度と値の置き方を合わせてください。
 - Frontmatter は分離せず、文書メタデータは YAML のルートキーとして埋め込みます。
 - 成果物カタログで「WBSへの落とし込み対象外」とされた成果物は含めません。

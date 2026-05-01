@@ -14,7 +14,7 @@ Rulebook Metadata Standard
 
 - 対象: `docs/ja/handbook/rulebooks/` 配下の `*-rulebook.md`
 - 共通原則の正本: [document-metadata-standard.md](document-metadata-standard.md)
-- 参照スキーマ: [docs/shared/schemas/rulebook-frontmatter.schema.yaml](../../../../shared/schemas/rulebook-frontmatter.schema.yaml)
+- 参照スキーマ: [docs/shared/schemas/v1/rulebook-frontmatter.schema.yaml](../../../shared/schemas/v1/rulebook-frontmatter.schema.yaml)
 
 ## 2. 必須項目
 

@@ -93,7 +93,7 @@ ID 命名ルールは [id-and-file-naming-standard.md](../standards/id-and-file-
 
 ### 4.1. 設定内容
 
-Frontmatter は共通スキーマに従います（参照: [docs/shared/schemas/deliverable-frontmatter.schema.yaml](../../../../shared/schemas/deliverable-frontmatter.schema.yaml) / [deliverable-metadata-standard.md](../standards/deliverable-metadata-standard.md)）。
+Frontmatter は共通スキーマに従います（参照: [docs/shared/schemas/v1/deliverable-frontmatter.schema.yaml](../../../shared/schemas/v1/deliverable-frontmatter.schema.yaml) / [deliverable-metadata-standard.md](../standards/deliverable-metadata-standard.md)）。
 
 | 項目       | 説明                                               | 必須 |
 | ---------- | -------------------------------------------------- | ---- |

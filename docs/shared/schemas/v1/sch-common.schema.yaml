@@ -1,6 +1,5 @@
 # sch-common.schema.yaml
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://specdojo.org/schemas/sch/common/v1"
 title: "SpecDojo Schedule common definitions"
 
 $defs:

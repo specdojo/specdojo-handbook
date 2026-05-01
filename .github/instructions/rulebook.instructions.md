@@ -14,7 +14,7 @@
 - 対象ファイル: `docs/ja/handbook/rulebooks/<name>-rulebook.md`
 - 構成基準: `docs/ja/handbook/rulebooks/meta-rulebook-structure-rulebook.md`
 - ファイル名・ディレクトリ構成基準: `docs/ja/handbook/guidelines/docs-structure-guide.md`
-- Frontmatter スキーマ: `docs/shared/schemas/rulebook-frontmatter.schema.yaml`
+- Frontmatter スキーマ: `docs/shared/schemas/v1/rulebook-frontmatter.schema.yaml`
 - メタ情報ルール（種別別）:
   - `docs/ja/handbook/rulebooks/meta-rulebook-metadata-rulebook.md`
   - `docs/ja/handbook/rulebooks/meta-deliverable-metadata-rulebook.md`
