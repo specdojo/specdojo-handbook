@@ -17,7 +17,7 @@
 対応原則:
 
 - `<name>` は同一（例: `utc-index-rulebook.md` → `utc-index-sample.md`）
-- `meta-*-rulebook.md` は sample 変換対象外（新規作成/更新ともに行わない）
+- `docs/ja/specdojo/standards/*-standard.md` は sample 変換対象外（新規作成/更新ともに行わない）
 - 対応先が存在しない場合は新規作成
 - 対応先が存在する場合はアップサート（差分反映）
 - sample の形式は、対象が文書テンプレート・記述例なら `*.md`、schema を持つ SSOT データ例なら `*.yaml` を優先する

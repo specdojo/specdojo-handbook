@@ -20,7 +20,7 @@ description: '`docs/ja/specdojo/rulebooks` の更新内容を、`docs/ja/specdoj
 - 共通運用ルール: `@file:.github/instructions/rulebook-to-instruction.instructions.md`
 - 命名対応: `<name>-rulebook.md` → `<name>-instruction.md`
 - 出力先ディレクトリ: `docs/ja/specdojo/instructions/`
-- 対象除外: `meta-*-rulebook.md` は instruction 同期対象外
+- 対象除外: `docs/ja/specdojo/standards/*-standard.md` は instruction 同期対象外
 
 ## 引数仕様（複数対象対応）
 
@@ -36,7 +36,7 @@ description: '`docs/ja/specdojo/rulebooks` の更新内容を、`docs/ja/specdoj
 ## 複数対象の実行ルール
 
 - 正規化後の対象を 1 ファイルずつ独立に判定し、順次実行する。
-- `meta-*-rulebook.md` に該当する対象は、その対象のみスキップする。
+- `docs/ja/specdojo/standards/*-standard.md` に該当する対象は、その対象のみスキップする。
 - ある対象で失敗しても他対象の処理は継続する。
 - 最後に対象ごとの結果（更新 / 新規 / スキップ / 失敗）を一覧で出力する。
 
@@ -44,7 +44,7 @@ description: '`docs/ja/specdojo/rulebooks` の更新内容を、`docs/ja/specdoj
 
 1. 引数有無を判定し、対象一覧を正規化する（未指定時は開いている 1 件）
 2. 対象を 1 ファイルずつ順に処理する
-3. 各対象 rules を読み、必須章・必須表・禁止事項・最終チェックを抽出（`meta-*-rulebook.md` は対象単位でスキップ）
+3. 各対象 rules を読み、必須章・必須表・禁止事項・最終チェックを抽出（`docs/ja/specdojo/standards/*-standard.md` は対象単位でスキップ）
    - `target_format`（`markdown` / `yaml` / `json`）を確認する
    - `target_format` 未記載時は `@file:.github/instructions/rulebook.instructions.md` の推測ルールで判定する
 4. 対応する instruction を新規作成またはアップサート

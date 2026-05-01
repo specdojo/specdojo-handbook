@@ -9,7 +9,7 @@
 
 - 対応先は `rules` と同名の `<name>-instruction.md` とする
   - 例: `utc-index-rulebook.md` → `utc-index-instruction.md`
-- `meta-*-rulebook.md` は `*-instruction.md` 作成/更新の対象外とする
+- `docs/ja/specdojo/standards/*-standard.md` は `*-instruction.md` 作成/更新の対象外とする
 - 対応する instruction が存在しない場合は新規作成
 - 存在する場合はアップサート（不足項目追記・不整合修正）
 
@@ -22,7 +22,7 @@
 
 ## 進め方
 
-1. `rules` 配下の `*-rulebook.md` を列挙（`meta-*-rulebook.md` を除外）
+1. `rules` 配下の `*-rulebook.md` を列挙（`docs/ja/specdojo/standards/*-standard.md` を除外）
 2. `instructions` 側の対応ファイル有無を判定
 3. 新規作成/アップサートを実施
 4. 変更一覧と反映要点を出力

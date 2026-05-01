@@ -18,12 +18,12 @@ rules と派生成果物（instruction / sample）のライフサイクルを順
 
 - 共通ライフサイクル: `@file:.github/skills/rulebook-lifecycle/SKILL.md`
 - 対象パス: `docs/ja/specdojo/rulebooks/*-rulebook.md`
-- 対象除外: `meta-*-rulebook.md`
+- 対象除外: `docs/ja/specdojo/standards/*-standard.md`
 - 既定モード: `standard`
 
 ## 実行フロー
 
-1. `docs/ja/specdojo/rulebooks` から `*-rulebook.md` を列挙し、`meta-*-rulebook.md` を除外する
+1. `docs/ja/specdojo/rulebooks` から `*-rulebook.md` を列挙し、`docs/ja/specdojo/standards/*-standard.md` を除外する
 2. 対象をファイル名昇順で固定する（再現性確保）
 3. 各 `<name>` について `rulebook-lifecycle` を ①〜⑦で実行する
 4. ④/⑦ は `<name>` ごとに `PO` 承認を待ってから次へ進む
@@ -52,4 +52,4 @@ rules と派生成果物（instruction / sample）のライフサイクルを順
 
 - 承認待ちの `<name>` がある間は次の `<name>` へ進まない
 - 途中中断時は `<name>` とステップ番号（①〜⑦）を必ず記録する
-- `meta-*-rulebook.md` は本 Skill の対象外
+- `docs/ja/specdojo/standards/*-standard.md` は本 Skill の対象外

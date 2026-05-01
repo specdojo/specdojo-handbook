@@ -1,30 +1,30 @@
 # Rulebook 作成運用ルール
 
 このファイルは、`docs/ja/specdojo/rulebooks` 配下の `*-rulebook.md` を作成/更新するための共通運用ルールです。
-章立ては `meta-rulebook-structure-rulebook.md` に従い、構成・見出し順・必須要素を統一します。
+章立ては `docs/ja/specdojo/standards/rulebook-structure-standard.md` に従い、構成・見出し順・必須要素を統一します。
 
 ## 1. 目的と適用範囲
 
 - 目的は、`*-rulebook.md` の章構成と記述品質を統一し、参照・保守を容易にすること。
 - 本ルールは `docs/ja/specdojo/rulebooks/` 配下の `*-rulebook.md` の作成/更新に適用する。
-- `meta-*-rulebook.md` は本ルールの対象外とし、個別の meta ルールで管理する。
+- `docs/ja/specdojo/standards/*-standard.md` は本ルールの対象外とし、個別の standard として管理する。
 
 ## 2. 入力情報
 
 - 対象ファイル: `docs/ja/specdojo/rulebooks/<name>-rulebook.md`
-- 構成基準: `docs/ja/specdojo/rulebooks/meta-rulebook-structure-rulebook.md`
+- 構成基準: `docs/ja/specdojo/standards/rulebook-structure-standard.md`
 - ファイル名・ディレクトリ構成基準: `docs/ja/specdojo/guidelines/docs-structure-guide.md`
 - Frontmatter スキーマ: `docs/specdojo/schemas/v1/rulebook-frontmatter.schema.yaml`
-- メタ情報ルール（種別別）:
-  - `docs/ja/specdojo/rulebooks/meta-rulebook-metadata-rulebook.md`
-  - `docs/ja/specdojo/rulebooks/meta-deliverable-metadata-rulebook.md`
+- メタ情報標準（種別別）:
+  - `docs/ja/specdojo/standards/rulebook-metadata-standard.md`
+  - `docs/ja/specdojo/standards/deliverable-metadata-standard.md`
 - 参照先（必要に応じて）: `[*-sample](../samples/*-sample.md)`、`[*-instruction](../instructions/*-instruction.md)`
 
 ## 3. 出力仕様（Frontmatter と命名）
 
 - ファイル名は `<name>-rulebook.md` とする。
 - ファイル先頭に YAML Frontmatter を置き、最低限 `id` / `type` / `status` を含める。
-- rulebook の Frontmatter は `docs/ja/specdojo/rulebooks/meta-rulebook-metadata-rulebook.md` に従う。
+- rulebook の Frontmatter は `docs/ja/specdojo/standards/rulebook-metadata-standard.md` に従う。
 - `rulebook` は推奨項目として扱い、原則 `none` を記載する。
 - `id` は英小文字・数字・ハイフンのみを使用し、一意にする。
 - H1 はファイル内で 1 つだけとし、タイトルとして使用する。
@@ -43,7 +43,7 @@
 
 ## 4. 標準章構成（必須）
 
-- `docs/ja/specdojo/rulebooks/meta-rulebook-structure-rulebook.md` の標準章構成に従う。
+- `docs/ja/specdojo/standards/rulebook-structure-standard.md` の標準章構成に従う。
 - 章番号は `## 1.` からの連番とし、スキップしない。
 - 不要章を省略する場合は、省略理由を本文に明記する。
 
@@ -81,7 +81,7 @@
 - 確定した内容はラベルを外し、通常の本文として記述する。
 - `*_rules.md` 自体にラベル運用を記載する場合は、対象ドキュメントにとって必要な場合のみ記載し、不要な rules には機械的に追加しない。
 - ラベルを記載する場合は、本文の補助として箇条書き内に記述し、ラベル自体を章構成や見出しとして扱わない。
-- `推奨 Frontmatter 項目` は `docs/ja/specdojo/rulebooks/meta-deliverable-metadata-rulebook.md` に従う。
+- `推奨 Frontmatter 項目` は `docs/ja/specdojo/standards/deliverable-metadata-standard.md` に従う。
 - `target_format` が `yaml` / `json` の場合は、`推奨 Frontmatter 項目` 章に「Frontmatter と同等の先頭メタ項目」として記載してよい。
 - `target_format` が `yaml` / `json` の場合は、`推奨 Frontmatter 項目` 章の冒頭に「Frontmatter と同等の先頭メタ項目を対象データ先頭に定義する」旨を明記する。
 - `target_format` が `yaml` / `json` の場合は、`本文構成（標準テンプレ）` 章でルートキーと必須キーを明示し、必要に応じてネスト構造（例: `entities` / `fields`）まで表で定義する。
@@ -120,7 +120,7 @@
 - 章参照を番号のみ（例: `§5` / `第5章`）で記述しない。
 - rules 本文に実装詳細（SQL 全文、具体クラス名、詳細 API 設計）を書かない。
 - 曖昧語（十分、適切、問題ない）を根拠なく使用しない。
-- `meta-*-rulebook.md` を本ルールで機械的に上書きしない。
+- `docs/ja/specdojo/standards/*-standard.md` を本ルールで機械的に上書きしない。
 - `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` 以外の独自ラベルを、共通ルール未定義のまま追加しない。
 - 確定済みの内容をラベル付きのまま放置しない。
 - ラベルを本文の代替として多用し、対象ドキュメントの確定記述を不足させない。
@@ -128,7 +128,7 @@
 ## 7. 作成・更新手順
 
 1. 対象 `*-rulebook.md` を特定し、既存ファイル有無を確認する。
-2. 構成基準（`docs/ja/specdojo/rulebooks/meta-rulebook-structure-rulebook.md`）との差分を洗い出す。
+2. 構成基準（`docs/ja/specdojo/standards/rulebook-structure-standard.md`）との差分を洗い出す。
 3. 新規作成またはアップサートで章構成と記述を反映する。
 4. sampleファイルが存在する場合は、サンプルリンクを更新する。
 5. instructionファイルが存在する場合は、instruction リンクを更新する。

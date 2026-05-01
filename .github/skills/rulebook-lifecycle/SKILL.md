@@ -17,7 +17,7 @@ description: '*-rulebook.md の作成からその派生成果物（instruction /
 ## 前提
 
 - すべての入力/出力パスは `docs/ja/specdojo/` 配下を基準とする
-- `meta-*-rulebook.md` は本ワークフローの対象外
+- `docs/ja/specdojo/standards/*-standard.md` は本ワークフローの対象外
 - Phase 1 では、別の `*-input.md` は作成しない
 - Agent は `*-rulebook.md` の雛形を直接作成し、人はその中の `_TODO_:` / `_UNDECIDED_:` / `_ASSUMPTION_:` を追記・更新する
 
@@ -140,7 +140,7 @@ Phase 1 (rules)                Phase 2 (derivatives)
 
 以下の観点でレビューを実施する:
 
-- `meta-rulebook-structure-rulebook.md` との章構成整合
+- `docs/ja/specdojo/standards/rulebook-structure-standard.md` との章構成整合
 - `docs-contents-guide.md` との目的・内容整合
 - 禁止事項（曖昧語、実装詳細、章番号飛び）の検出
 - `サンプル（最小でも可）` のリンクと `生成 AI への指示テンプレート` のリンクの有効性
@@ -289,5 +289,5 @@ Agent-Ultra では以下を使う。
 
 ## 対象外
 
-- `meta-*-rulebook.md` — メタルールは個別管理
+- `docs/ja/specdojo/standards/*-standard.md` — standard は個別管理
 - WBS/スケジュールファイルの更新 — 本 Skill のスコープ外

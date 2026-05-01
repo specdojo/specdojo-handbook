@@ -8,7 +8,7 @@
 ## 対象ルール
 
 - 対象は `docs/ja/specdojo/rulebooks/*-rulebook.md`
-- `meta-*-rulebook.md` は対象外
+- `docs/ja/specdojo/standards/*-standard.md` は対象外
 - 実行順はファイル名昇順（再現性のため）
 
 ## 実行モード
@@ -18,7 +18,7 @@
 
 ## 進め方
 
-1. 対象 rules を列挙（`meta-*-rulebook.md` を除外）
+1. 対象 rules を列挙（`docs/ja/specdojo/standards/*-standard.md` を除外）
 2. 各 `<name>-rulebook.md` について以下を実行
    - Phase 1: ① agent draft → ② modify → ③ agent review → ④ human approve
    - Phase 2: ⑤ agent draft → ⑥ agent review → ⑦ human approve

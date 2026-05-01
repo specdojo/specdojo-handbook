@@ -5,8 +5,7 @@ description: '成果物ファイルを分析し、対応する `docs/ja/specdojo
 
 # SKILL: reverse-rulebook
 
-開いている成果物ファイル（`sample-gcs-product/` 配下やプロジェクト固有成果物）を分析し、
-対応する `docs/ja/specdojo/rulebooks/*-rulebook.md` を逆生成する Skill です。
+開いている成果物ファイルを分析し、対応する `docs/ja/specdojo/rulebooks/*-rulebook.md` を逆生成する Skill です。
 
 ## 使いどころ
 
@@ -17,11 +16,11 @@ description: '成果物ファイルを分析し、対応する `docs/ja/specdojo
 ## 前提
 
 - 共通運用ルール: `@file:.github/instructions/rulebook.instructions.md`
-- 章構成基準: `docs/ja/specdojo/rulebooks/meta-rulebook-structure-rulebook.md`
-- 命名ルール: `docs/ja/specdojo/rulebooks/meta-id-and-file-naming-rulebook.md`
+- 章構成基準: `docs/ja/specdojo/standards/rulebook-structure-standard.md`
+- 命名ルール: `docs/ja/specdojo/standards/id-and-file-naming-standard.md`
 - ドキュメント内容ガイド: `docs/ja/specdojo/guidelines/docs-contents-guide.md`
 - 通常の rulebook 作成フロー: `@file:.github/skills/upsert-rulebook/SKILL.md`
-- 対象除外: `meta-*-rulebook.md` は対象外
+- 対象除外: `docs/ja/specdojo/standards/*-standard.md` は対象外
 
 ## 対象ファイルから rulebook を特定する方法
 
@@ -60,7 +59,7 @@ description: '成果物ファイルを分析し、対応する `docs/ja/specdojo
 ## 実行ルール
 
 - 開いているファイルが `*-rulebook.md` / `*-instruction.md` / `*-sample.*` の場合は対象外として中止し、対応プロンプトへ誘導する
-- `meta-*-rulebook.md` は常にスキップする
+- `docs/ja/specdojo/standards/*-standard.md` は常にスキップする
 - 特定できない場合のみユーザー確認を行う
 - ある対象で失敗しても、複数対象時は他対象の処理を継続する
 

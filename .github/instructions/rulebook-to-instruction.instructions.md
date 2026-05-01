@@ -17,7 +17,7 @@
 対応原則:
 
 - `<name>` は同一（例: `utc-index-rulebook.md` → `utc-index-instruction.md`）
-- `meta-*-rulebook.md` は instruction 変換対象外（新規作成/更新ともに行わない）
+- `docs/ja/specdojo/standards/*-standard.md` は instruction 変換対象外（新規作成/更新ともに行わない）
 - 対応先が存在しない場合は新規作成
 - 対応先が存在する場合はアップサート（差分反映）
 

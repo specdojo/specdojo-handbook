@@ -37,7 +37,7 @@ description: '`upsert-rulebook` → `rulebook-to-instruction` → `rulebook-to-s
 ## 実行ルール
 
 - 各ステップは同じ対象セットを使う。
-- ある対象が `meta-*-rulebook.md` に該当する場合は、その対象のみスキップする。
+- ある対象が `docs/ja/specdojo/standards/*-standard.md` に該当する場合は、その対象のみスキップする。
 - あるステップで一部対象が失敗しても、次ステップは継続する。
 - 最後に対象ごとの結果（更新 / 新規 / スキップ / 失敗）をまとめる。
 
