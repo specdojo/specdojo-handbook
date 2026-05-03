@@ -5,17 +5,17 @@ status: draft
 target_format: markdown
 ---
 
-# 成果物カタログ 索引 作成ルール
+# 成果物カタログ 作成ルール
 
-Deliverables Catalog Index Documentation Rules
+Deliverables Catalog Documentation Rules
 
-本ドキュメントは、プロジェクト成果物カタログの索引（`dct-index`）を統一形式で記述するためのルールです。
+本ドキュメントは、プロジェクト成果物カタログ（`dct-index`）を統一形式で記述するためのルールです。
 プロジェクトの成果物は `dct-index` と `dct-<domain>.md` で構成し、共通命名・ID規則を定義します。
 
 ## 1. 全体方針
 
-- `dct-index` は、ドメイン別成果物カタログ（`dct-<domain>.md`）への索引・一覧として機能する。
-- 個別成果物の詳細情報は各 `dct-<domain>.md` に集約し、索引はドメインと参照先リンクの管理に専念する。
+- `dct-index` は、プロジェクト成果物カタログの本体として機能する。
+- 個別成果物の詳細情報は各 `dct-<domain>.md` に集約し、`dct-index` は共通ルール、ドメイン一覧、参照先リンクの管理に専念する。
 - 本文の「共通ルール」は、`dct-<domain>.md` 全体に適用される命名・ID・種別定義の SSOT として扱う。
 
 ## 2. 位置づけ
@@ -24,7 +24,7 @@ Deliverables Catalog Index Documentation Rules
 
 ```mermaid
 flowchart LR
-  DCT_IDX["dct-index<br>成果物カタログ索引"]
+  DCT_IDX["dct-index<br>成果物カタログ"]
   DCT_DOM["dct-&lt;domain&gt;<br>ドメイン別成果物カタログ"]
 
   DCT_IDX --> DCT_DOM
@@ -49,10 +49,10 @@ flowchart LR
 
 ### 3.2. ファイル命名規約
 
-- 索引ファイルのファイル名は `dct-index.md` を推奨する。
+- 成果物カタログ本体のファイル名は `dct-index.md` を推奨する。
 - ドメイン別カタログのファイル名は `dct-<domain>.md` 形式を推奨する。
 - 成果物本体のファイル名は `<local-id>.md` 形式で作成する。
-- 相対リンクで索引からドメイン別カタログへ遷移できる命名・配置を維持する。
+- 相対リンクで `dct-index` からドメイン別カタログへ遷移できる命名・配置を維持する。
 
 ## 4. 推奨 Frontmatter 項目
 
