@@ -1,6 +1,5 @@
 {
   "cSpell.words": [
-    "remarkrc",
     "analyzability",
     "asis",
     "asyncapi",
@@ -58,6 +57,7 @@
     "rcmd",
     "Redmine",
     "REFDATA",
+    "remarkrc",
     "Resellable",
     "rgba",
     "Rulebook",
@@ -67,6 +67,8 @@
     "SCHPM",
     "SCHSTR",
     "scmd",
+    "shellcheck",
+    "shfmt",
     "specdojo",
     "specversion",
     "SSOT",
