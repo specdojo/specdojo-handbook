@@ -28,8 +28,8 @@ Project Register
 | PJR-0006 | done | `sch-<TRACK>-<DOMAIN>-<ARTIFACT>`にした影響 | スクリプトへの影響を確認する | todo | high | PM | 2026-05-10 | - |
 | PJR-0007 | open | `pjr-index`のスキーマ | `pjr-index`をvalidationできるようスキーマを作成する | todo | high | ARC | 2026-05-10 | - |
 | PJR-0008 | open | `sch-config-<track>.yaml`のスキーマ | 完了したtaskやtask分解ルールを設定できるように修正 | todo | high | ARC | 2026-05-10 | - |
-| PJR-0009 | open | WBSを作成プロンプト | dctからwbsを作成するinstructions, SKILL, promptを作成する | todo | high | ARC | 2026-05-10 | - |
-| PJR-0010 | open | claude, codex対応 | claude, codexで使えるように.agent/に設定をまとめる  | todo | high | ARC | 2026-05-10 | - |
+| PJR-0009 | open | WBS作成プロンプト | dctからwbsを作成するinstructions, SKILL, promptを作成する | todo | high | ARC | 2026-05-10 | - |
+| PJR-0010 | done | claude, codex対応 | claude, codexで使えるように.agent/に設定をまとめる  | todo | high | ARC | 2026-05-10 | - |
 
 ## 4. 派生ビュー
 
