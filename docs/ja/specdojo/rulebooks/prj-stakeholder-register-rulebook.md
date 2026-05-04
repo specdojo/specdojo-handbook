@@ -37,7 +37,7 @@ flowchart TD
 
   PMP["プロジェクト管理計画<br/>pm-plan"]
   RAC["組織体制とRACI<br/>pm-organization-and-raci"]
-  GNG["実行開始 GO / Not GO 判断"]
+  GNG{"GO / Not GO<br/>判断"}
 
   POV --> SHR
   POV --> PCH
@@ -80,7 +80,7 @@ flowchart TD
 
 ### 3.1. 配置（推奨）
 
-- `docs/ja/projects/<project-id>/010-project-definition/` 配下への配置を推奨します。
+- `docs/ja/projects/<project-id>/020-project-definition/` 配下への配置を推奨します。
 - 関係者ごとの補足資料（議事録、合意記録、依頼メモ）は同階層または関連する管理文書配下に配置し、登録簿から参照します。
 - 公開リポジトリに配置する場合は、個人情報、非公開の組織情報、機密性の高い利害関係を記載しません。
 
@@ -145,6 +145,7 @@ flowchart TD
 ### 6.2. 関係者一覧
 
 - 関係者一覧では、ステークホルダーを識別し、プロジェクトにおける立場と責任を明確にします。
+- ID は People and Organization Definition Standard のステークホルダー ID 規則に従い、`STH-<KEY>` 形式の意味付きキーを使用します。
 - 個人名が不要な場合は、組織名、役割名、窓口名で記載します。
 - 公開文書では、個人名や連絡先を原則として記載せず、必要に応じて非公開の連絡先管理資料へ分離します。
 
