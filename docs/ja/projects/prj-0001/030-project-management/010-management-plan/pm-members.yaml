@@ -3,7 +3,7 @@
 # nickname は一度イベントログに記録されると変更不可です（履歴の一貫性）。
 # agent メンバーには `persona` / `focus` / `scheduler_strategy` を任意で設定できます。
 # 役割別 agent は `owner` を持たせることで、scheduler 実行時の既定挙動を分けられます。
-# yaml-language-server: $schema=../../../../../specdojo/schemas/v1/members.schema.yaml
+# yaml-language-server: $schema=../../../../../specdojo/schemas/v1/pm-members.schema.yaml
 version: 1
 project_id: prj-0001
 
