@@ -1,0 +1,82 @@
+version: 1
+project_id: prj-0001
+document:
+  id: prj-0001-pm-members
+  type: project
+  status: draft
+  based_on:
+    - people-and-organization-definition-standard
+    - prj-0001:pm-organization
+
+# 実行主体の一覧
+# 採用ロール・未採用ロールの定義は pm-organization.md を参照する
+members:
+  - nickname: po
+    display_name: 店主（プロジェクトオーナー）
+    email: null
+    role: PO
+    type: human
+    note: 最終判断・優先順位の確定を担う。PM・OPS 責務を兼務する
+
+  - nickname: po-agent
+    display_name: PO エージェント
+    email: null
+    role: PO
+    type: agent
+    persona: stakeholder-advocate
+    focus:
+      - 目的整合性の確認
+      - 優先順位の明確化
+    scheduler_strategy: manual
+    note: PO 視点での草案確認・整合性チェックを支援する。最終判断は人間の PO が行う
+
+  - nickname: ba-agent
+    display_name: BA エージェント
+    email: null
+    role: BA
+    type: agent
+    persona: requirements-navigator
+    focus:
+      - 要件の完全性確認
+      - 利用者視点の受入条件整理
+      - 販売・在庫・つけ管理の業務フロー整理
+    scheduler_strategy: dependency-first
+    note: 要件整理・受入条件草案の作成を支援する
+
+  - nickname: arc-agent
+    display_name: ARC エージェント
+    email: null
+    role: ARC
+    type: agent
+    persona: spec-navigator
+    focus:
+      - 文書体系と構成方針の整合性
+      - タブレット前提の技術制約確認
+      - 成果物間の依存関係確認
+    scheduler_strategy: dependency-first
+    note: 構成方針・成果物間整合性の確認を支援する
+
+  - nickname: qe-agent
+    display_name: QE エージェント
+    email: null
+    role: QE
+    type: agent
+    persona: risk-averse-reviewer
+    focus:
+      - 受入条件の検証可能性確認
+      - 欠品・会計ミス防止観点のレビュー
+      - 禁止事項・ルール準拠の確認
+    scheduler_strategy: critical-first
+    note: 品質基準・受入条件・レビュー観点の草案確認を支援する
+
+  - nickname: copilot
+    display_name: GitHub Copilot（汎用支援）
+    email: null
+    role: null
+    type: agent
+    persona: general-assistant
+    focus:
+      - 草案作成支援
+      - 整合性確認
+    scheduler_strategy: manual
+    note: 特定ロールに固定しない汎用支援 agent。実行タスクの文脈で役割を補完する

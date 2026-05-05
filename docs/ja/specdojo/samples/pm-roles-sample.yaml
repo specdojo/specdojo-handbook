@@ -1,0 +1,28 @@
+version: 1
+project_id: prj-0001
+document:
+  id: prj-0001:pm-roles
+  type: project
+  status: draft
+  based_on:
+    - people-and-organization-definition-standard
+    - prj-0001:pm-organization
+
+# 採用ロール一覧
+# 未採用ロール・owner 利用方針は pm-organization.md を参照する
+roles:
+  - code: PO
+    name: Project Owner
+    project_note: 店主代表として目的・優先順位・最終判断を担い、PM・OPS 責務を兼務する
+
+  - code: BA
+    name: Business Analyst
+    project_note: 店舗業務（販売・在庫・つけ管理）の要件整理と利用者視点の受入条件を担う
+
+  - code: ARC
+    name: Architect
+    project_note: タブレット前提の構成方針・データ管理方針・技術制約を整理する
+
+  - code: QE
+    name: Quality Engineer
+    project_note: 受入観点・操作確認・欠品や会計ミス防止の検証観点を管理する

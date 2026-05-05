@@ -419,32 +419,23 @@ flowchart TB
 flowchart LR
 
   PJR["pjr-index/&lt;NNNN&gt;-&lt;term&gt;<br/>プロジェクト登録簿"]
-  DCI["dct-index<br/>成果物カタログ"]
-  DC["dct-&lt;domain&gt;<br/>成果物カタログ"]
+  DC["dct-index/&lt;domain&gt;<br/>成果物カタログ"]
   WBS["wbs-&lt;domain&gt;.yaml<br/>WBS"]
   SCH["sch-&lt;track&gt;-&lt;domain&gt;-&lt;artifact&gt;-&lt;NNN&gt;.yaml<br/>スケジュール"]
   EXE["execution / reporting / controls<br/>実行 / 報告 / 管理"]
   POI["pjr-open-items<br/>未完了項目一覧"]
-  PBO["pjr-by-owner<br/>担当者別一覧"]
-  PBP["pjr-by-priority<br/>優先度別一覧"]
-  PBS["pjr-by-status<br/>状態別一覧"]
+  PB["pjr-by-owner/priority/status<br/>担当者/優先度/状態別一覧"]
   PRR["pm-risk-register<br/>リスク登録簿"]
-  PIL["pm-issue-log<br/>課題ログ"]
-  PCR["pm-change-request-log<br/>変更要求ログ"]
-  PDR["pm-decision-log<br/>意思決定ログ"]
+  PL["pm-issue/change-request/decision-log<br/>課題/変更要求/意思決定<br/>ログ"]
 
-  PJR --> DCI <--> DC --> WBS --> SCH --> EXE
+  PJR --> DC --> WBS --> SCH --> EXE
   PJR --> POI
-  PJR --> PBO
-  PJR --> PBP
-  PJR --> PBS
+  PJR --> PB
   PJR --> PRR
-  PJR --> PIL
-  PJR --> PCR
-  PJR --> PDR
+  PJR --> PL
 
   classDef projectWise fill:#fff3bf,stroke:#f08c00,color:#000;
-  class PJR,DCI,DC,WBS,SCH,EXE projectWise;
+  class PJR,DCI,DC,WBS,SCH,EXE,POI,PB,PRR,PL projectWise;
 ```
 
 ## 7. プロダクトドキュメントの構成
