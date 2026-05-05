@@ -36,7 +36,9 @@ flowchart TD
   ACD["前提・制約・依存関係<br/>prj-assumptions-constraints-dependencies"]
 
   PMP["プロジェクト管理計画<br/>pm-plan"]
-  RAC["組織体制とRACI<br/>pm-organization"]
+  ORG["組織体制<br/>pm-organization"]
+  MEM["メンバー情報<br/>pm-members"]
+  RAC["RACI<br/>pm-raci"]
   GNG{"GO / Not GO<br/>判断"}
 
   POV --> SHR
@@ -54,7 +56,9 @@ flowchart TD
   ACD --> PMP
   PCH --> PMP
 
-  SHR --> RAC
+  SHR --> ORG
+  ORG --> RAC
+  ORG --> MEM
   PCH --> RAC
 
   PMP --> GNG

@@ -295,7 +295,7 @@ docs/
 > Frontmatter の `based_on` は各文書を作成する際に直接根拠として参照した文書のみを記載するため、
 > 本図の矢印を `based_on` は一致するわけではありません。
 
-- 成果物カタログ（`prj-deliverables-catalog`）は、
+- 成果物カタログ（`dct-index`, `dct-<domain>`）は、
   プロジェクトで管理対象とする成果物の単一の正本（SSOT）であり、各成果物の作成・更新・管理の起点となる。
   各類型（プロジェクト定義、プロジェクトマネジメント、プロダクト変更等）の成果物は、
   本カタログに登録された単位で管理されます。
@@ -308,7 +308,11 @@ docs/
 - 成果物の作成順は、`A → (C + B) → D → E` が基本になりますが、プロジェクトの状況に応じて柔軟に対応します。
   特に、`A. 立ち上げ`の成果物（概要・ステークホルダー・憲章）を起点として、
   `B. プロジェクト定義`（何を作るか）と `C. プロジェクトマネジメント`（どう進めるか）は並行して作成されることが多いです。
-- 図中の `prj-deliverables-catalog` は同一文書を表し、各サブグラフでは当該類型に関する登録範囲を示しています。
+- 図中の 成果物カタログ（`dct-index`, `dct-<domain>`） は同一文書を表し、各サブグラフでは当該類型に関する登録範囲を示しています。
+- プロジェクトのGO/NOT GOの判断は、以下の３つのゲートを設けることを推奨します;
+  1. **TO-BEの明確化（`A`, `B`, `C`が完了）**: 将来構想が固まった段階
+  2. **TO-BEの実現性が明確化（`D`が完了）**: 将来構想と現状とのギャップと対応策が明確になった段階
+  3. **負荷・期間が明確化（`E`が完了）**: 将来構想を実現するための負荷と工期が明確になった段階
 
 ```mermaid
 flowchart TB
@@ -316,29 +320,36 @@ flowchart TB
   direction LR
     OV["prj-overview<br/>プロジェクト概要"]
     SR["prj-stakeholder-register<br/>ステークホルダー登録簿"]
-    CH["prj-charter<br/>プロジェクト憲章<br/>立ち上げ認可"]
-    OV --> SR --> CH
+    CH["prj-charter<br/>プロジェクト憲章"]
+    ORG["pm-organization<br/>体制・ロール"]
+    RL["pm-roles<br/>ロール定義"]
+    MEM["pm-member<br/>メンバー"]
+    RAC["pm-raci<br/>RACI"]
+    OV --> ORG
+    OV -.必要時.-> SR -.必要時.-> CH
+    ORG -.必要時.-> CH
+    SR -.必要時.-> ORG --> RL --> MEM
+    ORG --> MEM
+    ORG -.必要時.-> RAC
   end
 
 
   subgraph PM["C. プロジェクトマネジメント"]
   direction LR
-    PM_DC["prj-deliverables-catalog<br/>成果物カタログ<br/>（プロジェクトマネジメント用）"]
-    PM_EXE["実行・管理"]
+    PM_DC["dct-index/&lt;domain&gt;<br/>成果物カタログ<br/>（プロジェクトマネジメント用）"]
+    PM_EXE(["実行・管理"])
     PL["pm-plan<br/>プロジェクト管理計画"]
     CP["pm-communication-plan<br/>コミュニケーション計画"]
     QMP["pm-quality-management-plan<br/>品質管理計画"]
-    ORG["pm-organization<br/>組織体制とRACI"]
     PM_DC --> PM_EXE --> PL
     PL --> CP
     PL --> QMP
-    PL --> ORG
   end
 
   subgraph PD["B. プロジェクト定義"]
   direction LR
-    PD_DC["prj-deliverables-catalog<br/>成果物カタログ<br/>（プロジェクト定義用）"]
-    PD_EXE["実行・管理"]
+    PD_DC["dct-index/&lt;domain&gt;<br/>成果物カタログ<br/>（プロジェクト定義用）"]
+    PD_EXE(["実行・管理"])
     PS["prj-scope<br/>スコープ"]
     SC_AC["prj-success-criteria-and-acceptance-criteria<br/>成功基準と受入条件"]
     ACD["prj-assumptions-constraints-dependencies<br/>前提・制約・依存関係"]
@@ -353,10 +364,13 @@ flowchart TB
     IA --> CA
   end
 
+  GT1{"GO/NOT GO"}
+  PD --> GT1 --> PC
+
   subgraph PC["D. プロダクト変更"]
   direction LR
-    PC_DC["prj-deliverables-catalog<br/>成果物カタログ<br/>（プロダクト変更用）"]
-    PC_EXE["実行・管理"]
+    PC_DC["dct-index/&lt;domain&gt;<br/>成果物カタログ<br/>（プロダクト変更用）"]
+    PC_EXE(["実行・管理"])
     AS_IS["As-Is<br/>現状定義"]
     IMP["Impact<br/>影響範囲"]
     TRC["Traceability<br/>トレーサビリティ"]
@@ -368,10 +382,13 @@ flowchart TB
     TRC --> MIG
   end
 
+  GT2{"GO/NOT GO"}
+  PC --> GT2 --> DEL
+
   subgraph DEL["E. プロダクト成果物"]
   direction LR
-    DEL_DC["prj-deliverables-catalog<br/>成果物カタログ<br/>（プロダクト成果物用）"]
-    DEL_EXE["実行・管理"]
+    DEL_DC["dct-index/&lt;domain&gt;<br/>成果物カタログ<br/>（プロダクト成果物用）"]
+    DEL_EXE(["実行・管理"])
     DE["deliverables<br/>成果物"]
     DEL_DC --> DEL_EXE --> DE
   end
@@ -379,18 +396,21 @@ flowchart TB
   INIT --> PM
   INIT --> PD
   PM <--> PD
-  PD --> PC
-  PC --> DEL
 
   classDef projectWise fill:#fff3bf,stroke:#f08c00,color:#000;
   classDef productSpec fill:#d0ebff,stroke:#1c7ed6,color:#000;
 
-  class OV,SR,CH projectWise;
-  class PM_DC,PM_EXE,PL,CP,QMP,ORG projectWise;
+  class OV,SR,CH,ORG,MEM,RAC,RL projectWise;
+  class PM_DC,PM_EXE,PL,CP,QMP projectWise;
   class PD_DC,PD_EXE,PS,SC_AC,ACD,IA,CA projectWise;
   class PC_DC,PC_EXE,AS_IS,IMP,TRC,MIG projectWise;
   class DEL_DC,DEL_EXE projectWise;
   class DE productSpec;
+
+  GT3{"GO/NOT GO"}
+  DEL --> GT3
+
+
 ```
 
 図中の成果物カタログからプロジェクトドキュメントを作成する`実行・管理`の流れは以下になります。
@@ -398,18 +418,16 @@ flowchart TB
 ```mermaid
 flowchart LR
 
-  DC["prj-deliverables-catalog<br/>成果物カタログ"]
-  WBS["WBS<br/>wbs-&lt;domain&gt;.yaml"]
-  W2S["pm-wbs-to-schedule-strategy<br/>WBSからスケジュールへの変換戦略"]
-  SCH["スケジュール<br/>sch-&lt;domain&gt;.yaml"]
+  DCI["dct-index<br/>成果物カタログ"]
+  DC["dct-&lt;domain&gt;<br/>成果物カタログ"]
+  WBS["wbs-&lt;domain&gt;.yaml<br/>WBS"]
+  SCH["sch-&lt;track&gt;-&lt;domain&gt;-&lt;artifact&gt;-&lt;NNN&gt;.yaml<br/>スケジュール"]
   EXE["execution / reporting / controls<br/>実行 / 報告 / 管理"]
 
-  DC --> WBS --> SCH --> EXE
-  W2S --> SCH
-  DC --> W2S
+  DCI <--> DC --> WBS --> SCH --> EXE
 
   classDef projectWise fill:#fff3bf,stroke:#f08c00,color:#000;
-  class DC,W2S,WBS,SCH,EXE projectWise;
+  class DCI,DC,WBS,SCH,EXE projectWise;
 ```
 
 ## 7. プロダクトドキュメントの構成
