@@ -208,7 +208,7 @@ docs/
 │   │   │   │   │   ├── pm-members.md             # メンバー定義
 │   │   │   │   │   └── pm-raci.md　              # 組織体制とRACI
 │   │   │   │   │
-│   │   │   │   ├── 020-controls/                 # 管理台帳・管理ビュー ※WBS対象外
+│   │   │   │   ├── 030-controls/                 # 管理台帳・管理ビュー ※WBS対象外
 │   │   │   │   │   ├── 010-project-register/     # 統合管理台帳（正本）
 │   │   │   │   │   │   ├── pjr-index.md          # プロジェクト登録簿の索引・一覧
 │   │   │   │   │   │   ├── pjr-0001-auth.md      # 登録項目（認証）
@@ -225,20 +225,20 @@ docs/
 │   │   │   │   │       ├── pm-change-request-log.md # type=change-request の抽出ビュー
 │   │   │   │   │       └── pm-decision-log.md    # type=decision の抽出ビュー
 │   │   │   │   │
-│   │   │   │   ├── 030-wbs/                      # WBS
+│   │   │   │   ├── 040-wbs/                      # WBS
 │   │   │   │   │   ├── wbs-definition.yaml       # 成果物カタログ作成までのWBS
 │   │   │   │   │   ├── wbs-auth.yaml             # WBS定義（認証）
 │   │   │   │   │   ├── wbs-payment.yaml          # WBS定義（決済）
 │   │   │   │   │   └── wbs-infra.yaml            # WBS定義（インフラ）
 │   │   │   │   │
-│   │   │   │   ├── 040-schedule/                 # スケジュール
+│   │   │   │   ├── 050-schedule/                 # スケジュール
 │   │   │   │   │   ├── sch-definition.yaml       # 成果物カタログ作成のスケジュール
 │   │   │   │   │   ├── sch-milestones.yaml       # マイルストーン定義
 │   │   │   │   │   ├── sch-auth.yaml             # スケジュール定義（認証）
 │   │   │   │   │   ├── sch-auth-api.yaml         # スケジュール定義（認証API）
 │   │   │   │   │   └── sch-payment.yaml          # スケジュール定義（決済）
 │   │   │   │   │
-│   │   │   │   ├── 050-reporting/                # レポート ※WBS対象外
+│   │   │   │   ├── 060-reporting/                # レポート ※WBS対象外
 │   │   │   │   │   ├── progress-reports/         # 進捗報告
 │   │   │   │   │   │   ├── pr-2026-03-01-01.md   # 進捗報告
 │   │   │   │   │   │   └── pr-2026-03-08-01.md   # 進捗報告
@@ -246,7 +246,7 @@ docs/
 │   │   │   │   │       ├── mm-2026-03-01-01.md   # 議事録
 │   │   │   │   │       └── mm-2026-03-08-01.md   # 議事録
 │   │   │   │   │
-│   │   │   │   └── 060-execution/                # 実行管理 ※WBS対象外
+│   │   │   │   └── 070-execution/                # 実行管理 ※WBS対象外
 │   │   │   │       ├── exec/                     # タスク実行ワークスペース
 │   │   │   │       │   ├── events/               # イベントログ
 │   │   │   │       │   └── .locks/               # 実行ロック
