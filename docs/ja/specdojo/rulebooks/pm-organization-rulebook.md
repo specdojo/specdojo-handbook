@@ -16,6 +16,7 @@ Organization Definition Documentation Rulebook
 ## 1. 全体方針
 
 - `pm-organization.md` には、対象プロジェクトで必要な採用ロール、未採用ロール、使用可能な `owner`、見直し条件だけを記載する。
+- 採用ロール一覧は `pm-roles.yaml` として machine-readable な形式でも管理する（`pm-organization.md` の採用判断を YAML で表現したもの）。
 - 標準ロールの一般的な責務、`owner` / `role` / `--by` の共通定義、Agent 委任の共通方針は `people-and-organization-definition-standard` を参照し、本文に再掲しない。
 - プロジェクト固有の判断は、採用/未採用の理由と代替方針が判定できる粒度で記載する。
 - プロジェクト規模に応じて、`people-and-organization-definition-standard` の規模別採用パターンと整合するように記述内容を調整する。

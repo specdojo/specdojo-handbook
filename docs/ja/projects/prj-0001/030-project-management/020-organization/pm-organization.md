@@ -53,6 +53,7 @@ WBS / Schedule の `owner` として使用できる Role code は次の 4 つに
 
 | ドキュメント | 役割 |
 | ------------ | ---- |
+| [pm-roles.yaml](pm-roles.yaml) | 採用 Role code を machine-readable な YAML として一覧化する |
 | [pm-members.yaml](pm-members.yaml) | 実際に作業する人間または agent と Role code の対応を定義する |
 | [pm-raci.md](pm-raci.md) | 必要時に成果物・プロセスごとの責任分担を定義する |
 | [人と組織の定義標準](../../../../specdojo/standards/people-and-organization-definition-standard.md) | Role、Member、Task owner、Executor、RACI の共通ルールを定義する |

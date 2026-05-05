@@ -204,11 +204,11 @@ docs/
 │   │   │   │   ├── 010-management-plan/          # 管理計画
 │   │   │   │   │   ├── pm-plan.md                # プロジェクト管理計画
 │   │   │   │   │   ├── pm-communication-plan.md  # コミュニケーション計画
-│   │   │   │   │   ├── pm-quality-management-plan.md　# 品質管理計画
-│   │   │   │   │   └── pm-wbs-to-schedule-strategy.md　# WBSからスケジュールへの変換戦略
+│   │   │   │   │   └── pm-quality-management-plan.md　# 品質管理計画
 │   │   │   │   │
 │   │   │   │   ├── 020-organization/             # 組織体制
-│   │   │   │   │   ├── pm-organization.md               # ロール定義
+│   │   │   │   │   ├── pm-organization.md        # 組織とロールの定義
+│   │   │   │   │   ├── pm-roles.yaml             # ロール定義
 │   │   │   │   │   ├── pm-members.yaml           # メンバー定義
 │   │   │   │   │   └── pm-raci.md　              # 組織体制とRACI
 │   │   │   │   │

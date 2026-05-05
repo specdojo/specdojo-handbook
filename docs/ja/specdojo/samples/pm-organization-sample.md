@@ -44,6 +44,7 @@ rulebook: pm-organization-rulebook
 
 ## 5. 関連ドキュメント
 
+- `pm-roles.yaml`: 採用 Role code を machine-readable な YAML として一覧化する。
 - `pm-members.yaml`: 実際に作業する人間または agent と Role code の対応を管理する。
 - `pm-raci.md`: 必要になった時点で成果物ごとの責任分担を定義する。
 - [people-and-organization-definition-standard.md](../standards/people-and-organization-definition-standard.md): Role、Member、Task owner、Executor、RACI の共通定義を参照する。
