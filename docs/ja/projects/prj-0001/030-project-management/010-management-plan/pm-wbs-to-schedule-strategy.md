@@ -9,12 +9,12 @@ rulebook: pm-wbs-to-schedule-strategy-rulebook
 
 WBS to Schedule Strategy
 
-本ドキュメントは、`030-wbs/` 配下の WBS 定義を `040-schedule/` 配下の Schedule 定義へ落とし込む際のタスク分解方針、依存関係、タスク長、`id` 命名規則を定義します。
+本ドキュメントは、`030-project-management/wbs/` 配下の WBS 定義を `030-project-management/schedule/` 配下の Schedule 定義へ落とし込む際のタスク分解方針、依存関係、タスク長、`id` 命名規則を定義します。
 
 ## 1. 目的と適用範囲
 
-- 入力は `docs/ja/projects/prj-0001/030-project-management/030-wbs/` 以下の `wbs-<domain>.yaml` です。
-- 出力は `docs/ja/projects/prj-0001/030-project-management/040-schedule/` 配下の Schedule 定義ファイルです。
+- 入力は `docs/ja/projects/prj-0001/030-project-management/wbs/` 以下の `wbs-<domain>.yaml` です。
+- 出力は `docs/ja/projects/prj-0001/030-project-management/schedule/` 配下の Schedule 定義ファイルです。
 - Schedule 定義ファイルはファイル種別ごとの Schedule スキーマに従います。
 - WBS が定義する **WHAT（何を作るか）** を、Schedule では **WHEN（いつ）** と **ORDER（どの順序で行うか）** に展開します。
 
@@ -601,22 +601,28 @@ tasks:
 
 ### A.1. Schedule Track
 
-| schedule_track | schedule_track_code | 説明                                                           |
-| -------------- | ------------------- | -------------------------------------------------------------- |
-| `launch`       | `LCH`               | 立ち上げ時に必要なプロジェクト定義・管理計画を整備する管理単位 |
+| schedule_track | schedule_track_code | 説明 |
+| -------------- | ------------------- | ---- |
+| `specdojo`     | `SDH`               | SpecDojo 本体のルール、サンプル、指示テンプレート、管理文書を整備する管理単位 |
 
 ### A.2. Schedule ファイル
 
-| schedule_track | schedule_level | 対象                                       | Schedule ファイル |
-| -------------- | -------------- | ------------------------------------------ | ----------------- |
-| `launch`       | `cross-domain` | `project-definition`, `project-management` | `sch-launch.yaml` |
+| schedule_track | schedule_level | 対象 | Schedule ファイル |
+| -------------- | -------------- | ---- | ----------------- |
+| `specdojo` | `milestones` | プロジェクト全体 | `sch-milestones.yaml` |
+| `specdojo` | `domain` | `governance` | `sch-track-governance.yaml` |
+| `specdojo` | `domain` | `business` | `sch-track-business.yaml` |
+| `specdojo` | `domain` | `design` | `sch-track-design.yaml` |
+| `specdojo` | `domain` | `nfr` | `sch-track-nfr.yaml` |
+| `specdojo` | `domain` | `quality` | `sch-tack-quality.yaml` |
+| `specdojo` | `domain` | `agent-customization` | `sch-tack-agent-customization.yaml` |
 
 ## Appendix B. ドメイン別展開プロファイル
 
 本付録は、共通ルールでは表現しきれないドメイン別の前提、Schedule 展開方針を定義します。
 共通ルールを上書きするのではなく、ドメインごとの標準パターンや注意点を補足するために使用します。
 
-### B.1. launch
+### B.1. specdojo
 
 #### B.1.1. 前提
 
@@ -625,30 +631,35 @@ tasks:
   - `prj-charter`
   - `pm-organization`
   - `pm-wbs-to-schedule-strategy`
-  - `wbs-project-management.yaml`
+  - `wbs-governance.yaml`
+  - `wbs-business.yaml`
+  - `wbs-design.yaml`
+  - `wbs-nfr.yaml`
+  - `wbs-quality.yaml`
+  - `wbs-agent-customization.yaml`
 
-- 以下の成果物を作成するための Task を展開対象とします。
-  - `prj-scope`
-  - `prj-assumptions-constraints-dependencies`
-  - `prj-issues-and-approach`
-  - `prj-comparison-of-alternatives`
-  - `pm-communication-plan`
-  - `pm-quality-management-plan`
+- 以下の領域のルール、指示テンプレート、サンプル、管理文書を作成するための Task を展開対象とします。
+  - `governance`
+  - `business`
+  - `design`
+  - `nfr`
+  - `quality`
+  - `agent-customization`
 
 #### B.1.2. 展開方針
 
 | 項目     | 方針                                                                        |
 | -------- | --------------------------------------------------------------------------- |
-| 標準分解 | 管理計画系は `作成` と `レビュー` の 1〜2 Task                              |
-| owner    | 主に `PO`、品質やレビュー方針は `QE` も使用                                 |
-| 依存方針 | `pm-plan` を起点に、個別計画へ展開する                                      |
+| 標準分解 | ルールライフサイクルと派生成果物ライフサイクルを分け、必要に応じて 1〜3 Task に分解する |
+| owner    | 主に `PO`、構成・設計は `ARC`、品質確認は `QE` も使用する |
+| 依存方針 | ドメイン完了マイルストーンと主要成果物の依存だけを置き、同時に進められる Task は直列化しない |
 | 注意点   | 管理台帳、進捗報告、議事録などの `control` は原則として Schedule 展開対象外 |
 
-### B.2. domain: `project-definition`, schedule_track: `launch`
+### B.2. domain: `governance`, schedule_track: `specdojo`
 
-| 項目     | 方針                                                                 |
-| -------- | -------------------------------------------------------------------- |
-| 標準分解 | 原則 `1 WBS Item = 1 Task`                                           |
-| owner    | 主に `PO`                                                            |
-| 依存方針 | `prj-overview` を起点にし、必要最小限の依存だけを置く                |
-| 注意点   | スコープ、成功基準、前提・制約は相互に関連するが、過度に直列化しない |
+| 項目     | 方針 |
+| -------- | ---- |
+| 標準分解 | ルールブック作成と instruction / sample 作成を分ける |
+| owner    | 主に `PO`、構成判断は `ARC`、レビューは `QE` も使用する |
+| 依存方針 | キックオフマイルストーンと先行するルールファミリーのみを依存に置く |
+| 注意点   | 最終承認で rulebook、instruction、sample をまとめて ready 化できるよう、過度な中間承認を置かない |

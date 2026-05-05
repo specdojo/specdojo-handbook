@@ -7,6 +7,7 @@ document:
   based_on:
     - people-and-organization-definition-standard
     - prj-0001:pm-organization
+    - prj-0001:pm-roles
 
 # Member は、実際に作業する人間または agent を表す。
 # 採用ロール・未採用ロールの定義は pm-organization.md を参照する。

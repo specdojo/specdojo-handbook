@@ -68,6 +68,7 @@
     "SCHPD",
     "SCHPM",
     "SCHSTR",
+    "SCHTLNCH",
     "scmd",
     "shellcheck",
     "shfmt",

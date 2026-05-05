@@ -4,9 +4,8 @@ type: project
 status: draft
 rulebook: prj-stakeholder-register-rulebook
 based_on:
+  - prj-0001:prj-overview
   - people-and-organization-definition-standard
-  - prj-0001:pm-organization
-  - prj-0001:pm-roles
 supersedes: []
 ---
 

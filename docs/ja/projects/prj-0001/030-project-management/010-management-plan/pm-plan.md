@@ -4,7 +4,7 @@ type: project
 status: draft
 rulebook: pm-plan-rulebook
 based_on:
-  - prj-0001-prj-charter
+  - prj-0001:prj-charter
   - prj-0001:dct-project-management
   - prj-0001:pm-organization
   - prj-0001:pm-raci
@@ -186,12 +186,10 @@ supersedes: []
 | [pm-raci.md](../020-organization/pm-raci.md) | 成果物別、プロセス別の責任分担を定義する |
 | [pjr-index.md](../controls/project-register/pjr-index.md) | プロジェクト登録簿として、未決事項、課題、リスク、変更要求を管理する |
 
-## 7. 未決事項
+## 7. 継続確認事項
 
 | 論点 | 現状 | 対応方針 | 判断者 |
 | ---- | ---- | -------- | ------ |
-| 詳細なスコープ定義 | `prj-scope.md` が未記述 | プロジェクト定義フェーズで作成し、本書のスコープ管理へ反映する | `PO` |
-| 成功基準・受入条件 | `prj-success-criteria-and-acceptance-criteria.md` が未記述 | GO / Not GO 判断前に作成する | `PO` |
-| 品質管理計画 | `pm-quality-management-plan.md` が未記述 | 最小品質基準を本書に置き、詳細は後続で作成する | `PO`, `QE` |
-| コミュニケーション計画 | `pm-communication-plan.md` が未記述 | 小規模運用の最小報告方針を本書に置き、詳細は後続で作成する | `PO` |
+| プロジェクト定義文書の更新 | スコープ、成功基準、前提・制約・依存関係は draft として作成済み | 内容を更新した場合は、本書のスコープ管理、GO / Not GO 判断、関連ドキュメントへ反映する | `PO` |
+| 個別管理計画の更新 | 品質管理計画、コミュニケーション計画は draft として作成済み | 管理方針を変更した場合は、本書の品質・報告・見直し条件へ反映する | `PO`, `QE` |
 | 初回公開判断 | _UNDECIDED_ | README、LICENSE、公開範囲、個人情報・機密情報確認後に判断する | `PO` |
