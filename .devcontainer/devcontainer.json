@@ -20,7 +20,10 @@
       "upgradePackages": false
     }
   },
-  "mounts": ["source=${localEnv:HOME}/.claude,target=/home/node/.claude,type=bind"],
+  "mounts": [
+    "source=${localEnv:HOME}/.claude,target=/home/node/.claude,type=bind",
+    "source=${localEnv:HOME}/.codex,target=/home/node/.codex,type=bind"
+  ],
   "postCreateCommand": "sudo npm install -g @openai/codex && if command -v fdfind >/dev/null 2>&1; then sudo ln -sf $(command -v fdfind) /usr/local/bin/fd; fi",
 
   "customizations": {
