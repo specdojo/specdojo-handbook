@@ -4,10 +4,10 @@ title: "SpecDojo Project Member Roster schema"
 type: object
 $comment: >
   Schema for project member roster files:
-  docs/ja/projects/<project_id>/030-project-management/010-management-plan/pm-members.yaml
+  docs/ja/projects/<project_id>/030-project-management/020-organization/pm-members.yaml
   Manages the mapping from --by <nickname> (used in specdojo exec events) to
-  display name, contact info, owner role, and actor type.
-  nickname is immutable once recorded in the event log.
+  display name, contact info, role, and actor type. nickname is immutable once
+  recorded in the event log.
 
 additionalProperties: false
 
@@ -27,6 +27,11 @@ properties:
     minLength: 1
     description: "Project identifier (e.g., prj-0001)."
 
+  document:
+    type: object
+    description: "Optional document metadata (id, type, status, based_on)."
+    additionalProperties: true
+
   members:
     type: array
     minItems: 1
@@ -36,10 +41,11 @@ properties:
     uniqueItems: true
 
 $defs:
-  OwnerLabel:
+  RoleLabel:
     type: string
-    description: "Owner role label. PO=Project Owner, BA=Business Analyst, ARC=Architect, QE=Quality Engineer."
-    enum: ["PO", "BA", "ARC", "QE"]
+    description: "Role code. PO=Project Owner, BA=Business Analyst, ARC=Architect,
+      QE=Quality Engineer."
+    enum: [ "PO", "BA", "ARC", "QE" ]
 
   Member:
     type: object
@@ -52,8 +58,8 @@ $defs:
       nickname:
         type: string
         description: >
-          Immutable identifier used in `specdojo exec --by <nickname>`.
-          Once recorded in the event log, this value must not change.
+          Immutable identifier used in `specdojo exec --by <nickname>`. Once
+          recorded in the event log, this value must not change.
         pattern: "^[a-z0-9][a-z0-9_-]{0,62}$"
         minLength: 1
 
@@ -69,25 +75,29 @@ $defs:
             format: email
           - type: "null"
 
-      owner:
-        description: "Default owner role label for this member. Use null for cross-role members; role-specific agents may set PO/BA/ARC/QE."
+      role:
+        description: "Role code this member corresponds to. Use null for cross-role
+          (general-purpose) agents."
         oneOf:
-          - $ref: "#/$defs/OwnerLabel"
+          - $ref: "#/$defs/RoleLabel"
           - type: "null"
 
       type:
         type: string
-        description: "Actor type: human for a person, agent for an automated agent (e.g., GitHub Copilot)."
-        enum: ["human", "agent"]
+        description: "Actor type: human for a person, agent for an automated agent
+          (e.g., GitHub Copilot)."
+        enum: [ "human", "agent" ]
 
       persona:
         type: string
         minLength: 1
-        description: "Optional working persona label used to describe the member's style (e.g., value-first, analysis-first, risk-averse)."
+        description: "Optional working persona label used to describe the member's style
+          (e.g., value-first, analysis-first, risk-averse)."
 
       focus:
         type: array
-        description: "Optional list of emphasis areas used to steer the member's execution or review perspective."
+        description: "Optional list of emphasis areas used to steer the member's
+          execution or review perspective."
         items:
           type: string
           minLength: 1
@@ -95,9 +105,11 @@ $defs:
 
       scheduler_strategy:
         type: string
-        description: "Optional default scheduler strategy used when this member runs `specdojo exec scheduler` without `--strategy`."
-        enum: ["critical-first", "fifo"]
+        description: "Optional default scheduler strategy used when this member runs
+          `specdojo exec scheduler` without `--strategy`."
+        enum: [ "critical-first", "dependency-first", "fifo", "manual" ]
 
       note:
         type: string
-        description: "Optional free-text note (e.g., availability, timezone, responsibilities)."
+        description: "Optional free-text note (e.g., availability, timezone,
+          responsibilities)."
