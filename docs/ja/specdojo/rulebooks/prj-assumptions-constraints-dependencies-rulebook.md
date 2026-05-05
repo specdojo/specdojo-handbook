@@ -2,6 +2,8 @@
 id: prj-assumptions-constraints-dependencies-rulebook
 type: rulebook
 status: draft
+based_on:
+  - people-and-organization-definition-standard
 ---
 
 # 前提・制約・依存関係 作成ルール
@@ -16,7 +18,10 @@ Assumptions, Constraints and Dependencies Documentation Rulebook
 - 本ルールの対象は、前提条件、制約事項、外部依存の管理です。
 - 目的は、計画成立条件を可視化し、変更時の影響判断を可能にすることです。
 - PMBOK 観点では、リスク管理、依存管理、変更統制に必要な情報を含めます。
-- 各項目は「内容」「影響」「監視方法」「責任者」「対応方針」を 1 セットで定義します。
+- 各項目は「内容」「影響」「監視方法」「トリガー」「責任者」「対応方針」を 1 セットで定義します。
+- 責任者は `pm-organization` で採用済みの Role code で記述し、未採用 Role code は使わない。
+- AI Agent は作業支援・レビュー支援を担ってよいが、最終判断は人間の `PO` が行うことを明記する。
+- 公開リポジトリに配置される場合は、個人名、個人連絡先、非公開の組織情報を記載しない。
 - 前提が崩れた場合のエスカレーション条件を必ず記載します。
 
 ## 2. 位置づけと用語定義
@@ -50,13 +55,13 @@ flowchart LR
 
 ### 3.1. 配置（推奨）
 
-- `docs/ja/projects/<project-id>/030-プロジェクト課題と解決アプローチ/` 配下への配置を推奨します。
+- `docs/ja/projects/<project-id>/020-project-definition/` 配下への配置を推奨します。
 - 外部依存先との合意資料は参照リンクで紐付けます。
 
 ### 3.2. ドキュメントID（推奨）
 
-- 推奨: `<project-id>-prj-assumptions-constraints-dependencies`
-  - 例: `prj-0001-prj-assumptions-constraints-dependencies`
+- 推奨: `<project-id>:prj-assumptions-constraints-dependencies`
+  - 例: `prj-0001:prj-assumptions-constraints-dependencies`
 
 ### 3.3. ファイル名（推奨）
 
@@ -72,10 +77,11 @@ flowchart LR
 
 | 項目       | 説明                                                    | 必須 |
 | ---------- | ------------------------------------------------------- | ---- |
-| id         | `<project-id>-prj-assumptions-constraints-dependencies` | ○    |
+| id         | `<project-id>:prj-assumptions-constraints-dependencies` | ○    |
 | type       | `project` 固定                                          | ○    |
 | status     | `draft` / `ready` / `deprecated`                        | ○    |
-| based_on   | スコープ、契約、外部合意文書                            | 任意 |
+| rulebook   | `prj-assumptions-constraints-dependencies-rulebook`     | ○    |
+| based_on   | `prj-overview`、`prj-charter`、`prj-scope` を含む配列   | 任意 |
 | supersedes | 置き換え対象の旧文書 ID                                 | 任意 |
 
 ### 4.2. 推奨ルール
@@ -120,12 +126,15 @@ flowchart LR
 
 ## 7. 禁止事項
 
-| 項目                   | 理由                         |
-| ---------------------- | ---------------------------- |
-| 種別未分類の記述       | 対応優先度が判断できないため |
-| 影響評価なしの登録     | 変更判断に使えないため       |
-| 責任者なしの対応方針   | 実行されず放置されるため     |
-| トリガーなしの監視項目 | 発火条件が曖昧になるため     |
+| 項目                                                           | 理由                               |
+| -------------------------------------------------------------- | ---------------------------------- |
+| 種別未分類の記述                                               | 対応優先度が判断できないため       |
+| 影響評価なしの登録                                             | 変更判断に使えないため             |
+| 責任者なしの対応方針                                           | 実行されず放置されるため           |
+| トリガーなしの監視項目                                         | 発火条件が曖昧になるため           |
+| Agent に最終判断・エスカレーション判断を委ねる                 | 人間の判断責任を代替してしまうため |
+| `pm-organization` で未採用の Role code を責任者に使う          | 体制定義との不整合が生じるため     |
+| 公開リポジトリに個人名・個人連絡先・非公開の組織情報を記載する | 公開範囲とプライバシーに反するため |
 
 ## 8. サンプル（最小でも可）
 

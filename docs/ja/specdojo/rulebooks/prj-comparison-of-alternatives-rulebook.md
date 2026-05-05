@@ -2,6 +2,8 @@
 id: prj-comparison-of-alternatives-rulebook
 type: rulebook
 status: draft
+based_on:
+  - people-and-organization-definition-standard
 ---
 
 # 代替案比較 作成ルール
@@ -17,7 +19,9 @@ Comparison of Alternatives Documentation Rulebook
 - 目的は、選択肢の比較過程を可視化し、採択判断を再現可能にすることです。
 - 最低 2 案以上を比較し、採択しない案の理由も記載します。
 - PMBOK 観点では、意思決定記録、リスク比較、制約下でのトレードオフ評価を含めます。
-- 実装詳細ではなく、意思決定に必要な評価情報を扱います。
+- 評価軸は固定し、案ごとに評価基準を変えません。
+- 採択案の最終判断は人間の `PO` が行うことを明記する。AI Agent は比較分析の支援を担ってよい。
+- 公開リポジトリに配置する場合は、個人名、個人連絡先、非公開の組織情報を記載しない。
 
 ## 2. 位置づけと用語定義
 
@@ -49,13 +53,13 @@ flowchart LR
 
 ### 3.1. 配置（推奨）
 
-- `docs/ja/projects/<project-id>/030-プロジェクト課題と解決アプローチ/` 配下への配置を推奨します。
+- `docs/ja/projects/<project-id>/020-project-definition/` 配下への配置を推奨します。
 - 評価根拠となる見積、リスク分析、検証結果を参照リンクで接続します。
 
 ### 3.2. ドキュメントID（推奨）
 
-- 推奨: `<project-id>-prj-comparison-of-alternatives`
-  - 例: `prj-0001-prj-comparison-of-alternatives`
+- 推奨: `<project-id>:prj-comparison-of-alternatives`
+  - 例: `prj-0001:prj-comparison-of-alternatives`
 
 ### 3.3. ファイル名（推奨）
 
@@ -69,13 +73,14 @@ flowchart LR
 - 参照スキーマ: [docs/specdojo/schemas/v1/deliverable-frontmatter.schema.yaml](../../../specdojo/schemas/v1/deliverable-frontmatter.schema.yaml)
 - メタ情報標準: [deliverable-metadata-standard.md](../standards/deliverable-metadata-standard.md)
 
-| 項目       | 説明                                          | 必須 |
-| ---------- | --------------------------------------------- | ---- |
-| id         | `<project-id>-prj-comparison-of-alternatives` | ○    |
-| type       | `project` 固定                                | ○    |
-| status     | `draft` / `ready` / `deprecated`              | ○    |
-| based_on   | 課題整理、見積資料、制約条件                  | 任意 |
-| supersedes | 置き換え対象の旧文書 ID                       | 任意 |
+| 項目       | 説明                                                                                          | 必須 |
+| ---------- | --------------------------------------------------------------------------------------------- | ---- |
+| id         | `<project-id>:prj-comparison-of-alternatives`                                                 | ○    |
+| type       | `project` 固定                                                                                | ○    |
+| status     | `draft` / `ready` / `deprecated`                                                              | ○    |
+| rulebook   | `prj-comparison-of-alternatives-rulebook`                                                     | ○    |
+| based_on   | `prj-issues-and-approach`、`prj-scope`、`prj-assumptions-constraints-dependencies` を含む配列 | 任意 |
+| supersedes | 置き換え対象の旧文書 ID                                                                       | 任意 |
 
 ### 4.2. 推奨ルール
 
@@ -93,6 +98,7 @@ flowchart LR
 | 3    | 評価軸と評価基準     | ○    | 観点、配点、判定基準         |
 | 4    | 比較結果と採択理由   | ○    | 評価結果、採択案、非採択理由 |
 | 5    | リスクとトレードオフ | 任意 | 採択による不利益、軽減策     |
+| 6    | 決定と見直し         | 任意 | 現時点の採択方針、再評価条件 |
 
 ## 6. 記述ガイド
 
@@ -116,20 +122,33 @@ flowchart LR
 
 - 採択案には「採択理由」「採択しない案の理由」「再評価条件」を記載します。
 - 判断過程を追跡できるよう、根拠資料へのリンクを記載します。
+- 採択案の最終判断は `PO` が行い、判断者を明記する。
 
 推奨表（比較結果）:
 
-| 案ID | 効果 | コスト | 期間 | リスク | 総合評価 | 判定 |
-| ---- | ---- | ------ | ---- | ------ | -------- | ---- |
+| 案ID | 効果 | コスト | 期間 | リスク | 運用適合 | 総合評価 | 判定 |
+| ---- | ---- | ------ | ---- | ------ | -------- | -------- | ---- |
+
+推奨表（非採択または一部採択の理由）:
+
+| 案ID | 理由 | 再評価条件 |
+| ---- | ---- | ---------- |
+
+### 6.4. 決定と見直し
+
+- 現時点の採択方針と再評価トリガーを明記する。
+- 方針変更時は変更理由と影響範囲をプロジェクト登録簿または決定記録に残す。
 
 ## 7. 禁止事項
 
-| 項目                 | 理由                               |
-| -------------------- | ---------------------------------- |
-| 単一案のみの比較     | 意思決定の妥当性が検証できないため |
-| 評価軸なしの採択結論 | 判断根拠が不透明になるため         |
-| 非採択理由の未記載   | 将来再評価時に経緯追跡できないため |
-| 根拠資料リンクなし   | 説明責任を果たせないため           |
+| 項目                                                           | 理由                               |
+| -------------------------------------------------------------- | ---------------------------------- |
+| 単一案のみの比較                                               | 意思決定の妥当性が検証できないため |
+| 評価軸なしの採択結論                                           | 判断根拠が不透明になるため         |
+| 非採択理由の未記載                                             | 将来再評価時に経緯追跡できないため |
+| 根拠資料リンクなし                                             | 説明責任を果たせないため           |
+| Agent に採択案の最終判断を委ねる                               | 人間の判断責任を代替してしまうため |
+| 公開リポジトリに個人名・個人連絡先・非公開の組織情報を記載する | 公開範囲とプライバシーに反するため |
 
 ## 8. サンプル（最小でも可）
 

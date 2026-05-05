@@ -2,6 +2,8 @@
 id: prj-success-criteria-and-acceptance-criteria-rulebook
 type: rulebook
 status: draft
+based_on:
+  - people-and-organization-definition-standard
 ---
 
 # 成功基準と受入条件 作成ルール
@@ -56,8 +58,8 @@ flowchart LR
 
 ### 3.2. ドキュメントID（推奨）
 
-- 推奨: `<project-id>-prj-success-criteria-and-acceptance-criteria`
-  - 例: `prj-0001-prj-success-criteria-and-acceptance-criteria`
+- 推奨: `<project-id>:prj-success-criteria-and-acceptance-criteria`
+  - 例: `prj-0001:prj-success-criteria-and-acceptance-criteria`
 
 ### 3.3. ファイル名（推奨）
 
@@ -71,13 +73,14 @@ flowchart LR
 - 参照スキーマ: [docs/specdojo/schemas/v1/deliverable-frontmatter.schema.yaml](../../../specdojo/schemas/v1/deliverable-frontmatter.schema.yaml)
 - メタ情報標準: [deliverable-metadata-standard.md](../standards/deliverable-metadata-standard.md)
 
-| 項目       | 説明                                                        | 必須 |
-| ---------- | ----------------------------------------------------------- | ---- |
-| id         | `<project-id>-prj-success-criteria-and-acceptance-criteria` | ○    |
-| type       | `project` 固定                                              | ○    |
-| status     | `draft` / `ready` / `deprecated`                            | ○    |
-| based_on   | スコープ文書、憲章、品質方針                                | 任意 |
-| supersedes | 置き換え対象の旧文書 ID                                     | 任意 |
+| 項目       | 説明                                                                                | 必須 |
+| ---------- | ----------------------------------------------------------------------------------- | ---- |
+| id         | `<project-id>:prj-success-criteria-and-acceptance-criteria`                         | ○    |
+| type       | `project` 固定                                                                      | ○    |
+| status     | `draft` / `ready` / `deprecated`                                                    | ○    |
+| rulebook   | `prj-success-criteria-and-acceptance-criteria-rulebook`                             | ○    |
+| based_on   | `prj-overview`、`prj-charter`、`prj-scope`、`pm-quality-management-plan` を含む配列 | 任意 |
+| supersedes | 置き換え対象の旧文書 ID                                                             | 任意 |
 
 ### 4.2. 推奨ルール
 
@@ -106,8 +109,9 @@ flowchart LR
 
 ### 6.2. 成功基準
 
-- KPI のような定量指標だけでなく、運用定着や利用者受容など定性条件も明示します。
-- 各条件に判定タイミングと責任者を必ず設定します。
+- KPI のような定量指標だけでなく、運用定着や利用者受容など定性条件も明示する。
+- 各条件に判定タイミングと責任ロール（Role code）を必ず設定する。
+- 責任者は `pm-organization` で採用済みの Role code で記述し、未採用 Role code は使わない。
 
 推奨表（成功基準）:
 
@@ -116,8 +120,10 @@ flowchart LR
 
 ### 6.3. 受入条件
 
-- 業務受入とシステム受入を区別して記載します。
-- 否決時の再判定条件（再試験、是正期限、承認者）を定義します。
+- `種別` 列で受入観点（文書体系、ルール、サンプル、AI 指示、管理文書、品質、公開適性など）を分類する。
+- 各条件に合格基準と証跡（参照先ファイル、ログ、記録等）を明記する。
+- 否決時の再判定条件（是正方針、承認者）は例外条件または是正プロセスで定義する。
+- 承認者は `pm-organization` で採用済みの Role code で記述する。
 
 推奨表（受入条件）:
 
@@ -126,12 +132,15 @@ flowchart LR
 
 ## 7. 禁止事項
 
-| 項目                                   | 理由                       |
-| -------------------------------------- | -------------------------- |
-| 「十分に」「問題ない」等のみで基準記載 | 合否判定ができないため     |
-| 測定方法なしの閾値記載                 | 再現性が担保できないため   |
-| 承認者不在の受入判定                   | 最終責任が不明確になるため |
-| 証跡なしの合格宣言                     | 監査と追跡ができないため   |
+| 項目                                                           | 理由                               |
+| -------------------------------------------------------------- | ---------------------------------- |
+| 「十分に」「問題ない」等のみで基準記載                         | 合否判定ができないため             |
+| 測定方法なしの閾値記載                                         | 再現性が担保できないため           |
+| 承認者不在の受入判定                                           | 最終責任が不明確になるため         |
+| 証跡なしの合格宣言                                             | 監査と追跡ができないため           |
+| Agent に最終判断・GO 判定を委ねる                              | 人間の判断責任を代替してしまうため |
+| `pm-organization` で未採用の Role code を責任者に使う          | 体制定義との不整合が生じるため     |
+| 公開リポジトリに個人名・個人連絡先・非公開の組織情報を記載する | 公開範囲とプライバシーに反するため |
 
 ## 8. サンプル（最小でも可）
 
