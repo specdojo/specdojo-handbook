@@ -26,7 +26,9 @@ Project Deliverables Catalog: Project Management for SpecDojo Handbook
 | `pm-plan`                     | `PLAN`    | プロジェクト管理計画           | work | -         | プロジェクト全体の管理方針・プロセスを定義                           |
 | `pm-communication-plan`       | `COMM`    | コミュニケーション計画         | work | `pm-plan` | 報告・連絡・会議体の計画を定義                                       |
 | `pm-quality-management-plan`  | `QLTY`    | 品質管理計画                   | work | `pm-plan` | 品質目標・レビュー方針・品質基準を定義                               |
-| `pm-organization-and-raci`    | `ORG`     | 組織体制と RACI                | work | `pm-plan` | 体制図と責任分担マトリクスを定義                                     |
+| `pm-organization`             | `ORG`     | 組織定義                       | work | `pm-plan` | ロール・責務境界・兼務方針・意思決定責任を定義                       |
+| `pm-members`                  | `MBR`     | メンバー定義                   | work | `pm-plan` | 実行主体（人間・agent）とロール対応を定義                            |
+| `pm-raci`                     | `RACI`    | RACI                           | work | `pm-plan` | 成果物・プロセスごとの責任分担マトリクスを定義（中規模以上）         |
 | `pm-wbs-to-schedule-strategy` | `WBS2SCH` | WBS から Schedule への展開戦略 | work | `pm-plan` | WBS を実行可能タスクへ展開する際の依存関係・タスク長・命名規則を定義 |
 
 ## 2. 管理台帳

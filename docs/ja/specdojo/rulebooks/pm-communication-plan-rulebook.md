@@ -19,7 +19,7 @@ Communication Plan Documentation Rules
 ## 2. 位置づけと用語定義（必要に応じて）
 
 - `pm-plan`: 全体管理方針。
-- `pm-organization-and-raci`: 体制と責任分担。
+- `pm-organization`: 体制と責任分担。
 - `pm-communication-plan`: 報告・連絡・会議の実行計画。
 
 ## 3. ファイル命名・ID規則
@@ -77,7 +77,7 @@ Communication Plan Documentation Rules
 
 ### 6.6. 関連ドキュメント
 
-- `pm-plan`、`pm-organization-and-raci` への導線を記載する。
+- `pm-plan`、`pm-organization` への導線を記載する。
 - 関連がない場合でも `（本書のみ）` を明記する。
 
 ## 7. 禁止事項

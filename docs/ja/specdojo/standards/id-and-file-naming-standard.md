@@ -727,7 +727,7 @@ supersedes:
 | 変更要求ログ | Change Request Log | pm- | pm-change-request-log | prj-0001:pm-change-request-log |
 | 進捗レポート | Progress Report | pr- | pr-2026-03-01-01 | prj-0001:pr-2026-03-01-01 |
 | 議事録 | Meeting Minutes | mm- | mm-2026-03-01-01 | prj-0001:mm-2026-03-01-01 |
-| 体制・RACI | Organization and RACI | pm- | pm-organization-and-raci | prj-0001:pm-organization-and-raci |
+| 体制・RACI | Organization and RACI | pm- | pm-organization | prj-0001:pm-organization |
 | 決定記録 | Decision Log | dec- | dec-0001-auth | prj-0001:dec-0001-auth |
 
 ### 14.2. プロダクト関係ドキュメント

@@ -20,7 +20,7 @@ Project Management Plan Documentation Rules
 
 - `pm-plan`: PM成果物群の中核となる計画書。
 - `pm-risk-register`、`pm-issue-log`、`pm-change-request-log`: 監視・統制対象の実績管理。
-- `pm-communication-plan`、`pm-organization-and-raci`: 運営体制と連絡計画。
+- `pm-communication-plan`、`pm-organization`: 運営体制と連絡計画。
 
 ## 3. ファイル命名・ID規則
 

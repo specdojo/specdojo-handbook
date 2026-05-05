@@ -5,7 +5,7 @@ status: draft
 rulebook: prj-stakeholder-register-rulebook
 based_on:
   - people-and-organization-definition-standard
-  - prj-0001-pm-roles
+  - prj-0001:pm-organization
 supersedes: []
 ---
 
@@ -21,7 +21,7 @@ supersedes: []
 
 - ステークホルダーは、プロジェクトに影響する、または影響を受ける関係者・集団・外部基盤を表す。
 - ステークホルダーは、Schedule / WBS の `owner` には使用しない。
-- Schedule / WBS の `owner` は、`pm-roles.md` で採用した Role code を使用する。
+- Schedule / WBS の `owner` は、`pm-organization.md` で採用した Role code を使用する。
 - ステークホルダー登録簿は、利害、期待、懸念、合意対象、関与方針を整理するために使用する。
 - 小規模運用では、影響度/関心度分析、詳細なコミュニケーション計画、RACI との連携は必要最小限に留める。
 

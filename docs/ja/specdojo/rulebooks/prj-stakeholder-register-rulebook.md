@@ -36,7 +36,7 @@ flowchart TD
   ACD["前提・制約・依存関係<br/>prj-assumptions-constraints-dependencies"]
 
   PMP["プロジェクト管理計画<br/>pm-plan"]
-  RAC["組織体制とRACI<br/>pm-organization-and-raci"]
+  RAC["組織体制とRACI<br/>pm-organization"]
   GNG{"GO / Not GO<br/>判断"}
 
   POV --> SHR
@@ -229,8 +229,8 @@ flowchart TD
 
 ## 8. サンプル（最小でも可）
 
-- 参照: [prj-stakeholder-register-sample.md](../samples/prj-stakeholder-register-sample.md)
+- 参照先: [prj-stakeholder-register-sample](../samples/prj-stakeholder-register-sample.md)
 
 ## 9. 生成 AI への指示テンプレート
 
-- 参照: [prj-stakeholder-register-instruction.md](../instructions/prj-stakeholder-register-instruction.md)
+- 参照先: [prj-stakeholder-register-instruction](../instructions/prj-stakeholder-register-instruction.md)

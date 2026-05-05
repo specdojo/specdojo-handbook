@@ -6,11 +6,11 @@ document:
   status: draft
   based_on:
     - people-and-organization-definition-standard
-    - prj-0001-pm-roles
+    - prj-0001:pm-organization
 
 # Member は、実際に作業する人間または agent を表す。
 # 小規模運用では、同じ人間または agent が複数ロールの作業を支援してよい。
-# ただし、タスク側の owner は必ず pm-roles.md で採用した Role code を使う。
+# ただし、タスク側の owner は必ず pm-organization.md で採用した Role code を使う。
 # member 側では owner ではなく role を使う。
 
 roles:
@@ -127,7 +127,7 @@ members:
       実行時には対象タスクの owner または明示された文脈に従って支援する。
 
 rules:
-  - Schedule / WBS の owner には、pm-roles.md で採用した Role code を使う。
+  - Schedule / WBS の owner には、pm-organization.md で採用した Role code を使う。
   - member 側では owner フィールドを使わず、role フィールドを使う。
   - role が null でない member は、同じ Role code を owner に持つタスクの実行候補になる。
   - role が null の member は、汎用 agent として扱い、実行時に対象ロールを明示する。

@@ -177,7 +177,7 @@ GO / Not GO 判断では、少なくとも次の観点を確認する。
 | 成功基準   | 成功基準、受入条件、判定方法が定義されていること                                 | `prj-success-criteria-and-acceptance-criteria`        |
 | 成果物     | 主要成果物と管理方法が定義されていること                                         | `prj-deliverables-catalog`                            |
 | 前提・制約 | 実行上の前提、制約、依存関係が整理されていること                                 | `prj-assumptions-constraints-dependencies`            |
-| 体制       | 役割と責任分担が定義されていること                                               | `pm-organization-and-raci`                            |
+| 体制       | 役割と責任分担が定義されていること                                               | `pm-organization`                            |
 | 管理方針   | 進捗、品質、リスク、課題、変更、コミュニケーションの管理方針が定義されていること | `pm-plan`                                             |
 | 公開方針   | オープンソース公開、ライセンス、個人情報・機密情報の扱いが確認されていること     | `pm-plan`, `prj-assumptions-constraints-dependencies` |
 

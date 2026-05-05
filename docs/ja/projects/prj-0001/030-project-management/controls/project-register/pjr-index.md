@@ -32,6 +32,21 @@ Project Register
 | PJR-0010 | done | claude, codex対応 | claude, codexで使えるように.agent/に設定をまとめる  | todo | high | ARC | 2026-05-10 | - |
 | PJR-0011 | done | StakeholderのID体系 | StakeholderのIDをわかりやすい体系に修正する | todo | high | PM | 2026-05-10 | - |
 | PJR-0012 | done | claudeのSKILL対応| .agent/skillsにSKILLを格納して.claude/skillsから参照する構成に変更する | todo | high | ARC | 2026-05-10 | - |
+| PJR-0013 | open | prj-overview-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0014 | open | prj-stakeholder-register-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0015 | open | prj-charter-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0016 | open | prj-scope-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0017 | open | prj-success-criteria-and-acceptance-criteria-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0018 | open | prj-issues-and-approach-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0019 | open | prj-assumptions-constraints-dependencies-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0020 | open | prj-comparison-of-alternatives-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0021 | open | pm-plan-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0022 | open | pm-communication-plan-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0023 | open | pm-quality-management-plan-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0024 | open | pm-roles-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0025 | open | pm-members-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0026 | open | pm-raci-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0027 | open | Handbookの見直し | HandbookとなっているのをSpecDojoへ見直し | todo | high | PO | 2026-05-10 | - |
 
 ## 4. 派生ビュー
 

@@ -623,7 +623,7 @@ tasks:
 - 以下の成果物は作成済みであると想定します。
   - `prj-overview`
   - `prj-charter`
-  - `pm-organization-and-raci`
+  - `pm-organization`
   - `pm-wbs-to-schedule-strategy`
   - `wbs-project-management.yaml`
 

@@ -52,7 +52,7 @@ docs/
             │   │   ├── pm-plan.md # プロジェクト管理計画
             │   │   ├── pm-communication-plan.md # コミュニケーション計画
             │   │   ├── pm-quality-management-plan.md # 品質管理計画
-            │   │   ├── pm-organization-and-raci.md # 組織体制とRACI
+            │   │   ├── pm-organization.md # 組織体制とRACI
             │   │   └── pm-wbs-to-schedule-strategy.md # WBSからスケジュールへの戦略
             │   │
             │   ├── 020-controls/ # 管理台帳

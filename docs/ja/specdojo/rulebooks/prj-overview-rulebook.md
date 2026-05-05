@@ -37,7 +37,7 @@ flowchart TD
   ACD["前提・制約・依存関係<br/>prj-assumptions-constraints-dependencies"]
 
   PMP["プロジェクト管理計画<br/>pm-plan"]
-  RAC["組織体制とRACI<br/>pm-organization-and-raci"]
+  RAC["組織体制とRACI<br/>pm-organization"]
   GNG["実行開始 GO / Not GO 判断"]
 
   POV --> SHR

@@ -208,8 +208,8 @@ docs/
 │   │   │   │   │   └── pm-wbs-to-schedule-strategy.md　# WBSからスケジュールへの変換戦略
 │   │   │   │   │
 │   │   │   │   ├── 020-organization/             # 組織体制
-│   │   │   │   │   ├── pm-roles.md               # ロール定義
-│   │   │   │   │   ├── pm-members.md             # メンバー定義
+│   │   │   │   │   ├── pm-organization.md               # ロール定義
+│   │   │   │   │   ├── pm-members.yaml           # メンバー定義
 │   │   │   │   │   └── pm-raci.md　              # 組織体制とRACI
 │   │   │   │   │
 │   │   │   │   ├── controls/                     # 管理台帳・管理ビュー ※WBS対象外
@@ -328,7 +328,7 @@ flowchart TB
     PL["pm-plan<br/>プロジェクト管理計画"]
     CP["pm-communication-plan<br/>コミュニケーション計画"]
     QMP["pm-quality-management-plan<br/>品質管理計画"]
-    ORG["pm-organization-and-raci<br/>組織体制とRACI"]
+    ORG["pm-organization<br/>組織体制とRACI"]
     PM_DC --> PM_EXE --> PL
     PL --> CP
     PL --> QMP

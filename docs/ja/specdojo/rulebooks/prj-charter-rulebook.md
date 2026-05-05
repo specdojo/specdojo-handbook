@@ -39,7 +39,7 @@ flowchart TD
   ACD["前提・制約・依存関係<br/>prj-assumptions-constraints-dependencies"]
 
   PMP["プロジェクト管理計画<br/>pm-plan"]
-  RAC["組織体制とRACI<br/>pm-organization-and-raci"]
+  RAC["組織体制とRACI<br/>pm-organization"]
   GNG["実行開始 GO / Not GO 判断"]
 
   POV --> SHR
@@ -122,7 +122,7 @@ flowchart TD
 
 - `based_on` は、立ち上げ認可の根拠として直接参照した資料のみを列挙します。
 - PMBOK 準拠の立ち上げ認可文書として扱う場合、`based_on` は原則として `prj-overview` と `prj-stakeholder-register` を中心にします。
-- `prj-scope`、`prj-success-criteria-and-acceptance-criteria`、`prj-deliverables-catalog`、`prj-assumptions-constraints-dependencies`、`pm-plan`、`pm-organization-and-raci` は、原則として `prj-charter` 承認後に作成または詳細化する文書であり、初版憲章の `based_on` には含めません。
+- `prj-scope`、`prj-success-criteria-and-acceptance-criteria`、`prj-deliverables-catalog`、`prj-assumptions-constraints-dependencies`、`pm-plan`、`pm-organization` は、原則として `prj-charter` 承認後に作成または詳細化する文書であり、初版憲章の `based_on` には含めません。
 - 後続文書を改訂した結果、憲章自体の認可範囲や権限委譲を変更する必要がある場合は、憲章を改訂し、必要に応じて再承認します。
 - 改訂時は `supersedes` に旧文書 ID を設定し、差し替え関係を追跡可能にします。
 - H1 にはプロジェクト名を含め、Frontmatter には `title` を持たせません。
@@ -262,7 +262,7 @@ supersedes: []
 - 憲章承認時点でプロジェクトマネージャーに委譲する権限は、詳細計画策定および初期準備を中心に定義します。
 - 本格実行開始、主要目的の変更、ハイレベルスコープの大幅変更、主要成果物群の追加・削除、予算・納期・体制に大きな影響を与える変更は、スポンサーまたはプロジェクトオーナーの承認事項として扱います。
 - 変更要求、予算超過、納期変更のエスカレーション経路を定義します。
-- 役割ごとに責任範囲と不在時代理を明示します。ただし、詳細な RACI は `pm-organization-and-raci` で定義します。
+- 役割ごとに責任範囲と不在時代理を明示します。ただし、詳細な RACI は `pm-organization` で定義します。
 
 推奨表（権限マトリクス）:
 
@@ -304,7 +304,7 @@ supersedes: []
 | `prj-deliverables-catalog`                     | 成果物の一覧、配置、生成元、派生関係を整理する   |
 | `prj-assumptions-constraints-dependencies`     | 実行上の前提条件、制約事項、外部依存を明示する   |
 | `pm-plan`                                      | プロジェクト全体の管理方針と実行計画を定義する   |
-| `pm-organization-and-raci`                     | 体制図と責任分担を定義する                       |
+| `pm-organization`                     | 体制図と責任分担を定義する                       |
 
 ### 6.11. 本格実行開始の GO / Not GO 判断
 
@@ -322,7 +322,7 @@ supersedes: []
 | 成功基準   | 成功基準、受入条件、判定方法が定義されていること                                 | `prj-success-criteria-and-acceptance-criteria`        |
 | 成果物     | 主要成果物と管理方法が定義されていること                                         | `prj-deliverables-catalog`                            |
 | 前提・制約 | 実行上の前提、制約、依存関係が整理されていること                                 | `prj-assumptions-constraints-dependencies`            |
-| 体制       | 役割と責任分担が定義されていること                                               | `pm-organization-and-raci`                            |
+| 体制       | 役割と責任分担が定義されていること                                               | `pm-organization`                            |
 | 管理方針   | 進捗、品質、リスク、課題、変更、コミュニケーションの管理方針が定義されていること | `pm-plan`                                             |
 | 公開方針   | オープンソース公開、ライセンス、個人情報・機密情報の扱いが確認されていること     | `pm-plan`, `prj-assumptions-constraints-dependencies` |
 
@@ -361,7 +361,7 @@ supersedes: []
 
 | 項目                                                                   | 理由                                                                        |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `pm-plan` や `pm-organization-and-raci` を初版憲章の前提文書として扱う | PMBOK 準拠の作成順序と逆転し、依存関係が分かりにくくなるため                |
+| `pm-plan` や `pm-organization` を初版憲章の前提文書として扱う | PMBOK 準拠の作成順序と逆転し、依存関係が分かりにくくなるため                |
 | 憲章承認を本格実行開始の承認と混同する                                 | 立ち上げ認可と実行開始判断の責務が曖昧になるため                            |
 | 詳細スコープを憲章に過剰記載する                                       | `prj-scope` との二重管理を招くため                                          |
 | 成果物一覧や配置を憲章に過剰記載する                                   | `prj-deliverables-catalog` との二重管理を招くため                           |

@@ -43,4 +43,4 @@ rulebook: pm-communication-plan-rulebook
 ## 6. 関連ドキュメント
 
 - `pm-plan`: 全体管理方針
-- `pm-organization-and-raci`: 体制と責任分担
+- `pm-organization`: 体制と責任分担
