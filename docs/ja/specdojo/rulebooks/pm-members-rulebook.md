@@ -25,20 +25,20 @@ Project Member Roster Documentation Rulebook
 
 `pm-members.yaml` は、Role 定義と実行ログの間にある実行主体の台帳である。
 
-| 用語 | 意味 | 管理先 |
-| --- | --- | --- |
-| Role | 責務・判断権限・専門性を表す論理的な役割 | `pm-organization.md` |
-| Member | 実際に作業する人間または agent | `pm-members.yaml` |
-| Task owner | WBS / Schedule 上の主責任ロール | WBS / Schedule |
-| Executor | 実際にタスクを実行する主体 | `specdojo exec --by <nickname>` / 実行ログ |
+| 用語       | 意味                                     | 管理先                                     |
+| ---------- | ---------------------------------------- | ------------------------------------------ |
+| Role       | 責務・判断権限・専門性を表す論理的な役割 | `pm-organization.md`                       |
+| Member     | 実際に作業する人間または agent           | `pm-members.yaml`                          |
+| Task owner | WBS / Schedule 上の主責任ロール          | WBS / Schedule                             |
+| Executor   | 実際にタスクを実行する主体               | `specdojo exec --by <nickname>` / 実行ログ |
 
 `owner`、`role`、`--by` は次のように使い分ける。
 
-| 項目 | 意味 | 値の例 | 管理先 |
-| --- | --- | --- | --- |
-| `owner` | タスクの主責任ロール | `BA` | WBS / Schedule |
-| `role` | member が対応できる Role code | `BA` | `pm-members.yaml` |
-| `--by` | 実行主体の nickname | `ba-agent` | 実行コマンド / 実行ログ |
+| 項目    | 意味                          | 値の例     | 管理先                  |
+| ------- | ----------------------------- | ---------- | ----------------------- |
+| `owner` | タスクの主責任ロール          | `BA`       | WBS / Schedule          |
+| `role`  | member が対応できる Role code | `BA`       | `pm-members.yaml`       |
+| `--by`  | 実行主体の nickname           | `ba-agent` | 実行コマンド / 実行ログ |
 
 ## 3. ファイル命名・ID規則
 
@@ -54,43 +54,43 @@ Project Member Roster Documentation Rulebook
 
 YAML 成果物のため、Markdown Frontmatter ではなく先頭メタ項目として記載する。
 
-| 項目 | 説明 | 必須 |
-| --- | --- | --- |
-| `version` | メンバー定義のデータバージョン | ○ |
-| `project_id` | プロジェクト ID | ○ |
-| `document.id` | 成果物 ID | ○ |
-| `document.type` | `project` | ○ |
-| `document.status` | `draft` / `ready` / `deprecated` | ○ |
-| `document.rulebook` | `pm-members-rulebook` | 任意 |
-| `document.based_on` | 根拠ドキュメント ID の配列 | 任意 |
+| 項目                | 説明                             | 必須 |
+| ------------------- | -------------------------------- | ---- |
+| `version`           | メンバー定義のデータバージョン   | ○    |
+| `project_id`        | プロジェクト ID                  | ○    |
+| `document.id`       | 成果物 ID                        | ○    |
+| `document.type`     | `project`                        | ○    |
+| `document.status`   | `draft` / `ready` / `deprecated` | ○    |
+| `document.rulebook` | `pm-members-rulebook`            | 任意 |
+| `document.based_on` | 根拠ドキュメント ID の配列       | 任意 |
 
 ## 5. 本文構成（標準テンプレ）
 
 `pm-members.yaml` は次のルート構造を標準とする。
 
-| 要素 | 必須 | 内容 |
-| --- | --- | --- |
-| `version` | ○ | データバージョン |
-| `project_id` | ○ | プロジェクト ID |
-| `document` | ○ | 成果物メタ情報 |
-| `roles.adopted` | ○ | このプロジェクトで採用する Role code 配列 |
+| 要素                | 必須 | 内容                                                |
+| ------------------- | ---- | --------------------------------------------------- |
+| `version`           | ○    | データバージョン                                    |
+| `project_id`        | ○    | プロジェクト ID                                     |
+| `document`          | ○    | 成果物メタ情報                                      |
+| `roles.adopted`     | ○    | このプロジェクトで採用する Role code 配列           |
 | `roles.not_adopted` | 任意 | 標準ロールのうち、現時点で採用しない Role code 配列 |
-| `members` | ○ | Member 定義の配列 |
-| `rules` | 任意 | この member 定義を使う際の運用ルール |
+| `members`           | ○    | Member 定義の配列                                   |
+| `rules`             | 任意 | この member 定義を使う際の運用ルール                |
 
 `members[]` は次のフィールドを標準とする。
 
-| フィールド | 必須 | 内容 |
-| --- | --- | --- |
-| `nickname` | ○ | `--by` で指定する安定識別子 |
-| `display_name` | ○ | 表示名。公開文書では個人名を避けてよい |
-| `email` | 任意 | 公開可能な連絡先。非公開または不要なら `null` |
-| `role` | 任意 | 対応する Role code。汎用 agent は `null` 可 |
-| `type` | ○ | `human` または `agent` |
-| `persona` | 任意 | 実行姿勢やレビュー観点を表す短いラベル |
-| `focus` | 任意 | 重視する観点の配列 |
-| `scheduler_strategy` | 任意 | 既定の scheduler 戦略 |
-| `note` | 任意 | 補足。責務境界や公開上の注意を簡潔に書く |
+| フィールド           | 必須 | 内容                                          |
+| -------------------- | ---- | --------------------------------------------- |
+| `nickname`           | ○    | `--by` で指定する安定識別子                   |
+| `display_name`       | ○    | 表示名。公開文書では個人名を避けてよい        |
+| `email`              | 任意 | 公開可能な連絡先。非公開または不要なら `null` |
+| `role`               | 任意 | 対応する Role code。汎用 agent は `null` 可   |
+| `type`               | ○    | `human` または `agent`                        |
+| `persona`            | 任意 | 実行姿勢やレビュー観点を表す短いラベル        |
+| `focus`              | 任意 | 重視する観点の配列                            |
+| `scheduler_strategy` | 任意 | 既定の scheduler 戦略                         |
+| `note`               | 任意 | 補足。責務境界や公開上の注意を簡潔に書く      |
 
 ## 6. 記述ガイド
 
@@ -134,14 +134,14 @@ YAML 成果物のため、Markdown Frontmatter ではなく先頭メタ項目と
 
 ## 7. 禁止事項
 
-| 禁止事項 | 理由 |
-| --- | --- |
-| `pm-members.yaml` の member 側で `owner` フィールドを使う | `owner` は WBS / Schedule の主責任ロールであり、member 側では `role` を使うため |
-| WBS / Schedule の `owner` に `nickname`、人名、agent 名を書く | タスク責任が Role code で追跡できなくなるため |
-| `members[].role` に `pm-organization.md` で未採用の Role code を書く | 実行候補の判定が不整合になるため |
-| agent に最終承認や公開可否判断を割り当てる | 人間の判断責任を代替してしまうため |
-| 公開文書に不要な個人名、私用メールアドレス、非公開組織情報を書く | 公開範囲とプライバシーに反するため |
-| 実行ログ記録後に `nickname` を変更する | 履歴との対応が壊れるため |
+| 禁止事項                                                             | 理由                                                                            |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `pm-members.yaml` の member 側で `owner` フィールドを使う            | `owner` は WBS / Schedule の主責任ロールであり、member 側では `role` を使うため |
+| WBS / Schedule の `owner` に `nickname`、人名、agent 名を書く        | タスク責任が Role code で追跡できなくなるため                                   |
+| `members[].role` に `pm-organization.md` で未採用の Role code を書く | 実行候補の判定が不整合になるため                                                |
+| agent に最終承認や公開可否判断を割り当てる                           | 人間の判断責任を代替してしまうため                                              |
+| 公開文書に不要な個人名、私用メールアドレス、非公開組織情報を書く     | 公開範囲とプライバシーに反するため                                              |
+| 実行ログ記録後に `nickname` を変更する                               | 履歴との対応が壊れるため                                                        |
 
 ## 8. サンプル
 
@@ -149,4 +149,4 @@ YAML 成果物のため、Markdown Frontmatter ではなく先頭メタ項目と
 
 ## 9. 生成 AI への指示テンプレート
 
-- instruction 未作成。作成後にリンクを追記する。
+- 参照: `../instructions/pm-members-instruction.md`

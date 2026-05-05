@@ -105,4 +105,4 @@ YAML 成果物のため、Markdown Frontmatter ではなく先頭の `document` 
 
 ## 9. 生成 AI への指示テンプレート
 
-- instruction 未作成。作成後にリンクを追記する。
+- 参照: `../instructions/pm-roles-instruction.md`
