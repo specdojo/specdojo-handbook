@@ -214,7 +214,7 @@ docs/
 │   │   │   │   │
 │   │   │   │   ├── controls/                     # 管理台帳・管理ビュー ※WBS対象外
 │   │   │   │   │   ├── 010-project-register/     # 統合管理台帳（正本）
-│   │   │   │   │   │   ├── pjr-index.md          # プロジェクト登録簿の索引・一覧
+│   │   │   │   │   │   ├── pjr-index.md          # プロジェクト登録簿
 │   │   │   │   │   │   ├── pjr-0001-auth.md      # 登録項目（認証）
 │   │   │   │   │   │   ├── pjr-0002-payment.md   # 登録項目（決済）
 │   │   │   │   │   │   └── generated/            # 正本から生成される補助一覧
@@ -418,16 +418,33 @@ flowchart TB
 ```mermaid
 flowchart LR
 
+  PJR["pjr-index/&lt;NNNN&gt;-&lt;term&gt;<br/>プロジェクト登録簿"]
   DCI["dct-index<br/>成果物カタログ"]
   DC["dct-&lt;domain&gt;<br/>成果物カタログ"]
   WBS["wbs-&lt;domain&gt;.yaml<br/>WBS"]
   SCH["sch-&lt;track&gt;-&lt;domain&gt;-&lt;artifact&gt;-&lt;NNN&gt;.yaml<br/>スケジュール"]
   EXE["execution / reporting / controls<br/>実行 / 報告 / 管理"]
+  POI["pjr-open-items<br/>未完了項目一覧"]
+  PBO["pjr-by-owner<br/>担当者別一覧"]
+  PBP["pjr-by-priority<br/>優先度別一覧"]
+  PBS["pjr-by-status<br/>状態別一覧"]
+  PRR["pm-risk-register<br/>リスク登録簿"]
+  PIL["pm-issue-log<br/>課題ログ"]
+  PCR["pm-change-request-log<br/>変更要求ログ"]
+  PDR["pm-decision-log<br/>意思決定ログ"]
 
-  DCI <--> DC --> WBS --> SCH --> EXE
+  PJR --> DCI <--> DC --> WBS --> SCH --> EXE
+  PJR --> POI
+  PJR --> PBO
+  PJR --> PBP
+  PJR --> PBS
+  PJR --> PRR
+  PJR --> PIL
+  PJR --> PCR
+  PJR --> PDR
 
   classDef projectWise fill:#fff3bf,stroke:#f08c00,color:#000;
-  class DCI,DC,WBS,SCH,EXE projectWise;
+  class PJR,DCI,DC,WBS,SCH,EXE projectWise;
 ```
 
 ## 7. プロダクトドキュメントの構成

@@ -30,6 +30,7 @@ Organization Definition Documentation Rulebook
 | ------------ | ---- |
 | `people-and-organization-definition-standard.md` | Role、Member、Task owner、Executor、RACI の全体ルールを定義する |
 | `pm-organization.md` | プロジェクト固有の採用ロール、未採用ロール、使用可能な `owner` を定義する |
+| `pm-roles.yaml` | 採用した Role code を machine-readable な YAML として一覧化する |
 | `pm-members.yaml` | 実際に作業する人間または agent と Role code の対応を定義する |
 | `pm-raci.md` | 必要時に成果物・プロセスごとの責任分担を定義する |
 
@@ -62,7 +63,7 @@ Organization Definition Documentation Rulebook
 | 2 | 採用ロール | ○ | 採用する Role code、正式名称、プロジェクトでの扱い |
 | 3 | 未採用ロール | ○ | 未採用の Role code、未採用理由、代替方針 |
 | 4 | 本プロジェクトで使用できる `owner` | ○ | WBS / Schedule の `owner` に使える Role code 一覧 |
-| 5 | 関連ドキュメント | ○ | `pm-members.yaml`、`pm-raci.md`、標準への参照 |
+| 5 | 関連ドキュメント | ○ | `pm-roles.yaml`、`pm-members.yaml`、`pm-raci.md`、標準への参照 |
 | 6 | 見直し条件 | ○ | ロール採用を見直すトリガーと見直し内容 |
 | 7 | 禁止事項 | ○ | プロジェクト固有の禁止事項 |
 
@@ -106,7 +107,7 @@ Organization Definition Documentation Rulebook
 
 ### 6.5. 関連ドキュメント
 
-- `pm-members.yaml`、`pm-raci.md`、`people-and-organization-definition-standard.md` への導線を置く。
+- `pm-roles.yaml`、`pm-members.yaml`、`pm-raci.md`、`people-and-organization-definition-standard.md` への導線を置く。
 - 関連ドキュメントの本文を要約しすぎず、役割を 1 行で示す。
 
 ### 6.6. 見直し条件

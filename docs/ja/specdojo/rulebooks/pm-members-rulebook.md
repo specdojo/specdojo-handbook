@@ -43,6 +43,7 @@ Project Member Roster Documentation Rulebook
 ## 3. ファイル命名・ID規則
 
 - ファイル名は `pm-members.yaml` を推奨する。
+- 推奨パス: `docs/ja/projects/<project-id>/030-project-management/020-organization/pm-members.yaml`
 - 配置先はプロジェクトの管理領域配下に置き、同じ組織定義群の `pm-organization.md`、`pm-raci.md` と近接させる。
 - `project_id` は配置先プロジェクト ID と一致させる。例: `prj-0001`
 - `document.id` は `<project-id>-pm-members` 形式を推奨する。例: `prj-0001-pm-members`

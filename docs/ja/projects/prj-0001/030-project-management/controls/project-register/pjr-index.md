@@ -43,7 +43,7 @@ Project Register
 | PJR-0021 | open | pm-plan-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
 | PJR-0022 | open | pm-communication-plan-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
 | PJR-0023 | open | pm-quality-management-plan-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
-| PJR-0024 | open | pm-roles-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0024 | open | pm-roles-*作成 | yamlを作る前提でrulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
 | PJR-0025 | open | pm-members-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
 | PJR-0026 | open | pm-raci-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
 | PJR-0027 | open | Handbookの見直し | HandbookとなっているのをSpecDojoへ見直し | todo | high | PO | 2026-05-10 | - |

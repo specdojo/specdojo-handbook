@@ -27,49 +27,7 @@ Stakeholder Register Documentation Rulebook
 
 ### 2.1. 位置づけ（他ドキュメントとの関係）
 
-```mermaid
-flowchart TD
-  POV["プロジェクト概要<br/>prj-overview"]
-  SHR["ステークホルダー登録簿<br/>prj-stakeholder-register"]
-  PCH["プロジェクト憲章<br/>prj-charter"]
-
-  PSC["プロジェクトスコープ<br/>prj-scope"]
-  SCA["成功基準と受入条件<br/>prj-success-criteria-and-acceptance-criteria"]
-  DVC["成果物カタログ<br/>prj-deliverables-catalog"]
-  ACD["前提・制約・依存関係<br/>prj-assumptions-constraints-dependencies"]
-
-  PMP["プロジェクト管理計画<br/>pm-plan"]
-  ORG["組織体制<br/>pm-organization"]
-  MEM["メンバー情報<br/>pm-members"]
-  RAC["RACI<br/>pm-raci"]
-  GNG{"GO / Not GO<br/>判断"}
-
-  POV --> SHR
-  POV --> PCH
-  SHR --> PCH
-
-  PCH --> PSC
-  PCH --> SCA
-  PCH --> DVC
-  PCH --> ACD
-
-  PSC --> PMP
-  SCA --> PMP
-  DVC --> PMP
-  ACD --> PMP
-  PCH --> PMP
-
-  SHR --> ORG
-  ORG --> RAC
-  ORG --> MEM
-  PCH --> RAC
-
-  PMP --> GNG
-  RAC --> GNG
-
-  classDef target stroke-width:4px
-  class SHR target
-```
+ドキュメント間の関係は [ドキュメント構成ガイド](../guidelines/docs-structure-guide.md) の立ち上げフロー図を参照してください。本書（`prj-stakeholder-register`）は `prj-overview` を受けて関係者を特定し、`prj-charter` と `pm-organization` の入力となります。
 
 ### 2.2. 用語定義（本ルール内）
 
