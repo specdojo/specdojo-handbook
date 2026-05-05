@@ -60,3 +60,6 @@ next-env.d.ts
 /docs/public/mermaid
 /docs/.vitepress/.temp
 /local
+
+# claude
+.claude/settings.local.json
