@@ -137,8 +137,8 @@ Organization Definition Documentation Rulebook
 
 ## 8. サンプル
 
-- サンプル未作成。作成後にリンクを追記する。
+- 参照: `../samples/pm-organization-sample.md`
 
 ## 9. 生成 AI への指示テンプレート
 
-- instruction 未作成。作成後にリンクを追記する。
+- 参照: `../instructions/pm-organization-instruction.md`

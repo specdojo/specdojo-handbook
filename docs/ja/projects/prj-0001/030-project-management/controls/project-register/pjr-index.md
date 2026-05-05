@@ -47,7 +47,7 @@ Project Register
 | PJR-0025 | open | pm-members-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
 | PJR-0026 | open | pm-raci-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
 | PJR-0027 | open | Handbookの見直し | HandbookとなっているのをSpecDojoへ見直し | todo | high | PO | 2026-05-10 | - |
-| PJR-0028 | open | pm-organization-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
+| PJR-0028 | done | pm-organization-*作成 | rulebookを作成して、instruction, sampleへ展開する | todo | high | PO | 2026-05-10 | - |
 | PJR-0029 | done | devcontainerの見直し | claude, codex, copilot用にdevcontainerの設定を見直す | todo | high | PO | 2026-05-10 | - |
 
 ## 4. 派生ビュー
