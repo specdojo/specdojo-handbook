@@ -323,7 +323,7 @@ flowchart TB
     CH["prj-charter<br/>プロジェクト憲章"]
     ORG["pm-organization<br/>体制・ロール"]
     RL["pm-roles<br/>ロール定義"]
-    MEM["pm-member<br/>メンバー"]
+    MEM["pm-members<br/>メンバー"]
     RAC["pm-raci<br/>RACI"]
     OV --> ORG
     OV -.必要時.-> SR -.必要時.-> CH
